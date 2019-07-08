@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html class="w-full sm:h-full">
+<head>
+  <%= render "shared/head" %>
+</head>
+
+<body class="w-full h-full <%= body_class(yield(:body_class)) %>">
+  
+  <%= show_site_wide_announcement(current_user) %>
+<%= render "shared/flash" %>
+  <div class="dashboard">
+    <div class="dashboard-nav">
+      <%= link_to Rails.configuration.application_name, root_path, class: "dashboard-nav__logo" %>
+
+      <ul class="dashboard-nav-items" data-controller="accordion" data-accordion-active-class="dashboard-subnav-items--active" data-accordion-toggle-icon-class="dashboard-nav-link__icon--toggled">
+        <li class="dashboard-nav-item">
+          <%= tag.div class: "dashboard-nav-link dashboard-nav-link--toggle", data: { target: "accordion.pointer", action: "click->accordion#toggle" } do %>
+            Users
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="dashboard-nav-link__icon" data-target="accordion.icon" ><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path></svg>
+          <% end %>
+
+          <ul class="dashboard-subnav-items" data-target="accordion.content">
+            <li class="dashboard-subnav-item">
+              <%= link_to "Active users", root_path, class: "dashboard-subnav-link" %>
+            </li>
+            <li class="dashboard-subnav-item">
+              <%= link_to "Invited users", root_path, class: "dashboard-subnav-link" %>
+            </li>
+          </ul>
+        </li>
+        <li class="dashboard-nav-item">
+          <%= link_to "Tasks", root_path, class: "dashboard-nav-link  dashboard-nav-link--active" %>
+        </li>
+        <li class="dashboard-nav-item">
+          <%= link_to "Teams", root_path, class: "dashboard-nav-link" %>
+        </li>
+        <li class="dashboard-nav-item">
+          <%= tag.div class: "dashboard-nav-link dashboard-nav-link--toggle", data: { target: "accordion.pointer", action: "click->accordion#toggle" } do %>
+            Settings
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="dashboard-nav-link__icon" data-target="accordion.icon" ><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path></svg>
+          <% end %>
+
+          <ul class="dashboard-subnav-items" data-target="accordion.content">
+            <li class="dashboard-subnav-item">
+              <%= link_to "Billing", billing_path, class: "dashboard-subnav-link" %>
+            </li>
+            <li class="dashboard-subnav-item">
+              <%= link_to "Roles", root_path, class: "dashboard-subnav-link" %>
+            </li>
+            <li class="dashboard-subnav-item">
+              <%= link_to "Integrations", root_path, class: "dashboard-subnav-link" %>
+            </li>
+            <li class="dashboard-subnav-item">
+              <%= link_to "History", root_path, class: "dashboard-subnav-link" %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="dashboard-wrapper">
+      <div class="dashboard-nav-secondary">
+        <%# Example usage here: search, secondary navigation items, etc.  Do not forget to change the `justify-end` in `.dashboard-nav-secondary`. %>
+
+        <%= link_to embedded_svg("announcement.svg", class: "inline-flex justify-center items-center w-4 h-4 -ml-1 fill-current"), announcements_path, class: "nav__item-announcements #{unread_announcements_class(current_user)}" %>
+<div class="dashboard-nav-secondary__account">
+          <div class="dropdown" data-controller="dropdown">
+            <div class="dropdown__toggle" data-action="click->dropdown#toggle click@window->dropdown#hide" role="button">
+              <%= current_user.first_name %>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="dropdown__icon" data-target="dropdown.icon"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path></svg>
+            </div>
+            <div data-target="dropdown.menu" class="dropdown__menu hidden">
+              <div class="dropdown__items">
+                <%= link_to "Notifications",  root_path, class: "dropdown__item" %>
+                <%= link_to "Edit account",  edit_user_registration_path, class: "dropdown__item" %>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown__item" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-content">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+

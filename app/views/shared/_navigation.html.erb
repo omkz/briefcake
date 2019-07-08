@@ -1,0 +1,17 @@
+<nav class="nav"  data-controller="navigation">
+  <div class="nav__content">
+    <%= link_to Rails.configuration.application_name, root_path, class: "nav__logo" %>
+
+    <div class="nav__items"  data-target="navigation.items">
+      <% if user_signed_in? %>
+      <%= link_to "edit account", edit_user_registration_path, class: "nav__item nav__link" %>
+      <%= link_to "log out", destroy_user_session_path, method: :delete, class: "nav__item nav__link" %>
+    <% else %>
+      <%= link_to "start trial", new_user_registration_path, class: "nav__item btn btn--primary-outline" %>
+    <% end %>
+    </div>
+
+    <span role="link" class="navigation__toggle" data-target="navigation.toggle" data-action="click->navigation#toggle">menu</span>
+  </div>
+</nav>
+

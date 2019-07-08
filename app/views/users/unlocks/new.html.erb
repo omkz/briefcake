@@ -1,0 +1,19 @@
+  <div class="mt-4 max-w-lg mx-auto">
+  <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post, class: "card card--light p-4" }) do |f| %>
+    <%= devise_error_messages! %>
+
+    <h1 class="mt-2 mb-6 text-xl">Resend unlock instructions</h1>
+
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.email_field :email, autocomplete: "email", class: "input" %>
+    </div>
+
+    <div class="buttons">
+      <%= f.submit "Resend", class: "btn btn--primary" %>
+    </div>
+  <% end %>
+
+  <%= render "users/shared/links" %>
+</div>
+

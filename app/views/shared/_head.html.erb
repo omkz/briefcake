@@ -1,0 +1,14 @@
+<title><%= content_for?(:page_title)? yield(:page_title) : "#{Rails.configuration.application_name}" %></title>
+<meta name="description" content="<%= content_for?(:page_description)? yield(:page_description) : "Send RSS feed to your inbox" %>" />
+
+<%= csrf_meta_tags %>
+<%= csp_meta_tag %>
+
+  <script src="https://js.stripe.com/v3/"></script><%= render "shared/social_media_meta_tags" %>
+
+<%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
+<%= stylesheet_pack_tag "application", "data-turbolinks-track": "reload" %>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<%= render "shared/google_analytics_minimal" if Rails.env.production? %>
+
+

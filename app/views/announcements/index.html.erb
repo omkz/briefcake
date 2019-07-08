@@ -1,0 +1,26 @@
+<% content_for :page_title, "What's new in #{Rails.configuration.application_name}" %>
+<% content_for :page_description, "Announcements about things that are new, updated or improved with #{Rails.configuration.application_name}." %>
+
+<div class="mt-16 max-w-lg mx-auto">
+  <h1 class="mb-4 text-3xl font-medium">What's new at <%= Rails.configuration.application_name.titlecase %>?</h1>
+</div>
+
+<div class="announcements">
+  <% @announcements.each do |announcement| %>
+    <article class="announcement" id="<%= dom_id(announcement) %>">
+      <h2 class="announcement__title">
+        <%= tag.span announcement.announcement_type, class: "announcement__type announcement__type--#{announcement.announcement_type}" %>
+        <%= announcement.title %>
+        <%= tag.span announcement.published_at.strftime("%B %Y"), class: "announcement__published" %>
+      </h2>
+      <%= simple_format announcement.body %>
+    </article>
+  <% end %>
+
+  <% if @announcements.empty? %>
+    <article class="announcement announcement--none">
+      <h2 class="announcement__title">Amazing things will happen soon!</h2>
+    </article>
+  <% end %>
+</div>
+

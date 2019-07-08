@@ -1,0 +1,47 @@
+.footer-wrapper {
+  @apply bg-gray-900;
+  @apply py-8 px-4;
+
+  @screen sm {
+    @apply py-16;
+  }
+}
+
+.footer {
+  @apply flex flex-col;
+  @apply text-gray-400;
+
+  @screen sm {
+    @apply flex-row;
+  }
+}
+
+.footer__items {
+  @apply w-full mb-4;
+
+  @screen sm {
+    @apply w-1/4;
+  }
+}
+
+.footer__item {
+  @apply block mb-3;
+}
+
+.footer__item:not(:last-child) {
+  @apply mr-4;
+}
+
+.footer__heading {
+  @apply mt-1;
+  @apply text-xs font-bold uppercase tracking-wider text-gray-400;
+}
+
+.footer__link {
+  @apply text-gray-500 no-underline;
+
+  &:hover {
+    @apply underline;
+  }
+}
+

@@ -1,0 +1,25 @@
+default: &default
+  billing:
+    payer_class: "User"
+    # These lines will appear on your customer's receipts
+    business_name: ""
+    product_name: ""
+    business_address: ""
+    support_email: ""
+    send_emails: true
+    emails:
+      receipt_subject: "Payment receipt"
+      refund_subject: "Payment refunded"
+      renewing_subject: "Your upcoming subscription renewal"
+
+development:
+  <<: *default
+  email_marketing:
+    provider: "mailchimp"
+    default_list: ""
+
+production:
+  <<: *default
+  email_marketing:
+    provider: "mailchimp"
+    default_list: ""

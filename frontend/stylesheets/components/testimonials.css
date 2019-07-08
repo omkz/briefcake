@@ -1,0 +1,33 @@
+.testimonials {
+  @apply flex flex-wrap mt-8;
+}
+
+.testimonial {
+  @apply w-full mb-8 pr-16;
+
+  @screen sm {
+    @apply w-1/3 mb-0;
+  }
+}
+
+.testimonial__content {
+  @apply text-lg text-gray-700;
+}
+
+.testimonial__author {
+  @apply flex items-center mt-4;
+}
+
+.testimonial__author-avatar {
+  @apply w-12 h-12;
+  @apply object-cover rounded-full;
+}
+
+.testimonial__author-name {
+  @apply text-lg text-gray-600;
+}
+
+.testimonial__author-link {
+  @apply text-blue-600;
+}
+

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= render "shared/head" %>
+</head>
+
+<body class="<%= body_class(yield(:body_class)) %>">
+  <%= show_site_wide_announcement(current_user) %>
+
+  <%= render "shared/flash" %>
+  <%= render "shared/navigation" %>
+
+  <%= yield %>
+  <%= render "shared/footer" %>
+  <%= render "shared/tawkto" if Rails.env.production? %>
+</body>
+</html>
+
+
+

@@ -63,6 +63,7 @@ gem 'storext', '~> 2.2', '>= 2.2.2'
 gem 'redis', '~> 4.1'
 gem 'premailer-rails', '~> 1.10', '>= 1.10.2'
 group :development do
+  gem 'rufo'
   gem 'letter_opener', '~> 1.6'
   gem 'foreman', '~> 0.85.0'
 end

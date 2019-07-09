@@ -4,9 +4,9 @@ module Sjabloon
       class SourceDeleted
         def call(event)
           object = event.data.object
-          owner  = AppConfig.billing["payer_class"].constantize.find_by(
-            processor:    "stripe",
-            processor_id: object.customer
+          owner = AppConfig.billing["payer_class"].constantize.find_by(
+            processor: "stripe",
+            processor_id: object.customer,
           )
 
           return unless owner.present?
@@ -17,4 +17,3 @@ module Sjabloon
     end
   end
 end
-

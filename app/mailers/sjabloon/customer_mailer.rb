@@ -8,8 +8,8 @@ module Sjabloon
       end
 
       mail(
-        to:      to(customer),
-        subject: subjects["receipt_subject"]
+        to: to(customer),
+        subject: subjects["receipt_subject"],
       )
     end
 
@@ -17,15 +17,15 @@ module Sjabloon
       @customer, @charge = customer, charge
 
       mail(
-        to:      to(customer),
-        subject: subjects["receipt_subject"]
+        to: to(customer),
+        subject: subjects["receipt_subject"],
       )
     end
 
     def subscription_renewing(customer, subscription)
       mail(
-        to:      to(customer),
-        subject: subjects["renewing_subject"]
+        to: to(customer),
+        subject: subjects["renewing_subject"],
       )
     end
 
@@ -44,4 +44,3 @@ module Sjabloon
     end
   end
 end
-

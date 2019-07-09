@@ -13,10 +13,10 @@ module Sjabloon
     validates :processor_plan, presence: true
     validates :quantity, presence: true
 
-    scope :on_trial,        ->{ where.not(trial_ends_at: nil).where("? < trial_ends_at", Time.current) }
-    scope :cancelled,       ->{ where.not(ends_at: nil) }
-    scope :on_grace_period, ->{ cancelled.where("? < ends_at", Time.current) }
-    scope :active,          ->{ where(ends_at: nil).or(on_grace_period).or(on_trial) }
+    scope :on_trial, -> { where.not(trial_ends_at: nil).where("? < trial_ends_at", Time.current) }
+    scope :cancelled, -> { where.not(ends_at: nil) }
+    scope :on_grace_period, -> { cancelled.where("? < ends_at", Time.current) }
+    scope :active, -> { where(ends_at: nil).or(on_grace_period).or(on_trial) }
 
     attribute :prorate, :boolean, default: true
 
@@ -74,4 +74,3 @@ module Sjabloon
     end
   end
 end
-

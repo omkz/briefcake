@@ -1,4 +1,4 @@
-require_relative 'boot'
+require_relative "boot"
 
 require "rails"
 # Pick the frameworks you want:
@@ -19,9 +19,9 @@ Bundler.require(*Rails.groups)
 
 module Rssmailer
   class Application < Rails::Application
-    config.application_naked_domain = 'example.com'
-    config.application_domain = 'https://www.example.com'
-    config.application_name = 'RSSMailer'
+    config.application_naked_domain = "example.com"
+    config.application_domain = "https://www.example.com"
+    config.application_name = "RSSMailer"
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
     config.exceptions_app = self.routes
@@ -33,8 +33,7 @@ module Rssmailer
     # Don't generate system test files.
     config.generators.system_tests = nil
     config.to_prepare do
-      Devise::Mailer.layout 'mailer'
+      Devise::Mailer.layout "mailer"
     end
-
   end
 end

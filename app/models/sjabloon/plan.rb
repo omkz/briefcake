@@ -1,13 +1,13 @@
 module Sjabloon
   class Plan < ApplicationRecord
-   self.table_name = "sjabloon_plans"
+    self.table_name = "sjabloon_plans"
 
     include Storext.model
 
-    scope :active,  -> { where(active: true) }
+    scope :active, -> { where(active: true) }
     scope :visible, -> { where(visible: true) }
     scope :monthly, -> { where(interval: "month") }
-    scope :annual,  -> { where(interval: "year") }
+    scope :annual, -> { where(interval: "year") }
 
     def price
       amount / 100 if amount?
@@ -26,4 +26,3 @@ module Sjabloon
     end
   end
 end
-

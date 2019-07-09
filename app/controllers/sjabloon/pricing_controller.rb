@@ -7,4 +7,3 @@ class Sjabloon::PricingController < ApplicationController
       order(position: :asc, amount: :asc)
   end
 end
-

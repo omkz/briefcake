@@ -5,4 +5,3 @@ module Sjabloon
     scope :is_valid, -> { where(is_valid: true) }
   end
 end
-

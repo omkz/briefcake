@@ -3,9 +3,9 @@ class Sjabloon::PlansController < ApplicationController
   before_action :authenticate_user!, only: [:index, :update]
 
   def index
-    @plans        = Sjabloon::Plan.active.visible.order(position: :asc, amount: :asc)
+    @plans = Sjabloon::Plan.active.visible.order(position: :asc, amount: :asc)
     @subscription = current_payer.subscription
-    @plan         = @subscription.plan
+    @plan = @subscription.plan
   end
 
   def update
@@ -14,7 +14,6 @@ class Sjabloon::PlansController < ApplicationController
     current_payer.subscription.swap(plan.processor_id)
 
     redirect_to billing_plans_path, notice: "Your plan has changed"
-
   rescue StandardError => e
     redirect_to billing_plans_path, alert: e.message
   end
@@ -29,4 +28,3 @@ class Sjabloon::PlansController < ApplicationController
     !current_payer.subscribed?
   end
 end
-

@@ -20,4 +20,3 @@ class Sjabloon::CustomerMailerPreview < ActionMailer::Preview
     )
   end
 end
-

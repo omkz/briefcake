@@ -5,4 +5,3 @@ module Sjabloon::BillingHelper
     plan.has_trial_period? ? "Start your free trial" : "Continue payment"
   end
 end
-

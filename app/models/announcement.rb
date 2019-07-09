@@ -12,8 +12,7 @@ class Announcement < ApplicationRecord
   private
 
   def set_defaults
-    self.published_at      ||= Time.zone.now
+    self.published_at ||= Time.zone.now
     self.announcement_type ||= ANNOUNCEMENT_TYPES.first
   end
 end
-

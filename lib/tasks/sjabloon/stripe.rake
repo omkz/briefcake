@@ -17,4 +17,3 @@ namespace :stripe do
     Sjabloon::Stripe::Coupons.fetch!
   end
 end
-

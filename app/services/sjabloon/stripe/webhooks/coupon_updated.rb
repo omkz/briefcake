@@ -8,9 +8,9 @@ module Sjabloon
 
           return if coupon.nil?
 
-          coupon.is_valid       = object.valid
+          coupon.is_valid = object.valid
           coupon.times_redeemed = object.times_redeemed
-          coupon.name           = object.name
+          coupon.name = object.name
 
           coupon.save!
         end
@@ -18,4 +18,3 @@ module Sjabloon
     end
   end
 end
-

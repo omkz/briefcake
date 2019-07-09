@@ -11,4 +11,3 @@ class ErrorsController < ApplicationController
     render(status: 403)
   end
 end
-

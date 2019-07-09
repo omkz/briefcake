@@ -13,9 +13,9 @@ module Sjabloon
 
       def create_charge(amount, options = {})
         args = {
-          amount:      amount,
-          currency:    "usd",
-          customer:    stripe_customer.id,
+          amount: amount,
+          currency: "usd",
+          customer: stripe_customer.id,
           description: customer_name,
         }.merge(options)
 
@@ -27,8 +27,8 @@ module Sjabloon
       end
 
       def create_subscription!(name, plan, options = {})
-        opts         = { plan: plan, trial_from_plan: true }.merge(options)
-        sub          = customer.subscriptions.create(opts)
+        opts = { plan: plan, trial_from_plan: true }.merge(options)
+        sub = customer.subscriptions.create(opts)
         subscription = create_subscription(sub, "stripe", name, plan)
 
         subscription
@@ -38,11 +38,11 @@ module Sjabloon
 
       def update_stripe_card(token)
         customer = stripe_customer
-        token    = ::Stripe::Token.retrieve(token)
+        token = ::Stripe::Token.retrieve(token)
 
         return if token.card.id == customer.default_source
 
-        card                    = customer.sources.create(source: token.id)
+        card = customer.sources.create(source: token.id)
         customer.default_source = card.id
         customer.save
 
@@ -53,8 +53,8 @@ module Sjabloon
       end
 
       def update_email!
-        customer             = stripe_customer
-        customer.email       = email
+        customer = stripe_customer
+        customer.email = email
         customer.description = customer_name
 
         customer.save
@@ -74,17 +74,17 @@ module Sjabloon
       end
 
       def sync_card_from_stripe
-        cust              = stripe_customer
+        cust = stripe_customer
         default_source_id = cust.default_source
 
         if default_source_id.present?
-          card = stripe_customer.sources.data.find{ |s| s.id == default_source_id }
+          card = stripe_customer.sources.data.find { |s| s.id == default_source_id }
 
           update(
-            card_type:      card.brand,
-            card_last4:     card.last4,
+            card_type: card.brand,
+            card_last4: card.last4,
             card_exp_month: card.exp_month,
-            card_exp_year:  card.exp_year
+            card_exp_year: card.exp_year,
           )
         else
           update(card_type: nil, card_last4: nil)
@@ -95,9 +95,9 @@ module Sjabloon
 
       def create_customer
         customer = ::Stripe::Customer.create(
-          email:       email,
-          source:      card_token,
-          description: customer_name
+          email: email,
+          source: card_token,
+          description: customer_name,
         )
 
         update(processor: "stripe", processor_id: customer.id)
@@ -116,10 +116,10 @@ module Sjabloon
 
       def update_card_on_file(card)
         update!(
-          card_type:      card.brand,
-          card_last4:     card.last4,
+          card_type: card.brand,
+          card_last4: card.last4,
           card_exp_month: card.exp_month,
-          card_exp_year:  card.exp_year
+          card_exp_year: card.exp_year,
         )
 
         self.card_token = nil
@@ -127,4 +127,3 @@ module Sjabloon
     end
   end
 end
-

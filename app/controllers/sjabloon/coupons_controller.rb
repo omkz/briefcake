@@ -4,11 +4,11 @@ class Sjabloon::CouponsController < ApplicationController
   def index
     if @coupon
       render json: {
-        status:             "valid",
-        currency:           @coupon.currency,
-        amount_off:         @coupon.amount_off,
-        percent_off:        @coupon.percent_off,
-        duration:           @coupon.duration,
+        status: "valid",
+        currency: @coupon.currency,
+        amount_off: @coupon.amount_off,
+        percent_off: @coupon.percent_off,
+        duration: @coupon.duration,
         duration_in_months: @coupon.duration_in_months,
       }
     else
@@ -19,8 +19,7 @@ class Sjabloon::CouponsController < ApplicationController
   def set_coupon
     return unless code = params[:code]
 
-    code    = code.strip.upcase
+    code = code.strip.upcase
     @coupon = Sjabloon::Coupon.where(code: code, is_valid: true).last
   end
 end
-

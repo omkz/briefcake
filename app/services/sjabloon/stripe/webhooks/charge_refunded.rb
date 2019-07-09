@@ -1,7 +1,6 @@
 module Sjabloon
   module Stripe
     module Webhooks
-
       class ChargeRefunded
         def call(event)
           object = event.data.object
@@ -22,4 +21,3 @@ module Sjabloon
     end
   end
 end
-

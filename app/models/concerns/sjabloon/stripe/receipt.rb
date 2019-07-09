@@ -5,7 +5,7 @@ module Sjabloon
 
       included do
         def filename
-          "receipt-#{created_at.strftime('%Y-%m-%d')}.pdf"
+          "receipt-#{created_at.strftime("%Y-%m-%d")}.pdf"
         end
 
         def receipt
@@ -14,26 +14,25 @@ module Sjabloon
 
         def receipt_pdf
           Receipts::Receipt.new(
-            id:      processor_id,
+            id: processor_id,
             product: AppConfig.billing["product_name"],
             company: {
-              name:    AppConfig.billing["business_name"],
+              name: AppConfig.billing["business_name"],
               address: AppConfig.billing["business_address"],
-              email:   AppConfig.billing["support_email"]
+              email: AppConfig.billing["support_email"],
             },
-
-            line_items: line_items
+            line_items: line_items,
           )
         end
 
         def line_items
           line_items = [
-            ["Date",           created_at.strftime("%d %B %Y")],
+            ["Date", created_at.strftime("%d %B %Y")],
             ["Account Billed", "#{owner.name} (#{owner.email})"],
-            ["Product",        AppConfig.billing["business_name"]],
-            ["Amount",         ActionController::Base.helpers.number_to_currency(amount.to_f / 100)],
-            ["Charged to",     "#{card_type} (**** **** **** #{card_last4})"],
-            ["Transaction ID", processor_id]
+            ["Product", AppConfig.billing["business_name"]],
+            ["Amount", ActionController::Base.helpers.number_to_currency(amount.to_f / 100)],
+            ["Charged to", "#{card_type} (**** **** **** #{card_last4})"],
+            ["Transaction ID", processor_id],
           ]
 
           line_items
@@ -42,4 +41,3 @@ module Sjabloon
     end
   end
 end
-

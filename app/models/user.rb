@@ -7,9 +7,9 @@ class User < ApplicationRecord
 
   has_person_name
   has_many :announcements
+  has_many :feeds
 
   validates :name, presence: true
-
 
   def send_devise_notification(notification, *args)
     devise_mailer.send(notification, self, *args).deliver_later

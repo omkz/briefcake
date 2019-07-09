@@ -1,6 +1,6 @@
 .pill {
   @apply py-1 px-3;
-  @apply text-xs leading-none font-bold uppercase tracking-wider;
+  @apply text-xs leading-none font-bold tracking-wider;
   @apply rounded-full;
 }
 
@@ -16,3 +16,7 @@
   @apply bg-green-200 text-green-700;
 }
 
+.pill--danger {
+  @apply bg-red-400 text-white;
+
+}

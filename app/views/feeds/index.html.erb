@@ -1,28 +1,40 @@
 <div class="mt-16 max-w-xl mx-auto">
-  <header class="flex justify-between">
-    <h1 class="text-3xl mb-4">Feeds</h1>
+  <% if @feeds.any? %>
+    <header class="text-right mb-8">
+      <%= link_to "Add new feed", new_feed_path, class: "btn btn--primary" %>
+    </header>
 
-    <div>
-      <%= link_to "Add", new_feed_path, class: "btn btn--primary" %>
+    <div class="card card--light mb-8">
+      <div class="card__content">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Url</th>
+            <th></th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @feeds.each do |feed| %>
+            <%= content_tag :tr, id: dom_id(feed) do %>
+              <td><%= link_to feed.name, feed %></td>
+              <td><%= feed.url %></td>
+              <td><%= link_to "Unfollow", feed, method: :delete, class: "pill pill--danger text-white-600", data: { confirm: "Are you sure you want to delete #{feed.name}?" } %></td>
+            <% end %>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </header>
 
-  <table class="table">
-    <thead>
-    <tr>
-      <th>Name</th>
-      <th>Url</th>
-    </tr>
-    </thead>
+  <% else %>
+    <div class="my-8">
+      <h1 class="mb-1 text-3xl sm:text-5xl leading-tight font-black">Hello there, <%= current_user.name %>!</h1>
+      <p class="mb-8 text-xl text-gray-600">It's time to add your first feed, press the button.</p>
 
-    <tbody>
-    <% @feeds.each do |feed| %>
-      <%= content_tag :tr, id: dom_id(feed) do %>
-        <td><%= link_to feed.name, feed %></td>
-        <td><%= feed.url %></td>
-      <% end %>
-    <% end %>
-    </tbody>
-  </table>
+      <%= link_to "👌 Add first feed", new_feed_path, class: "btn btn--primary" %>
+    </div>
+  <% end %>
 </div>
 

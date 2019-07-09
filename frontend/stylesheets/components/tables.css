@@ -23,3 +23,6 @@
   }
 }
 
+.card__content .table th {
+  @apply border-t-0;
+}

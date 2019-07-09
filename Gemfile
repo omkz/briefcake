@@ -61,6 +61,7 @@ gem "sidekiq", "~> 5.2", ">= 5.2.5"
 gem "storext", "~> 2.2", ">= 2.2.2"
 gem "redis", "~> 4.1"
 gem "premailer-rails", "~> 1.10", ">= 1.10.2"
+gem "validate_url"
 
 group :development do
   gem "rufo"

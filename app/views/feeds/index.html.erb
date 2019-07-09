@@ -1,6 +1,3 @@
-  
-
-
 <div class="mt-16 max-w-xl mx-auto">
   <header class="flex justify-between">
     <h1 class="text-3xl mb-4">Feeds</h1>
@@ -12,26 +9,19 @@
 
   <table class="table">
     <thead>
-      <tr>
-    
-
-            
-          <th></th>
-        
-      </tr>
+    <tr>
+      <th>Name</th>
+      <th>Url</th>
+    </tr>
     </thead>
 
     <tbody>
-      <% @feeds.each do |feed| %>
-        <%= content_tag :tr, id: dom_id(feed) do %>
-          
-
-          
-          
-            <td><%= link_to "Show", feed %></td>
-          
-        <% end %>
+    <% @feeds.each do |feed| %>
+      <%= content_tag :tr, id: dom_id(feed) do %>
+        <td><%= link_to feed.name, feed %></td>
+        <td><%= feed.url %></td>
       <% end %>
+    <% end %>
     </tbody>
   </table>
 </div>

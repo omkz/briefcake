@@ -7,13 +7,17 @@
     </div>
   </header>
 
-  <div class="flex">
-    <h2 class="w-full sm:w-1/4">Name:</h2>
-    <p class="w-full sm:w-3/4"><%= @feed.name %></p>
-  </div>
-  <div class="flex">
-    <h2 class="w-full sm:w-1/4">Url:</h2>
-    <p class="w-full sm:w-3/4"><%= @feed.url %></p>
+  <div class="card card--light mb-8">
+    <div class="card__content">
+      <div class="flex">
+        <h2 class="w-full sm:w-1/4">Name:</h2>
+        <p class="w-full sm:w-3/4"><%= @feed.name %></p>
+      </div>
+      <div class="flex">
+        <h2 class="w-full sm:w-1/4">Url:</h2>
+        <p class="w-full sm:w-3/4"><%= @feed.url %></p>
+      </div>
+    </div>
   </div>
 </div>
 

@@ -3,17 +3,17 @@ module Sjabloon
     module Webhooks
       class SubscriptionUpdated
         def call(event)
-          object       = event.data.object
+          object = event.data.object
           subscription = Sjabloon::Subscription.find_by(
-            processor:    "stripe",
-            processor_id: object.id
+            processor: "stripe",
+            processor_id: object.id,
           )
 
           return if subscription.nil?
 
-          subscription.quantity       = object.quantity
+          subscription.quantity = object.quantity
           subscription.processor_plan = object.plan.id
-          subscription.trial_ends_at  = Time.at(object.trial_end) if object.trial_end.present?
+          subscription.trial_ends_at = Time.at(object.trial_end) if object.trial_end.present?
 
           if object.cancel_at_period_end && subscription.on_trial?
             subscription.ends_at = subscription.trial_ends_at
@@ -29,4 +29,3 @@ module Sjabloon
     end
   end
 end
-

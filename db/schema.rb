@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_08_142009) do
+ActiveRecord::Schema.define(version: 2019_07_11_123842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,30 @@ ActiveRecord::Schema.define(version: 2019_07_08_142009) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_announcements_on_user_id"
+  end
+
+  create_table "feed_items", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "link"
+    t.string "publish_date"
+    t.datetime "sent_at"
+    t.bigint "feed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image"
+    t.index ["feed_id"], name: "index_feed_items_on_feed_id"
+  end
+
+  create_table "feeds", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_feeds_on_slug", unique: true
+    t.index ["user_id"], name: "index_feeds_on_user_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -162,4 +186,6 @@ ActiveRecord::Schema.define(version: 2019_07_08_142009) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "announcements", "users"
+  add_foreign_key "feed_items", "feeds"
+  add_foreign_key "feeds", "users"
 end

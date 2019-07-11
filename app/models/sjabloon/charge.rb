@@ -7,7 +7,7 @@ module Sjabloon
     belongs_to :owner, class_name: AppConfig.billing["payer_class"], foreign_key: :owner_id
 
     scope :sorted, -> { order(created_at: :desc) }
-    default_scope  -> { sorted }
+    default_scope -> { sorted }
 
     validates :amount, presence: true
     validates :processor, presence: true
@@ -29,4 +29,3 @@ module Sjabloon
     end
   end
 end
-

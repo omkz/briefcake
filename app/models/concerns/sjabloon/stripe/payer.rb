@@ -85,13 +85,13 @@ module Sjabloon
 
       def create_subscription(subscription, processor, name, plan, quantity = 1)
         subscriptions.create!(
-          name:           name || "default",
-          processor:      processor,
-          processor_id:   subscription.id,
+          name: name || "default",
+          processor: processor,
+          processor_id: subscription.id,
           processor_plan: plan,
-          trial_ends_at:  send("trial_end_date", subscription),
-          quantity:       quantity,
-          ends_at:        nil
+          trial_ends_at: send("trial_end_date", subscription),
+          quantity: quantity,
+          ends_at: nil,
         )
       end
 
@@ -103,4 +103,3 @@ module Sjabloon
     end
   end
 end
-

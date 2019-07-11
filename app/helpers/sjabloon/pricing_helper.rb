@@ -8,7 +8,7 @@ module Sjabloon::PricingHelper
       data: {
         target: "sjabloon--plan-switch.button",
         plan_switch_month_id: plan.processor_id,
-        plan_switch_year_id: annual_plan_processor_id_for(plan.id)
+        plan_switch_year_id: annual_plan_processor_id_for(plan.id),
       }
   end
 
@@ -22,7 +22,6 @@ module Sjabloon::PricingHelper
     user_signed_in? ? signed_in_button_path(plan_id) : new_user_registration_path
   end
 
-
   def signed_in_button_label
     current_payer.subscribed? ? "Go to billing" : "Choose"
   end
@@ -33,4 +32,3 @@ module Sjabloon::PricingHelper
     current_payer.subscribed? ? billing_plans_path : new_billing_path(plan: plan.processor_id)
   end
 end
-

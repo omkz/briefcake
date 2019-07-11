@@ -1,4 +1,4 @@
-  module AnnouncementsHelper
+module AnnouncementsHelper
   def unread_announcements_class(user)
     return if last_announcement.nil?
 
@@ -35,4 +35,3 @@
     cookies["_#{Rails.configuration.application_name.parameterize}_announcement_#{last_announcement.id}"]
   end
 end
-

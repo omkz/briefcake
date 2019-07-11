@@ -9,4 +9,3 @@ class AddFieldsToUsers < ActiveRecord::Migration[5.2]
     add_column :users, :card_exp_year, :string
   end
 end
-

@@ -10,7 +10,7 @@ module Sjabloon
       def refund!(amount_to_refund)
         ::Stripe::Refund.create(
           charge: processor_id,
-          amount: amount_to_refund
+          amount: amount_to_refund,
         )
 
         update(amount_refunded: amount_to_refund)
@@ -20,4 +20,3 @@ module Sjabloon
     end
   end
 end
-

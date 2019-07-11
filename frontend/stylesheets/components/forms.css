@@ -35,6 +35,10 @@ label {
   }
 }
 
+.field_with_errors .input {
+  @apply border-solid border-2 border-red-600;
+}
+
 .field-centered {
   @apply flex items-center;
 }

@@ -28,4 +28,3 @@ class Sjabloon::ChargesController < ApplicationController
     !current_payer.subscribed?
   end
 end
-

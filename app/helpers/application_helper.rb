@@ -1,8 +1,7 @@
-  module ApplicationHelper
+module ApplicationHelper
   def last_announcement
     @last_announcement ||= Announcement.order(published_at: :desc).first
   end
-
 
   def body_class(body_class)
     if body_class.present?
@@ -10,7 +9,7 @@
     end
   end
 
-  def embedded_svg filename, options={}
+  def embedded_svg(filename, options = {})
     file = File.read(Rails.root.join("frontend", "assets", "svg", filename))
     doc = Nokogiri::HTML::DocumentFragment.parse file
     svg = doc.at_css "svg"
@@ -28,4 +27,3 @@
     end
   end
 end
-

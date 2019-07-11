@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
     # where `include Sjabloon::Stripe` is included (eg. User)
     current_user
   end
+
   helper_method :current_payer
 
   protected

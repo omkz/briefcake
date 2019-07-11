@@ -1,0 +1,24 @@
+<%= form_with(model: feed, local: true, class: "card card--light mb-8") do |form| %>
+  <%= render "shared/flash", flash: feed.errors %>
+
+  <div class="card__content">
+
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: "input" %>
+    </div>
+    <div class="field">
+      <%= form.label :url %>
+      <%= form.url_field :url, class: "input" %>
+    </div>
+
+    <div class="field flex justify-between items-center mb-0">
+      <%= form.submit class: "btn btn--primary" %>
+
+      <% if feed.persisted? %>
+        <%= link_to "Destroy", feed, method: :delete, class: "text-red-600", data: { confirm: "Are you sure?" } %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+

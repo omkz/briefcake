@@ -4,7 +4,7 @@ class Sjabloon::BillingController < ApplicationController
   before_action :set_plan, only: [:new]
 
   def show
-    @plan    = current_payer.subscription.plan
+    @plan = current_payer.subscription.plan
     @charges = current_payer.charges
   end
 
@@ -13,13 +13,13 @@ class Sjabloon::BillingController < ApplicationController
   end
 
   def create
-    owner            = current_payer
-    owner.processor  = "stripe"
+    owner = current_payer
+    owner.processor = "stripe"
     owner.card_token = params[:stripeToken]
 
     owner.subscribe(
-      plan:   params[:plan_id],
-      coupon: coupon_code
+      plan: params[:plan_id],
+      coupon: coupon_code,
     )
 
     redirect_to billing_path, notice: "You are successfully subscribed"
@@ -62,4 +62,3 @@ class Sjabloon::BillingController < ApplicationController
     params[:code].upcase
   end
 end
-

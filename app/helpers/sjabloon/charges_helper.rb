@@ -13,4 +13,3 @@ module Sjabloon::ChargesHelper
     "-#{number_to_currency(charge.amount_refunded.to_f / 100)}"
   end
 end
-

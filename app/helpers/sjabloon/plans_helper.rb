@@ -1,6 +1,6 @@
 module Sjabloon::PlansHelper
   def annual_plan_for(plan_id)
-    plan        = Sjabloon::Plan.find(plan_id)
+    plan = Sjabloon::Plan.find(plan_id)
     annual_plan = Sjabloon::Plan.active.visible.where(product: plan.product).annual.last
   end
 
@@ -36,7 +36,7 @@ module Sjabloon::PlansHelper
   end
 
   def change_plan_button(owner, plan_id)
-    plan       = Sjabloon::Plan.find(plan_id)
+    plan = Sjabloon::Plan.find(plan_id)
     owner_plan = owner.subscription.plan if owner.subscribed?
 
     if owner_plan == plan
@@ -46,16 +46,15 @@ module Sjabloon::PlansHelper
         billing_plan_path(plan.processor_id),
         method: :patch,
         data: {
-          confirm: "Are you sure? Your subscription will be changed immediately"
+          confirm: "Are you sure? Your subscription will be changed immediately",
         }
     elsif owner_plan.amount < plan.amount
       link_to "Upgrade",
         billing_plan_path(plan.processor_id),
         method: :patch,
         data: {
-          confirm: "Are you sure? Your subscription will be changed immediately"
+          confirm: "Are you sure? Your subscription will be changed immediately",
         }
     end
   end
 end
-

@@ -21,7 +21,7 @@
         class="btn bg-gray-300 text-sm uppercase tracking-wide rounded-l-none">
         Year
       </button>
-    <% end if !@plans.empty? %>
+    <% end if @plans.empty? %>
 
     <div class="flex mb-16">
       <% if @plans.each do |plan| %>
@@ -49,7 +49,7 @@
             <%= tag.span "Starts with a #{plan.trial_period_days}-day trial period", class: "block mt-1 text-sm text-center text-gray-700" if plan.has_trial_period? %>
           </div>
         </div>
-      <% end.empty? %>
+      <% end %>
         <%= tag.code "You can fetch your subscription plans from Stripe by running `rake stripe:fetch:plans` from the console. Be sure you have your Stripe credentials added and your products + pricing plans set up in your Stripe account." if Rails.env.development? %>
       <% end %>
     </div>

@@ -16,7 +16,8 @@ Rails.application.routes.draw do
 
   resources :announcements, only: [:index]
   authenticated :user do
-    root to: "dashboard#show"
+    root to: "feeds#index"
+    get "dashboard", to: "dashboard#show"
   end
   devise_for :users, path: "/", path_names: { sign_up: "signup", sign_in: "login", sign_out: "logout", edit: "edit" }, controllers: { masquerades: "admin/masquerades" }
   get "/privacy", to: "pages#privacy"

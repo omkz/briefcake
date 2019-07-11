@@ -1,6 +1,7 @@
 class FeedsController < ApplicationController
   before_action :set_feed, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  layout "dashboard"
 
   # GET /feeds
   # GET /feeds.json

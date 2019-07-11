@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.4.2"
+ruby "2.6.3"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 5.2.3"
@@ -64,6 +64,8 @@ gem "premailer-rails", "~> 1.10", ">= 1.10.2"
 gem "validate_url"
 gem "httparty"
 gem "feedjira"
+gem "instagrammer"
+gem "capybara"
 
 group :development do
   gem "rufo"

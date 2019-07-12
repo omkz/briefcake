@@ -79,7 +79,4 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: rssmailer_production
-  username: rssmailer
-  password: <%= ENV['RSSMAILER_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

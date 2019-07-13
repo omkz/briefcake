@@ -11,7 +11,7 @@ jobs:
         environment:
           POSTGRES_USER: rssmailer
           POSTGRES_PASSWORD: rssmailer
-          POSTGRES_DB: rssmailer
+          POSTGRES_DB: rssmailer_test
 
     working_directory: ~/rssmailer-app
 

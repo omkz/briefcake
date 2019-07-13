@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resource :pricing, controller: "sjabloon/pricing", only: [:show]
   post "/webhooks/stripe", to: "stripe_event/webhook#event"
 
+  match "/delayed_job" => DelayedJobWeb, :anchor => false, :via => [:get, :post]
+
   resources :announcements, only: [:index]
   authenticated :user do
     root to: "feeds#index"

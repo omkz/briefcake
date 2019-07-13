@@ -22,6 +22,7 @@ module Rssmailer
     config.application_naked_domain = "example.com"
     config.application_domain = "https://www.example.com"
     config.application_name = "RSSMailer"
+    config.active_job.queue_adapter = :delayed_job
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
     config.exceptions_app = self.routes

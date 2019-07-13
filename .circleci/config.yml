@@ -1,63 +1,73 @@
-# Ruby CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-ruby/ for more details
-#
 version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
       - image: circleci/ruby:2.6.3-node-browsers
+        environment:
+          RAILS_ENV: test
+          POSTGRESQL_HOST: 127.0.0.1
 
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
+      - image: circleci/postgres:9.6.2-alpine
+        environment:
+          POSTGRES_USER: rssmailer
+          POSTGRES_PASSWORD: rssmailer
+          POSTGRES_DB: rssmailer
 
-    working_directory: ~/repo
+    working_directory: ~/rssmailer-app
 
     steps:
       - checkout
-
-      # Download and cache dependencies
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
-      - run:
-          name: install dependencies
-          command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
-
+            - v1-gem-cache-{{ arch }}-{{ checksum "Gemfile.lock" }}
+            - v1-gem-cache-{{ arch }}-
+            - v1-gem-cache-{{ arch }}
+            -
+      - run: bundle install && bundle clean
       - save_cache:
           paths:
-            - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - ~/.bundle
+          key: v1-gem-cache-{{ arch }}-{{ checksum "Gemfile.lock" }}
 
-      # Database setup
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
-
-      # run tests!
       - run:
-          name: run tests
+          name: Create database
+          command: RAILS_ENV=test bin/rake db:create db:schema:load
+
+      - run:
+          name: Run unit tests (RSpec)
+          command: bundle exec rspec
+
+  deploy:
+    machine:
+      enabled: true
+    steps:
+      - checkout
+      - run:
+          name: Deploy Master to rssmailer.app
           command: |
-            mkdir /tmp/test-results
-            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
-              circleci tests split --split-by=timings)"
-
-            bundle exec rspec \
-              --format progress \
-              --format RspecJunitFormatter \
-              --out /tmp/test-results/rspec.xml \
-              --format progress \
-              $TEST_FILES
-
-      # collect reports
-      - store_test_results:
-          path: /tmp/test-results
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
+            git remote add dokku dokku@rssmailer.app:rssmailer
+            git push dokku $CIRCLE_BRANCH --force
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master

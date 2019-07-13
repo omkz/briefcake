@@ -7,7 +7,7 @@
       <%= link_to "edit account", edit_user_registration_path, class: "nav__item nav__link" %>
       <%= link_to "log out", destroy_user_session_path, method: :delete, class: "nav__item nav__link" %>
     <% else %>
-      <%= link_to "start trial", new_user_registration_path, class: "nav__item btn btn--primary-outline" %>
+      <%= link_to "Sign up", new_user_registration_path, class: "nav__item btn btn--primary-outline" %>
     <% end %>
     </div>
 

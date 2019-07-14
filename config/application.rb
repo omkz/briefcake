@@ -19,8 +19,8 @@ Bundler.require(*Rails.groups)
 
 module Rssmailer
   class Application < Rails::Application
-    config.application_naked_domain = "example.com"
-    config.application_domain = "https://www.example.com"
+    config.application_naked_domain = "rssmailer.app"
+    config.application_domain = "https://rssmailer.app"
     config.application_name = "RSSMailer"
     config.active_job.queue_adapter = :delayed_job
     # Initialize configuration defaults for originally generated Rails version.

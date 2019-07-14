@@ -9,7 +9,7 @@ Rails.application.configure do
     user_name: Rails.application.credentials.dig(:production, :mailgun, :smtp_login),
     password: Rails.application.credentials.dig(:production, :mailgun, :smtp_password),
     domain: Rails.configuration.application_naked_domain,
-    address: "smtp.mailgun.org",
+    address: "smtp.eu.mailgun.org",
     port: 587,
     authentication: :plain,
   }

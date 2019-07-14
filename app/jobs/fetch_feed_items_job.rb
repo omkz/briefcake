@@ -7,18 +7,20 @@ class FetchFeedItemsJob < ApplicationJob
     if is_instagram?
       user = Instagrammer.new(instagram_user_name)
       begin
-
-        user.get_posts(3).each do |post|
-          if post.photo?
-
-            feed.feed_items.create(
-              title: post.caption,
-              link: "https://www.instagram.com/p/#{post.shortcode}/",
-              publish_date: post.upload_date,
-              image_url: post.image_url
-            )
-          else
-            Rails.logger.error "Not a photo."
+        user.get_posts(5).each do |post|
+          begin
+            if post.photo?
+              feed.feed_items.create(
+                title: post.caption,
+                link: "https://www.instagram.com/p/#{post.shortcode}/",
+                publish_date: post.upload_date,
+                image_url: post.image_url,
+              )
+            else
+              Rails.logger.warn "Import failed, not a photo (feed: #{feed_id}}"
+            end
+          rescue => e
+            Rails.logger.error "Exception: #{e} (feed: #{feed_id}}"
           end
         end
       rescue => e
@@ -30,7 +32,7 @@ class FetchFeedItemsJob < ApplicationJob
           title: feed_jira_entry.title,
           description: feed_jira_entry.summary,
           link: feed_jira_entry.url,
-          publish_date: feed_jira_entry.published
+          publish_date: feed_jira_entry.published,
         )
       end
     end

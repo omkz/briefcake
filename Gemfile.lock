@@ -124,7 +124,7 @@ GEM
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
-    instagrammer (0.1.3)
+    instagrammer (0.2.1)
       capybara (~> 3.24)
       webdrivers (~> 4.0)
     jbuilder (2.9.1)

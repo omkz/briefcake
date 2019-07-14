@@ -4,7 +4,7 @@ class FetchFeedItemsJob < ApplicationJob
   def perform(feed_id)
     @feed_id = feed_id
 
-    if is_instagram?
+    if feed.is_instagram?
       user = Instagrammer.new(instagram_user_name)
       begin
         user.get_posts(5).each do |post|
@@ -39,10 +39,6 @@ class FetchFeedItemsJob < ApplicationJob
   end
 
   private
-
-  def is_instagram?
-    feed.url.include?("instagram.com")
-  end
 
   def instagram_user_name
     if is_instagram?

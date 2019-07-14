@@ -56,7 +56,7 @@ class FetchFeedItemsJob < ApplicationJob
   end
 
   def entries
-    xml = HTTParty.get(feed.url).body
+    xml = HTTParty.get(feed.rss_feed_url).body
     Feedjira.parse(xml).entries
   end
 end

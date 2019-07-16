@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :feeds
+  resources :feeds do
+    get :find_rss_feed, on: :collection
+  end
   resource :billing, controller: "sjabloon/billing", only: [:create, :update, :destroy] do
     member do
       get "setup", to: "sjabloon/billing#new", as: "new"

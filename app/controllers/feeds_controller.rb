@@ -14,6 +14,10 @@ class FeedsController < ApplicationController
   def show
   end
 
+  def find_rss_feed
+    render json: { result: RssUrlFinder.new(params[:url]).find_for_url }
+  end
+
   # GET /feeds/new
   def new
     @feed = current_user.feeds.new

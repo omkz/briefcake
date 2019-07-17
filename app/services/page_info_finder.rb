@@ -1,16 +1,15 @@
 require "nokogiri"
 require "net/http"
 
-# get the HTML from the website
-
 class PageInfoFinder
   def initialize(url)
     @url = url
   end
 
   def fetch!
-    @uri = URI(@url)
-    @document = Nokogiri::HTML(Net::HTTP.get(@uri))
+    @request = HTTParty::Request.new(Net::HTTP::Get, @url)
+    @document = Nokogiri::HTML(@request.perform)
+    @uri = @request.last_uri
     self
   rescue => e
     self

@@ -42,6 +42,17 @@ describe PageInfoFinder do
   end
 
   describe "#to_json" do
+    it "follows redirects" do
+      find_for_url = PageInfoFinder.new("https://www.timiapp.com/blog").fetch!
+
+      expect(find_for_url.to_json).to eq(
+                                        {
+                                          rss_feed_url: "https://timiapp.com/blog.rss",
+                                          name: "Het Timi weblog",
+                                        }
+                                      )
+    end
+
     it "returns all data for a URL" do
       find_for_url = PageInfoFinder.new("https://daringfireball.net/").fetch!
 

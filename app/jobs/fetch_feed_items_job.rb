@@ -5,7 +5,7 @@ class FetchFeedItemsJob < ApplicationJob
     @feed_id = feed_id
 
     if feed.is_instagram?
-      user = Instagrammer.new(instagram_user_name)
+      user = Instagrammer.new(feed.instagram_user_name)
       begin
         user.get_posts(5).each do |post|
           begin
@@ -39,17 +39,6 @@ class FetchFeedItemsJob < ApplicationJob
   end
 
   private
-
-  def instagram_user_name
-    if feed.is_instagram?
-      matches = /instagram.com\/(.+?)\//.match(feed.url)
-      if matches
-        user_name = matches[1]
-      else
-        raise "No user name found in: #{feed.url}"
-      end
-    end
-  end
 
   def feed
     @feed ||= Feed.find(@feed_id)

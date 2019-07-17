@@ -20,10 +20,15 @@
             <%= content_tag :tr, id: dom_id(feed) do %>
               <td><%= link_to feed.name, feed %></td>
               <td>
-                <% if feed.rss_feed_url.present? %>
-                <abbr title="<%= feed.rss_feed_url %>"><%= feed.url %></abbr>
+                <% if feed.can_be_fetched? %>
+                  <% if feed.is_instagram? %>
+                    📷 <%= feed.instagram_user_name %>
+                  <% else %>
+                    <abbr title="<%= feed.fetch_url %>"><%= feed.fetch_url %></abbr>
+                  <% end %>
                 <% else %>
-                  <%= feed.url %> <div class="pill pill--tertiary text-white-600">No feed found</div>
+                  <%= feed.fetch_url %>
+                  <div class="pill pill--tertiary text-white-600">No feed found</div>
                 <% end %>
               </td>
               <td><%= link_to "Unfollow", feed, method: :delete, class: "pill pill--danger text-white-600", data: { confirm: "Are you sure you want to delete #{feed.name}?" } %></td>

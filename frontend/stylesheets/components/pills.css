@@ -2,6 +2,7 @@
   @apply py-1 px-3;
   @apply text-xs leading-none font-bold tracking-wider;
   @apply rounded-full;
+  display: inline-block;
 }
 
 .pill--primary {

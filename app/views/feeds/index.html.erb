@@ -1,4 +1,4 @@
-<div class="mt-16 max-w-xl mx-auto">
+<div class="mt-16 max-w-4xl mx-auto">
   <% if @feeds.any? %>
     <header class="text-right mb-8">
       <%= link_to "Add new feed", new_feed_path, class: "btn btn--primary" %>
@@ -23,7 +23,7 @@
                 <% if feed.rss_feed_url.present? %>
                 <abbr title="<%= feed.rss_feed_url %>"><%= feed.url %></abbr>
                 <% else %>
-                  <%= feed.url %> <div class="pill pill--tertiary text-white-600 inline">No feed found</div>
+                  <%= feed.url %> <div class="pill pill--tertiary text-white-600">No feed found</div>
                 <% end %>
               </td>
               <td><%= link_to "Unfollow", feed, method: :delete, class: "pill pill--danger text-white-600", data: { confirm: "Are you sure you want to delete #{feed.name}?" } %></td>

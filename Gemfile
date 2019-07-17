@@ -70,6 +70,7 @@ gem "feedjira"
 gem "instagrammer"
 gem "capybara"
 gem "rollbar"
+gem "nokogiri"
 
 group :development do
   gem "rufo"

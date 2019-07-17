@@ -1,19 +1,32 @@
 <%= form_with(model: feed, local: true, class: "card card--light mb-8") do |form| %>
   <%= render "shared/flash", flash: feed.errors %>
 
-  <div class="card__content">
+  <div class="card__content" data-controller="feed">
+    <div class="field relative">
+      <div class="absolute hidden" style="top: 39px; right: 10px;" data-target="feed.loader">
+        <div class="loader-spinner"></div>
+      </div>
 
-    <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name, class: "input" %>
-    </div>
-    <div class="field">
+      <div class="absolute" style="top: 39px; right: 10px;">
+        <div class="pill pill--primary inline cursor-pointer hover:bg-blue-500 hover:text-white" data-target="feed.checkButton" data-action="click->feed#check">Check</div>
+      </div>
+
       <%= form.label :url %>
-      <%= form.url_field :url, class: "input" %>
+      <%= form.url_field :url, class: "input", data: { target: "feed.url", action: "change->feed#check" } %>
+    </div>
+
+    <div class="field <%= "hidden" if feed.name.blank? %>" data-target="feed.nameField">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: "input", data: { target: "feed.nameInput" } %>
+    </div>
+
+    <div class="field  <%= "hidden" if feed.rss_feed_url.blank? %>" data-target="feed.rssFeedUrlField">
+      <%= form.label :rss_feed_url %>
+      <%= form.url_field :rss_feed_url, class: "input", data: { target: "feed.rssFeedUrlInput" } %>
     </div>
 
     <div class="field flex justify-between items-center mb-0">
-      <%= form.submit class: "btn btn--primary" %>
+      <%= form.submit class: "btn btn--primary", data: { target: "feed.submitButton" } %>
 
       <% if feed.persisted? %>
         <%= link_to "Destroy", feed, method: :delete, class: "text-red-600", data: { confirm: "Are you sure?" } %>

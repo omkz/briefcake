@@ -6,7 +6,7 @@ class PageInfoFinder
   end
 
   def fetch!
-    visit @url
+    visit(@url.presence || "http://example.404")
     self
   rescue => e
     self

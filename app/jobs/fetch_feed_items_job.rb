@@ -41,7 +41,7 @@ class FetchFeedItemsJob < ApplicationJob
   private
 
   def instagram_user_name
-    if is_instagram?
+    if feed.is_instagram?
       matches = /instagram.com\/(.+?)\//.match(feed.url)
       if matches
         user_name = matches[1]

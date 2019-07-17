@@ -1,5 +1,5 @@
 // feed_controller.js
-import { Controller } from "stimulus";
+import {Controller} from "stimulus";
 import axios from "axios";
 
 export default class extends Controller {
@@ -8,36 +8,34 @@ export default class extends Controller {
     "rssFeedUrlField",
     "rssFeedUrlInput",
     "nameField",
-    "nameInput"
+    "nameInput",
+    "loader",
+    "submitButton",
+    "checkButton"
   ];
 
   check(event) {
-    this.rssFeedUrlFieldTarget.classList.add("hidden");
+    this.loaderTarget.classList.remove("hidden");
+    this.submitButtonTarget.classList.add("btn--disabled");
+    this.checkButtonTarget.classList.add("hidden");
 
     const url = `/feeds/check.json?url=${this.urlTarget.value}`;
 
-    console.log("check", url);
     axios
       .get(url)
       .then(response => {
         this.nameFieldTarget.classList.remove("hidden");
 
         const data = response.data;
-        if (data.rss_feed_url) {
-          this.rssFeedUrlFieldTarget.classList.remove("hidden");
-          this.rssFeedUrlInputTarget.value = data.rss_feed_url;
-        }
 
-        if (data.name) {
-          this.nameInputTarget.value = data.name;
-        }
+        this.rssFeedUrlFieldTarget.classList.remove("hidden");
+        this.rssFeedUrlInputTarget.value = data.rss_feed_url;
+        this.nameInputTarget.value = data.name;
       })
-      .catch(error => {
-        console.error(error);
+      .finally(() => {
+        this.loaderTarget.classList.add("hidden");
+        this.checkButtonTarget.classList.remove("hidden");
+        this.submitButtonTarget.classList.remove("btn--disabled");
       });
-  }
-
-  connect() {
-    console.log(this.rssFeedUrlFieldTarget);
   }
 }

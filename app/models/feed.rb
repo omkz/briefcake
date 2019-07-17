@@ -8,4 +8,8 @@ class Feed < ApplicationRecord
 
   has_many :feed_items, dependent: :destroy
   belongs_to :user
+
+  def is_instagram?
+    url.include?("instagram.com")
+  end
 end

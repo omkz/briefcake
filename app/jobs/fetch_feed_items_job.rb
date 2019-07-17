@@ -4,7 +4,7 @@ class FetchFeedItemsJob < ApplicationJob
   def perform(feed_id)
     @feed_id = feed_id
 
-    if is_instagram?
+    if feed.is_instagram?
       user = Instagrammer.new(instagram_user_name)
       begin
         user.get_posts(5).each do |post|
@@ -40,12 +40,8 @@ class FetchFeedItemsJob < ApplicationJob
 
   private
 
-  def is_instagram?
-    feed.url.include?("instagram.com")
-  end
-
   def instagram_user_name
-    if is_instagram?
+    if feed.is_instagram?
       matches = /instagram.com\/(.+?)\//.match(feed.url)
       if matches
         user_name = matches[1]
@@ -60,7 +56,7 @@ class FetchFeedItemsJob < ApplicationJob
   end
 
   def entries
-    xml = HTTParty.get(feed.url).body
+    xml = HTTParty.get(feed.rss_feed_url).body
     Feedjira.parse(xml).entries
   end
 end

@@ -14,6 +14,11 @@ class FeedsController < ApplicationController
   def show
   end
 
+  def check
+    page_info = PageInfoFinder.new(params[:url]).fetch!
+    render json: page_info.to_json
+  end
+
   # GET /feeds/new
   def new
     @feed = current_user.feeds.new
@@ -70,6 +75,6 @@ class FeedsController < ApplicationController
   end
 
   def feed_params
-    params.require(:feed).permit(:name, :url, :user_id)
+    params.require(:feed).permit(:name, :url, :rss_feed_url)
   end
 end

@@ -22,7 +22,7 @@
 
 .flashAnimation {
   animation-name: flashAnimation;
-  animation-duration: 10s;
+  animation-duration: 5s;
 
   &:hover {
     animation-play-state: paused;

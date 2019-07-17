@@ -14,8 +14,9 @@ class FeedsController < ApplicationController
   def show
   end
 
-  def find_rss_feed
-    render json: { result: RssUrlFinder.new(params[:url]).find_for_url }
+  def check
+    page_info = PageInfoFinder.new(params[:url]).fetch!
+    render json: page_info.to_json
   end
 
   # GET /feeds/new

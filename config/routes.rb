@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :feeds do
-    get :find_rss_feed, on: :collection
+    get :check, on: :collection
   end
   resource :billing, controller: "sjabloon/billing", only: [:create, :update, :destroy] do
     member do

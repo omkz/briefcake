@@ -21,10 +21,12 @@ class FetchFeedItemsJob < ApplicationJob
             end
           rescue => e
             Rails.logger.error "Exception: #{e} (feed: #{feed_id}}"
+            Rollbar.error(e)
           end
         end
       rescue => e
-        Rails.logger.error "Cannot fetch: #{instagram_user_name}: #{e}"
+        Rails.logger.error "Cannot fetch: #{feed.instagram_user_name}: #{e}"
+        Rollbar.error(e)
       end
     else
       entries.each do |feed_jira_entry|

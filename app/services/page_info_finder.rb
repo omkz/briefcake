@@ -21,6 +21,8 @@ class PageInfoFinder
     if /^https?:/.match(feed_url)
       feed_url
     else
+      feed_url = "/" + feed_url unless feed_url.start_with?("/")
+
       @uri.scheme + "://" + @uri.host + feed_url
     end
   rescue

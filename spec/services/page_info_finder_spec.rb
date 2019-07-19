@@ -63,5 +63,15 @@ describe PageInfoFinder do
         }
       )
     end
+    it "returns all data for another URL" do
+      find_for_url = PageInfoFinder.new("https://news.ycombinator.com/").fetch!
+
+      expect(find_for_url.to_json).to eq(
+        {
+          rss_feed_url: "https://news.ycombinator.com/rss",
+          name: "Hacker News",
+        }
+      )
+    end
   end
 end

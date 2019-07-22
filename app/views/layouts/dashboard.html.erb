@@ -36,6 +36,7 @@
             <div class="dropdown__items">
               <%= link_to "Billing", billing_path, class: "dropdown__item" %>
               <%= link_to "Edit account", edit_user_registration_path, class: "dropdown__item" %>
+              <%= link_to "Import .opml file", import_path, class: "dropdown__item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown__item" %>
             </div>
           </div>

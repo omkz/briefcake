@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get "import", to: "import#new"
+  post "import", to: "import#create"
+
   resources :feeds do
     get :check, on: :collection
   end

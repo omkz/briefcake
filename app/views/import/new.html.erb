@@ -1,0 +1,27 @@
+<div class="mt-16 max-w-xl mx-auto">
+  <h1 class="text-3xl mb-4">Import .opml file</h1>
+
+  <div class="card card--light mb-5">
+    <div class="card__content">
+
+      <% if @error_while_importing %>
+        <div class="bg-red-500 p-2 text-white mb-4">
+          <p>
+            Sorry, something went wrong while importing your OPML file. If you think this file is valid; please let me know.
+          </p>
+        </div>
+
+      <% else %>
+        <p class="mb-2">I hear you thinking, what's an OPML file?</p>
+        <p class="text-gray-600 mb-5">An OPML file is a document is used to exchange lists of Web feeds (such as .RSS files) between Web feed aggregators.</p>
+      <% end %>
+
+      <%= form_tag({ action: :create }, { multipart: true }) do %>
+        <%= file_field_tag :opml_file %>
+
+        <%= submit_tag "Import opml file", class: "btn btn--primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

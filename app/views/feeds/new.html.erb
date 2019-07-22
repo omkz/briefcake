@@ -2,5 +2,9 @@
   <h1 class="text-3xl mb-4">Add feed</h1>
 
   <%= render "form", feed: @feed %>
+
+  <p class="text-center text-gray-600">
+    <%= link_to "You can also import an .opml file", import_path %>
+  </p>
 </div>
 

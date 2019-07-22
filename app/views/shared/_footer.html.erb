@@ -4,6 +4,21 @@
       <%= link_to Rails.configuration.application_name, root_path, class: "text-sm text-gray-300 font-semibold uppercase tracking-wider" %>
       <p class="mt-2 text-xs text-gray-400">© <%= Time.zone.now.strftime("%Y") %></p>
     </div>
+
+    <ul class="footer__items">
+      <%= tag.h6 "About", class: "footer__item footer__heading" %>
+
+      <li class="footer__item">
+        <%= link_to "Roadmap", "https://wip.chat/products/2742/pending", class: "footer__link" %>
+      </li>
+
+      <li class="footer__item">
+        <%= link_to "Telegram community (support)", "https://t.me/rssmailer", class: "footer__link" %>
+      </li>
+    </ul>
+
   </div>
+
+
 </footer>
 

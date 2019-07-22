@@ -31,5 +31,5 @@
 
 en:
   customer:
-    one: "1 customer"
-    other: "%{count} customers"
+    one: "1 user"
+    other: "%{count} users"

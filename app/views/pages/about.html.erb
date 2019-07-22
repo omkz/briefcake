@@ -2,9 +2,51 @@
 <% content_for :page_description, "" %>
 
 <div class="mt-16 max-w-2xl mx-auto">
-  <h1 class="text-3xl mb-4">About</h1>
-  <p class="mb-8 text-lg text-gray-700">Tell a little story about how your product came to be, a vision, ideas and something more about you.</p>
+  <h1 class="text-3xl mb-4">About me</h1>
+  <p class="mb-8 text-lg text-gray-700">Hello, my name is Jankees van Woezik and I am an indie maker from the Netherlands. I have been making things for the internet for about ten years.</p>
 
-  <p class="mb-8">And let's continue the story here…</p>
+  <h1 class="text-3xl mb-4">About RSSMailer</h1>
+  <p class="mb-8 text-lg text-gray-700">During my last vacation it came to mind that I had a RSS reader on my computer but hadn't launched it in forever. That's when I realized that it's actually pretty hard to get such an app in your daily routine.</p>
+
+  <p class="mb-8 text-lg text-gray-700">That's why I made this small web application, it's a rss feed reader but instead of listing the new items in an app I sent them by email.</p>
+
+  <h1 class="text-2xl mb-4 text-gray-600" id="FAQ">Questions you might have</h1>
+
+  <%
+    qas = [
+      {
+          question: "What does it cost?",
+          answer: "That's a good question, I haven't figured out a business model yet. It will probably become a subscription service at some point, but until I decide what to do it's completely free."
+      },
+      {
+          question: "What about privacy?",
+          answer: "I only store what's necessary to make this service work, I don't track anything. I don't even have analytics installed."
+      },
+      {
+          question: "Does it only work with RSS?",
+          answer: "RSS works great for most sites, but because Instagram doesn't offer an RSS feed I made a custom crawler for public Instagram profiles. You can add those by supplying the users profile url."
+      },
+      {
+          question: "How much emails do I get?",
+          answer: "You receive one email per day, but only if there is anything new. I sent the mails out at 6 am UTC."
+      },
+     ]
+  %>
+
+  <ul class="list-reset accordion border rounded mb-5" data-controller="accordion" data-accordion-toggle-icon-class="accordion-item__icon--toggled" data-accordion-active-class="accordion-item__content--active">
+    <% qas.each do |qa| %>
+    <li class="accordion-item">
+      <header class="accordion-item__header" data-target="accordion.pointer" data-action="click->accordion#toggle">
+        <%= qa[:question] %>
+        <span class="accordion-item__icon" data-target="accordion.icon" role="button">
+              <svg viewbox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="inline-block w-3 h-3 text-gray-600 fill-current"> <g id="Page-1" stroke="none" stroke-width="1" fill-rule="evenodd"> <g id="icon-shape"> <polygon id="Combined-Shape" points="10 8.58578644 2.92893219 1.51471863 1.51471863 2.92893219 8.58578644 10 1.51471863 17.0710678 2.92893219 18.4852814 10 11.4142136 17.0710678 18.4852814 18.4852814 17.0710678 11.4142136 10 18.4852814 2.92893219 17.0710678 1.51471863 10 8.58578644"></polygon> </g> </g> </svg>
+            </span>
+      </header>
+      <div class="accordion-item__content" data-target="accordion.content">
+        <%= qa[:answer] %>
+      </div>
+    </li>
+      <% end %>
+  </ul>
 </div>
 

@@ -22,7 +22,7 @@
             <p class="font-medium text-sm">RSSMailer</p>
             <p class="font-light text-xs">
               Subject:
-              <span class="text-gray-800">RSSMailer – 15 new items on <%= I18n.l(Time.zone.today.to_date) %></span>
+              <span class="text-gray-800">RSSMailer – 3 new items on <%= I18n.l(Time.zone.today.to_date) %></span>
             </p>
             <p class="font-light text-xs">
               To:
@@ -36,8 +36,8 @@
     </div>
 
     <div class="mt-8">
-      <%= link_to "Sign up", new_user_registration_path, class: "btn btn--primary-outline mb-2" %>
-      <span class="block ml-2 text-xs text-gray-600">No credit card required, 14 day trial.</span>
+      <%= link_to "Create free account", new_user_registration_path, class: "btn btn--primary-outline mb-2" %>
+      <span class="block ml-2 text-xs text-gray-600">There is <%= link_to "no business model yet", about_path, class: "text-color underline" %>.</span>
     </div>
   </div>
 
@@ -92,9 +92,9 @@
   <div class="bg-blue-800" style="background: radial-gradient(1270.42px at 0% 0%, #14355F 0%, #2C5282 100%)">
     <div class="container max-w-5xl mx-auto px-4 text-center py-8 sm:py-32">
       <h3 class="mb-2 text-4xl leading-tight font-medium text-blue-100">Ready for that extra daily email?</h3>
-      <p class="text-lg text-blue-200">Start your your free 14-day trial today.</p>
+      <p class="text-lg text-blue-200">Create an account and add some websites.</p>
       <div class="mt-8">
-        <%= link_to "Start Free Trial", new_user_registration_path, class: "btn btn--primary-outline mb-2" %>
+        <%= link_to "Create account", new_user_registration_path, class: "btn btn--primary-outline mb-2" %>
       </div>
     </div>
   </div>

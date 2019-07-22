@@ -1,8 +1,8 @@
 class PagesController < ApplicationController
   def example
-    @zwarte_koffie_feed = Feed.new({ name: "Timo Kuilder @ Instagram" })
+    @zwarte_koffie_feed = Feed.new({ name: "Timo Kuilder" })
     @svn = Feed.new({ name: "Signal vs Noise" })
-    @lizanne = Feed.new({ name: "lizannevdwerf @ Instagram" })
+    @marjolein = Feed.new({ name: "Feisty Favorites" })
 
     items = [
       {
@@ -20,10 +20,10 @@ class PagesController < ApplicationController
         "publish_date": "2019-07-08T15:34:25.000Z" },
       {
         "title": "",
-        "description": "WINACTIE ⚡️Ik heb de wonderschone leeftijd van 32 jaar bereikt en dat mag gevierd worden!",
-        "link": "https://www.instagram.com/p/BzxlxaMIWdL/",
-        "feed": @lizanne,
-        "image_url": "https://scontent-amt2-1.cdninstagram.com/vp/e6e788875a1b6f8c8f2dae6689c896f0/5DE2885D/t51.2885-15/e35/p1080x1080/65391008_156860712105887_2203980285800787647_n.jpg?_nc_ht=scontent-amt2-1.cdninstagram.com",
+        "description": "Het weekend vloog echt voorbij met natuurlijk een heerlijke zondag met #moederdag. Maar nu weer lekker een hele dag aan het werk met leuke projecten ",
+        "link": "https://www.instagram.com/p/BxZgqNwlk2l/",
+        "feed": @marjolein,
+        "image_url": "https://scontent-amt2-1.cdninstagram.com/vp/a16c73973cb42c974324f7cb2baded8d/5DCEBF77/t51.2885-15/e35/59332429_1470122996456483_2154026295731590905_n.jpg?_nc_ht=scontent-amt2-1.cdninstagram.com",
         "publish_date": "2019-07-11T11:30:11.000Z"
       },
     ]

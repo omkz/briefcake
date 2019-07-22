@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
     resources :plans, controller: "sjabloon/plans", only: [:index, :update]
   end
+
   resource :card, controller: "sjabloon/card", only: [:update]
   resources :coupons, controller: "sjabloon/coupons", only: [:index]
   resources :charges, controller: "sjabloon/charges", only: [:show]
@@ -28,6 +29,7 @@ Rails.application.routes.draw do
   get "/terms", to: "pages#terms"
   get "/contact", to: "pages#contact"
   get "/about", to: "pages#about"
+  get "/example-email", to: "pages#example"
   root to: "pages#home"
   get "/500", to: "errors#server_error"
   get "/422", to: "errors#unacceptable"

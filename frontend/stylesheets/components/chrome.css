@@ -1,0 +1,68 @@
+@media (min-width: 640px) {
+  .chrome-wrapper {
+    width: 45%;
+    transform: scale(1.2) translateX(20px) translateY(0) perspective(3190px) rotateY(-29deg) rotateX(4deg) rotate(1deg);
+  }
+}
+
+.chrome {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  height: 380px;
+  padding-top: 1.5rem;
+  background-color: white;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+  0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-radius: 0.25rem;
+}
+
+.chrome__traffic-lights {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: #000000;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+@media (min-width: 640px) {
+  .chrome__traffic-lights {
+    position: fixed;
+  }
+}
+
+.chrome__traffic-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-right: 0.5rem;
+  color: #000000;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+
+.chrome__traffic-light--close {
+  background-color: #f56565;
+}
+
+.chrome__traffic-light--minimise {
+  background-color: #ed8936;
+}
+
+.chrome__traffic-light--maximise {
+  background-color: #48bb78;
+}
+
+.chrome__traffic-icon {
+  display: none;
+  fill: currentColor;
+}

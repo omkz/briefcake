@@ -6,7 +6,7 @@
 .hero__content {
   @apply px-4 pt-16 pb-16 mx-auto max-w-5xl;
 
-  @screen sm {
+  @screen md {
     @apply pt-32 pr-24 pb-24;
   }
 }
@@ -16,16 +16,16 @@
   @apply bg-gray-200 bg-cover;
   background-image: url("https://source.unsplash.com/3Mhgvrk4tjM/1200x800");
 
-  @screen sm {
+  @screen md {
     @apply absolute right-0 top-0 w-1/2 h-full;
   }
 }
 
 .hero__heading {
   @apply mb-4 w-full;
-  @apply text-3xl leading-tight font-bold;
+  @apply text-4xl leading-tight font-bold;
 
-  @screen sm {
+  @screen md {
     @apply w-1/2;
     @apply text-5xl;
   }
@@ -35,7 +35,7 @@
   @apply w-full mb-16;
   @apply text-xl font-normal text-gray-600;
 
-  @screen sm {
+  @screen md {
     @apply w-1/2;
     @apply text-2xl;
   }

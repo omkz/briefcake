@@ -1,12 +1,12 @@
-<div class="div mx-auto w-2/3">
+<div class="mx-auto max-w-4xl w-full px-5">
   <h1 class="text-2xl my-5">Happy <%= Time.zone.now.strftime("%A") %>,</h1>
 
   <% @feed_items.each do |item| %>
     <div class="card card--light mb-8">
       <div class="card__content">
-        <h1><%= link_to item.title, item.link %> - <%= item.feed.name %></h1>
-        <h4><%= I18n.l(item.publish_date.to_date, format: :long) %></h4>
-        <div class="text-left feed-content"><%= sanitize(item.description.to_s).html_safe %></div>
+        <h1 class="mb-0"><%= link_to [item.title.presence, item.feed.name].compact.join(" – "), item.link %></h1>
+        <h4 class="text-xs mb-3"><%= I18n.l(item.publish_date.to_date, format: :long) %></h4>
+        <div class="text-base text-left feed-content mb-4"><%= sanitize(item.description.to_s).html_safe %></div>
         <%= image_tag item.image_url if item.image_url %>
       </div>
     </div>

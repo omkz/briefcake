@@ -5,8 +5,8 @@ class FetchFeedItemsJob < ApplicationJob
     @feed_id = feed_id
 
     if feed.is_instagram?
-      user = Instagrammer.new(feed.instagram_user_name)
       begin
+        user = Instagrammer.new(feed.instagram_user_name)
         user.get_posts(5).each do |post|
           begin
             if post.photo?

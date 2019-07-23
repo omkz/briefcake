@@ -4,7 +4,11 @@
 <%= csrf_meta_tags %>
 <%= csp_meta_tag %>
 
-  <script src="https://js.stripe.com/v3/"></script><%= render "shared/social_media_meta_tags" %>
+<!--
+  <script src="https://js.stripe.com/v3/"></script>
+-->
+
+<%= render "shared/social_media_meta_tags" %>
 
 <%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
 <%= stylesheet_pack_tag "application", "data-turbolinks-track": "reload" %>

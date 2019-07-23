@@ -1,10 +1,16 @@
 class PagesController < ApplicationController
   def example
     @zwarte_koffie_feed = Feed.new({ name: "Timo Kuilder" })
-    @svn = Feed.new({ name: "Signal vs Noise" })
+    @svn = Feed.new({ name: "" })
     @marjolein = Feed.new({ name: "Feisty Favorites" })
 
     items = [
+      {
+        "title": "The hardest leadership advice",
+        "description": "We all know we’re supposed to “work on the business and not in the business” as a leader… but what holds us back?", "link": "https://m.signalvnoise.com/the-hardest-leadership-advice-to-follow/",
+        "feed": @svn,
+        "publish_date": "2019-07-08T15:34:25.000Z"
+      },
       {
         "title": "",
         "description": "Current obsession: drawing cloth and other things with folds and wrinkles.",
@@ -13,11 +19,6 @@ class PagesController < ApplicationController
         "image_url": "https://scontent-ams4-1.cdninstagram.com/vp/a91de7e7c59b0be019a95e99bc4bbb3e/5DE93DFC/t51.2885-15/e35/s1080x1080/65875199_2361690077450419_4165614864286443425_n.jpg?_nc_ht=scontent-ams4-1.cdninstagram.com",
         "publish_date": "2019-07-15T05:14:04.000Z"
       },
-      { "id": 109,
-        "title": "The hardest leadership advice to follow",
-        "description": "We all know we’re supposed to “work on the business and not in the business” as a leader… but what holds us back? And, how do you exactly put “stepping away” into practice? “Work on the business, not in the business. Pause. Step back. Take stock. Reflect. “ This is some of the most ubiquitous\u0026#8230; \u003ca class=\"read-more\" href=\"https://m.signalvnoise.com/the-hardest-leadership-advice-to-follow/\"\u003e\u003c/a\u003e", "link": "https://m.signalvnoise.com/the-hardest-leadership-advice-to-follow/",
-        "feed": @svn,
-        "publish_date": "2019-07-08T15:34:25.000Z" },
       {
         "title": "",
         "description": "Het weekend vloog echt voorbij met natuurlijk een heerlijke zondag met #moederdag. Maar nu weer lekker een hele dag aan het werk met leuke projecten ",

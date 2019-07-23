@@ -4,7 +4,7 @@
   <% @feed_items.each do |item| %>
     <div class="card card--light mb-8">
       <div class="card__content">
-        <h1 class="mb-0"><%= link_to [item.title.presence, item.feed.name].compact.join(" – "), item.link %></h1>
+        <h1 class="mb-0"><%= link_to [item.title.presence, item.feed.name.presence].compact.join(" – "), item.link %></h1>
         <h4 class="text-xs mb-3"><%= I18n.l(item.publish_date.to_date, format: :long) %></h4>
         <div class="text-base text-left feed-content mb-4"><%= sanitize(item.description.to_s).html_safe %></div>
         <%= image_tag item.image_url if item.image_url %>

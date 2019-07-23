@@ -9,6 +9,10 @@
     <% else %>
       <%= link_to "Sign up", new_user_registration_path, class: "nav__item btn btn--primary-outline" %>
     <% end %>
+
+      <%= link_to "About", about_path, class: "footer__link" %>
+        <%= link_to "FAQ", about_path(anchor: "faq"), class: "footer__link" %>
+        <%= link_to "Roadmap", "https://wip.chat/products/2742/pending", class: "footer__link" %>
     </div>
 
     <span role="link" class="navigation__toggle" data-target="navigation.toggle" data-action="click->navigation#toggle">menu</span>

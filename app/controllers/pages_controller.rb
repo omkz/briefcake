@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def stats
-    render plain: "#{User.count},#{Feed.count},#{FeedItem.count}"
+    render plain: "#{User.count},#{Feed.count},#{FeedItem.count},#{SentEmail.count}"
   end
 
   def example
@@ -35,6 +35,6 @@ class PagesController < ApplicationController
 
     @feed_items = items.map { |item_json| FeedItem.new(item_json) }
 
-    render "user_mailer/new_items", layout: "mailer"
+    render "user_mailer/new_i;tems", layout: "mailer"
   end
 end

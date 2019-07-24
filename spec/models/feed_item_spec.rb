@@ -27,11 +27,11 @@ describe FeedItem do
 
     it "returns items published after the day the feed is created" do
       feed = create(:feed, created_at: 1.week.ago)
-      old = create(:feed_item, feed: feed, publish_date: 1.year.ago)
-      new = create(:feed_item, feed: feed)
+      old_item = create(:feed_item, feed: feed, publish_date: 1.year.ago)
+      new_item = create(:feed_item, feed: feed)
 
-      expect(feed.feed_items.unseen_items).to include new
-      expect(feed.feed_items.unseen_items).not_to include old
+      expect(feed.feed_items.unseen_items).to include new_item
+      expect(feed.feed_items.unseen_items).not_to include old_item
     end
 
     it "can get the unseen_items for a user" do

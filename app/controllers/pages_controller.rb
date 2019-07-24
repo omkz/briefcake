@@ -1,4 +1,8 @@
 class PagesController < ApplicationController
+  def stats
+    render plain: "#{User.count},#{Feed.count},#{FeedItem.count}"
+  end
+
   def example
     @zwarte_koffie_feed = Feed.new({ name: "Timo Kuilder" })
     @svn = Feed.new({ name: "" })

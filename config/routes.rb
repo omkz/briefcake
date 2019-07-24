@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get "import", to: "import#new"
   post "import", to: "import#create"
 
+  get "unsubscribe", to: "unsubscribe#destroy"
+
   resources :feeds do
     get :check, on: :collection
   end
@@ -9,7 +11,9 @@ Rails.application.routes.draw do
   match "/delayed_job" => DelayedJobWeb, :anchor => false, :via => [:get, :post]
 
   resources :announcements, only: [:index]
+
   authenticated :user do
+
     root to: "feeds#index"
     get "dashboard", to: "dashboard#show"
   end
@@ -20,6 +24,7 @@ Rails.application.routes.draw do
   get "/stats.txt", to: "pages#stats"
 
   get "/example-email", to: "pages#example"
+
 
   root to: "pages#home"
 

@@ -1,6 +1,9 @@
 Rails.application.configure do
   config.middleware.use Rack::Deflater
 
+  config.application_domain = "https://rssmailer.app"
+  routes.default_url_options[:host] = config.application_domain
+
   config.action_mailer.default_url_options = { host: Rails.configuration.application_domain }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true

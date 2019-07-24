@@ -20,6 +20,7 @@
   <% end %>
 
   <p class="text-center mb-5 text-sm text-gray-600 max-w-2xl mx-auto">
-    You are receiving this email because signed up at <a href="https://rssmailer.app">rssmailer.app</a>.
+    You are receiving this email because signed up at
+    <a href="https://rssmailer.app">rssmailer.app</a>. If you want you can unsubscribe with <%= link_to "this unique url", @user.try(:unsubscribe_url) %>.
   </p>
 </div>

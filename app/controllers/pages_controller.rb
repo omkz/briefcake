@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   end
 
   def example
+    @user = current_user
     @feed_items = if current_user && current_user.feed_items.unseen_items.any?
                     current_user.feed_items.unseen_items
                   else

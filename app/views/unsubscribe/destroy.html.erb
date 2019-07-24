@@ -1,0 +1,15 @@
+<div class="mt-16 max-w-xl mx-auto">
+  <div class="card card--light my-24">
+    <div class="card__content">
+      <% if @resubscribe %>
+        <p>Great! You are now subscribed to our emails again!</p>
+        <p> Made a mistake? Click <%= link_to "unsubscribe", @user.unsubscribe_url %> again.</p>
+      <% else %>
+        <p>You are now unsubscribed from our emails.</p>
+        <p class="mb-6">Made a mistake? Click to <%= link_to "subscribe", @user.resubscribe_url %>.</p>
+        <p>Thanks for trying RSSMailer!</p>
+      <% end %>
+    </div>
+  </div>
+</div>
+

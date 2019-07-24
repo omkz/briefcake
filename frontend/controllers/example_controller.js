@@ -6,7 +6,7 @@ export default class extends Controller {
   connect() {
     window.addEventListener("scroll", event => {
       this.element.contentWindow.scrollTo({
-        top: event.pageY,
+        top: window.pageYOffset,
         left: 0,
         behavior: "smooth"
       });

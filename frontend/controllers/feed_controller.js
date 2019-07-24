@@ -36,6 +36,7 @@ export default class extends Controller {
         this.loaderTarget.classList.add("hidden");
         this.checkButtonTarget.classList.remove("hidden");
         this.submitButtonTarget.classList.remove("btn--disabled");
+        this.submitButtonTarget.classList.remove("hidden");
       });
   }
 }

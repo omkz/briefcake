@@ -44,6 +44,7 @@ describe FeedItem do
       create(:feed_item, feed: feed_b)
 
       expect(user_a.feed_items.unseen_items).to have(1).item
+      expect(user_b.feed_items.unseen_items).to have(2).item
     end
   end
 end

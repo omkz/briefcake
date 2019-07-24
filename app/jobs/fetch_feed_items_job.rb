@@ -29,13 +29,18 @@ class FetchFeedItemsJob < ApplicationJob
         Rollbar.error(e)
       end
     else
-      entries.each do |feed_jira_entry|
-        feed.feed_items.create(
-          title: feed_jira_entry.title,
-          description: feed_jira_entry.summary,
-          link: feed_jira_entry.url,
-          publish_date: feed_jira_entry.published,
-        )
+      begin
+        entries.each do |feed_jira_entry|
+          feed.feed_items.create(
+            title: feed_jira_entry.title,
+            description: feed_jira_entry.summary,
+            link: feed_jira_entry.url,
+            publish_date: feed_jira_entry.published,
+          )
+        end
+      rescue => e
+        Rails.logger.error "Cannot fetch: #{feed.id}: #{e}"
+        Rollbar.error(e)
       end
     end
   end
@@ -50,4 +55,5 @@ class FetchFeedItemsJob < ApplicationJob
     xml = HTTParty.get(feed.rss_feed_url).body
     Feedjira.parse(xml).entries
   end
+
 end

@@ -105,6 +105,11 @@ GEM
     equalizer (0.0.11)
     erubi (1.8.0)
     execjs (2.7.0)
+    factory_bot (5.0.2)
+      activesupport (>= 4.2.0)
+    factory_bot_rails (5.0.2)
+      factory_bot (~> 5.0.2)
+      railties (>= 4.2.0)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
     feedjira (3.0.0)
@@ -338,6 +343,7 @@ DEPENDENCIES
   delayed_job_web
   devise (~> 4.6, >= 4.6.2)
   devise_masquerade (~> 0.6.5)
+  factory_bot_rails
   feedjira
   foreman (~> 0.85.0)
   friendly_id (~> 5.2, >= 5.2.4)

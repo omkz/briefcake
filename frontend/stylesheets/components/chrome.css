@@ -1,4 +1,4 @@
-@media (min-width: 640px) {
+@media (min-width: 765px) {
   .chrome-wrapper {
     width: 45%;
     transform: scale(1.2) translateX(20px) translateY(0) perspective(3190px) rotateY(-29deg) rotateX(4deg) rotate(1deg);

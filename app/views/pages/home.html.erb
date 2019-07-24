@@ -30,14 +30,13 @@
             </p>
           </div>
 
-          <iframe src="/example-email" class="flex-grow w-full"></iframe>
+          <iframe src="/example-email" class="flex-grow w-full" data-controller="example"></iframe>
         </div>
       </div>
     </div>
 
     <div class="mt-8">
       <%= link_to "Get started", new_user_registration_path, class: "btn btn--primary-outline mb-2" %>
-      <span class="block ml-2 text-xs text-gray-600">There is <%= link_to "no business model yet", about_path, class: "text-color underline" %>.</span>
     </div>
   </div>
 
@@ -64,6 +63,7 @@
     </div>
   </div>
 </div>
+<% if false %>
 
 <div class="bg-white">
   <div class="container max-w-5xl mx-auto px-4 py-8 sm:py-32">
@@ -88,6 +88,8 @@
 
     </div>
   </div>
+
+  <% end %>
 
   <div class="bg-blue-800" style="background: radial-gradient(1270.42px at 0% 0%, #14355F 0%, #2C5282 100%)">
     <div class="container max-w-5xl mx-auto px-4 text-center py-8 sm:py-32">

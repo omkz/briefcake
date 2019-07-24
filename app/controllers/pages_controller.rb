@@ -35,6 +35,6 @@ class PagesController < ApplicationController
 
     @feed_items = items.map { |item_json| FeedItem.new(item_json) }
 
-    render "user_mailer/new_i;tems", layout: "mailer"
+    render "user_mailer/new_items", layout: "mailer"
   end
 end

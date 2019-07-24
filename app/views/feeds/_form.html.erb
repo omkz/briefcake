@@ -8,10 +8,10 @@
       </div>
 
       <div class="absolute" style="top: 39px; right: 10px;">
-        <div class="pill pill--primary inline cursor-pointer hover:bg-blue-500 hover:text-white" data-target="feed.checkButton" data-action="click->feed#check">Check</div>
+        <div class="pill pill--primary inline cursor-pointer hover:bg-blue-500 hover:text-white" data-target="feed.checkButton" data-action="click->feed#check">Find RSS feed</div>
       </div>
 
-      <%= form.label :url %>
+      <%= form.label :url, "Site url" %>
       <%= form.url_field :url, class: "input", data: { target: "feed.url", action: "change->feed#check" } %>
     </div>
 

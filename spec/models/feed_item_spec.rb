@@ -1,6 +1,20 @@
 require "rails_helper"
 
 describe FeedItem do
+  describe "#publish_date" do
+    it "sets the publish_date if its not present" do
+      feed_item = create(:feed_item, publish_date: nil)
+      expect(feed_item.publish_date).to be_today
+    end
+
+    it "doesnt set the publish date if it's present" do
+      one_week_ago = 1.week.ago
+
+      feed_item = create(:feed_item, publish_date: one_week_ago)
+      expect(feed_item.publish_date).to eq one_week_ago
+    end
+  end
+
   describe "#unseed" do
     it "returns all items that are not sent" do
       feed = create(:feed, created_at: 1.month.ago)

@@ -7,6 +7,14 @@ class FeedItem < ApplicationRecord
 
   before_validation :add_publish_date
 
+  def link
+    if self[:link].blank?
+      feed.url
+    else
+      self[:link]
+    end
+  end
+
   def self.unseen_items
     joins(:feed).where("publish_date > feeds.created_at").where(sent_at: nil)
   end

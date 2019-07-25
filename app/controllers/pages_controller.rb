@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
   def example
     @zwarte_koffie_feed = Feed.new({ name: "Timo Kuilder" })
-    @svn = Feed.new({ name: "" })
+    @svn = Feed.new({ name: "Signal vs. Noise" })
     @marjolein = Feed.new({ name: "Feisty Favorites" })
 
     items = [

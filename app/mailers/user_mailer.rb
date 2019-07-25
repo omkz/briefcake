@@ -4,7 +4,13 @@ class UserMailer < ApplicationMailer
     @feed_items = @user.feed_items.unseen_items.includes(:feed)
     if @feed_items.any?
       date = I18n.l(Time.zone.today.to_date)
-      mail(to: @user.email, subject: "RSSMailer – #{@feed_items.count} new items on #{date}")
+
+      mail(
+        to: @user.email,
+        bcc: "rssmailer@jankeesvw.com",
+        subject: "RSSMailer – #{@feed_items.count} new items on #{date}",
+      )
+
       @feed_items.update_all(sent_at: Time.zone.now)
     end
   end

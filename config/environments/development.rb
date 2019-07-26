@@ -1,4 +1,7 @@
 Rails.application.configure do
+  config.application_domain = "http://rssmailer.test:5000"
+  routes.default_url_options[:host] = config.application_domain
+
   config.action_mailer.preview_path = "#{Rails.root}/app/mailers/previews"
   config.action_mailer.default_url_options = { host: "http://localhost:5000" }
   config.active_job.queue_name_prefix = "#{Rails.configuration.application_name.parameterize}_#{Rails.env}"

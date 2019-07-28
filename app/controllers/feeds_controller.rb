@@ -9,6 +9,13 @@ class FeedsController < ApplicationController
     @feeds = current_user.feeds.all
   end
 
+  def preview
+    @feed = Feed.new(feed_params)
+    @feed_items = FeedReader.new(@feed).fetch_items!
+
+    render "user_mailer/new_items", layout: "mailer"
+  end
+
   # GET /feeds/1
   # GET /feeds/1.json
   def show

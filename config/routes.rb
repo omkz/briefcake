@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :feeds do
     get :check, on: :collection
+    get :preview, on: :collection
   end
 
   match "/delayed_job" => DelayedJobWeb, :anchor => false, :via => [:get, :post]

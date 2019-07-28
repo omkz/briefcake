@@ -35,6 +35,6 @@ class Feed < ApplicationRecord
   end
 
   def is_instagram?
-    url.include?("instagram.com")
+    url.present? && url.include?("instagram.com")
   end
 end

@@ -12,17 +12,17 @@
       </div>
 
       <%= form.label :url, "Website url" %>
-      <%= form.url_field :url, class: "input", data: { target: "feed.url", action: "change->feed#check" } %>
+      <%= form.url_field :url, class: "input feed-input", data: { target: "feed.url", action: "change->feed#check" } %>
     </div>
 
     <div class="field <%= "hidden" if feed.name.blank? %>" data-target="feed.nameField">
       <%= form.label :name %>
-      <%= form.text_field :name, class: "input", data: { target: "feed.nameInput" } %>
+      <%= form.text_field :name, class: "input feed-input", data: { target: "feed.nameInput" } %>
     </div>
 
     <div class="field  <%= "hidden" if feed.rss_feed_url.blank? %>" data-target="feed.rssFeedUrlField">
       <%= form.label :rss_feed_url, "RSS Feed URL" %>
-      <%= form.url_field :rss_feed_url, class: "input", data: { target: "feed.rssFeedUrlInput" } %>
+      <%= form.url_field :rss_feed_url, class: "input feed-input", data: { target: "feed.rssFeedUrlInput" } %>
     </div>
 
     <div class="field flex justify-between items-center mb-0">

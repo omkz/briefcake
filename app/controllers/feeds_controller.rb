@@ -10,12 +10,18 @@ class FeedsController < ApplicationController
   end
 
   def preview
+    if params[:feed].blank?
+      render status: :no_content
+      return
+    end
+
     if params[:fetch] === "true"
       @feed = Feed.new(feed_params)
       @feed_items = FeedReader.new(@feed).fetch_items!
       render "user_mailer/new_items", layout: "mailer"
     else
       @params = feed_params
+      Rails.logger.debug params: @params
       render layout: "clean"
     end
   end

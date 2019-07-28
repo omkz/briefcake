@@ -5,8 +5,9 @@ export default class extends Controller {
   static targets = ["iframe"];
 
   connect() {
-    const debouncedRefresh = debounce(this.refreshFrame.bind(this), 500);
+    const debouncedRefresh = debounce(this.refreshFrame.bind(this), 1000);
     this.element.addEventListener("keyup", debouncedRefresh);
+    this.element.addEventListener("change", debouncedRefresh);
     this.element.addEventListener("change", debouncedRefresh);
   }
 

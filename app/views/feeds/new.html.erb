@@ -5,11 +5,12 @@
     <div class="md:w-1/2">
       <%= render "form", feed: @feed %>
     </div>
-    <div class="w-1/2 hidden md:block">
-      <iframe data-target="preview.iframe" src="<%= preview_feeds_path %>" class="w-full" style="height: 400px"/>
+    <div class="w-1/2 hidden md:block relative">
+      <%= render "pages/chrome" do %>
+        <iframe data-target="preview.iframe" class="w-full" style="height: 400px"/>
+      <% end %>
     </div>
   </div>
-
 
   <p class="text-center text-gray-600">
     <%= link_to "You can also import an .opml file", import_path %>

@@ -9,31 +9,9 @@
       Follow a website, blog or profile on the internet and get a periodical update by email.
     </h2>
 
-    <div class="home-chrome-wrapper text-white md:absolute bg-white top-0 text-black md:mt-40" style="right: 80px">
-      <div class="chrome">
-        <div class="chrome__traffic-lights">
-          <span class="chrome__traffic-light chrome__traffic-light--close" role="button"></span>
-          <span class="chrome__traffic-light chrome__traffic-light--minimise" role="button"></span>
-          <span class="chrome__traffic-light chrome__traffic-light--maximise" role="button"></span>
-        </div>
-
-        <div class="flex flex-col h-full w-full pt-1 text-black justify-between">
-          <div class="border-b p-2">
-            <p class="font-medium text-sm">RSSMailer</p>
-            <p class="font-light text-xs">
-              Subject:
-              <span class="text-gray-800">RSSMailer – 3 new items on <%= I18n.l(Time.zone.today.to_date) %></span>
-            </p>
-            <p class="font-light text-xs">
-              To:
-              <span class="text-gray-800">Jankees van Woezik</span>
-            </p>
-          </div>
-
-          <iframe src="/example-email" class="flex-grow w-full" data-controller="example"></iframe>
-        </div>
-      </div>
-    </div>
+    <%= render "chrome" do %>
+      <iframe src="/example-email" class="flex-grow w-full" data-controller="example"></iframe>
+    <% end %> %>
 
     <div class="mt-8">
       <%= link_to "Get started", new_user_registration_path, class: "btn btn--primary-outline mb-2" %>

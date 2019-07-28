@@ -15,10 +15,17 @@ class FeedsController < ApplicationController
       return
     end
 
-    if params[:fetch] === "true"
+    @fetch = params[:fetch] === "true"
+    if @fetch
       @feed = Feed.new(feed_params)
       @feed_items = FeedReader.new(@feed).fetch_items!
-      render "user_mailer/new_items", layout: "mailer"
+
+      if @feed_items.any?
+        render "user_mailer/new_items", layout: "mailer"
+      else
+        @error = true
+        render layout: "clean"
+      end
     else
       @params = feed_params
       Rails.logger.debug params: @params

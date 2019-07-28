@@ -14,12 +14,11 @@ export default class extends Controller {
   refreshFrame() {
     let data = {};
     let url = this.data.get("url") + "?";
+
     this.element.querySelectorAll(".feed-input").forEach(el => {
       data[el.getAttribute("name")] = el.value;
       url += "&" + el.getAttribute("name") + "=" + encodeURI(el.value);
     });
-
-    console.log(url);
 
     this.iframeTarget.src = url;
   }

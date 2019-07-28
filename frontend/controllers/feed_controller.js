@@ -41,7 +41,6 @@ export default class extends Controller {
         var event = document.createEvent("Event");
         event.initEvent("checkedFeed", true, true);
         this.element.dispatchEvent(event);
-        console.log(event);
       });
   }
 }

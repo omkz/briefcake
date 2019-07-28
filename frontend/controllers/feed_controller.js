@@ -1,5 +1,5 @@
 // feed_controller.js
-import {Controller} from "stimulus";
+import { Controller } from "stimulus";
 import axios from "axios";
 
 export default class extends Controller {
@@ -38,10 +38,9 @@ export default class extends Controller {
         this.submitButtonTarget.classList.remove("btn--disabled");
         this.submitButtonTarget.classList.remove("hidden");
 
-        const event = document.createEvent("HTMLEvents");
-        event.initEvent("change", true, true);
+        var event = document.createEvent("Event");
+        event.initEvent("checkedFeed", true, true);
         this.element.dispatchEvent(event);
-
         console.log(event);
       });
   }

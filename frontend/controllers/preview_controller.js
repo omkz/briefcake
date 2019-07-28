@@ -8,7 +8,7 @@ export default class extends Controller {
     const debouncedRefresh = debounce(this.refreshFrame.bind(this), 1000);
     this.element.addEventListener("keyup", debouncedRefresh);
     this.element.addEventListener("change", debouncedRefresh);
-    this.element.addEventListener("change", debouncedRefresh);
+    this.element.addEventListener("checkedFeed", this.refreshFrame.bind(this));
   }
 
   refreshFrame() {

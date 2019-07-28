@@ -7,7 +7,7 @@ class FeedReader
     begin
       if feed.is_instagram?
         user = Instagrammer.new(feed.instagram_user_name)
-        user.get_posts(5).map do |post|
+        user.get_posts(3).map do |post|
           if post.photo?
             @feed.feed_items.new(
               title: post.caption + "x",

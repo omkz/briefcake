@@ -2,7 +2,7 @@
   <h1 class="text-3xl mb-4">Add feed</h1>
 
   <div class="w-full flex" data-controller="preview" data-preview-url="<%= preview_feeds_path %>">
-    <div class="md:w-1/2">
+    <div class="w-full md:w-1/2">
       <%= render "form", feed: @feed %>
     </div>
     <div class="w-1/2 hidden md:block relative">

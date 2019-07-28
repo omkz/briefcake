@@ -18,8 +18,9 @@ class FeedReader
           else
             Rollbar.error("Import failed, not a photo (feed: #{feed.url}}")
             Rails.logger.warn "Import failed, not a photo (feed: #{feed.url}}"
+            nil
           end
-        end
+        end.compact
       else
         rss_feed_entries.map do |feed_jira_entry|
           feed.feed_items.new(

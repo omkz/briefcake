@@ -23,7 +23,7 @@
     <div class="dashboard-nav-secondary">
       <%# Example usage here: search, secondary navigation items, etc.  Do not forget to change the `justify-end` in `.dashboard-nav-secondary`. %>
 
-      <%= link_to embedded_svg("announcement.svg", class: "inline-flex justify-center items-center w-4 h-4 -ml-1 fill-current"), announcements_path, class: "nav__item-announcements #{unread_announcements_class(current_user)}" %>
+      <%= link_to embedded_svg("announcement.svg", class: "inline-flex justify-center items-center w-4 h-4 -ml-1 fill-current"), "https://wip.chat/products/2742/updates", class: "nav__item-announcements" %>
       <div class="dashboard-nav-secondary__account">
         <div class="dropdown" data-controller="dropdown">
           <div class="dropdown__toggle" data-action="click->dropdown#toggle click@window->dropdown#hide" role="button">

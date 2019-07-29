@@ -30,6 +30,13 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
+
+VCR.configure do |config|
+  config.cassette_library_dir = "fixtures/vcr_cassettes"
+  config.hook_into :webmock
+  config.ignore_localhost = true
+end
+
 RSpec.configure do |config|
   config.include DeviseRequestSpecHelpers, type: :feature
 

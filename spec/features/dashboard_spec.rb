@@ -1,11 +1,18 @@
 require "rails_helper"
 
 feature "Dashboard" do
-  it "sees the dashboard" do
+  it "adds hacker news as feed" do
     sign_in create(:user)
-
     visit root_path
+    click_link "👌 Add first feed"
 
-    expect(page).to have_text("It's time to add your first feed, press the button.")
+    VCR.use_cassette("hacker-news") do
+      fill_in "feed[url]", with: "https://news.ycombinator.com/"
+      click_button "Find RSS feed"
+      click_button "Add"
+    end
+
+    expect(page).to have_content "Feed was successfully created."
+    expect(page).to have_content "Hacker News"
   end
 end

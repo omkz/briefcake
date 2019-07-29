@@ -16,14 +16,12 @@ feature "sending emails" do
       end
 
       EmailUsersJob.perform_now
-      expect(FeedItem.count).to eq 1
       expect(ActionMailer::Base.deliveries).to have(0).deliveries
 
       VCR.use_cassette("timi-blog-2") do
         FetchFeedItemsJob.perform_later(feed.id)
       end
 
-      expect(FeedItem.count).to eq 2
       EmailUsersJob.perform_now
 
       deliveries = ActionMailer::Base.deliveries
@@ -37,7 +35,6 @@ feature "sending emails" do
         FetchFeedItemsJob.perform_later(feed.id)
       end
 
-      expect(FeedItem.count).to eq 4
       EmailUsersJob.perform_now
 
       deliveries = ActionMailer::Base.deliveries
@@ -62,14 +59,12 @@ feature "sending emails" do
       end
 
       EmailUsersJob.perform_now
-      expect(FeedItem.count).to eq 1
       expect(ActionMailer::Base.deliveries).to have(0).deliveries
 
       VCR.use_cassette("timi-blog-2-rev") do
         FetchFeedItemsJob.perform_later(feed.id)
       end
 
-      expect(FeedItem.count).to eq 2
       EmailUsersJob.perform_now
 
       deliveries = ActionMailer::Base.deliveries

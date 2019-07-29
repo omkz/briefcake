@@ -1,0 +1,106 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://timiapp.com/blog.rss
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/rss+xml; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - 9e6776e2-3c31-4726-b2c0-5aae598201b2
+      X-Download-Options:
+      - noopen
+      Etag:
+      - W/"d279dfd355160dd108eec15e398c4e52"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Runtime:
+      - '0.034096'
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Mon, 29 Jul 2019 18:15:59 GMT
+      Set-Cookie:
+      - _Tango_session=MDMxbEpVdWdveWlZWUVxNTM2ckF5Z1pZOGJ0RHYyTWZib3drRWQrUEtHazdTMVNTZ29IZXVSNWJybDAwVWZFN1hvcFBFZW5kazhXTkZ0N3hZUUo5RWp0SUdOQXhtQ25OcGVJMkVVZG5DWGhrTENBeC9hRWZLRHFqZ3UzU0tSTEYtLXFiNVduc0VUY0M5ZTUrWkt3RzNDcUE9PQ%3D%3D--f68a0e10d19fa9d506c49ed4aaa57bb259142e30;
+        path=/; secure; HttpOnly
+      X-Powered-By:
+      - Phusion Passenger 5.2.3
+      - cloud66
+      Server:
+      - nginx + Phusion Passenger 5.2.3
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <rss version="2.0">
+          <channel>
+            <title>Timi – Blog</title>
+            <description>Artikelen over Timi, bootstrapped ondernemen, productivity en alles wat een Lean
+              Startup zoal meemaakt!
+            </description>
+            <link>https://timiapp.com/blog</link>
+            <item>
+              <title>fourth item in feed</title>
+              <description>D</description>
+              <pubDate>04 Oct 2016</pubDate>
+              <link>https://timiapp.com/blog/d</link>
+              <guid>https://timiapp.com/blog/d</guid>
+            </item>
+            <item>
+              <title>third item in feed</title>
+              <description>C</description>
+              <pubDate>04 Oct 2016</pubDate>
+              <link>https://timiapp.com/blog/c</link>
+              <guid>https://timiapp.com/blog/c</guid>
+            </item>
+            <item>
+              <title>second item in feed</title>
+              <description>B</description>
+              <pubDate>04 Oct 2015</pubDate>
+              <link>https://timiapp.com/blog/b</link>
+              <guid>https://timiapp.com/blog/b</guid>
+            </item>
+            <item>
+              <title>first item in feed</title>
+              <description>A</description>
+              <pubDate>18 Sep 2015</pubDate>
+              <link>https://timiapp.com/blog/a</link>
+              <guid>https://timiapp.com/blog/a</guid>
+            </item>
+          </channel>
+        </rss>
+    http_version:
+  recorded_at: Mon, 29 Jul 2019 18:15:50 GMT
+recorded_with: VCR 5.0.0

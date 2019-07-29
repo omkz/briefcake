@@ -4,5 +4,6 @@ FactoryBot.define do
     last_name { "Joe" }
     sequence (:email) { |i| "email+#{i}@example.com" }
     password { "secret" }
+    unsubscribed_at { nil }
   end
 end

@@ -5,8 +5,9 @@
     </svg>
   <% else %>
     <div class="loader-spinner"></div>
+
+    <script type="text/javascript">
+      window.location.href = '<%= preview_feeds_path(params: { feed: @params, fetch: true }) %>';
+    </script>
   <% end %>
 </div>
-<script type="text/javascript">
-  Turbolinks.visit('<%= preview_feeds_path(params: { feed: @params, fetch: true }) %>')
-</script>

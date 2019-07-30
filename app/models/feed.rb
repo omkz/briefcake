@@ -7,7 +7,6 @@ class Feed < ApplicationRecord
   validates :name, presence: true
 
   after_create :set_publish_date_last_sent_item!
-  has_many :feed_items, dependent: :destroy
   belongs_to :user
 
   def can_be_fetched?
@@ -40,6 +39,8 @@ class Feed < ApplicationRecord
   end
 
   def new_items!
+    return [] if publish_date_last_sent_item.nil?
+
     items!.filter { |item| item.publish_date > self.publish_date_last_sent_item }
   end
 

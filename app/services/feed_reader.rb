@@ -9,7 +9,8 @@ class FeedReader
         user = Instagrammer.new(feed.instagram_user_name)
         user.get_posts(3).map do |post|
           if post.photo?
-            @feed.feed_items.new(
+            FeedItem.new(
+              feed: feed,
               title: post.caption + "x",
               link: "https://www.instagram.com/p/#{post.shortcode}/",
               publish_date: post.upload_date,
@@ -23,7 +24,8 @@ class FeedReader
         end.compact
       else
         rss_feed_entries.map do |feed_jira_entry|
-          feed.feed_items.new(
+          FeedItem.new(
+            feed: feed,
             title: feed_jira_entry.title,
             description: feed_jira_entry.summary,
             link: feed_jira_entry.url,
@@ -36,7 +38,7 @@ class FeedReader
       Rollbar.error(e)
       puts e
       []
-    end.sort_by(&:publish_date)
+    end.sort_by(&:publish_date).reverse
   end
 
   private

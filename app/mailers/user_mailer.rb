@@ -8,7 +8,7 @@ class UserMailer < ApplicationMailer
       items
     end.flatten.compact
 
-    if @feed_items.any?
+    if @feed_items.any? && @user.wants_email?
       date = I18n.l(Time.zone.today.to_date)
 
       mail(

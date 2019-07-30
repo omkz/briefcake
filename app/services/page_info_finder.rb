@@ -20,6 +20,9 @@ class PageInfoFinder
 
     if /^https?:/.match(feed_url)
       feed_url.to_s.squish
+    elsif
+    /^\/\//.match(feed_url)
+      @uri.scheme + ":" + feed_url
     else
       feed_url = feed_url.to_s.squish
       feed_url = "/" + feed_url unless feed_url.start_with?("/")

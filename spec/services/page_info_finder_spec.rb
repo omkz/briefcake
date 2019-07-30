@@ -92,5 +92,18 @@ describe PageInfoFinder do
                                         )
       end
     end
+
+    it "can handle // as feed url" do
+      VCR.use_cassette("page_info_finder/zachholman") do
+        find_for_url = PageInfoFinder.new("https://zachholman.com").fetch!
+
+        expect(find_for_url.to_json).to eq(
+                                          {
+                                            rss_feed_url: "https://zachholman.com/atom.xml",
+                                            name: "Zach Holman",
+                                          }
+                                        )
+      end
+    end
   end
 end

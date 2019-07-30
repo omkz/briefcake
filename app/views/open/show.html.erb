@@ -1,0 +1,16 @@
+<div class="max-w-2xl mx-auto my-20 text-center">
+  <div class="mb-20">
+    <h1>Number of sent emails per day</h1>
+    <%= line_chart SentEmail.group_by_day(:created_at).count %>
+  </div>
+
+  <div class="mb-20">
+    <h1>Number of users created per day</h1>
+    <%= line_chart User.group_by_day(:created_at).count %>
+  </div>
+
+  <div class="mb-20">
+    <h1>Number of feeds created per day</h1>
+    <%= line_chart Feed.group_by_day(:created_at).count %>
+  </div>
+</div>

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get "unsubscribe", to: "unsubscribe#destroy"
 
+  get "open", to: "open#show"
+
   resources :feeds do
     get :check, on: :collection
     get :preview, on: :collection

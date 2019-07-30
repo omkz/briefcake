@@ -6,6 +6,7 @@ class Feed < ApplicationRecord
   validates :url, url: true
   validates :name, presence: true
 
+  after_create :set_publish_date_last_sent_item!
   has_many :feed_items, dependent: :destroy
   belongs_to :user
 
@@ -36,5 +37,19 @@ class Feed < ApplicationRecord
 
   def is_instagram?
     url.present? && url.include?("instagram.com")
+  end
+
+  def new_items!
+    items!.filter { |item| item.publish_date > self.publish_date_last_sent_item }
+  end
+
+  def items!
+    FeedReader.new(self).fetch_items!
+  end
+
+  private
+
+  def set_publish_date_last_sent_item!
+    update_column(:publish_date_last_sent_item, items!.first.publish_date)
   end
 end

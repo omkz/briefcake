@@ -1,7 +1,13 @@
 class UserMailer < ApplicationMailer
   def new_items(user_id)
     @user = User.find(user_id)
-    @feed_items = @user.feed_items.unseen_items.includes(:feed)
+
+    @feed_items = @user.feeds.map do |feed|
+      items = feed.new_items!
+      feed.update_column(:publish_date_last_sent_item, items.first.publish_date) if items.any?
+      items
+    end.flatten.compact
+
     if @feed_items.any?
       date = I18n.l(Time.zone.today.to_date)
 
@@ -10,8 +16,6 @@ class UserMailer < ApplicationMailer
         bcc: "rssmailer@jankeesvw.com",
         subject: "RSSMailer – #{@feed_items.count} new items on #{date}",
       )
-
-      @feed_items.update_all(sent_at: Time.zone.now)
     end
   end
 end

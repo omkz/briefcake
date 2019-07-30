@@ -34,8 +34,9 @@ class FeedReader
     rescue => e
       Rails.logger.error "Cannot fetch: #{feed.id}: #{e}"
       Rollbar.error(e)
+      puts e
       []
-    end
+    end.sort_by(&:publish_date)
   end
 
   private

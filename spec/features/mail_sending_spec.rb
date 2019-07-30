@@ -9,20 +9,24 @@ feature "sending emails" do
     date_between_posts = Time.local(2015, 9, 19, 10, 5)
 
     Timecop.travel(date_between_posts) do
-      feed = timi_blog_feed(create(:user))
+      feed = nil
 
       VCR.use_cassette("timi-blog-1") do
-        FetchFeedItemsJob.perform_later(feed.id)
+        feed = timi_blog_feed(create(:user))
       end
 
-      EmailUsersJob.perform_now
+      VCR.use_cassette("timi-blog-1") do
+        EmailUsersJob.perform_now
+      end
+
       expect(ActionMailer::Base.deliveries).to have(0).deliveries
+      expect(feed.reload.publish_date_last_sent_item).to eq Time.utc(2015, 9, 18)
 
       VCR.use_cassette("timi-blog-2") do
-        FetchFeedItemsJob.perform_later(feed.id)
+        EmailUsersJob.perform_now
       end
 
-      EmailUsersJob.perform_now
+      expect(feed.reload.publish_date_last_sent_item).to eq Time.utc(2015, 10, 4)
 
       deliveries = ActionMailer::Base.deliveries
       email = deliveries.first
@@ -32,10 +36,10 @@ feature "sending emails" do
       expect(email).to have_body_text(/second item in feed/)
 
       VCR.use_cassette("timi-blog-3") do
-        FetchFeedItemsJob.perform_later(feed.id)
+        EmailUsersJob.perform_now
       end
 
-      EmailUsersJob.perform_now
+      expect(feed.reload.publish_date_last_sent_item).to eq Time.utc(2016, 10, 4)
 
       deliveries = ActionMailer::Base.deliveries
       email = deliveries.last
@@ -45,6 +49,12 @@ feature "sending emails" do
       expect(email).not_to have_body_text(/second item in feed/)
       expect(email).to have_body_text(/third item in feed/)
       expect(email).to have_body_text(/fourth item in feed/)
+
+      VCR.use_cassette("timi-blog-3") do
+        EmailUsersJob.perform_now
+      end
+
+      expect(ActionMailer::Base.deliveries).to have(2).deliveries
     end
   end
 
@@ -55,17 +65,14 @@ feature "sending emails" do
       feed = timi_blog_feed(create(:user))
 
       VCR.use_cassette("timi-blog-1") do
-        FetchFeedItemsJob.perform_later(feed.id)
+        EmailUsersJob.perform_now
       end
 
-      EmailUsersJob.perform_now
       expect(ActionMailer::Base.deliveries).to have(0).deliveries
 
       VCR.use_cassette("timi-blog-2-rev") do
-        FetchFeedItemsJob.perform_later(feed.id)
+        EmailUsersJob.perform_now
       end
-
-      EmailUsersJob.perform_now
 
       deliveries = ActionMailer::Base.deliveries
       email = deliveries.first

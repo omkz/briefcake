@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 2019_07_24_193335) do
     t.string "subject"
     t.text "body"
     t.string "sender"
+    t.string "receiver"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -22,6 +22,9 @@ require "rspec/rails"
 #
 Dir[Rails.root.join("spec", "support", "**", "*.rb")].each { |f| require f }
 
+require "email_spec"
+require "email_spec/rspec"
+
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
 begin
@@ -30,9 +33,16 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
+
+VCR.configure do |config|
+  config.cassette_library_dir = "fixtures/vcr_cassettes"
+  config.hook_into :webmock
+  config.ignore_localhost = true
+  config.allow_http_connections_when_no_cassette = true
+end
+
 RSpec.configure do |config|
-  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.include DeviseRequestSpecHelpers, type: :feature
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false

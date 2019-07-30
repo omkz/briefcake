@@ -1,15 +1,16 @@
 <meta property="og:site_name" content="<%= Rails.configuration.application_name %>">
-<meta property="og:title" content="<%= content_for?(:page_title)? yield(:page_title) : "#{Rails.configuration.application_name}" %>" />
-<meta property="og:description" content="<%= content_for?(:page_description)? yield(:page_description) : "" %>">
-<meta property="og:type" content="<%= content_for?(:page_type)? yield(:page_type) : "website" %>" />
-<meta property="og:url" content="<%= request.original_url %>" />
-<%= content_tag :meta, nil, { property: "og:image", content: "#{ content_for?(:page_image_facebook)? yield(:page_image_facebook) : "" }" } %>
+<meta property="og:title" content="<%= content_for?(:page_title) ? yield(:page_title) : "#{Rails.configuration.application_name}" %>"/>
+<meta property="og:description" content="Follow a website, blog or profile on the internet and get a periodical update by email.">
+<meta property="og:type" content="<%= content_for?(:page_type) ? yield(:page_type) : "website" %>"/>
+<meta property="og:url" content="<%= request.original_url %>"/>
+<meta property="og:image" content="<%= image_url("social-image.jpg") %>"/>
+
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="">
-<meta name="twitter:domain" value="<%= Rails.configuration.application_naked_domain %>" />
-<meta name="twitter:title" value="<%= content_for?(:page_title)? yield(:page_title) : "#{Rails.configuration.application_name}" %>" />
-<meta name="twitter:description" value="<%= content_for?(:page_description)? yield(:page_description) : "" %>" />
-<%= content_tag :meta, nil, { property: "twitter:image", content: "#{ content_for?(:page_image_twitter)? yield(:page_image_twitter) : "" }" } %>
-<meta name="twitter:url" value="<%= request.original_url %>" />
+<meta name="twitter:domain" value="<%= Rails.configuration.application_naked_domain %>"/>
+<meta name="twitter:title" value="<%= content_for?(:page_title) ? yield(:page_title) : "#{Rails.configuration.application_name}" %>"/>
+<meta name="twitter:description" value="Follow a website, blog or profile on the internet and get a periodical update by email.">
+<meta property="twitter:image" content="<%= image_url("social-image.jpg") %>"/>
+<meta name="twitter:url" value="<%= request.original_url %>"/>
 

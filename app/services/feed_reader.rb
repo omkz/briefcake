@@ -34,7 +34,7 @@ class FeedReader
         end
       end
     rescue => e
-      Rails.logger.error "Cannot fetch: #{feed.id}: #{e}"
+      Rails.logger.error "Cannot fetch: #{feed.url}: #{e}"
       Rollbar.error(e)
       puts e
       []

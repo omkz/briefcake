@@ -35,7 +35,7 @@ class Feed < ApplicationRecord
   end
 
   def is_instagram?
-    url.present? && url.include?("instagram.com")
+    url.present? && url.start_with?("https://www.instagram.com/")
   end
 
   def new_items!

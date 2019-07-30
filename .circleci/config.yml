@@ -34,11 +34,12 @@ jobs:
             - v1-gem-cache-{{ arch }}-{{ checksum "Gemfile.lock" }}
             - v1-gem-cache-{{ arch }}-
             - v1-gem-cache-{{ arch }}
-            -
-      - run: bundle install && bundle clean
+
+      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
+
       - save_cache:
           paths:
-            - ~/.bundle
+            - vendor/bundle
           key: v1-gem-cache-{{ arch }}-{{ checksum "Gemfile.lock" }}
 
       - run:

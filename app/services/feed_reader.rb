@@ -4,12 +4,13 @@ class FeedReader
   end
 
   def fetch_items!
-    begin
+    items = begin
       if feed.is_instagram?
         user = Instagrammer.new(feed.instagram_user_name)
         user.get_posts(3).map do |post|
           if post.photo?
-            @feed.feed_items.new(
+            FeedItem.new(
+              feed: feed,
               title: post.caption + "x",
               link: "https://www.instagram.com/p/#{post.shortcode}/",
               publish_date: post.upload_date,
@@ -23,19 +24,24 @@ class FeedReader
         end.compact
       else
         rss_feed_entries.map do |feed_jira_entry|
-          feed.feed_items.new(
-            title: feed_jira_entry.title,
-            description: feed_jira_entry.summary,
+          FeedItem.new(
+            feed: feed,
+            title: feed_jira_entry.title.to_s.squish,
+            description: feed_jira_entry.summary.to_s.squish,
             link: feed_jira_entry.url,
             publish_date: feed_jira_entry.published,
           )
         end
       end
     rescue => e
-      Rails.logger.error "Cannot fetch: #{feed.id}: #{e}"
-      Rollbar.error(e)
+      exception = "Cannot fetch: #{feed.url} - #{feed.id}: #{e}"
+      Rails.logger.info exception
+      Rollbar.info exception
       []
     end
+
+    items = [] if items.nil?
+    items.sort_by(&:publish_date).reverse
   end
 
   private

@@ -11,3 +11,5 @@ application.load(definitionsFromContext(context))
 
 import "../stylesheets/application.css"
 
+require("chartkick")
+require("chart.js")

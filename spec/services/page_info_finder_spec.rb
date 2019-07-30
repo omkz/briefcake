@@ -80,7 +80,7 @@ describe PageInfoFinder do
       end
     end
 
-    it "returns all data for another URL" do
+    it "strips white space" do
       VCR.use_cassette("page_info_finder/hackernews") do
         find_for_url = PageInfoFinder.new("https://news.ycombinator.com/").fetch!
 

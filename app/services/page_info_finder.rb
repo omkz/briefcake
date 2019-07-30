@@ -19,8 +19,9 @@ class PageInfoFinder
     feed_url = @document.css("link[rel=alternate][type*=xml]")[0]["href"]
 
     if /^https?:/.match(feed_url)
-      feed_url
+      feed_url.to_s.squish
     else
+      feed_url = feed_url.to_s.squish
       feed_url = "/" + feed_url unless feed_url.start_with?("/")
 
       @uri.scheme + "://" + @uri.host + feed_url
@@ -30,7 +31,7 @@ class PageInfoFinder
   end
 
   def name
-    @document.css("title")[0].text
+    @document.css("title")[0].text.to_s.squish
   rescue
     nil
   end

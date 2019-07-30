@@ -6,7 +6,7 @@ class Feed < ApplicationRecord
   validates :url, url: true
   validates :name, presence: true
 
-  after_create :set_publish_date_last_sent_item!
+  after_create :populate_publish_date_last_sent_item!
   belongs_to :user
 
   def can_be_fetched?
@@ -45,12 +45,25 @@ class Feed < ApplicationRecord
   end
 
   def items!
-    FeedReader.new(self).fetch_items!
+    items = FeedReader.new(self).fetch_items!
+
+    if items.none?
+      exception = "No valid items found in feed: #{url} - #{id}"
+      Rails.logger.info exception
+      Rollbar.info exception
+    end
+
+    items
   end
 
   private
 
-  def set_publish_date_last_sent_item!
-    update_column(:publish_date_last_sent_item, items!.first.publish_date)
+  def populate_publish_date_last_sent_item!
+    newest_item = items!.first
+    if newest_item.present?
+      update_column(:publish_date_last_sent_item, newest_item.publish_date)
+    else
+      update_column(:publish_date_last_sent_item, Time.zone.now)
+    end
   end
 end

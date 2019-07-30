@@ -26,8 +26,8 @@ class FeedReader
         rss_feed_entries.map do |feed_jira_entry|
           FeedItem.new(
             feed: feed,
-            title: feed_jira_entry.title,
-            description: feed_jira_entry.summary,
+            title: feed_jira_entry.title.to_s.squish,
+            description: feed_jira_entry.summary.to_s.squish,
             link: feed_jira_entry.url,
             publish_date: feed_jira_entry.published,
           )

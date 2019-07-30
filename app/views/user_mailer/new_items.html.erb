@@ -2,8 +2,8 @@
   <h1 class="text-2xl my-5">Happy <%= Time.zone.now.strftime("%A") %>,</h1>
 
   <% @feed_items.each do |item| %>
-    <div class="card card--light mb-8">
-      <div class="card__content">
+    <div class="mb-8 border bg-white border-gray-300">
+      <div class="p-4">
         <% if item.title.present? && item.feed.name.present? %>
           <h1 class="mb-0">
             <%= link_to item.title, item.link %><span class="text-gray-600"> - <%= item.feed.name %></span>
@@ -13,8 +13,8 @@
         <% end %>
 
         <h4 class="text-xs mb-3"><%= I18n.l(item.publish_date.to_date, format: :long) %></h4>
-        <div class="text-base text-left feed-content mb-4"><%= sanitize(item.description.to_s).html_safe %></div>
-        <%= image_tag item.image_url if item.image_url %>
+        <div class="text-base text-left feed-content"><%= sanitize(item.description.to_s).html_safe %></div>
+        <%= image_tag(item.image_url, class: "mt-4") if item.image_url %>
       </div>
     </div>
   <% end %>

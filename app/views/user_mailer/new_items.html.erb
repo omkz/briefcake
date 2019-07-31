@@ -1,18 +1,40 @@
-<div class="mx-auto max-w-4xl w-full px-5">
-  <h1 class="text-2xl my-5">Happy <%= Time.zone.now.strftime("%A") %>,</h1>
+<div class="mx-auto max-w-2xl w-full px-5">
+
+  <div class="bg-gray-200 px-4 py-6 my-5 mb-8 text-gray-500">
+    <div class="text-gray-600 text-xs -mb-1">RSSMailer</div>
+    <h1 class="text-2xl text-black">Happy <%= Time.zone.now.strftime("%A") %>,</h1>
+
+    <% if @index.present? %>
+      <div class="border-t-2 my-3"></div>
+      <div class="text-sm">
+        <div class="text-gray-700 mb-1">In today's issue:</div>
+        <% @index.each_pair do |item, value| %>
+          <div class="text-gray-600">- <%= value %> from <%= item %></div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
 
   <% @feed_items.each do |item| %>
-    <div class="mb-8 border bg-white border-gray-300">
+    <div class="mb-8 border bg-white border-gray-300 rounded-lg">
       <div class="p-4">
         <% if item.title.present? && item.feed.name.present? %>
-          <h1 class="mb-0">
-            <%= link_to item.title, item.link %><span class="text-gray-600"> - <%= item.feed.name %></span>
-          </h1>
-        <% else %>
-          <h1 class="mb-0"><%= link_to [item.title.presence, item.feed.name.presence].compact.join(""), item.link %></h1>
-        <% end %>
+          <div class="text-xs text-gray-600 font-normal mb-2">
+            <%= item.feed.name %> - <%= I18n.l(item.publish_date.to_date, format: "%B %-d, %Y") %>
+          </div>
 
-        <h4 class="text-xs mb-3"><%= I18n.l(item.publish_date.to_date, format: :long) %></h4>
+          <div class="text-base font-normal text-black font-medium mb-4">
+            <%= link_to item.title, item.link, class: "black underline" %>
+          </div>
+        <% else %>
+          <div class="text-xs text-gray-600 font-normal mb-2">
+            <%= I18n.l(item.publish_date.to_date, format: :long) %>
+          </div>
+          <div class="text-base font-normal text-black font-medium mb-4">
+            <%= link_to [item.title.presence, item.feed.name.presence].compact.join(""), item.link, class: "black underline" %>
+          </div>
+        <% end %>
         <div class="text-base text-left feed-content"><%= sanitize(item.description.to_s).html_safe %></div>
         <%= image_tag(item.image_url, class: "mt-4") if item.image_url %>
       </div>
@@ -20,7 +42,7 @@
   <% end %>
 
   <p class="text-center mb-5 text-sm text-gray-600 max-w-2xl mx-auto">
-    You are receiving this email because you signed up at <a href="https://rssmailer.app">rssmailer.app</a>. 
-    If you want, you can unsubscribe with <%= link_to "this unique url", @user.try(:unsubscribe_url) %>.
+    You are receiving this email because you signed up at
+    <a href="https://rssmailer.app">rssmailer.app</a>. If you want, you can unsubscribe with <%= link_to "this unique url", @user.try(:unsubscribe_url) %>.
   </p>
 </div>

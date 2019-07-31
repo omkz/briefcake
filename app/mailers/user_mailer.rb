@@ -2,9 +2,13 @@ class UserMailer < ApplicationMailer
   def new_items(user_id)
     @user = User.find(user_id)
 
+    @index = {}
     @feed_items = @user.feeds.map do |feed|
       items = feed.new_items!
-      feed.update_column(:publish_date_last_sent_item, items.first.publish_date) if items.any?
+      if items.any?
+        feed.update_column(:publish_date_last_sent_item, items.first.publish_date)
+        @index[feed.name] = items.count
+      end
       items
     end.flatten.compact
 
@@ -17,5 +21,17 @@ class UserMailer < ApplicationMailer
         subject: "RSSMailer – #{@feed_items.count} new items on #{date}",
       )
     end
+  end
+
+  def test_email(to)
+    @user = User.first
+    @feed_items = SampleContent.items
+    @index = SampleContent.index
+
+    mail(
+      to: to,
+      subject: "RSSMailer test email - #{rand}",
+      template_name: "new_items",
+    )
   end
 end

@@ -5,6 +5,8 @@ class PagesController < ApplicationController
 
   def example
     @feed_items = SampleContent.items
+    @index = SampleContent.index
+
     render "user_mailer/new_items", layout: "mailer"
   end
 end

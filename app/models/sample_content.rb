@@ -31,4 +31,12 @@ class SampleContent
 
     items.map { |item_json| FeedItem.new(item_json) }
   end
+
+  def self.index
+    {
+      "Signal vs Noise": 1,
+      "Timo Kuilder Instagram": 1,
+      "Feisty favorites Instagram": 1
+    }
+  end
 end

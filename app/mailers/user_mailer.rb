@@ -18,4 +18,15 @@ class UserMailer < ApplicationMailer
       )
     end
   end
+
+  def test_email(to)
+    @user = User.first
+    @feed_items = SampleContent.items
+
+    mail(
+      to: to,
+      subject: "RSSMailer test email - #{rand}",
+      template_name: "new_items",
+    )
+  end
 end

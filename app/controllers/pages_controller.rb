@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
   def example
     @feed_items = SampleContent.items
-    @index = SampleContent.index
+    @index = SampleContent.index unless params[:no_index].present?
 
     render "user_mailer/new_items", layout: "mailer"
   end

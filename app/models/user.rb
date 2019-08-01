@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_person_name
   has_many :announcements
   has_many :feeds
+  has_many :sent_emails
 
   scope :who_want_emails, -> { where(unsubscribed_at: nil) }
 

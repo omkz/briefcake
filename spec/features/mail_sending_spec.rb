@@ -10,9 +10,10 @@ feature "sending emails" do
 
     Timecop.travel(date_between_posts) do
       feed = nil
+      user = create(:user)
 
       VCR.use_cassette("timi-blog-1") do
-        feed = timi_blog_feed(create(:user))
+        feed = timi_blog_feed(user)
       end
 
       VCR.use_cassette("timi-blog-1") do
@@ -35,6 +36,14 @@ feature "sending emails" do
       expect(email).not_to have_body_text(/first item in feed/)
       expect(email).to have_body_text(/second item in feed/)
 
+      expect(SentEmail).to have(1).record
+      sent_email = SentEmail.last
+      expect(sent_email.subject).to eq "RSSMailer – 1 new items on 2015-09-19"
+      expect(sent_email.number_of_items).to eq 1
+      expect(sent_email.index).to eq({ "Timi blog" => 1 })
+      expect(sent_email.receiver).to eq user.email
+      expect(sent_email.user).to eq user
+
       VCR.use_cassette("timi-blog-3") do
         EmailUsersJob.perform_now
       end
@@ -55,6 +64,14 @@ feature "sending emails" do
       end
 
       expect(ActionMailer::Base.deliveries).to have(2).deliveries
+
+      expect(SentEmail).to have(2).record
+      sent_email = SentEmail.last
+      expect(sent_email.subject).to eq "RSSMailer – 2 new items on 2015-09-19"
+      expect(sent_email.number_of_items).to eq 2
+      expect(sent_email.index).to eq({ "Timi blog" => 2 })
+      expect(sent_email.receiver).to eq user.email
+      expect(sent_email.user).to eq user
     end
   end
 

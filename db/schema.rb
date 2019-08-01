@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_30_050331) do
+ActiveRecord::Schema.define(version: 2019_08_01_061306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,12 +103,12 @@ ActiveRecord::Schema.define(version: 2019_07_30_050331) do
 
   create_table "sent_emails", force: :cascade do |t|
     t.string "subject"
-    t.text "body"
-    t.string "sender"
     t.string "receiver"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.json "index"
+    t.integer "number_of_items"
     t.index ["user_id"], name: "index_sent_emails_on_user_id"
   end
 

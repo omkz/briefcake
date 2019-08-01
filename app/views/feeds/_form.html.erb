@@ -12,7 +12,7 @@
       </div>
 
       <%= form.label :url, "Website url" %>
-      <%= form.url_field :url, class: "input feed-input", data: { target: "feed.url", action: "change->feed#check" } %>
+      <%= form.url_field :url, class: "input feed-input pr-32", data: { target: "feed.url", action: "change->feed#check" } %>
     </div>
 
     <div class="field <%= "hidden" if feed.name.blank? %>" data-target="feed.nameField">

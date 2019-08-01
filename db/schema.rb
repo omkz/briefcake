@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_01_061306) do
+ActiveRecord::Schema.define(version: 2019_08_01_142605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,19 +62,6 @@ ActiveRecord::Schema.define(version: 2019_08_01_061306) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
-  end
-
-  create_table "feed_items", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
-    t.string "link"
-    t.datetime "sent_at"
-    t.bigint "feed_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "image_url"
-    t.datetime "publish_date"
-    t.index ["feed_id"], name: "index_feed_items_on_feed_id"
   end
 
   create_table "feeds", force: :cascade do |t|
@@ -215,6 +202,5 @@ ActiveRecord::Schema.define(version: 2019_08_01_061306) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "announcements", "users"
-  add_foreign_key "feed_items", "feeds"
   add_foreign_key "feeds", "users"
 end

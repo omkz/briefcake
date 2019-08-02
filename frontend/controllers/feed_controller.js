@@ -13,6 +13,12 @@ export default class extends Controller {
     "submitButton",
     "checkButton"
   ];
+  
+  example(event) {
+    this.urlTarget.value = event.currentTarget.dataset.url;
+
+    this.check();
+  }
 
   check(event) {
     this.loaderTarget.classList.remove("hidden");

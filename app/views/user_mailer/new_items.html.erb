@@ -1,15 +1,15 @@
-<div class="mx-auto max-w-2xl w-full px-5">
+<div class="mx-auto max-w-2xl w-full px-5 pt-5">
 
-  <div class="bg-gray-200 px-4 py-6 my-5 mb-8 text-gray-500">
-    <div class="text-gray-600 text-xs -mb-1">
-      RSSMailer
-      <% if @user %>
-        - Issue #<%= (@user.sent_emails.count + 1).to_s.rjust(3, '0')  %>
-      <% end %>
-    </div>
-    <h1 class="text-2xl text-black">Happy <%= Time.zone.now.strftime("%A") %>,</h1>
+  <% if @index.present? %>
+    <div class="bg-gray-200 px-4 py-6 mb-5 text-gray-500">
+      <div class="text-gray-600 text-xs -mb-1">
+        RSSMailer
+        <% if @user %>
+          - Issue #<%= (@user.sent_emails.count + 1).to_s.rjust(3, '0') %>
+        <% end %>
+      </div>
+      <h1 class="text-2xl text-black">Happy <%= Time.zone.now.strftime("%A") %>,</h1>
 
-    <% if @index.present? %>
       <div class="border-t-2 my-3"></div>
       <div class="text-sm">
         <div class="text-gray-700 mb-1">In today's issue:</div>
@@ -17,8 +17,8 @@
           <div class="text-gray-600">- <%= value %> from <%= item %></div>
         <% end %>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 
 
   <% @feed_items.each do |item| %>

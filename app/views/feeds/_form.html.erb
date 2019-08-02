@@ -1,37 +1,55 @@
-<%= form_with(model: feed, local: true, class: "card card--light mb-8") do |form| %>
-  <%= render "shared/flash", flash: feed.errors %>
+<div data-controller="feed">
+  <%= form_with(model: feed, local: true, class: "card card--light mb-8") do |form| %>
+    <%= render "shared/flash", flash: feed.errors %>
 
-  <div class="card__content" data-controller="feed">
-    <div class="field relative">
-      <div class="absolute hidden" style="top: 39px; right: 10px;" data-target="feed.loader">
-        <div class="loader-spinner"></div>
+    <div class="card__content">
+      <div class="field relative">
+        <div class="absolute hidden" style="top: 39px; right: 10px;" data-target="feed.loader">
+          <div class="loader-spinner"></div>
+        </div>
+
+        <div class="absolute" style="top: 39px; right: 10px;">
+          <button type="button" class="pill pill--primary inline cursor-pointer hover:bg-blue-500 hover:text-white" data-target="feed.checkButton" data-action="click->feed#check">Find RSS feed</button>
+        </div>
+
+        <%= form.label :url, "Website url" %>
+        <%= form.url_field :url, class: "input feed-input pr-32", data: { target: "feed.url" } %>
       </div>
 
-      <div class="absolute" style="top: 39px; right: 10px;">
-        <button type="button" class="pill pill--primary inline cursor-pointer hover:bg-blue-500 hover:text-white" data-target="feed.checkButton" data-action="click->feed#check">Find RSS feed</button>
+      <div class="field <%= "hidden" if feed.name.blank? %>" data-target="feed.nameField">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: "input feed-input", data: { target: "feed.nameInput" } %>
       </div>
 
-      <%= form.label :url, "Website url" %>
-      <%= form.url_field :url, class: "input feed-input pr-32", data: { target: "feed.url" } %>
+      <div class="field  <%= "hidden" if feed.rss_feed_url.blank? %>" data-target="feed.rssFeedUrlField">
+        <%= form.label :rss_feed_url, "RSS Feed URL" %>
+        <%= form.url_field :rss_feed_url, class: "input feed-input", data: { target: "feed.rssFeedUrlInput" } %>
+      </div>
+
+      <div class="field flex justify-between items-center mb-0">
+        <%= form.submit feed.persisted? ? 'Update' : 'Add', class: "btn btn--primary #{'hidden' unless feed.persisted?}", data: { target: "feed.submitButton" } %>
+
+        <% if feed.persisted? %>
+          <%= link_to "Unfollow", feed, method: :delete, class: "text-red-600", data: { confirm: "Are you sure?" } %>
+        <% end %>
+      </div>
     </div>
+  <% end %>
 
-    <div class="field <%= "hidden" if feed.name.blank? %>" data-target="feed.nameField">
-      <%= form.label :name %>
-      <%= form.text_field :name, class: "input feed-input", data: { target: "feed.nameInput" } %>
+  <% unless feed.persisted? %>
+    <div>
+      <div class="text-gray-600 mb-2">Looking for inspiration? These are popular websites that work with RSSMailer:</div>
+
+      <div class="leading-relaxed">
+        <%= render 'example_feed', name: " lifehacker.com", url: "https://lifehacker.com" %>
+        <%= render 'example_feed', name: "Ars Technica", url: "https://arstechnica.com/" %>
+        <%= render 'example_feed', name: "The Next Web", url: "https://thenextweb.com/" %>
+        <%= render 'example_feed', name: "The Atlantic - Politics", url: "https://www.theatlantic.com/world/" %>
+        <%= render 'example_feed', name: "Basecamp", url: "https://m.signalvnoise.com/" %>
+        <%= render 'example_feed', name: "New York times", url: "https://www.nytimes.com/" %>
+        <%= render 'example_feed', name: "The Verge", url: "https://www.theverge.com/" %>
+        <%= render 'example_feed', name: "Mac Rumors", url: "https://www.macrumors.com" %>
+      </div>
     </div>
-
-    <div class="field  <%= "hidden" if feed.rss_feed_url.blank? %>" data-target="feed.rssFeedUrlField">
-      <%= form.label :rss_feed_url, "RSS Feed URL" %>
-      <%= form.url_field :rss_feed_url, class: "input feed-input", data: { target: "feed.rssFeedUrlInput" } %>
-    </div>
-
-    <div class="field flex justify-between items-center mb-0">
-      <%= form.submit feed.persisted? ? 'Update' : 'Add', class: "btn btn--primary #{'hidden' unless feed.persisted?}", data: { target: "feed.submitButton" } %>
-
-      <% if feed.persisted? %>
-        <%= link_to "Unfollow", feed, method: :delete, class: "text-red-600", data: { confirm: "Are you sure?" } %>
-      <% end %>
-    </div>
-  </div>
-<% end %>
-
+  <% end %>
+</div>

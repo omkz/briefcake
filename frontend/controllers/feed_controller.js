@@ -9,6 +9,8 @@ export default class extends Controller {
     "rssFeedUrlInput",
     "nameField",
     "nameInput",
+    "rssFeedTruncationField",
+    "rssFeedTruncationInput",
     "loader",
     "submitButton",
     "checkButton"
@@ -35,6 +37,7 @@ export default class extends Controller {
         const data = response.data;
 
         this.rssFeedUrlFieldTarget.classList.remove("hidden");
+        this.rssFeedTruncationFieldTarget.classList.remove("hidden");
         this.rssFeedUrlInputTarget.value = data.rss_feed_url;
         this.nameInputTarget.value = data.name;
       })

@@ -26,6 +26,11 @@
         <%= form.url_field :rss_feed_url, class: "input feed-input", data: { target: "feed.rssFeedUrlInput" } %>
       </div>
 
+      <div class="field  <%= "hidden" unless feed.persisted? %>" data-target="feed.rssFeedTruncationField">
+        <%= form.label :truncation, "Modify article text" %>
+        <%= form.select :truncation, options_for_select([["Leave the text as is", ""], ["Remove text and only show the title", "0"]], ""), {}, class: "select feed-input", data: { target: "feed.rssFeedTruncationInput" } %>
+      </div>
+
       <div class="field flex justify-between items-center mb-0">
         <%= form.submit feed.persisted? ? 'Update' : 'Add', class: "btn btn--primary #{'hidden' unless feed.persisted?}", data: { target: "feed.submitButton" } %>
 

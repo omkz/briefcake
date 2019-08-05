@@ -9,6 +9,8 @@ class Feed < ApplicationRecord
   after_create :populate_publish_date_last_sent_item!
   belongs_to :user
 
+  default_scope { order(:name)}
+
   def can_be_fetched?
     if is_instagram?
       true

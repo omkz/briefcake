@@ -3,6 +3,7 @@ class SampleContent
     zwarte_koffie_feed = Feed.new({ name: "Timo Kuilder" })
     signal_vs_noise = Feed.new({ name: "Signal vs. Noise" })
     marjolein = Feed.new({ name: "Feisty Favorites" })
+    mkbhd = Feed.new({ name: "Marques Brownlee - YouTube" })
     hacker_news = Feed.new({ name: "Hacker news", truncation: 0 })
 
     items = [
@@ -12,7 +13,6 @@ class SampleContent
         "feed": signal_vs_noise,
         "publish_date": "2019-07-08T15:34:25.000Z",
       },
-
       {
         "title": "Show HN: I interviewed the maker of the privacy-first Google Analytics rival",
         "link": "https://news.ycombinator.com/item?id=20613892",
@@ -31,6 +31,14 @@ class SampleContent
         "feed": hacker_news,
         "publish_date": "2019-08-3T11:30:11.000Z",
       },
+      {
+        "title": "The Last (and First) Folding Phone!",
+        "link": "https://www.youtube.com/watch?v=ROkXM3csNWY",
+        "image_url": "https://i3.ytimg.com/vi/ROkXM3csNWY/hqdefault.jpg",
+        "feed": mkbhd,
+        "publish_date": "2019-07-20T22:30:11.000Z",
+      },
+
       {
         "title": "",
         "description": "Current obsession: drawing cloth and other things with folds and wrinkles.",

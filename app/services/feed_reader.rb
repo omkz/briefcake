@@ -30,6 +30,7 @@ class FeedReader
             description: feed_jira_entry.summary.to_s.squish,
             link: feed_jira_entry.url,
             publish_date: feed_jira_entry.published,
+            image_url: feed_jira_entry.try(:media_thumbnail_url)
           )
         end
       end

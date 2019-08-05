@@ -11,7 +11,7 @@ class FeedReader
           if post.photo?
             FeedItem.new(
               feed: feed,
-              title: post.caption + "x",
+              title: post.caption,
               link: "https://www.instagram.com/p/#{post.shortcode}/",
               publish_date: post.upload_date,
               image_url: post.image_url,

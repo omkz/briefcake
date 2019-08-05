@@ -8,14 +8,24 @@ class PageInfoFinder
 
   def fetch!
     @request = HTTParty::Request.new(Net::HTTP::Get, @url)
-    @document = Nokogiri::HTML(@request.perform)
+    @performed_request = @request.perform
+    @document = Nokogiri::HTML(@performed_request)
     @uri = @request.last_uri
     self
   rescue => e
     self
   end
 
+  def is_rss_feed?
+    @feed = Feedjira.parse(@performed_request.body)
+    true
+  rescue
+    false
+  end
+
   def rss_feed_url
+    return @url if is_rss_feed?
+
     feed_url = @document.css("link[rel=alternate][type*=xml]")[0]["href"]
 
     if /^https?:/.match(feed_url)
@@ -34,6 +44,7 @@ class PageInfoFinder
   end
 
   def name
+    return @feed.title if is_rss_feed?
     @document.css("title")[0].text.to_s.squish
   rescue
     nil

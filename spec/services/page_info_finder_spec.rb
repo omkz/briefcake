@@ -57,6 +57,7 @@ describe PageInfoFinder do
     it "follows redirects" do
       VCR.use_cassette("page_info_finder/timi_with_redirect") do
         find_for_url = PageInfoFinder.new("https://www.timiapp.com/blog").fetch!
+        expect(find_for_url.is_rss_feed?).to be_falsey
 
         expect(find_for_url.to_json).to eq(
                                           {
@@ -68,6 +69,20 @@ describe PageInfoFinder do
     end
 
     it "returns all data for a URL" do
+      VCR.use_cassette("page_info_finder/ars_technica") do
+        find_for_url = PageInfoFinder.new("http://feeds.arstechnica.com/arstechnica/index/").fetch!
+        expect(find_for_url.is_rss_feed?).to be_truthy
+
+        expect(find_for_url.to_json).to eq(
+                                          {
+                                            name: "Ars Technica",
+                                            rss_feed_url: "http://feeds.arstechnica.com/arstechnica/index/",
+                                          }
+                                        )
+      end
+    end
+
+    it "returns all data for a RSS feed" do
       VCR.use_cassette("page_info_finder/daringfireball") do
         find_for_url = PageInfoFinder.new("https://daringfireball.net/").fetch!
 

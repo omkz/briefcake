@@ -26,12 +26,14 @@
             <%= content_tag :tr, id: dom_id(feed) do %>
               <td>
                 <% if feed.is_instagram? %>
-                  📷 <%= feed.instagram_user_name %>
-                <% else %>
-                  <%= link_to [:edit, feed] do %>
-                    <abbr title="<%= feed.fetch_url %>"><%= feed.name %></abbr>
-                  <% end %>
+                  <%= image_tag "instagram-brands.svg", width: 20, class: "inline" %>
+                <% elsif feed.is_youtube? %>
+                  <%= image_tag "youtube-brands.svg", width: 20, class: "inline" %>
                 <% end %>
+
+                <%= link_to [:edit, feed] do %>
+                  <abbr title="<%= feed.fetch_url %>"><%= feed.name %></abbr>
+                <% end%>
 
                 <% if !feed.can_be_fetched? %>
                   <div class="pill pill--danger text-white-600">Missing feed URL</div>

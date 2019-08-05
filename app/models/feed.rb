@@ -34,6 +34,10 @@ class Feed < ApplicationRecord
     end
   end
 
+  def is_youtube?
+    url.present? && url.start_with?("https://www.youtube.com/")
+  end
+
   def is_instagram?
     url.present? && url.start_with?("https://www.instagram.com/")
   end

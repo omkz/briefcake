@@ -46,8 +46,15 @@
     </div>
   <% end %>
 
+  <div class="text-center mb-5 text-sm text-gray-600 max-w-md mx-auto">
+    <p class="mb-2">You are receiving this email because you signed up at
+      <a href="https://rssmailer.app">rssmailer.app</a>.</p>
+    <p>
+      Too much email? You can you <%= link_to " change the feeds", root_url %> your are following, or  <%= link_to "unsubscribe", @user.try(:unsubscribe_url) %> if you don't want any email anymore.
+    </p>
+  </div>
+
   <p class="text-center mb-5 text-sm text-gray-600 max-w-2xl mx-auto">
-    You are receiving this email because you signed up at
-    <a href="https://rssmailer.app">rssmailer.app</a>. If you want, you can unsubscribe with <%= link_to "this unique url", @user.try(:unsubscribe_url) %>.
+
   </p>
 </div>

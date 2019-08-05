@@ -9,6 +9,10 @@ export default class extends Controller {
     this.element.addEventListener("keyup", debouncedRefresh);
     this.element.addEventListener("change", debouncedRefresh);
     this.element.addEventListener("checkedFeed", this.refreshFrame.bind(this));
+
+    if(this.element.querySelectorAll(".feed-input")[0].value !== ""){
+      this.refreshFrame();
+    };
   }
 
   refreshFrame() {

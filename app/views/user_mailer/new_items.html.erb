@@ -20,37 +20,40 @@
     </div>
   <% end %>
 
+  <% next_item_is_same_feed = false %>
+  <% @feed_items.each_with_index do |item, index| %>
+    <% next_item = @feed_items[index + 1] %>
 
-  <% @feed_items.each do |item| %>
-    <div class="mb-8 border bg-white border-gray-300 rounded-lg">
-      <div class="p-4">
-        <% if item.title.present? && item.feed.name.present? %>
-          <div class="text-xs text-gray-600 font-normal mb-2">
-            <%= item.feed.name %> - <%= I18n.l(item.publish_date.to_date, format: "%B %-d, %Y") %>
-          </div>
+    <% unless next_item_is_same_feed %>
+      <div class="mb-8 border bg-white border-gray-300 rounded-lg p-4 pt-0">
+    <% end %>
 
-          <div class="text-base font-normal text-black font-medium mb-4">
-            <%= link_to item.title, item.link, class: "black underline" %>
-          </div>
-        <% else %>
-          <div class="text-xs text-gray-600 font-normal mb-2">
-            <%= I18n.l(item.publish_date.to_date, format: :long) %>
-          </div>
-          <div class="text-base font-normal text-black font-medium mb-4">
-            <%= link_to [item.title.presence, item.feed.name.presence].compact.join(""), item.link, class: "black underline" %>
-          </div>
-        <% end %>
-        <div class="text-base text-left feed-content"><%= sanitize(item.description.to_s).html_safe %></div>
-        <%= image_tag(item.image_url, class: "mt-4") if item.image_url %>
-      </div>
+    <% next_item_is_same_feed = item.feed == next_item.try(:feed) %>
+
+    <div class="text-base font-normal text-black font-medium pt-4">
+      <%= link_to item.title, item.link, class: "black underline" %>
     </div>
+
+    <div class="text-xs text-gray-600 font-normal mb-2">
+      <%= item.feed.name %> - <%= I18n.l(item.publish_date.to_date, format: "%B %-d, %Y") %>
+    </div>
+
+    <div class="text-base text-left feed-content"><%= sanitize(item.description.to_s).html_safe %></div>
+
+    <%= image_tag(item.image_url, class: "mt-4") if item.image_url %>
+
+    <% if next_item_is_same_feed %>
+      <div class="bg-gray-300 h-px w-full mt-4"></div>
+    <% else %>
+      </div>
+    <% end %>
   <% end %>
 
   <div class="text-center mb-5 text-sm text-gray-600 max-w-md mx-auto">
     <p class="mb-2">You are receiving this email because you signed up at
       <a href="https://rssmailer.app">rssmailer.app</a>.</p>
     <p>
-      Too much email? You can you <%= link_to " change the feeds", root_url %> your are following, or  <%= link_to "unsubscribe", @user.try(:unsubscribe_url) %> if you don't want any email anymore.
+      Too much email? You can you <%= link_to " change the feeds", feeds_url %> your are following, or  <%= link_to "unsubscribe", @user.try(:unsubscribe_url) %> if you don't want any email anymore.
     </p>
   </div>
 </div>

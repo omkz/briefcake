@@ -1,1 +1,10 @@
-FactoryBot.create(:user, email: "email@domain.com", password: "password")
+Feed.destroy_all
+User.destroy_all
+
+user = FactoryBot.create(:user, email: "email@domain.com", password: "password")
+
+FactoryBot.create(:feed, "name": "Ars Technica", "url": "https://arstechnica.com/", "user_id": user.id, "rss_feed_url": "http://feeds.arstechnica.com/arstechnica/index/", "publish_date_last_sent_item": 2.days.ago, "truncation": nil)
+FactoryBot.create(:feed, "name": "Signal v. Noise", "url": "https://m.signalvnoise.com/", "user_id": user.id, "rss_feed_url": "https://m.signalvnoise.com/feed/", "publish_date_last_sent_item": 2.days.ago, "truncation": 0)
+FactoryBot.create(:feed, "name": "MacRumors: Apple Mac iPhone Rumors and News", "url": "https://www.macrumors.com", "user_id": user.id, "rss_feed_url": "http://feeds.macrumors.com/MacRumors-All", "publish_date_last_sent_item": 2.days.ago, "truncation": 0)
+FactoryBot.create(:feed, "name": "Timo Kuilder", "url": "https://www.instagram.com/zwartekoffie/", "user_id": user.id, "rss_feed_url": nil, "publish_date_last_sent_item": 10.days.ago)
+FactoryBot.create(:feed, "name": "The New York Times", "url": "https://www.nytimes.com/", "user_id": user.id, "rss_feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml", "publish_date_last_sent_item": 2.days.ago, "truncation": nil)

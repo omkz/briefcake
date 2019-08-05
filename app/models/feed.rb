@@ -59,6 +59,8 @@ class Feed < ApplicationRecord
   private
 
   def populate_publish_date_last_sent_item!
+    return if self[:publish_date_last_sent_item].present?
+
     newest_item = items!.first
     if newest_item.present?
       update_column(:publish_date_last_sent_item, newest_item.publish_date)

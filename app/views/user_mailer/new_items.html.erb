@@ -49,7 +49,7 @@
     <% end %>
   <% end %>
 
-  <% if @user.feeds.with_errors.any? %>
+  <% if @user && @user.feeds.with_errors.any? %>
     <div class="bg-red-500 text-white p-5 mb-10 rounded text-center">
       We had trouble fetching some feeds, please <%= link_to "sign in", feeds_url, class: "text-white underline"  %> and try to fix the feeds with errors.
     </div>

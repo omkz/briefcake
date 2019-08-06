@@ -19,7 +19,7 @@
 
   <div class="mb-20">
     <h1>Number of feeds created per day (Total: <%= Feed.count %>)</h1>
-    <%= line_chart Feed.group_by_day(:created_at).count %>
+    <%= line_chart Feed.unscoped.group_by_day(:created_at).count %>
   </div>
 
   <%

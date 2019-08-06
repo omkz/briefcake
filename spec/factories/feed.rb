@@ -4,5 +4,9 @@ FactoryBot.define do
     name { "Timi blog" }
     url { "https://timiapp.com/blog" }
     rss_feed_url { "https://timiapp.com/blog.rss" }
+
+    trait :with_fetch_error do
+      fetch_error { "Can not read XML" }
+    end
   end
 end

@@ -9,6 +9,8 @@ class Feed < ApplicationRecord
   after_create :populate_publish_date_last_sent_item!
   belongs_to :user
 
+  scope :with_errors, -> { where.not(fetch_error: nil) }
+
   default_scope { order(:name)}
 
   def can_be_fetched?
@@ -55,7 +57,7 @@ class Feed < ApplicationRecord
   end
 
   def has_fetch_error?
-    fetch_error.to_s.squish.present?
+    fetch_error.present?
   end
 
   private

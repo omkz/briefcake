@@ -15,7 +15,7 @@
         </p>
         <p class="font-light text-xs">
           To:
-          <span class="text-gray-800">Jankees van Woezik</span>
+          <span class="text-gray-800"><%= current_user.try(:email_with_name) || "Jankees van Woezik" %></span>
         </p>
       </div>
 

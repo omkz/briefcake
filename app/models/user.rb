@@ -12,6 +12,10 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
+  def email_with_name
+    name + " <#{email}>"
+  end
+
   def wants_email?
     unsubscribed_at.nil?
   end

@@ -54,6 +54,10 @@ class Feed < ApplicationRecord
     FeedReader.new(self).fetch_items!
   end
 
+  def has_fetch_error?
+    fetch_error.to_s.squish.present?
+  end
+
   private
 
   def populate_publish_date_last_sent_item!

@@ -15,6 +15,8 @@ class FeedsController < ApplicationController
       return
     end
 
+    @user = current_user
+
     @fetch = params[:fetch] === "true"
     if @fetch
       @feed = Feed.new(feed_params)
@@ -28,7 +30,6 @@ class FeedsController < ApplicationController
       end
     else
       @params = feed_params
-      Rails.logger.debug params: @params
       render layout: "clean"
     end
   end
@@ -74,6 +75,7 @@ class FeedsController < ApplicationController
   def update
     respond_to do |format|
       if @feed.update(feed_params)
+        @feed.update_column(:fetch_error, nil)
         format.html { redirect_to feeds_path, notice: "Feed was successfully updated." }
         format.json { render :show, status: :ok, location: @feed }
       else
@@ -100,6 +102,6 @@ class FeedsController < ApplicationController
   end
 
   def feed_params
-    params.require(:feed).permit(:name, :url, :rss_feed_url, :truncation)
+    params.require(:feed).permit(:name, :url, :rss_feed_url, :truncation, :fetch_error)
   end
 end

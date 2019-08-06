@@ -9,7 +9,8 @@ class SampleContent
     items = [
       {
         "title": "The hardest leadership advice",
-        "description": "We all know we’re supposed to “work on the business and not in the business” as a leader… but what holds us back?", "link": "https://m.signalvnoise.com/the-hardest-leadership-advice-to-follow/",
+        "description": "<p>We all know we’re supposed to “work on the business and not in the business” as a leader… but what holds us back?</p><p>Work on the business, not in the business. Pause. Step back. Take stock. Reflect.</p>",
+        "link": "https://m.signalvnoise.com/the-hardest-leadership-advice-to-follow/",
         "feed": signal_vs_noise,
         "publish_date": "2019-07-08T15:34:25.000Z",
       },

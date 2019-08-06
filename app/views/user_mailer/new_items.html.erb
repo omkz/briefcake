@@ -1,5 +1,4 @@
 <div class="mx-auto max-w-2xl w-full px-5 pt-5">
-
   <% if @index.present? %>
     <div class="bg-gray-200 px-4 py-6 mb-5 text-gray-500">
       <div class="text-gray-600 text-xs -mb-1">
@@ -38,22 +37,28 @@
       <%= item.feed.name %> - <%= I18n.l(item.publish_date.to_date, format: "%B %-d, %Y") %>
     </div>
 
-    <div class="text-base text-left feed-content"><%= sanitize(item.description.to_s).html_safe %></div>
+    <div class="text-base text-left feed-content"><%= sanitize(item.description.to_s) %></div>
 
     <%= image_tag(item.image_url, class: "mt-4") if item.image_url %>
 
     <% if next_item_is_same_feed %>
-      <div class="bg-gray-300 h-px w-full mt-4"></div>
+      <div class="bg-gray-300 h-px w-full mt-6 mb-2"></div>
     <% else %>
       </div>
     <% end %>
+  <% end %>
+
+  <% if @user && @user.feeds.with_errors.any? %>
+    <div class="bg-red-500 text-white p-5 mb-10 rounded text-center">
+      We had trouble fetching some feeds, please <%= link_to "sign in", feeds_url, class: "text-white underline"  %> and try to fix the feeds with errors.
+    </div>
   <% end %>
 
   <div class="text-center mb-5 text-sm text-gray-600 max-w-md mx-auto">
     <p class="mb-2">You are receiving this email because you signed up at
       <a href="https://rssmailer.app">rssmailer.app</a>.</p>
     <p>
-      Too much email? You can you <%= link_to " change the feeds", feeds_url %> your are following, or  <%= link_to "unsubscribe", @user.try(:unsubscribe_url) %> if you don't want any email anymore.
+      Too much email? You can <%= link_to "change the number of feeds", feeds_url %> you are following or <%= link_to "unsubscribe", @user.try(:unsubscribe_url) %> if you don't want any email.
     </p>
   </div>
 </div>

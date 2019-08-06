@@ -4,6 +4,8 @@ class FeedReader
   end
 
   def fetch_items!
+    exception_occurred = nil
+
     items = begin
       if feed.is_instagram?
         user = Instagrammer.new(feed.instagram_user_name)
@@ -17,8 +19,6 @@ class FeedReader
               image_url: post.image_url,
             )
           else
-            Rollbar.error("Import failed, not a photo (feed: #{feed.url}}")
-            Rails.logger.warn "Import failed, not a photo (feed: #{feed.url}}"
             nil
           end
         end.compact
@@ -35,11 +35,11 @@ class FeedReader
         end
       end
     rescue => e
-      exception = "Cannot fetch: #{feed.url} - #{feed.id}: #{e}"
-      Rails.logger.info exception
-      Rollbar.info exception
+      exception_occurred = e.to_s
       []
     end
+
+    feed.update_column(:fetch_error, exception_occurred) if feed.persisted?
 
     items = [] if items.nil?
     items.sort_by(&:publish_date).reverse

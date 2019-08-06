@@ -9,3 +9,10 @@
 
 @import "tailwindcss/utilities";
 
+.feed-content p {
+  @apply mb-2;
+}
+
+.feed-content p:last-of-type {
+  @apply my-0;
+}

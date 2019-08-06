@@ -9,6 +9,8 @@ class Feed < ApplicationRecord
   after_create :populate_publish_date_last_sent_item!
   belongs_to :user
 
+  scope :with_errors, -> { where.not(fetch_error: nil) }
+
   default_scope { order(:name)}
 
   def can_be_fetched?
@@ -51,15 +53,11 @@ class Feed < ApplicationRecord
   end
 
   def items!
-    items = FeedReader.new(self).fetch_items!
+    FeedReader.new(self).fetch_items!
+  end
 
-    if items.none?
-      exception = "No valid items found in feed: #{url} - #{id}"
-      Rails.logger.info exception
-      Rollbar.info exception
-    end
-
-    items
+  def has_fetch_error?
+    fetch_error.present?
   end
 
   private

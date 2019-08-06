@@ -1,11 +1,31 @@
 <div class="mt-16 max-w-xl mx-auto">
   <header class="flex justify-between">
-    <h1 class="text-3xl mb-4">Show feed</h1>
+    <h1 class="text-3xl mb-4"><%= @feed.name %></h1>
 
     <div>
       <%= link_to 'Edit', edit_feed_path(@feed), class: 'btn btn--primary' %>
     </div>
   </header>
+
+  <% if @feed.has_fetch_error? %>
+    <div class="bg-red-500 text-white p-5 mb-10 rounded shadow-lg">
+      <p class="mb-4">We were not able to fetch this feed! It can be one of these issues:</p>
+
+      <ul class="list-disc list-inside mb-5">
+        <li>The website was unavailable</li>
+        <li>The feed cannot be read</li>
+        <li>Site is not supported (no rss feed)</li>
+      </ul>
+
+      <p class="mb-2">For those who want to know the details, this was the error message:</p>
+
+      <code class="bg-black p-2 px-3 block mb-2">
+        <%= @feed.fetch_error %>
+      </code>
+
+      We will try again, or you can try to fix this yourself by changing the feed.
+    </div>
+  <% end %>
 
   <div class="card card--light mb-8">
     <div class="card__content">
@@ -14,7 +34,7 @@
         <p class="w-full sm:w-3/4"><%= @feed.name %></p>
       </div>
       <div class="flex">
-        <h2 class="w-full sm:w-1/4">Url:</h2>
+        <h2 class="w-full sm:w-1/4">Website url:</h2>
         <p class="w-full sm:w-3/4"><%= @feed.url %></p>
       </div>
       <div class="flex">

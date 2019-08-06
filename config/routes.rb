@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     get :preview, on: :collection
   end
 
-  match "/delayed_job" => DelayedJobWeb, :anchor => false, :via => [:get, :post]
+  match "/dj" => DelayedJobWeb, anchor: false, via: [:get, :post]
 
   resources :announcements, only: [:index]
 

@@ -18,6 +18,28 @@ describe FeedReader do
       end
     end
 
+    it "saves an error when the feed cannot be read, reset when it's okay again" do
+      feed = create(:feed, rss_feed_url: "https://example.com")
+
+      VCR.use_cassette("feed_reader/example") do
+        reader = FeedReader.new(feed)
+
+        items = reader.fetch_items!
+        expect(items).to have(0).items
+
+        expect(feed.reload.fetch_error).to eq "No valid parser for XML."
+      end
+
+      VCR.use_cassette("feed_reader/hacker-news") do
+        feed.update(rss_feed_url: "https://news.ycombinator.com/rss")
+        reader = FeedReader.new(feed)
+
+        items = reader.fetch_items!
+        expect(items).to have(30).items
+        expect(feed.reload.fetch_error).to be_nil
+      end
+    end
+
     it "gets hacker news feed items" do
       VCR.use_cassette("feed_reader/hacker-news") do
         feed = Feed.new(rss_feed_url: "https://news.ycombinator.com/rss")
@@ -32,7 +54,7 @@ describe FeedReader do
         expect(first_item.publish_date).to eq Time.utc(2019, 7, 30, 14, 39, 14)
 
         last_item = items.last
-        expect(last_item.title).to eq  "How to Bypass “Slider Captcha”"
+        expect(last_item.title).to eq "How to Bypass “Slider Captcha”"
         expect(last_item.description).to eq "<a href=\"https://news.ycombinator.com/item?id=20542350\">Comments</a>"
         expect(last_item.publish_date).to eq Time.utc(2019, 7, 27, 15, 9, 16)
       end

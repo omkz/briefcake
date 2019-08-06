@@ -51,15 +51,7 @@ class Feed < ApplicationRecord
   end
 
   def items!
-    items = FeedReader.new(self).fetch_items!
-
-    if items.none?
-      exception = "No valid items found in feed: #{url} - #{id}"
-      Rails.logger.info exception
-      Rollbar.info exception
-    end
-
-    items
+    FeedReader.new(self).fetch_items!
   end
 
   private

@@ -38,8 +38,8 @@ class UserMailer < ApplicationMailer
     @index = SampleContent.index
 
     mail(
-      bcc: "rssmailer@jankeesvw.com",
       to: to,
+      bcc: "mail+rssmailer@jankeesvw.com",
       subject: "RSSMailer test email - #{rand}",
       template_name: "new_items",
     )

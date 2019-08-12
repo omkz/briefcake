@@ -20,7 +20,7 @@ class Feed < ApplicationRecord
 
   def instagram_user_name
     if is_instagram?
-      matches = /instagram.com\/(.+?)\//.match(url)
+      matches = /instagram.com\/(.+?)\//.match(feed_url)
       if matches
         matches[1]
       end

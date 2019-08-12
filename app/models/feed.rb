@@ -17,14 +17,6 @@ class Feed < ApplicationRecord
     feed_url.present?
   end
 
-  def fetch_url
-    if is_instagram?
-      url
-    else
-      feed_url
-    end
-  end
-
   def instagram_user_name
     if is_instagram?
       matches = /instagram.com\/(.+?)\//.match(url)

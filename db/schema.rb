@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2019_08_06_052613) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
-    t.string "rss_feed_url"
+    t.string "feed_url"
     t.datetime "publish_date_last_sent_item"
     t.integer "truncation"
     t.text "fetch_error"

@@ -52,7 +52,7 @@ class FeedReader
   end
 
   def rss_feed_entries
-    xml = HTTParty.get(feed.rss_feed_url).body
+    xml = HTTParty.get(feed.feed_url).body
     Feedjira.parse(xml).entries
   end
 end

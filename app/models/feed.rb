@@ -11,21 +11,17 @@ class Feed < ApplicationRecord
 
   scope :with_errors, -> { where.not(fetch_error: nil) }
 
-  default_scope { order(:name)}
+  default_scope { order(:name) }
 
   def can_be_fetched?
-    if is_instagram?
-      true
-    else
-      rss_feed_url.present?
-    end
+    feed_url.present?
   end
 
   def fetch_url
     if is_instagram?
       url
     else
-      rss_feed_url
+      feed_url
     end
   end
 
@@ -39,11 +35,11 @@ class Feed < ApplicationRecord
   end
 
   def is_youtube?
-    url.present? && url.start_with?("https://www.youtube.com/")
+    feed_url.present? && feed_url.start_with?("https://www.youtube.com/")
   end
 
   def is_instagram?
-    url.present? && url.start_with?("https://www.instagram.com/")
+    feed_url.present? && feed_url.start_with?("https://www.instagram.com/")
   end
 
   def new_items!

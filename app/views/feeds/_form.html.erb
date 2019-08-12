@@ -21,9 +21,9 @@
         <%= form.text_field :name, class: "input feed-input", data: { target: "feed.nameInput" } %>
       </div>
 
-      <div class="field  <%= "hidden" if feed.rss_feed_url.blank? %>" data-target="feed.rssFeedUrlField">
-        <%= form.label :rss_feed_url, "RSS Feed URL" %>
-        <%= form.url_field :rss_feed_url, class: "input feed-input", data: { target: "feed.rssFeedUrlInput" } %>
+      <div class="field  <%= "hidden" if feed.feed_url.blank? %>" data-target="feed.rssFeedUrlField">
+        <%= form.label :feed_url, "RSS Feed URL" %>
+        <%= form.url_field :feed_url, class: "input feed-input", data: { target: "feed.rssFeedUrlInput" } %>
       </div>
 
       <div class="field  <%= "hidden" unless feed.persisted? %>" data-target="feed.rssFeedTruncationField">

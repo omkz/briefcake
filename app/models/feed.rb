@@ -5,6 +5,7 @@ class Feed < ApplicationRecord
 
   validates :url, url: true
   validates :name, presence: true
+  validates :feed_url, presence: true
 
   after_create :populate_publish_date_last_sent_item!
   belongs_to :user

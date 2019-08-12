@@ -25,6 +25,7 @@ class PageInfoFinder
 
   def feed_url
     return @url if is_rss_feed?
+    return @url if Feed.new(feed_url: @url).is_instagram?
 
     feed_url = @document.css("link[rel=alternate][type*=xml]")[0]["href"]
 

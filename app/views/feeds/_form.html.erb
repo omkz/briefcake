@@ -1,6 +1,7 @@
 <div data-controller="feed">
   <%= form_with(model: feed, local: true, class: "card card--light mb-8") do |form| %>
     <%= render "shared/flash", flash: feed.errors %>
+    <% show_fields = feed.persisted? || feed.errors.any? %>
 
     <div class="card__content">
       <div class="field relative">
@@ -16,23 +17,23 @@
         <%= form.url_field :url, class: "input feed-input pr-32", data: { target: "feed.url" } %>
       </div>
 
-      <div class="field <%= "hidden" if feed.name.blank? %>" data-target="feed.nameField">
+      <div class="field <%= "hidden" if !show_fields %>" data-target="feed.nameField">
         <%= form.label :name %>
         <%= form.text_field :name, class: "input feed-input", data: { target: "feed.nameInput" } %>
       </div>
 
-      <div class="field  <%= "hidden" if feed.feed_url.blank? %>" data-target="feed.rssFeedUrlField">
+      <div class="field  <%= "hidden" if !show_fields %>" data-target="feed.rssFeedUrlField">
         <%= form.label :feed_url, "RSS Feed URL" %>
         <%= form.url_field :feed_url, class: "input feed-input", data: { target: "feed.rssFeedUrlInput" } %>
       </div>
 
-      <div class="field  <%= "hidden" unless feed.persisted? %>" data-target="feed.rssFeedTruncationField">
+      <div class="field  <%= "hidden" if !show_fields  %>" data-target="feed.rssFeedTruncationField">
         <%= form.label :truncation, "Modify article text" %>
         <%= form.select :truncation, options_for_select([["Leave the text as is", ""], ["Remove text and only show the title", "0"]], feed.truncation), {}, class: "select feed-input", data: { target: "feed.rssFeedTruncationInput" } %>
       </div>
 
       <div class="field flex justify-between items-center mb-0">
-        <%= form.submit feed.persisted? ? 'Update' : 'Add', class: "btn btn--primary #{'hidden' unless feed.persisted?}", data: { target: "feed.submitButton" } %>
+        <%= form.submit feed.persisted? ? 'Update' : 'Add', class: "btn btn--primary #{'hidden' if !show_fields}", data: { target: "feed.submitButton" } %>
 
         <% if feed.persisted? %>
           <%= link_to "Unfollow", feed, method: :delete, class: "text-red-600", data: { confirm: "Are you sure?" } %>

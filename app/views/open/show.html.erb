@@ -13,6 +13,20 @@
   </div>
 
   <div class="mb-20">
+    <h1>Duration to send all emails (in minutes):</h1>
+    <%
+      duration = {}
+      (Date.new(2019, 7, 28)..Date.today).each do |d|
+        that_day = SentEmail.where(:created_at => d.beginning_of_day..d.end_of_day)
+        next if that_day.none?
+
+        duration[d] = ((that_day.last.created_at - that_day.first.created_at) / 60).round
+      end
+    %>
+    <%= line_chart duration %>
+  </div>
+
+  <div class="mb-20">
     <h1>Number of users created per day (Total: <%= User.count %>)</h1>
     <%= line_chart User.group_by_day(:created_at).count %>
   </div>

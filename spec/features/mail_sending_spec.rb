@@ -110,6 +110,7 @@ feature "sending emails" do
            user: user,
            name: "Timi blog",
            url: "https://timiapp.com/blog",
-           feed_url: "https://timiapp.com/blog.rss")
+           feed_url: "https://timiapp.com/blog.rss",
+           publish_date_last_sent_item: nil)
   end
 end

@@ -13,6 +13,23 @@
   </div>
 
   <div class="mb-20">
+    <h1>Number of feeds per account:</h1>
+    <%
+      distribution_data = {}
+      User.all.find_each do |u|
+        count = u.feeds.count
+        if distribution_data.has_key?(count)
+          distribution_data[count] += 1
+        else
+          distribution_data[count] = 1
+        end
+      end
+    %>
+
+    <%= bar_chart(distribution_data) %>
+  </div>
+
+  <div class="mb-20">
     <h1>Duration to send all emails (in seconds):</h1>
     <%= line_chart SentEmail.group_by_day(:created_at).sum("compose_duration_in_seconds / 60") %>
   </div>

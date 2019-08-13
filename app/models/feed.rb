@@ -5,33 +5,22 @@ class Feed < ApplicationRecord
 
   validates :url, url: true
   validates :name, presence: true
+  validates :feed_url, presence: true
 
   after_create :populate_publish_date_last_sent_item!
   belongs_to :user
 
   scope :with_errors, -> { where.not(fetch_error: nil) }
 
-  default_scope { order(:name)}
+  default_scope { order(:name) }
 
   def can_be_fetched?
-    if is_instagram?
-      true
-    else
-      rss_feed_url.present?
-    end
-  end
-
-  def fetch_url
-    if is_instagram?
-      url
-    else
-      rss_feed_url
-    end
+    feed_url.present?
   end
 
   def instagram_user_name
     if is_instagram?
-      matches = /instagram.com\/(.+?)\//.match(url)
+      matches = /instagram.com\/(.+?)\//.match(feed_url)
       if matches
         matches[1]
       end
@@ -39,11 +28,11 @@ class Feed < ApplicationRecord
   end
 
   def is_youtube?
-    url.present? && url.start_with?("https://www.youtube.com/")
+    feed_url.present? && feed_url.start_with?("https://www.youtube.com/")
   end
 
   def is_instagram?
-    url.present? && url.start_with?("https://www.instagram.com/")
+    feed_url.present? && feed_url.start_with?("https://www.instagram.com/")
   end
 
   def new_items!

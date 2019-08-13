@@ -18,7 +18,7 @@ OPML
       reader = OpmlReader.new(document)
       expect(reader.feeds).to have(2).items
       expect(reader.feeds.first.name).to eq "MacRumors: Mac News and Rumors - All Stories"
-      expect(reader.feeds.first.rss_feed_url).to eq "http://feeds.macrumors.com/MacRumors-All"
+      expect(reader.feeds.first.feed_url).to eq "http://feeds.macrumors.com/MacRumors-All"
       expect(reader.feeds.first.url).to eq "http://feeds.macrumors.com/MacRumors-All"
     end
   end

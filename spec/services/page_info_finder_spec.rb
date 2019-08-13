@@ -1,12 +1,20 @@
 require "rails_helper"
 
 describe PageInfoFinder do
-  describe "#rss_feed_url" do
+  describe "#feed_url" do
     it "finds the RSS Feed for Timi" do
       VCR.use_cassette("page_info_finder/timi") do
         find_for_url = PageInfoFinder.new("https://timiapp.com/blog").fetch!
 
-        expect(find_for_url.rss_feed_url).to eq "https://timiapp.com/blog.rss"
+        expect(find_for_url.feed_url).to eq "https://timiapp.com/blog.rss"
+      end
+    end
+
+    it "return the url if it's instagram" do
+      VCR.use_cassette("page_info_finder/instagram_timo") do
+        find_for_url = PageInfoFinder.new("https://www.instagram.com/zwartekoffie/").fetch!
+
+        expect(find_for_url.feed_url).to eq "https://www.instagram.com/zwartekoffie/"
       end
     end
 
@@ -14,7 +22,7 @@ describe PageInfoFinder do
       VCR.use_cassette("page_info_finder/daringfireball") do
         find_for_url = PageInfoFinder.new("https://daringfireball.net/").fetch!
 
-        expect(find_for_url.rss_feed_url).to eq "https://daringfireball.net/feeds/main"
+        expect(find_for_url.feed_url).to eq "https://daringfireball.net/feeds/main"
       end
     end
 
@@ -22,7 +30,7 @@ describe PageInfoFinder do
       VCR.use_cassette("page_info_finder/example") do
         find_for_url = PageInfoFinder.new("https://example.com").fetch!
 
-        expect(find_for_url.rss_feed_url).to be_nil
+        expect(find_for_url.feed_url).to be_nil
       end
     end
   end
@@ -61,7 +69,7 @@ describe PageInfoFinder do
 
         expect(find_for_url.to_json).to eq(
                                           {
-                                            rss_feed_url: "https://timiapp.com/blog.rss",
+                                            feed_url: "https://timiapp.com/blog.rss",
                                             name: "Het Timi weblog",
                                           }
                                         )
@@ -76,7 +84,7 @@ describe PageInfoFinder do
         expect(find_for_url.to_json).to eq(
                                           {
                                             name: "Ars Technica",
-                                            rss_feed_url: "http://feeds.arstechnica.com/arstechnica/index/",
+                                            feed_url: "http://feeds.arstechnica.com/arstechnica/index/",
                                           }
                                         )
       end
@@ -88,7 +96,7 @@ describe PageInfoFinder do
 
         expect(find_for_url.to_json).to eq(
                                           {
-                                            rss_feed_url: "https://daringfireball.net/feeds/main",
+                                            feed_url: "https://daringfireball.net/feeds/main",
                                             name: "Daring Fireball",
                                           }
                                         )
@@ -101,7 +109,7 @@ describe PageInfoFinder do
 
         expect(find_for_url.to_json).to eq(
                                           {
-                                            rss_feed_url: "https://news.ycombinator.com/rss",
+                                            feed_url: "https://news.ycombinator.com/rss",
                                             name: "Hacker News",
                                           }
                                         )
@@ -114,7 +122,7 @@ describe PageInfoFinder do
 
         expect(find_for_url.to_json).to eq(
                                           {
-                                            rss_feed_url: "https://zachholman.com/atom.xml",
+                                            feed_url: "https://zachholman.com/atom.xml",
                                             name: "Zach Holman",
                                           }
                                         )

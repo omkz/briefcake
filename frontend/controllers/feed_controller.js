@@ -38,7 +38,7 @@ export default class extends Controller {
 
         this.rssFeedUrlFieldTarget.classList.remove("hidden");
         this.rssFeedTruncationFieldTarget.classList.remove("hidden");
-        this.rssFeedUrlInputTarget.value = data.rss_feed_url;
+        this.rssFeedUrlInputTarget.value = data.feed_url;
         this.nameInputTarget.value = data.name;
       })
       .finally(() => {

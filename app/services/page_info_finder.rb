@@ -23,8 +23,9 @@ class PageInfoFinder
     false
   end
 
-  def rss_feed_url
+  def feed_url
     return @url if is_rss_feed?
+    return @url if Feed.new(feed_url: @url).is_instagram?
 
     feed_url = @document.css("link[rel=alternate][type*=xml]")[0]["href"]
 
@@ -51,6 +52,6 @@ class PageInfoFinder
   end
 
   def to_json
-    { name: name, rss_feed_url: rss_feed_url }
+    { name: name, feed_url: feed_url }
   end
 end

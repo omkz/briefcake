@@ -4,7 +4,7 @@ describe FeedReader do
   describe "#fetch_items!" do
     it "gets youtube video previews for a YouTube XML" do
       VCR.use_cassette("feed_reader/youtube") do
-        feed = Feed.new(rss_feed_url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCCVxhT-bl0ZMRzbpNolErCg")
+        feed = Feed.new(feed_url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCCVxhT-bl0ZMRzbpNolErCg")
         reader = FeedReader.new(feed)
 
         items = reader.fetch_items!
@@ -19,7 +19,7 @@ describe FeedReader do
     end
 
     it "saves an error when the feed cannot be read, reset when it's okay again" do
-      feed = create(:feed, rss_feed_url: "https://example.com")
+      feed = create(:feed, feed_url: "https://example.com")
 
       VCR.use_cassette("feed_reader/example") do
         reader = FeedReader.new(feed)
@@ -31,7 +31,7 @@ describe FeedReader do
       end
 
       VCR.use_cassette("feed_reader/hacker-news") do
-        feed.update(rss_feed_url: "https://news.ycombinator.com/rss")
+        feed.update(feed_url: "https://news.ycombinator.com/rss")
         reader = FeedReader.new(feed)
 
         items = reader.fetch_items!
@@ -42,7 +42,7 @@ describe FeedReader do
 
     it "gets hacker news feed items" do
       VCR.use_cassette("feed_reader/hacker-news") do
-        feed = Feed.new(rss_feed_url: "https://news.ycombinator.com/rss")
+        feed = Feed.new(feed_url: "https://news.ycombinator.com/rss")
         reader = FeedReader.new(feed)
 
         items = reader.fetch_items!

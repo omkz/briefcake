@@ -109,6 +109,6 @@ feature "sending emails" do
            user: user,
            name: "Timi blog",
            url: "https://timiapp.com/blog",
-           rss_feed_url: "https://timiapp.com/blog.rss")
+           feed_url: "https://timiapp.com/blog.rss")
   end
 end

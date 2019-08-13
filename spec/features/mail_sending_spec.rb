@@ -43,6 +43,7 @@ feature "sending emails" do
       expect(sent_email.index).to eq({ "Timi blog" => 1 })
       expect(sent_email.receiver).to eq user.email
       expect(sent_email.user).to eq user
+      expect(sent_email.compose_duration_in_seconds).to be > 0
 
       VCR.use_cassette("timi-blog-3") do
         EmailUsersJob.perform_now

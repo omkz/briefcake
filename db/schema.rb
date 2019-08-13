@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_13_009000) do
+ActiveRecord::Schema.define(version: 2019_08_13_154144) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 2019_08_13_009000) do
     t.datetime "updated_at", null: false
     t.json "index"
     t.integer "number_of_items"
+    t.float "compose_duration_in_seconds", default: 0.0
     t.index ["user_id"], name: "index_sent_emails_on_user_id"
   end
 

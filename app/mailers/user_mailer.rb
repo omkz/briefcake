@@ -1,5 +1,7 @@
 class UserMailer < ApplicationMailer
   def new_items(user_id)
+    start_time = Time.now
+
     @user = User.find(user_id)
 
     @index = {}
@@ -27,7 +29,8 @@ class UserMailer < ApplicationMailer
         user: @user,
         subject: subject,
         number_of_items: @feed_items.count,
-        index: @index
+        index: @index,
+        compose_duration_in_seconds: (Time.now - start_time)
       )
     end
   end

@@ -4,18 +4,19 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :masqueradable,
          :confirmable
 
+  validates :email, presence: true, 'valid_email_2/email': { disposable: true }
+
   has_person_name
   has_many :announcements
   has_many :feeds
   has_many :sent_emails
+  has_one :subscribe_form
 
   scope :who_get_emails, -> { where(unsubscribed_at: nil).where.not(confirmed_at: nil) }
   scope :unsubscribed, -> { where.not(unsubscribed_at: nil) }
 
-  validates :name, presence: true
-
   def email_with_name
-    name + " <#{email}>"
+    name.to_s + " <#{email}>"
   end
 
   def wants_email?

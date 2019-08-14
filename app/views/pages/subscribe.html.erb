@@ -1,0 +1,40 @@
+<% content_for :page_title, "Create your email newsletter" %>
+<% content_for :page_description, "RSSMailer gives you an easy way to create a newsletter" %>
+
+<div class="mt-16 max-w-2xl mx-auto px-5">
+  <h1 class="text-3xl mb-4">The easiest way to create a newsletter</h1>
+
+  <p class="mb-8 text-lg text-gray-700">We can help you create a newsletter in a few minutes.</p>
+
+  <h2 class="text-2xl mb-4">What is RSSMailer and how does it work?</h2>
+
+  <p class="mb-8 text-lg text-gray-700">RSSMailer is a application that can help people with keeping up to date by send emails of updates websites. We do this by scraping all sites in the users subscriptions and checking if there is anything new. </p>
+
+  <p class="mb-8 text-lg text-gray-700">It mainly uses a protocol that has been around for years called RSS. But since not every site provides a RSS feed we can add a special case for some sites.</p>
+
+  <h2 class="text-2xl mb-4">Newsletter service for content creators</h2>
+
+  <p class="mb-8 text-lg text-gray-700">When we were building this application
+    <a href="https://twitter.com/jankeesvw/status/1161519867335454721">we got feedback</a> from users that asked if there was an easy way to have readers sign up to one predefined feed.
+  </p>
+
+  <p class="mb-8 text-lg text-gray-700">That&#39;s why we launched this as a new feature. This allows you to create a very simple form that allows the user to sign up for notifications of your website. When you create such a form you get a unique URL where you can link to from your site. People only have to enter their email address and that&#39;s it.</p>
+
+  <h2 class="text-2xl mb-4">How to use it</h2>
+
+  <p class="mb-8 text-lg text-gray-700">Every user can create a form from their account by navigating to the
+    <%= link_to "newsletter form", edit_subscribe_form_path %> page.</p>
+
+
+  <div class="bg-white p-3 pt-10 shadow-lg rounded mb-10">
+    <%= image_tag "form.jpg", alt: "Quickly create a form" %>
+  </div>
+
+  <p class="mb-8 text-lg text-gray-700">When you visit your unique URL you get a special sign up form that allow readers of your site to stay up by email.</p>
+
+  <div class="mb-4 bg-white shadow-lg rounded p-2 py-20 mb-10 flex items-center justify-around">
+    <%= image_tag "subscribe.jpg", alt: "Subscribe form", style: "max-width: 400px; width: 100%" %>
+  </div>
+
+  <p class="mb-40 text-lg text-gray-700">If you want to know more about this product check the <%= link_to "about page", about_path %>.</p>
+</div>

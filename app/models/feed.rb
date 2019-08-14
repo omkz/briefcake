@@ -6,6 +6,7 @@ class Feed < ApplicationRecord
 
   after_create :populate_publish_date_last_sent_item!
   belongs_to :user
+  belongs_to :subscribe_form, optional: true
 
   scope :with_errors, -> { where.not(fetch_error: nil) }
 

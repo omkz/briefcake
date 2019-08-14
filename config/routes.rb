@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+  get 'subscribe/show'
   get "import", to: "import#new"
   post "import", to: "import#create"
 
   get "unsubscribe", to: "unsubscribe#destroy"
 
   get "open", to: "open#show"
+
+  resource :subscribe_form, controller: :subscribe_form, only: [:edit, :update]
+  get "/s/:slug", controller: :subscribe, action: :show
+  post "/s/:slug", controller: :subscribe, action: :subscribe, as: :subscribe
 
   devise_scope :user do
     get "confirmed", to: "confirmations#confirmed"
@@ -14,6 +19,7 @@ Rails.application.routes.draw do
     get :check, on: :collection
     get :preview, on: :collection
   end
+
 
   match "/dj" => DelayedJobWeb, anchor: false, via: [:get, :post]
 
@@ -41,6 +47,8 @@ Rails.application.routes.draw do
   get "/stats.txt", to: "pages#stats"
 
   get "/example-email", to: "pages#example"
+
+  get "about/rss-newsletter", to: "pages#subscribe"
 
   root to: "pages#home"
 

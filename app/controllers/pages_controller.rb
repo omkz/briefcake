@@ -10,4 +10,8 @@ class PagesController < ApplicationController
 
     render "user_mailer/new_items", layout: "mailer"
   end
+
+  def subscribe
+    
+  end
 end

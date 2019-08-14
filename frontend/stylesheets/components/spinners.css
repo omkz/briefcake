@@ -7,7 +7,7 @@
   }
 }
 
-.loader-spinner:not(:required) {
+.loader-spinner {
   @apply relative inline-block w-6 h-6;
   @apply border-4 border-blue-500 rounded-full;
   border-right-color: transparent;

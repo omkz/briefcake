@@ -30,7 +30,7 @@
   </div>
 
   <div class="mb-20">
-    <h1>Duration to send all emails (in seconds):</h1>
+    <h1>Duration to send all emails (in minutes):</h1>
     <%= line_chart SentEmail.group_by_day(:created_at).sum("compose_duration_in_seconds / 60") %>
   </div>
 

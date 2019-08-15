@@ -98,7 +98,7 @@ class FeedsController < ApplicationController
   private
 
   def set_feed
-    @feed = current_user.feeds.friendly.find(params[:id])
+    @feed = current_user.feeds.find(params[:id])
   end
 
   def feed_params

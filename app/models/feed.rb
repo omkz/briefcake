@@ -1,8 +1,4 @@
 class Feed < ApplicationRecord
-  extend FriendlyId
-
-  friendly_id :name, use: :slugged
-
   validates :url, url: true
   validates :name, presence: true
   validates :feed_url, presence: true

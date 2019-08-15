@@ -42,6 +42,7 @@ class FeedReader
     feed.update_column(:fetch_error, exception_occurred) if feed.persisted?
 
     items = [] if items.nil?
+    items.reject! { |item| item.publish_date.blank? }
     items.sort_by(&:publish_date).reverse
   end
 

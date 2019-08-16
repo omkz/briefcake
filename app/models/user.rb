@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :sent_emails
 
   scope :who_get_emails, -> { where(unsubscribed_at: nil).where.not(confirmed_at: nil) }
+  scope :unsubscribed, -> { where.not(unsubscribed_at: nil) }
 
   validates :name, presence: true
 

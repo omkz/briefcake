@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :feeds
   has_many :sent_emails
 
-  scope :who_want_emails, -> { where(unsubscribed_at: nil).where.not(confirmed_at: nil) }
+  scope :who_get_emails, -> { where(unsubscribed_at: nil).where.not(confirmed_at: nil) }
 
   validates :name, presence: true
 

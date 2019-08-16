@@ -1,14 +1,16 @@
 class User < ApplicationRecord
   include Sjabloon::Stripe::Payer
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :masqueradable
+         :recoverable, :rememberable, :validatable, :masqueradable,
+         :confirmable
 
   has_person_name
   has_many :announcements
   has_many :feeds
   has_many :sent_emails
 
-  scope :who_want_emails, -> { where(unsubscribed_at: nil) }
+  scope :who_get_emails, -> { where(unsubscribed_at: nil).where.not(confirmed_at: nil) }
+  scope :unsubscribed, -> { where.not(unsubscribed_at: nil) }
 
   validates :name, presence: true
 

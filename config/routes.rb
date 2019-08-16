@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   get "open", to: "open#show"
 
+  devise_scope :user do
+    get "confirmed", to: "confirmations#confirmed"
+  end
+
   resources :feeds do
     get :check, on: :collection
     get :preview, on: :collection
@@ -19,13 +23,24 @@ Rails.application.routes.draw do
     root to: "feeds#index"
   end
 
-  devise_for :users, path: "/", path_names: { sign_up: "signup", sign_in: "login", sign_out: "logout", edit: "edit" }, controllers: { masquerades: "admin/masquerades" }
+  devise_for :users, path: "/",
+                     path_names: {
+                       sign_up: "signup",
+                       sign_in: "login",
+                       sign_out: "logout",
+                       edit: "edit",
+                     },
+                     controllers: {
+                       confirmations: "confirmations",
+                       masquerades: "admin/masquerades",
+                     } do
+
+                     end
 
   get "/about", to: "pages#about"
   get "/stats.txt", to: "pages#stats"
 
   get "/example-email", to: "pages#example"
-
 
   root to: "pages#home"
 

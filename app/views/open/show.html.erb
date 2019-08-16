@@ -36,7 +36,10 @@
 
   <div class="mb-20">
     <h1>Number of users created per day (Total: <%= User.count %>)</h1>
-    <%= line_chart User.group_by_day(:created_at).count %>
+    <%= line_chart [
+                       { name: "Created", data: User.group_by_day(:created_at).count },
+                       { name: "Unsubscribed", data: User.unsubscribed.group_by_day(:unsubscribed_at).count }
+                   ] %>
   </div>
 
   <div class="mb-20">

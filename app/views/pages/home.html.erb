@@ -10,8 +10,10 @@
     </h2>
 
     <div class="home-chrome-wrapper md:absolute right-0 top-0 md:mt-40" style="right: 80px">
-      <%= render "chrome" do %>
-        <iframe src="/example-email?no_index=true" class="flex-grow w-full" data-controller="example"></iframe>
+      <% unless Rails.env.test? %>
+        <%= render "chrome" do %>
+          <iframe src="/example-email?no_index=true" class="flex-grow w-full" data-controller="example"></iframe>
+        <% end %>
       <% end %>
     </div>
 

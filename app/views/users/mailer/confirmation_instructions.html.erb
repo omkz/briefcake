@@ -1,7 +1,16 @@
-<p>Welcome <%= @resource.first_name %>,</p>
+<div class="mx-auto max-w-2xl px-5 pt-5">
+  <div class="border bg-white border-gray-300 rounded p-5 mb-5">
+    <p class="mb-4">Hello <%= @resource.first_name %>,</p>
 
-<p>You can confirm your account email through the link below:</p>
+    <p class="mb-4">Thanks for signing up for RSSMailer. Before we send you any emails we need to confirm this email address:</p>
 
-<p><%= link_to "Confirm my account", confirmation_url(@resource, confirmation_token: @token), class: "btn-primary" %></p>
+    <p class="mb-4"><%= link_to "Confirm my account", confirmation_url(@resource, confirmation_token: @token), class: "text-blue-500" %></p>
 
+    <p class="mb-4">Once confirmed, you will receive your first email.</p>
+    <p class="mb-4">Have a great day,<br>Jankees</p>
+  </div>
 
+  <div class="text-center mb-5 text-sm text-gray-600 px-4">
+    <p class="mb-2">You are receiving this email because you signed up at <a href="https://rssmailer.app">rssmailer.app</a>.</p>
+  </div>
+</div>

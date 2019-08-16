@@ -5,6 +5,27 @@ feature "sending emails" do
     expect(ActionMailer::Base.deliveries).to have(0).deliveries
   end
 
+  it "only sends email when you are confirmed" do
+    date_between_posts = Time.local(2015, 9, 19, 10, 5)
+    Timecop.travel(date_between_posts) do
+      user = create(:user, confirmed_at: nil)
+
+      VCR.use_cassette("timi-blog-1") { timi_blog_feed(user) }
+
+      ActionMailer::Base.deliveries.clear
+
+      VCR.use_cassette("timi-blog-2") { EmailUsersJob.perform_now }
+
+      expect(ActionMailer::Base.deliveries).to have(0).deliveries
+
+      user.confirm
+
+      VCR.use_cassette("timi-blog-2") { EmailUsersJob.perform_now }
+
+      expect(ActionMailer::Base.deliveries).to have(1).deliveries
+    end
+  end
+
   it "sends emails when there are new items, but only with the new items" do
     date_between_posts = Time.local(2015, 9, 19, 10, 5)
 

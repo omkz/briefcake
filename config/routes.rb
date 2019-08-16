@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   get "open", to: "open#show"
 
+  devise_scope :user do
+    get "confirmed", to: "confirmations#confirmed"
+  end
+
   resources :feeds do
     get :check, on: :collection
     get :preview, on: :collection
@@ -27,8 +31,11 @@ Rails.application.routes.draw do
                        edit: "edit",
                      },
                      controllers: {
+                       confirmations: "confirmations",
                        masquerades: "admin/masquerades",
-                     }
+                     } do
+
+                     end
 
   get "/about", to: "pages#about"
   get "/stats.txt", to: "pages#stats"

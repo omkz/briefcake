@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "Signing up" do
-  it "only sends emails to confirmed users" do
+  it "requires you to confirm via email" do
     # Sign up
     visit "/signup"
 
@@ -23,7 +23,10 @@ feature "Signing up" do
     # Confirm and sign in
     visit confirm_link_in_email
 
-    expect(page).to have_content "Your email address has been successfully confirmed."
+    expect(page).to have_content "You are now confirmed!"
+    expect(page).to have_content "We are now able to send email."
+
+    click_on "Log in"
 
     fill_in "Email", with: "jankees@example.com"
     fill_in "Password", with: "1234567890"

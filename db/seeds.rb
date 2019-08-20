@@ -1,6 +1,7 @@
 Feed.destroy_all
 User.destroy_all
 SubscribeForm.destroy_all
+SentEmail.destroy_all
 Delayed::Job.delete_all
 
 user = FactoryBot.create(:user, email: "email@domain.com", password: "password")

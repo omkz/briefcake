@@ -9,6 +9,8 @@ class Feed < ApplicationRecord
   belongs_to :subscribe_form, optional: true
 
   scope :with_errors, -> { where.not(fetch_error: nil) }
+  scope :form_created, -> { where.not(subscribe_form_id: nil) }
+  scope :account_created, -> { where(subscribe_form_id: nil) }
 
   default_scope { order(:name) }
 

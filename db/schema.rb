@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_16_061650) do
+ActiveRecord::Schema.define(version: 2019_08_20_055727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,8 @@ ActiveRecord::Schema.define(version: 2019_08_16_061650) do
     t.datetime "publish_date_last_sent_item"
     t.integer "truncation"
     t.text "fetch_error"
+    t.bigint "subscribe_form_id"
+    t.index ["subscribe_form_id"], name: "index_feeds_on_subscribe_form_id"
     t.index ["user_id"], name: "index_feeds_on_user_id"
   end
 
@@ -160,6 +162,18 @@ ActiveRecord::Schema.define(version: 2019_08_16_061650) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["owner_id"], name: "index_sjabloon_subscriptions_on_owner_id"
+  end
+
+  create_table "subscribe_forms", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "url"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "feed_url"
+    t.index ["slug"], name: "index_subscribe_forms_on_slug"
+    t.index ["user_id"], name: "index_subscribe_forms_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -31,10 +31,11 @@
               <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path>
             </svg>
           </div>
-          <div data-target="dropdown.menu" class="dropdown__menu hidden">
+          <div data-target="dropdown.menu" class="dropdown__menu hidden z-10">
             <div class="dropdown__items">
-              <%= link_to "Edit account", edit_user_registration_path, class: "dropdown__item" %>
+              <%= link_to "Account", edit_user_registration_path, class: "dropdown__item" %>
               <%= link_to "Import .opml file", import_path, class: "dropdown__item" %>
+              <%= link_to "Create email newsletter", edit_subscribe_form_path, class: "dropdown__item" %>
               <%= link_to "About RSSMailer", about_path, class: "dropdown__item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown__item" %>
             </div>

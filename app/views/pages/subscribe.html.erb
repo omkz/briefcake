@@ -2,26 +2,24 @@
 <% content_for :page_description, "RSSMailer gives you an easy way to create a newsletter" %>
 
 <div class="mt-16 max-w-2xl mx-auto px-5">
-  <h1 class="text-3xl mb-4">The easiest way to create a newsletter</h1>
+  <h1 class="text-3xl">Newsletters for content creators</h1>
 
-  <p class="mb-8 text-lg text-gray-700">If you are looking for the easiest way to create a
-    newsletter, read on.</p>
+  <p class="mb-8 text-gray-700 italic">The easiest way to start your newsletter</p>
 
-  <h2 class="text-2xl mb-4">Newsletter service for content creators</h2>
-
-  <p class="mb-2 text-lg text-gray-700">
-    When I was building RSSMailer
-    <a href="https://twitter.com/jankeesvw/status/1161519867335454721">I got some feedback</a> from
-    content creators if there was a way to use RSSMailer as a newsletter sending service.
+  <p class="text-gray-700">
+    ​​RSSMailer is already helping you to keep yourself up to date with the latest articles you’d like to follow through RSS.
   </p>
-
-  <p class="mb-8 text-lg text-gray-700">
-    I worked on this for the last couple of days and now you are able to do this. All you have to do
-    is create a sign up form.
+    ​​
+  <p class="text-gray-700">
+    ​​Content creators asked us if we could provide a way to use this service as a newsletter sending service. And I have good news, now you can ​🎉​
+  </p>
+    ​​
+  <p class="mb-6 text-gray-700">
+    ​​Create your personal newsletter with our single sign-up form.
   </p>
 
   <div>
-    <h3 class="text-2xl mb-4">Some of the supported platforms</h3>
+    <h3 class="text-2xl mb-10">Some of the supported platforms</h3>
     <div class="flex opacity-50 justify-around w-full flex-wrap mb-8">
       <div class="text-center w-20 mb-4">
         <%= image_tag "icons/wordpress-brands.svg", class: "h-10 mx-auto mb-2" %>
@@ -48,7 +46,7 @@
 
   <h2 class="text-2xl mb-4">How it works</h2>
 
-  <p class="mb-8 text-lg text-gray-700">As the owner of a publication you can create a form in your
+  <p class="mb-8 text-gray-700">As the owner of a publication you can create a form in your
     account by
     navigating to the <%= link_to "Create personal newsletter", edit_subscribe_form_path %>
     page.</p>
@@ -58,15 +56,12 @@
     <%= image_tag "form.jpg", alt: "Quickly create a form" %>
   </div>
 
-  <p class="mb-8 text-lg text-gray-700">
+  <p class="mb-8 text-gray-700">
     After filling in the required details you get a personal link you can give to your readers, on
-    this page they can sign up for your newsletter it's that easy.
+    this page they can sign up for your newsletter, it's that easy.
   </p>
 
-  <div class="mb-4 bg-white shadow-lg rounded p-2 py-20 mb-10 flex items-center justify-around">
+  <div class="mb-4 bg-white shadow-lg rounded p-2 py-20 mb-10 flex items-center justify-around mb-20">
     <%= image_tag "subscribe.jpg", alt: "Subscribe form", style: "max-width: 400px; width: 100%" %>
   </div>
-
-  <p class="mb-20 text-lg text-gray-700">
-    If you want to know more about RSSMailer check the <%= link_to "about page", about_path %>.</p>
 </div>

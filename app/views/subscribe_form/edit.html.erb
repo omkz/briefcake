@@ -25,11 +25,12 @@
 
             <div class="field">
               <%= form.label :slug, "Pick a url (needs to be unique)" %>
-              <%= form.text_field :slug, class: "input" %>
+              <div class="flex items-center w-full">
+                <div class="pr-2 text-gray-600 bg-gray-200 px-2 py-2 pr-0 rounded-l"><%= subscribe_url(slug: "") %></div>
+                <div class="flex-grow w-full"><%= form.text_field :slug, class: "input pl-1 rounded-none rounded-r" %></div>
+              </div>
               <% if @subscribe_form.errors.added?(:slug, "has already been taken") %>
                 <div class="text-xs pt-1 text-red-600">This name is taken or reserved.</div>
-              <% else %>
-                <div class="text-xs pt-1 text-gray-600">This is what gets used for your custom url.</div>
               <% end %>
             </div>
 

@@ -26,6 +26,6 @@ class SubscribeFormController < ApplicationController
   end
 
   def subscribe_form_params
-    params.require(:subscribe_form).permit(:url, :slug, :name, :feed_url)
+    params.require(:subscribe_form).permit(:url, :slug, :name, :feed_url, :color)
   end
 end

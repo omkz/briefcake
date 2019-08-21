@@ -50,6 +50,11 @@
               <%= form.url_field :feed_url, class: "input", data: { target: "feed-url.feedUrlInput" } %>
             </div>
 
+            <div class="field">
+              <%= form.label :color, "Color of the submit button" %>
+              <%= form.text_field :color, placeholder: "#ff0000", class: "input" %>
+            </div>
+
             <div class="pt-8">
               <%= form.submit @subscribe_form.persisted? ? 'Update' : 'Create your form', class: "btn btn--primary", data: { target: "feed-url.submitButton" } %>
             </div>

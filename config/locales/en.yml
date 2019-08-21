@@ -33,3 +33,8 @@ en:
   customer:
     one: "1 user"
     other: "%{count} users"
+
+  user_mailer:
+    subject:
+      one: "RSSMailer – 1 new item on %{date}"
+      other: "RSSMailer – %{count} new items on %{date}"

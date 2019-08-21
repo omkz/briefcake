@@ -17,7 +17,7 @@ class UserMailer < ApplicationMailer
     if @feed_items.any? && @user.wants_email?
       date = I18n.l(Time.zone.today.to_date)
 
-      subject = "RSSMailer – #{@feed_items.count} new items on #{date}"
+      subject = t("user_mailer.subject", count: @feed_items.count, date: date)
 
       mail(
         to: @user.email,

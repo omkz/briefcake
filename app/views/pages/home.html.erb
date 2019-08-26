@@ -45,33 +45,12 @@
     </div>
   </div>
 </div>
-<% if false %>
 
-<div class="bg-white">
-  <div class="container max-w-5xl mx-auto px-4 py-8 sm:py-32">
-    <p class="mb-2 text-sm font-medium uppercase tracking-wider text-blue-500"><%= I18n.t("customer", count: User.count) %>  (and counting) can't be wrong</p>
-    <h3 class="text-4xl leading-tight font-medium">People
-      <span class="text-red-400">♥</span> <%= Rails.configuration.application_name %></h3>
-
-    <div class="testimonials">
-      <div class="testimonial">
-        <p class="testimonial__content">
-          “Hmmm, I know it's weird to love your own things. But here you go, I love that daily email.”
-        </p>
-
-        <div class="testimonial__author">
-          <%= image_tag "https://avatars0.githubusercontent.com/u/167882?s=200", class: "testimonial__author-avatar" %>
-          <div class="ml-3">
-            <p class="testimonial__author-name">Jankees van Woezik</p>
-            <%= link_to "@jankeesvw", "https://twitter.com/jankeesvw", class: "testimonial__author-link" %>
-          </div>
-        </div>
-      </div>
-
-    </div>
+<div class="bg-white text-center pt-10 pb-5">
+  <div class="max-w-5xl mx-auto">
+    <%= render "shared/supported_platforms" %>
   </div>
-
-  <% end %>
+</div>
 
   <div class="bg-blue-800" style="background: radial-gradient(1270.42px at 0% 0%, #14355F 0%, #2C5282 100%)">
     <div class="container max-w-5xl mx-auto px-4 text-center py-8 sm:py-32">

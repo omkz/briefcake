@@ -61,7 +61,7 @@ feature "sending emails" do
       sent_email = SentEmail.last
       expect(sent_email.subject).to eq "RSSMailer – 1 new item on 2015-09-19"
       expect(sent_email.number_of_items).to eq 1
-      expect(sent_email.index).to eq({ "Timi blog" => 1 })
+      expect(sent_email.index).to eq({ feed.id.to_s => 1 })
       expect(sent_email.receiver).to eq user.email
       expect(sent_email.user).to eq user
       expect(sent_email.compose_duration_in_seconds).to be > 0
@@ -91,7 +91,7 @@ feature "sending emails" do
       sent_email = SentEmail.last
       expect(sent_email.subject).to eq "RSSMailer – 2 new items on 2015-09-19"
       expect(sent_email.number_of_items).to eq 2
-      expect(sent_email.index).to eq({ "Timi blog" => 2 })
+      expect(sent_email.index).to eq({ feed.id.to_s => 2 })
       expect(sent_email.receiver).to eq user.email
       expect(sent_email.user).to eq user
     end

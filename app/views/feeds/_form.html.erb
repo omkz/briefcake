@@ -36,7 +36,7 @@
         <%= form.submit feed.persisted? ? 'Update' : 'Add', class: "btn btn--primary #{'hidden' if !show_fields}", data: { target: "feed.submitButton" } %>
 
         <% if feed.persisted? %>
-          <%= link_to "Unfollow", feed, method: :delete, class: "text-red-600", data: { confirm: "Are you sure?" } %>
+          <%= link_to "Delete", feed, method: :delete, class: "text-red-600", data: { confirm: "Are you sure?" } %>
         <% end %>
       </div>
     </div>

@@ -10,5 +10,9 @@ FactoryBot.define do
     trait :unsubscribed do
       unsubscribed_at { Time.zone.now }
     end
+
+    trait :unconfirmed do
+      confirmed_at { nil }
+    end
   end
 end

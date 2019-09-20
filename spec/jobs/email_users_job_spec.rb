@@ -32,4 +32,12 @@ describe EmailUsersJob do
 
     expect(Delayed::Job.all).to have(0).jobs
   end
+
+  it "does not enqueue jobs for unconfirmed users" do
+    create(:user, :unconfirmed)
+
+    EmailUsersJob.perform_now
+
+    expect(Delayed::Job.all).to have(0).jobs
+  end
 end

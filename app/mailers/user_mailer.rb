@@ -9,7 +9,7 @@ class UserMailer < ApplicationMailer
       items = feed.new_items!
       if items.any?
         feed.update_column(:publish_date_last_sent_item, items.first.publish_date)
-        @index[feed.id] = items.count
+        @index[feed.name] = items.count
       end
       items
     end.flatten.compact

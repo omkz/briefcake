@@ -13,7 +13,9 @@
       <hr class="border-t my-4">
 
       <ul class="leading-loose mb-10 features">
-        <%= render "feature", feature: "Follow RSS feeds, YouTube Channels, and Instagram" %>
+        <%= render "feature", feature: "Follow RSS feeds" %>
+        <%= render "feature", feature: "Follow YouTube channel" %>
+        <%= render "feature", feature: "Follow Instagram" %>
         <%= render "feature", feature: "5 feeds" %>
         <%= render "feature", feature: "Daily email" %>
       </ul>
@@ -30,8 +32,8 @@
       <ul class="leading-loose mb-10 features">
         <li class="mb-4 text-center text-gray-700">Everything from free and:</li>
         <%= render "feature", feature: "Unlimited feeds" %>
-        <%= render "feature", feature: "Pick your own time" %>
-        <%= render "feature", feature: "You’re the first to receive the emails" %>
+        <%= render "feature", feature: "Set a custom delivery time" %>
+        <%= render "feature", feature: "You're the first to receive the emails", hint: "Sending all the emails can take upto a few hours, depending on the time of day. E-mails of pro plan accounts are always sent before the free ones."%>
         <%= render "feature", feature: "Email per feed", soon: true %>
         <%= render "feature", feature: "Filter on keywords", soon: true %>
       </ul>

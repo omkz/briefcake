@@ -1,0 +1,51 @@
+<p class="mb-6">
+  Enqueued jobs: <strong><%= @jobs.count %></strong> <br>
+  Emails sent today: <strong><%= @todays_emails.count %></strong><br>
+</p>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Run at</th>
+    <th>Priority</th>
+    <th>Queue / Info</th>
+    <th>Created at</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @jobs.each do |job| %>
+    <tr>
+      <td>
+        <pre><%= job.id %></pre>
+      </td>
+      <td>
+        <% if job.run_at > Time.zone.now %>
+          <%= distance_of_time_in_words(job.run_at, Time.zone.now) %>
+        <% else %>
+          <div class="pill pill--danger"><%= time_ago_in_words(job.run_at) %> ago</div>
+        <% end %>
+      </td>
+      <td><%= job.priority %></td>
+      <td>
+        <pre><%= job.queue %></pre>
+      </td>
+      <td><%= l(job.created_at, format: :short) %></td>
+    </tr>
+  <% end %>
+  <% @todays_emails.each do |sent_email| %>
+    <tr class="bg-green-100">
+      <td>
+        <pre><%= sent_email.id %></pre>
+      </td>
+      <td>
+        <%= embedded_svg("checkmark.svg", class: "inline-block flex-shrink-0 w-4 h-4 mr-2 p-1 bg-green-200 text-green-700 fill-current rounded-full") %>
+        <%= ActiveSupport::Duration.build(sent_email.compose_duration_in_seconds).inspect %>
+      </td>
+      <td>-</td>
+      <td><%= sent_email.number_of_items %> items</td>
+      <td><%= l(sent_email.created_at, format: :short) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

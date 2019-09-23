@@ -1,7 +1,7 @@
 <% content_for :page_title, "/open – RSSMailer" %>
 <% content_for :page_description, "RSSReader is an Open Startup, which means it operates fully transparent and shares its metrics, including revenue and users." %>
 
-<div class="max-w-2xl mx-auto my-20 text-center px-2">
+<div class="max-w-3xl mx-auto my-20 text-center px-2">
   <p class="bg-blue-700 text-white rounded py-3 my-10 px-4">
     RSSReader is an
     <a class="text-white underline" href="https://twitter.com/levelsio/status/968219339588493312">Open Startup</a>, which means it operates fully transparent and shares its metrics, including revenue and users.
@@ -23,6 +23,7 @@
 
   <div class="mb-20">
     <h1>Number of feeds per account:</h1>
+
     <%
       distribution_data = {}
       User.all.find_each do |u|
@@ -69,5 +70,11 @@
   <div class="mb-20">
     <h1>Revenue (no monetization)</h1>
     <%= line_chart revenue %>
+  </div>
+
+  <div class="mb-20">
+    <h1>Jobs</h1>
+
+    <iframe data-controller="open-jobs" src="<%= open_jobs_path %>" frameborder="0" class="w-full" style="height: 800px"></iframe>
   </div>
 </div>

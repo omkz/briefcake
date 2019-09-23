@@ -1,9 +1,7 @@
-<li class="flex flex-wrap">
-  <%= embedded_svg("checkmark.svg", class: "inline-block w-4 mr-2") %>
-  <%= feature %>
+<li class="relative pl-6">
+  <%= embedded_svg("checkmark.svg", class: "w-4 absolute top-4 top-0 left-0 my-2") %>
+  <div class="inline"><%= feature %></div>
   <% if local_assigns[:soon].present? %>
-    <div>
-      <div class="pill pill--tertiary h-auto ml-2 h-1">soon</div>
-    </div>
+    <div class="inline pill pill--tertiary h-auto ml-2 h-1">soon</div>
   <% end %>
 </li>

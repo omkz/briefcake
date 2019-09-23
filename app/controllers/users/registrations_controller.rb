@@ -2,6 +2,7 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_account_update_params, only: [:update]
+  layout "application", only: [:edit, :update]
 
   def configure_account_update_params
     params[:user][:send_email_at] = [

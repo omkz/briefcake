@@ -28,6 +28,18 @@
       <%= f.password_field :current_password, autocomplete: "current-password", class: "input", placeholder: "•••••••••••••" %>
     </div>
 
+    <div class="pl-8">
+      <div class="field">
+        <%= f.label :time_zone %>  <i class="field__helper"></i>
+        <%= f.time_zone_select :time_zone, nil, {},class: "input" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :send_email_at %>  <i class="field__helper"></i>
+        <%= f.text_field :send_email_at, class: "input", type: :time %>
+      </div>
+    </div>
+
     <div class="buttons">
       <%= f.submit "Update", class: "btn btn--primary" %>
     </div>

@@ -1,0 +1,9 @@
+<li class="flex flex-wrap">
+  <%= embedded_svg("checkmark.svg", class: "inline-block w-4 mr-2") %>
+  <%= feature %>
+  <% if local_assigns[:soon].present? %>
+    <div>
+      <div class="pill pill--tertiary h-auto ml-2 h-1">soon</div>
+    </div>
+  <% end %>
+</li>

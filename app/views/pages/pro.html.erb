@@ -1,0 +1,45 @@
+<div class="mx-auto py-10">
+  <div class="flex flex-wrap items-center justify-center">
+    <div class="flex-grow border p-8 py-6 rounded bg-white shadow-sm m-3 h-auto max-w-sm">
+      <header class="text-center">
+        <h1 class="font-bold text-3xl">FREE</h1>
+      </header>
+
+      <hr class="border-t my-4">
+
+      <ul class="leading-loose mb-10 features">
+        <%= render "feature", feature: "Follow RSS feeds" %>
+        <%= render "feature", feature: "Follow (public) Instagram accounts" %>
+        <%= render "feature", feature: "Follow YouTube channels" %>
+        <%= render "feature", feature: "5 feeds" %>
+        <%= render "feature", feature: "Get a daily email" %>
+      </ul>
+
+      <div class="text-center">
+      </div>
+    </div>
+
+    <div class="flex-grow border p-8 py-6 rounded shadow-lg m-3 bg-white max-w-sm">
+      <header class="text-center">
+        <h1 class="font-bold text-3xl">PRO</h1>
+        <small class="text-sm font-bold">(only $3.99 per month)</small>
+      </header>
+
+      <hr class="border-t my-4">
+
+      <ul class="leading-loose mb-10 features">
+        <%= render "feature", feature: "Everything from free" %>
+        <%= render "feature", feature: "Pick your own time" %>
+        <%= render "feature", feature: "Support independent maker" %>
+        <%= render "feature", feature: "Unlimited feeds" %>
+        <%= render "feature", feature: "Priority in queue" %>
+        <%= render "feature", feature: "Email per feed", soon: true %>
+        <%= render "feature", feature: "Filter on keywords", soon: true %>
+      </ul>
+
+      <div class="text-center">
+        <div class="btn btn--primary rounded-lg">Upgrade 👌</div>
+      </div>
+    </div>
+  </div>
+</div>

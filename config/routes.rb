@@ -45,6 +45,7 @@ Rails.application.routes.draw do
                      end
 
   get "/about", to: "pages#about"
+  get "/pro", to: "pages#pro"
   get "/stats.txt", to: "pages#stats"
 
   get "/example-email", to: "pages#example"

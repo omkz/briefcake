@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "unsubscribe", to: "unsubscribe#destroy"
 
   get "open", to: "open#show"
+  get "open/jobs", to: "open#jobs"
 
   resource :subscribe_form, controller: :subscribe_form, only: [:edit, :update]
   get "/s/:slug", controller: :subscribe, action: :show

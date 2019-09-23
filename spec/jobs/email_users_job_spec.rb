@@ -54,6 +54,20 @@ describe EmailUsersJob do
       end
     end
 
+    it "works when the job runs later" do
+      Timecop.freeze Time.zone.parse("2019-09-23 16:00:00") do
+        create(:user, send_email_at: "23:00", time_zone: "Sydney")
+
+        EmailUsersJob.perform_now
+
+        expect(Delayed::Job.all).to have(1).job
+
+        job = Delayed::Job.first
+        expect(job.run_at.to_s).to eq "2019-09-24 13:00:00 UTC"
+        expect(job.priority).to eq 0
+      end
+    end
+
     it "uses the timezone to determine the time (for Mountain Time (US & Canada))" do
       Timecop.freeze Time.zone.parse("2019-09-23 00:00:00") do
         create(:user, send_email_at: "9:00", time_zone: "Mountain Time (US & Canada)")

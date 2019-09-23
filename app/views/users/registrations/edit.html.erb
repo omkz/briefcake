@@ -1,5 +1,5 @@
 <div class="mt-4 max-w-lg mx-auto">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put,  class: "card card--light p-4" }) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "card card--light p-4" }) do |f| %>
     <%= devise_error_messages! %>
 
     <h1 class="mt-2 mb-6 text-xl">Edit account</h1>
@@ -18,25 +18,23 @@
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
 
-    <div class="field">
-      <%= f.label :password %> <i class="field__helper">(leave blank if you do not want to change it)</i>
-      <%= f.password_field :password, autocomplete: "new-password", class: "input", placeholder: "•••••••••••••" %>
-    </div>
+    <div class="pl-5 p-4 mb-8 border-l-4 border-green-500 bg-gray-100">
+      <% unless resource.is_pro? %>
+        <p class="mb-4">Available when you <%= link_to "upgrade to pro", pro_path %>:</p>
+      <% end %>
 
-    <div class="field">
-      <%= f.label :current_password %> <i class="field__helper">(we need your current password to confirm your changes)</i>
-      <%= f.password_field :current_password, autocomplete: "current-password", class: "input", placeholder: "•••••••••••••" %>
-    </div>
+      <div class="<%= resource.is_pro? ? "" : "pointer-events-none opacity-50" %>">
+        <div class="field">
+          <%= f.label :time_zone %>
+          <%= f.time_zone_select :time_zone, nil, {}, class: "input" %>
+        </div>
 
-    <div class="pl-8">
-      <div class="field">
-        <%= f.label :time_zone %>  <i class="field__helper"></i>
-        <%= f.time_zone_select :time_zone, nil, {},class: "input" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :send_email_at %>  <i class="field__helper"></i>
-        <%= f.text_field :send_email_at, class: "input", type: :time %>
+        <div class="field mb-0">
+          <%= f.label :send_email_at %>  <i class="field__helper"></i>
+          <div>
+            <%= f.time_select :send_email_at, { ignore_date: true, selected: resource.send_email_at.present? ? Time.parse(resource.send_email_at) : nil }, { class: "input w-auto" } %>
+          </div>
+        </div>
       </div>
     </div>
 

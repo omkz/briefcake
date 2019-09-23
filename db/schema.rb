@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_23_112428) do
+ActiveRecord::Schema.define(version: 2019_09_23_132507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -148,8 +148,9 @@ ActiveRecord::Schema.define(version: 2019_09_23_112428) do
     t.string "card_exp_month"
     t.string "card_exp_year"
     t.datetime "unsubscribed_at"
-    t.integer "send_email_at"
     t.string "time_zone", default: "UTC"
+    t.string "send_email_at", default: ""
+    t.boolean "is_pro", default: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

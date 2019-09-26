@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  include Sjabloon::Stripe::Payer
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :masqueradable,
          :confirmable

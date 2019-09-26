@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_21_120954) do
+ActiveRecord::Schema.define(version: 2019_09_26_175533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,68 +100,6 @@ ActiveRecord::Schema.define(version: 2019_08_21_120954) do
     t.integer "number_of_items"
     t.float "compose_duration_in_seconds", default: 0.0
     t.index ["user_id"], name: "index_sent_emails_on_user_id"
-  end
-
-  create_table "sjabloon_charges", force: :cascade do |t|
-    t.bigint "owner_id"
-    t.string "processor", null: false
-    t.string "processor_id", null: false
-    t.integer "amount", null: false
-    t.integer "amount_refunded"
-    t.string "card_type"
-    t.string "card_last4"
-    t.string "card_exp_month"
-    t.string "card_exp_year"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["owner_id"], name: "index_sjabloon_charges_on_owner_id"
-  end
-
-  create_table "sjabloon_coupons", force: :cascade do |t|
-    t.string "code"
-    t.string "name"
-    t.string "currency"
-    t.integer "max_redemptions"
-    t.integer "amount_off"
-    t.decimal "percent_off"
-    t.string "duration"
-    t.integer "duration_in_months"
-    t.datetime "redeem_by"
-    t.integer "times_redeemed", default: 0
-    t.boolean "is_valid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "sjabloon_plans", force: :cascade do |t|
-    t.string "processor_id"
-    t.integer "amount"
-    t.string "currency"
-    t.string "nickname"
-    t.integer "trial_period_days"
-    t.string "interval"
-    t.string "interval_count"
-    t.string "product"
-    t.jsonb "features", default: {}, null: false
-    t.integer "position"
-    t.boolean "active", default: true
-    t.boolean "visible", default: true
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "sjabloon_subscriptions", force: :cascade do |t|
-    t.bigint "owner_id"
-    t.string "name", null: false
-    t.string "processor", null: false
-    t.string "processor_id", null: false
-    t.string "processor_plan", null: false
-    t.integer "quantity", default: 1, null: false
-    t.datetime "trial_ends_at"
-    t.datetime "ends_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["owner_id"], name: "index_sjabloon_subscriptions_on_owner_id"
   end
 
   create_table "subscribe_forms", force: :cascade do |t|

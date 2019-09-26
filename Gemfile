@@ -89,5 +89,3 @@ group :development do
 end
 
 gem "stripe", "~> 4.18.1"
-gem "stripe_event", "~> 2.2"
-gem "receipts", "~> 0.2.2"

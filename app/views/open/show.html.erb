@@ -4,7 +4,9 @@
 <div class="max-w-3xl mx-auto my-20 text-center px-2">
   <p class="bg-blue-700 text-white rounded py-3 my-10 px-4">
     RSSReader is an
-    <a class="text-white underline" href="https://twitter.com/levelsio/status/968219339588493312">Open Startup</a>, which means it operates fully transparent and shares its metrics, including revenue and users.
+    <a class="text-white underline" href="https://twitter.com/levelsio/status/968219339588493312">Open
+      Startup</a>, which means it operates fully transparent and shares its metrics, including
+    revenue and users.
   </p>
 
   <div class="mb-20">
@@ -13,7 +15,7 @@
                        { name: "Emails per day (Total #{SentEmail.count})", data: SentEmail.group_by_day(:created_at).count },
                    ] %>
   </div>
-  
+
   <div class="mb-20">
     <h1>Number of items in emails:</h1>
     <%= line_chart [
@@ -55,9 +57,9 @@
   <div class="mb-20">
     <h1>Number of feeds created per day (Total: <%= Feed.count %>)</h1>
     <%= line_chart [
-            { name: "From subscribe form", data: Feed.unscoped.form_created.group_by_day(:created_at).count },
-            { name: "From account form", data: Feed.unscoped.account_created.group_by_day(:created_at).count }
-        ] %>
+                       { name: "From subscribe form", data: Feed.unscoped.form_created.group_by_day(:created_at).count },
+                       { name: "From account form", data: Feed.unscoped.account_created.group_by_day(:created_at).count }
+                   ] %>
   </div>
 
   <%
@@ -77,4 +79,9 @@
   <h1>Jobs</h1>
 
   <iframe data-controller="open-jobs" src="<%= open_jobs_path %>" frameborder="0" class="w-full" style="height: 800px"></iframe>
+</div>
+
+
+<div class="max-w-3xl mx-auto my-20 text-center px-2">
+  <a href="https://simpleanalytics.com/rssmailer.app">Statistics by Simple Analytics</a>
 </div>

@@ -1,5 +1,6 @@
 # SJABLOON README
 
+
 Thanks for using Sjabloon to get a flying start with your new Ruby on Rails project! 🎊
 
 ## Quickstart guide

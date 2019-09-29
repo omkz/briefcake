@@ -1,4 +1,6 @@
 class FeedReader
+  include UrlHelpers
+
   def initialize(feed)
     @feed = feed
   end
@@ -28,7 +30,7 @@ class FeedReader
             feed: feed,
             title: feed_jira_entry.title.to_s.squish,
             description: feed_jira_entry.summary.to_s.squish,
-            link: feed_jira_entry.url,
+            link: add_domain_to_url(feed_jira_entry.url, feed.feed_url),
             publish_date: feed_jira_entry.published,
             image_url: feed_jira_entry.try(:media_thumbnail_url)
           )

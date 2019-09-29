@@ -2,6 +2,8 @@ require "nokogiri"
 require "net/http"
 
 class PageInfoFinder
+  include UrlHelpers
+
   def initialize(url)
     @url = url
   end
@@ -29,17 +31,7 @@ class PageInfoFinder
 
     feed_url = @document.css("link[rel=alternate][type*=xml]")[0]["href"]
 
-    if /^https?:/.match(feed_url)
-      feed_url.to_s.squish
-    elsif
-    /^\/\//.match(feed_url)
-      @uri.scheme + ":" + feed_url
-    else
-      feed_url = feed_url.to_s.squish
-      feed_url = "/" + feed_url unless feed_url.start_with?("/")
-
-      @uri.scheme + "://" + @uri.host + feed_url
-    end
+    add_domain_to_url(feed_url, @uri)
   rescue
     nil
   end

@@ -1,0 +1,600 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://reinierladan.nl/feed/index.xml
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Accept-Ranges:
+      - bytes
+      Cache-Control:
+      - public, max-age=0, must-revalidate
+      Content-Length:
+      - '62019'
+      Content-Type:
+      - application/xml
+      Date:
+      - Sat, 28 Sep 2019 10:54:51 GMT
+      Etag:
+      - '"6ec98f7ea84a37d44a98c71746d64635-ssl"'
+      Strict-Transport-Security:
+      - max-age=31536000
+      Age:
+      - '117'
+      Connection:
+      - keep-alive
+      Server:
+      - Netlify
+      X-Nf-Request-Id:
+      - 0d8fb68d-c805-4b6f-9e13-9015f58c3822-42270274
+    body:
+      encoding: ASCII-8BIT
+      string: |
+
+        <?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="NL"><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="/feed/index.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="NL" /><updated>2019-09-26T12:20:35+00:00</updated><id>/feed/index.xml</id><title type="html">Hi, Reinier hier.</title><subtitle>Alles over Reinier Ladan</subtitle><author><name>Reinier Ladan</name></author><entry><title type="html">Clueyness Anxiety Tobolowsky</title><link href="/2019/09/26/Clueyness-Anxiety-Tobolowsky" rel="alternate" type="text/html" title="Clueyness Anxiety Tobolowsky" /><published>2019-09-26T06:20:00+00:00</published><updated>2019-09-26T06:20:00+00:00</updated><id>/2019/09/26/Clueyness-Anxiety-Tobolowsky</id><content type="html" xml:base="/2019/09/26/Clueyness-Anxiety-Tobolowsky">&lt;p&gt;Hi, Reinier hier,&lt;/p&gt;
+
+        &lt;p&gt;Heads up: volgende week is er even geen nieuwsbrief maar 1 oktober valt hij gewoon weer op je digitale mat.&lt;/p&gt;
+
+        &lt;p&gt;🤯&lt;/p&gt;
+
+        &lt;p&gt;Door het lezen van de nieuwe Wait But Why serie (zie tip in &lt;a href=&quot;https://reinierladan.nl/2019/09/20/diepste-tijdreis-story&quot;&gt;de vorige nieuwsbrief&lt;/a&gt;) kwam ik achter &lt;a href=&quot;https://waitbutwhy.com/2016/05/clueyness-a-weird-kind-of-sad.html&quot;&gt;het begrip ‘Clueyness’&lt;/a&gt;. Het is het gevoel dat je iemand hebt teleurgesteld waarbij jij het waarschijnlijk erger vind dan de ander. Heel herkenbaar! Zo zijn er waarschijnlijk nog meer emoties die ik weleens heb maar waar niet eens een term voor bestaat in onze cultuur.&lt;/p&gt;
+
+        &lt;p&gt;Emoties kunnen je natuurlijk zo in de weg zitten dat je er ziek van wordt. &lt;a href=&quot;https://twitter.com/johannhari101&quot;&gt;Johann Hari&lt;/a&gt; kent dit gevoel maar al te goed en hij zet &lt;a href=&quot;https://www.ted.com/talks/johann_hari_this_could_be_why_you_re_depressed_and_anxious&quot;&gt;in deze TED talk (‘This could be why you’re depressed and anxious’)&lt;/a&gt; wel heel goed uiteen waarom een pilletje alleen niet werkt tegen depressies en angststoornissen.&lt;/p&gt;
+
+        &lt;p&gt;En het voelt misschien counter-intuïtief, maar als je al last hebt van anxiety kun je maar beter een een-persoons business starten volgens &lt;a href=&quot;https://en.wikipedia.org/wiki/Maciej_Cegłowski&quot;&gt;Maciej Cegłowski&lt;/a&gt;:&lt;/p&gt;
+
+        &lt;blockquote&gt;
+          &lt;p&gt;A one-person business is an exercise in long-term anxiety management, so I would say if you are already an anxious person, go ahead and start a business. You’re not going to feel any worse. You’ve already got the main skill set of staying up and worrying, so you might as well make some money.&lt;/p&gt;
+        &lt;/blockquote&gt;
+
+        &lt;p&gt;Bron: &lt;a href=&quot;https://blog.pinboard.in/2019/07/i_cant_stop_winning/&quot;&gt;I Can’t Stop Winning (Pinboard Blog)&lt;/a&gt;&lt;/p&gt;
+
+        &lt;p&gt;🎧&lt;/p&gt;
+
+        &lt;p&gt;&lt;a href=&quot;https://stephentobolowsky.com/the-tobolowsky-files/&quot;&gt;De Tobolowsky Files&lt;/a&gt; zijn de ingesproken memoires van acteur &lt;a href=&quot;https://en.wikipedia.org/wiki/Stephen_Tobolowsky&quot;&gt;Stephen Tobolowsky&lt;/a&gt;. Je kent hem waarschijnlijk als Ned uit &lt;a href=&quot;https://nl.wikipedia.org/wiki/Groundhog_Day_(film)&quot;&gt;Groundhog Day&lt;/a&gt; (die vent die Bill Murray elke ochtend begroet en uiteindelijk een keer van Bill een stomp in z’n gezicht krijgt). En laat er nou net &lt;a href=&quot;https://castro.fm/episode/3ggycg&quot;&gt;een complete aflevering, ‘The Classic, zijn over zijn ervaring met het opnemen van Groundhog Day&lt;/a&gt;. Fascinerend hoe die film uiteindelijk tot stand is gekomen en waarom het zo’n onwijs goede film is geworden.&lt;/p&gt;
+
+        &lt;p&gt;En over podcasts gesproken:&lt;/p&gt;
+
+        &lt;p&gt;Aanstaande zaterdag is het &lt;strong&gt;podcastfestival&lt;/strong&gt; waar ik niet alleen als bezoeker heen ga maar ook als onderdeel van het panel ‘Blijven podcasten’. &lt;a href=&quot;https://podcastfestival.nl&quot;&gt;Er zijn nog kaartjes te koop&lt;/a&gt;. Tot zaterdag!&lt;/p&gt;
+
+        &lt;h2 id=&quot;oproepjes&quot;&gt;Oproepjes&lt;/h2&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;Content Design Londen geeft de beste Content Design trainingen en &lt;a href=&quot;https://contentdesign.london/content-design-2-day-course/&quot;&gt;deze twee-daagse training&lt;/a&gt; wordt op 12 en 13 november ook in Nederland aangeboden! Echt een unieke kans om deze training zonder ver te reizen te kunnen volgen.&lt;/li&gt;
+          &lt;li&gt;Ben je nog steeds aan het betalen met je privacy voor je e-mail? Stop daar gewoon mee en betaal voor een &lt;a href=&quot;https://www.fastmail.com/?STKI=16948328&quot;&gt;fatsoenlijke e-maildienst zoals Fastmail&lt;/a&gt;. Super easy in gebruik en je betaalt niet met je ziel.&lt;/li&gt;
+        &lt;/ul&gt;
+
+        &lt;p&gt;&lt;strong&gt;Zelf een oproepje plaatsen?&lt;/strong&gt; Voor maar een tientje laat je je oproepje lezen aan &lt;em&gt;de meer dan 1000 intelligente en geïnteresseerde lezers van de 82% nieuwsbrief&lt;/em&gt;.&lt;/p&gt;
+
+        &lt;p&gt;🌟 &lt;a href=&quot;https://forms.82procent.nl&quot;&gt;Plaats een oproepje in een volgende editie&lt;/a&gt;&lt;/p&gt;
+
+        &lt;h2 id=&quot;wvttk&quot;&gt;WVTTK&lt;/h2&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;http://kyleprifogle.com/dear-startup/&quot;&gt;Dear Startup: You have no idea how much that costs&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://blog.cloudflare.com/announcing-warp-plus/&quot;&gt;WARP is here (sorry it took so long)&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://mapscaping.com/pages/folding-paper-globes&quot;&gt;Folding paper globes - origami globes&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://www.newyorker.com/magazine/2019/09/30/how-tiktok-holds-our-attention&quot;&gt;How TikTok Holds Our Attention&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://www.reddit.com/r/dataisbeautiful/comments/cynql1/moores_law_graphed_vs_real_cpus_gpus_1965_2019_oc/&quot;&gt;Moore’s Law graphed vs real CPUs &amp;amp; GPUs 1965 - 2019&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;</content><author><name>Reinier Ladan</name></author><summary type="html">Hi, Reinier hier,</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://reinierladan.nl/assets/82procent.jpg" /></entry><entry><title type="html">Diepste Tijdreis Story</title><link href="/2019/09/20/Diepste-Tijdreis-Story" rel="alternate" type="text/html" title="Diepste Tijdreis Story" /><published>2019-09-20T07:20:00+00:00</published><updated>2019-09-20T07:20:00+00:00</updated><id>/2019/09/20/Diepste-Tijdreis-Story</id><content type="html" xml:base="/2019/09/20/Diepste-Tijdreis-Story">&lt;p&gt;Hi, Reinier hier,&lt;/p&gt;
+
+        &lt;p&gt;Het blijft me fascineren dat we in sommige opzichten meer weten over wat er zich in de ruimte afspeelt dan in de diepe krochten van onze eigen oceanen. &lt;a href=&quot;https://www.youtube.com/watch?v=PaErPyEnDvk&quot;&gt;De nieuwe Kurtzgesagt neemt je mee naar het diepste punt&lt;/a&gt; om je te laten zien wat we wél weten. Mind blowing hoe snel het diep en onleefbaar wordt op weg naar beneden.&lt;/p&gt;
+
+        &lt;p&gt;Over reizen gesproken: MinutePhysics legt je &lt;a href=&quot;https://www.youtube.com/watch?v=d3zTfXvYZ9s&quot;&gt;in deze video uit wat de causale mogelijkheden zijn van diverse tijdreisconcepten in films&lt;/a&gt;.&lt;/p&gt;
+
+        &lt;p&gt;Een wat normalere reis ondernam Jason Kottke deze zomer en schreef daar &lt;a href=&quot;https://kottke.org/19/08/my-2019-roadtrip-along-the-pacific-coast-of-the-us&quot;&gt;een blogpost over&lt;/a&gt;. Door zijn post heb ik nu zin om een rondleiding bij Pixar te krijgen en te horen &lt;a href=&quot;https://www.pixarpost.com/2019/05/toy-story-4-second-chance-antiques-store-design.html&quot;&gt;over de AI spinnen die alle spinnenwebben maakte in Toy Story 4&lt;/a&gt;.&lt;/p&gt;
+
+        &lt;p&gt;👩‍👩‍👧‍👧👨‍👨‍👦‍👦&lt;/p&gt;
+
+        &lt;p&gt;Tim Urban in &lt;a href=&quot;https://waitbutwhy.com/2019/08/story-intro.html&quot;&gt;The Story of Us&lt;/a&gt;:&lt;/p&gt;
+
+        &lt;blockquote&gt;
+          &lt;p&gt;As a writer and a generally thinky person, I’ve spent a lot of my life thinking about the society I live in, and societies in general. I’ve always imagined society as a kind of giant human—a living organism like each of us, only much bigger.&lt;/p&gt;
+        &lt;/blockquote&gt;
+
+        &lt;p&gt;Tim gaat verder met het verhaal dat hij werd geadviseerd door allerlei vrienden en kennissen om &lt;em&gt;niet&lt;/em&gt; over de (problemen in onze) maatschappij te schrijven. Daar legde hij zich vervolgens &lt;em&gt;niet&lt;/em&gt; bij neer. En maar goed ook, want Tim legt dingen helder uit en ook nog eens met de nodige humor.&lt;/p&gt;
+
+        &lt;p&gt;Tim over de unieke sprong die de natuur maakte om tot intelligente apen te komen:&lt;/p&gt;
+
+        &lt;blockquote&gt;
+          &lt;p&gt;All previous genes had passed up extra high intelligence in their housing because it requires a ridiculous amount of energy to maintain. It’s like running a small business and considering whether to hire an employee with a rare skill set who will only work for $1,000,000 a year. Doesn’t matter how good the employee is—no one is worth a million a year to a cash-strapped small business. But these ape genes tried it anyway.&lt;/p&gt;
+        &lt;/blockquote&gt;
+
+        &lt;p&gt;&lt;a href=&quot;https://waitbutwhy.com/2019/08/story-of-us.html&quot;&gt;The Story of Us is in delen te lezen&lt;/a&gt; en er zullen nog een flink aantal hoofdstukken verschijnen.&lt;/p&gt;
+
+        &lt;p&gt;⚙️&lt;/p&gt;
+
+        &lt;p&gt;Nog een fijn tooltje voor in je menubar op de Mac als afsluiter deze week:&lt;/p&gt;
+
+        &lt;p&gt;&lt;a href=&quot;https://www.dangercove.com/timeless/&quot;&gt;De Timeless app&lt;/a&gt; helpt je om &lt;strong&gt;globaal&lt;/strong&gt; de tijd te zien in plaats van een heel precieze tijd. Erg fijn voor wat rust in je hoofd op dagen dat je veel werk moet verzetten.&lt;/p&gt;
+
+        &lt;h2 id=&quot;oproepjes&quot;&gt;Oproepjes&lt;/h2&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;Ga mee op Agile Camp in Utrecht op 1+2 november - een tweedaagse unconference voor iedereen die werkt in een agile omgeving. Deelnemers bepalen zelf het programma; doel is oefenen met, en leren van je vakgenoten. (⛺️ niet nodig.) Benieuwd? Check voor &lt;a href=&quot;https://agilecamp.nl/&quot;&gt;tickets en sessies agilecamp.nl&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;Ik kan het niet vaak genoeg zeggen: betaal voor een &lt;a href=&quot;https://www.fastmail.com/?STKI=16948328&quot;&gt;fatsoenlijke e-maildienst zoals Fastmail&lt;/a&gt;. Super easy in gebruik en je betaalt niet met je ziel.&lt;/li&gt;
+        &lt;/ul&gt;
+
+        &lt;p&gt;&lt;strong&gt;Zelf een oproepje plaatsen?&lt;/strong&gt; Voor maar een tientje laat je je oproepje lezen aan &lt;em&gt;de meer dan 1000 intelligente en geïnteresseerde lezers van de 82% nieuwsbrief&lt;/em&gt;.&lt;/p&gt;
+
+        &lt;p&gt;🌟 &lt;a href=&quot;https://forms.82procent.nl&quot;&gt;Plaats een oproepje in een volgende editie&lt;/a&gt;&lt;/p&gt;
+
+        &lt;h2 id=&quot;wvttk&quot;&gt;WVTTK&lt;/h2&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;https://j11g.com/2019/09/17/php-how-did-it-become-so-popular/&quot;&gt;PHP: how did it become so popular?&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=Ex74x_gqTU0&quot;&gt;The Race to Win Staten Island&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://foundation.mozilla.org/en/blog/100-million-investment-reshape-economics-web/&quot;&gt;A $100 Million Investment to Reshape the Economics of the Web&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=M7w986ni7_g&amp;amp;feature=share&quot;&gt;I attempted to cross an entire country in a straight line.&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://sketchsheets.com/&quot;&gt;Sketchsheets - Ready to print sketch sheet templates for UX designers&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;</content><author><name>Reinier Ladan</name></author><summary type="html">Hi, Reinier hier,</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://reinierladan.nl/assets/82procent.jpg" /></entry><entry><title type="html">Sapiens Pretpark Perspectief</title><link href="/2019/09/13/Sapiens-Pretpark-Perspectief" rel="alternate" type="text/html" title="Sapiens Pretpark Perspectief" /><published>2019-09-13T09:00:00+00:00</published><updated>2019-09-13T09:00:00+00:00</updated><id>/2019/09/13/Sapiens-Pretpark-Perspectief</id><content type="html" xml:base="/2019/09/13/Sapiens-Pretpark-Perspectief">&lt;p&gt;Hi, Reinier hier,&lt;/p&gt;
+
+        &lt;p&gt;De 82% nieuwsbrief is weer terug na een vrij lange zomervakantie en ik heb gelijk een tip voor je om tijd te besparen en die tijd ook weer nuttig te besteden…&lt;/p&gt;
+
+        &lt;p&gt;📘&lt;/p&gt;
+
+        &lt;p&gt;Je zou natuurlijk, zoals bijna iedereen, &lt;a href=&quot;https://www.goodreads.com/book/show/23692271-sapiens&quot;&gt;het boek Sapiens van Yuval Noah Harari&lt;/a&gt; kunnen lezen nu de donkere herfst- en winterdagen er weer aankomen. Maar je kunt ook &lt;a href=&quot;https://neilkakkar.com/sapiens.html&quot;&gt;deze uitgebreide samenvatting van Sapiens&lt;/a&gt; lezen en de tijd die je over hebt stoppen in het bekijken van pretpark-attractievideo’s op Youtube.&lt;/p&gt;
+
+        &lt;p&gt;Want nadat ik één zo’n filmpje had aangeklikt kwam ik in een enorme YouTube vertical terecht met waanzinnige attracties. Zo kwam ik &lt;a href=&quot;https://www.youtube.com/watch?v=ijuQwnfBBZw&quot;&gt;Fernando Alonso en Felipe Massa tegen in de snelste achtbaan van de wereld&lt;/a&gt;, zag ik &lt;a href=&quot;https://www.youtube.com/watch?v=KHv6hKvEzMg&quot;&gt;de gecombineerde waterattractie en achtbaan door Jurassic World heen&lt;/a&gt; en bekeek ik &lt;a href=&quot;https://www.youtube.com/watch?v=BP4JFCTlZ1U&quot;&gt;de Fatamorgana on steroids van Pirates of the Caribbean&lt;/a&gt;. Hier nog &lt;a href=&quot;https://www.youtube.com/watch?v=CKaCvc29gOw&quot;&gt;13 Disney Park Secrets&lt;/a&gt;.&lt;/p&gt;
+
+        &lt;p&gt;Ik heb mijn youtubegeschiedenis moeten leegmaken om weer normale aanbevelingen te krijgen…&lt;/p&gt;
+
+        &lt;p&gt;🦖&lt;/p&gt;
+
+        &lt;p&gt;Over Jurassic Park gesproken: het origineel uit 1993 is natuurlijk de sterkste film van alle sequels en reboots die er zijn geweest. &lt;a href=&quot;https://www.youtube.com/watch?v=BKALxKbjOaE&quot;&gt;Jonathan Burdett legt je uit waarom dat is vanuit cinematografisch perspectief&lt;/a&gt;.&lt;/p&gt;
+
+        &lt;p&gt;🎙&lt;/p&gt;
+
+        &lt;p&gt;Verder nam ik deze zomer ook nog twee Appels en Peren op:&lt;/p&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;https://appelsenperenshow.nl/aflevering/2019/7/17/169-sagrada-urzas-1804-paranoid-survive-definieer-maar&quot;&gt;169. Sagrada Urza’s 18.04 paranoid survive, definieer maar!&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://appelsenperenshow.nl/aflevering/2019/9/4/170-playpod-tweakers-topic-zonder-queen-achtige-beatles&quot;&gt;170. PlayPod Tweakers Topic zonder Queen-achtige Beatles&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+
+        &lt;p&gt;En er is eind deze maand &lt;a href=&quot;https://podcastfestival.nl&quot;&gt;een fantastisch podcastfestival&lt;/a&gt; waar je alleen al heen wilt voor de keynote van Tim Howard, de senior producer van &lt;a href=&quot;https://gimletmedia.com/shows/reply-all&quot;&gt;Reply All&lt;/a&gt;. Zie je daar op zaterdag 28 september in de Tolhuistuin, Amsterdam!&lt;/p&gt;
+
+        &lt;h3 id=&quot;oproepjes&quot;&gt;Oproepjes&lt;/h3&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;Ben je nog steeds aan het betalen met je privacy voor je e-mail? Stop daar gewoon mee en betaal voor een &lt;a href=&quot;https://www.fastmail.com/?STKI=16948328&quot;&gt;fatsoenlijke e-maildienst zoals Fastmail&lt;/a&gt;. Super easy in gebruik en je betaalt niet met je ziel.&lt;/li&gt;
+        &lt;/ul&gt;
+
+        &lt;p&gt;&lt;strong&gt;Zelf een oproepje plaatsen?&lt;/strong&gt; Voor maar een tientje laat je je oproepje lezen aan &lt;em&gt;de meer dan 1000 intelligente en geïnteresseerde lezers van de 82% nieuwsbrief&lt;/em&gt;.&lt;/p&gt;
+
+        &lt;p&gt;🌟 &lt;a href=&quot;https://forms.82procent.nl&quot;&gt;Plaats een oproepje in een volgende editie&lt;/a&gt;&lt;/p&gt;</content><author><name>Reinier Ladan</name></author><summary type="html">Hi, Reinier hier,</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://reinierladan.nl/assets/82procent.jpg" /></entry><entry><title type="html">Breaking Platform Knoflook</title><link href="/2019/06/28/breaking-platform-knoflook" rel="alternate" type="text/html" title="Breaking Platform Knoflook" /><published>2019-06-28T06:30:00+00:00</published><updated>2019-06-28T06:30:00+00:00</updated><id>/2019/06/28/breaking-platform-knoflook</id><content type="html" xml:base="/2019/06/28/breaking-platform-knoflook">&lt;p&gt;Hi, Reinier hier,&lt;/p&gt;
+
+        &lt;p&gt;Dit is even de laatste nieuwsbrief deze zomer. Zoals elk jaar grijp ik deze periode aan om mijn informatieverslaving wat minder te voeden. Veel minder Twitter, geen RSS, minder podcasts en dus ook minder te vertellen in de nieuwsbrief.&lt;/p&gt;
+
+        &lt;p&gt;Maar om je een beetje de zomer door te helpen een dubbeldikke editie. Tot in september!&lt;/p&gt;
+
+        &lt;p&gt;🎞&lt;/p&gt;
+
+        &lt;p&gt;&lt;a href=&quot;https://reinierladan.nl/2019/06/21/verhaal-privacydraken-bloedgeld&quot;&gt;Vorige week&lt;/a&gt; linkte ik al naar een video waarin Kurt Vonnegut verteld hoe een standaard verhaal in elkaar zit. Craig Maizin (maker en schrijver van Chernobyl) doet daar nog een schepje bovenop en geeft &lt;a href=&quot;https://castro.fm/episode/szkGyw&quot;&gt;een Masterclass filmschrijven in deze aflevering van Scriptnotes&lt;/a&gt;. Echt heel erg interessant om naar te luisteren.&lt;/p&gt;
+
+        &lt;p&gt;🕺💃🕺&lt;/p&gt;
+
+        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(•_•)
+        &amp;lt;)    )╯Always
+        /    \
+
+        \(•_•)
+        (    (&amp;gt;  Own
+        /    \
+
+        (•_•)
+        &amp;lt;)    )&amp;gt;  Your Platform
+        /    \
+        &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+        &lt;p&gt;&lt;a href=&quot;http://www.alwaysownyourplatform.com/&quot;&gt;Always Own Your Platform&lt;/a&gt;&lt;/p&gt;
+
+        &lt;p&gt;📰&lt;/p&gt;
+
+        &lt;p&gt;In &lt;a href=&quot;https://reinierladan.nl/2019/06/06/medicijn-tegen-tijdsverspilling&quot;&gt;mijn praatje over een medicijn tegen tijdsverspilling&lt;/a&gt; benoem ik dat ik het dagelijkse nieuws niet volg. Als ik hier met mensen over spreek dan denken ze gelijk dat ik de wereld wil negeren en vrij oppervlakkig door het leven wil gaan.&lt;/p&gt;
+
+        &lt;p&gt;Het tegendeel is waar: ik heb er goed over nagedacht wat het dagelijkse (breaking) nieuws mij eigenlijk te bieden heeft. Het is een (rare) vorm van entertainment gebleken, een verzadiging van mijn nieuwsgierigheid wat enorm veel tijd vrat.&lt;/p&gt;
+
+        &lt;p&gt;Toch blijf ik wel bewust op de hoogte van zaken die incidenteel nieuws overstijgen omdat ieder mens keuzes moet maken in het leven waarbij dit soort informatie van pas komt.&lt;/p&gt;
+
+        &lt;p&gt;Zo kan ‘nieuws’ je helpen bij het kiezen van een hypotheek (welke bank investeert in evil shit, hoe staat de economie er voor) en bij het maken van keuzes over voeding, kleding en het doneren aan goede doelen kan het nieuws je helpen. Maar &lt;em&gt;incidenteel nieuws&lt;/em&gt; helpt je hier niet mee.&lt;/p&gt;
+
+        &lt;p&gt;Het volgen van nieuws dat ‘incident-overstijgend’ is doe ik op de volgende manieren:&lt;/p&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;Met podcasts, want ze nemen vaak beter de tijd om een onderwerp uit te diepen dan andere vormen van media.&lt;/li&gt;
+          &lt;li&gt;Specifieke dagelijkse podcasts zoals &lt;a href=&quot;https://www.nytimes.com/column/the-daily&quot;&gt;The Daily&lt;/a&gt; en &lt;a href=&quot;https://www.nrc.nl/rubriek/podcast-vandaag/&quot;&gt;NRC Vandaag&lt;/a&gt;. Ik luister ze niet allemaal, ik pik er de interessante onderwerpen uit.&lt;/li&gt;
+          &lt;li&gt;Nieuwsbrieven over specifieke onderwerpen via bijvoorbeeld &lt;a href=&quot;https://decorrespondent.nl&quot;&gt;De Correspondent&lt;/a&gt;.&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://blendle.nl&quot;&gt;Blendle&lt;/a&gt;. Daar weten ze namelijk de grote lijnen van het nieuws voor me uiteen te zetten in hapbare brokken.&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://twitter.com&quot;&gt;Twitter&lt;/a&gt;. Als er echt iets belangrijks gebeurt dan weet mijn Twitter-ecosysteem het wel in mijn gezicht te duwen, daar hoef ik verder niks voor te doen. En ik volg een aantal journalisten waarvan ik wel alles wil lezen (bijvoorbeeld &lt;a href=&quot;https://twitter.com/schellevis&quot;&gt;@schellevis&lt;/a&gt; en &lt;a href=&quot;https://twitter.com/danielverlaan&quot;&gt;@danielverlaan&lt;/a&gt;)&lt;/li&gt;
+        &lt;/ul&gt;
+
+        &lt;p&gt;Dit doe ik nu al een aantal jaar zo en het bevalt me prima. Zelfs &lt;a href=&quot;https://www.theguardian.com/media/2013/apr/12/news-is-bad-rolf-dobelli&quot;&gt;de Guardian wil je met 10 overtuigende inzichten overtuigen van dit feit&lt;/a&gt;, dus waar wacht je nog op?&lt;/p&gt;
+
+        &lt;p&gt;👨‍🍳&lt;/p&gt;
+
+        &lt;p&gt;Vergeet alle tips over hoe je een schil van een knoflook afhaalt: &lt;a href=&quot;https://twitter.com/VPestilenZ/status/1140437217619390465&quot;&gt;met deze tip haal je een knoflook zonder schil direct uit de knoflookbol&lt;/a&gt;. Ik heb het getest, het werkt.&lt;/p&gt;
+
+        &lt;p&gt;🗺&lt;/p&gt;
+
+        &lt;blockquote&gt;
+          &lt;p&gt;The mystery surrounding MH370 has been a focus of continued investigation and a source of sometimes feverish public speculation. The loss devastated families on four continents. The idea that a sophisticated machine, with its modern instruments and redundant communications, could simply vanish seems beyond the realm of possibility.&lt;/p&gt;
+        &lt;/blockquote&gt;
+
+        &lt;p&gt;Het kostte me een uurtje om te lezen maar &lt;a href=&quot;https://www.theatlantic.com/magazine/archive/2019/07/mh370-malaysia-airlines/590653/&quot;&gt;dit artikel leert je over wat er nu bekend is over MH370&lt;/a&gt; en welke realistische theorie er is over de verdwijning van het vliegtuig.&lt;/p&gt;
+
+        &lt;h3 id=&quot;oproepjes&quot;&gt;Oproepjes&lt;/h3&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;Mindwave, een dagboek voor founders &amp;amp; makers, is op zoek naar early adopters. Met Mindwave leg je jouw ondernemende reis vast en inspireer je anderen met authentieke verhalen, rechtstreeks uit je dagboek. Volg Marcel’s reis ‘&lt;a href=&quot;https://mindwave.app/journeys/build-a-sustainable-mindwave-D1lAJl&quot;&gt;Build a sustainable Mindwave&lt;/a&gt;’ en test het zelf. Alle feedback is welkom.&lt;/li&gt;
+        &lt;/ul&gt;
+
+        &lt;p&gt;&lt;strong&gt;Zelf een oproepje plaatsen?&lt;/strong&gt; Voor maar een tientje laat je je oproepje lezen aan &lt;em&gt;de meer dan 1000 intelligente en geïnteresseerde lezers van de 82% nieuwsbrief&lt;/em&gt;.&lt;/p&gt;
+
+        &lt;p&gt;🌟 &lt;a href=&quot;https://forms.82procent.nl&quot;&gt;Plaats een oproepje in een volgende editie&lt;/a&gt;&lt;/p&gt;
+
+        &lt;h3 id=&quot;lekker-veel-te-tappen-deze-zomer&quot;&gt;Lekker veel te tappen deze zomer&lt;/h3&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;https://www.fastcompany.com/90369697/googles-new-recaptcha-has-a-dark-side&quot;&gt;Google’s new reCaptcha has a dark side&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://http.cat/&quot;&gt;HTTP Cats&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://blog.mozilla.org/firefox/hey-advertisers-track-this/&quot;&gt;Hey advertisers, track THIS&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://essays.uxdesign.cc/tech-diet/&quot;&gt;The world needs a tech diet; here is how designers can help&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://news.ycombinator.com/item?id=20264911&quot;&gt;Ask HN: What do you do with your Raspberry Pi?&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://www.defmacro.org/2019/03/26/startup-checklist.html&quot;&gt;Startup idea checklist&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://invertedpassion.com/life-is-fractal-markets-are-square/&quot;&gt;Life is fractal, but markets are square&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://jvns.ca/blog/2019/06/23/a-few-debugging-resources/&quot;&gt;What does debugging a program look like?&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://gen.medium.com/the-bs-industrial-complex-of-phony-a-i-44bf1c0c60f8&quot;&gt;The BS-Industrial Complex of Phony A.I.&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://www.fastcompany.com/90365993/this-is-the-most-poetic-way-to-block-your-phones-distracting-notifications&quot;&gt;Bury your phone in this zen garden to block notifications&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://www.cybercultural.com/p/what-facebooks-libra-means-for-spotify&quot;&gt;What Facebook’s Libra means for Spotify &amp;amp; other media companies&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=ocKUIOc3tQ4&quot;&gt;iPadOS public beta: top 6 features&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://www.tor.com/2019/06/27/movie-adaptation-of-epic-fantasy-series-mouse-guard-cancelled-stunning-demo-reel-released/&quot;&gt;Movie Adaptation of Epic Fantasy Series Mouse Guard Cancelled, Stunning Demo Reel Released&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;</content><author><name>Reinier Ladan</name></author><summary type="html">Hi, Reinier hier,</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://reinierladan.nl/assets/82-breaking-platform-knoflook.jpg" /></entry><entry><title type="html">Volg het dagelijkse nieuws niet</title><link href="/2019/06/26/volg-het-dagelijkse-nieuws-niet" rel="alternate" type="text/html" title="Volg het dagelijkse nieuws niet" /><published>2019-06-26T18:00:00+00:00</published><updated>2019-06-26T18:00:00+00:00</updated><id>/2019/06/26/volg-het-dagelijkse-nieuws-niet</id><content type="html" xml:base="/2019/06/26/volg-het-dagelijkse-nieuws-niet">&lt;p&gt;&lt;img src=&quot;/assets/burning-paper.jpg&quot; alt=&quot;Een krant in de brand&quot; /&gt;&lt;/p&gt;
+
+        &lt;p&gt;In &lt;a href=&quot;https://reinierladan.nl/2019/06/06/medicijn-tegen-tijdsverspilling&quot;&gt;mijn praatje over een medicijn tegen tijdsverspilling&lt;/a&gt; benoem ik dat ik het dagelijkse nieuws niet volg. Als ik hier met mensen over spreek dan denken ze gelijk dat ik de wereld wil negeren en vrij oppervlakkig door het leven wil gaan.&lt;/p&gt;
+
+        &lt;p&gt;Het tegendeel is waar: ik heb er goed over nagedacht wat het dagelijkse (breaking) nieuws mij eigenlijk te bieden heeft. Het is een (rare) vorm van entertainment gebleken, een verzadiging van mijn nieuwsgierigheid wat enorm veel tijd vrat.&lt;/p&gt;
+
+        &lt;p&gt;Toch blijf ik wel bewust op de hoogte van zaken die incidenteel nieuws overstijgen omdat ieder mens keuzes moet maken in het leven waarbij dit soort informatie van pas komt.&lt;/p&gt;
+
+        &lt;p&gt;Zo kan ‘nieuws’ je helpen bij het kiezen van een hypotheek (welke bank investeert in evil shit, hoe staat de economie er voor) en bij het maken van keuzes over voeding, kleding en het doneren aan goede doelen kan het nieuws je helpen. Maar &lt;em&gt;incidenteel nieuws&lt;/em&gt; helpt je hier niet mee.&lt;/p&gt;
+
+        &lt;p&gt;Het volgen van nieuws dat ‘incident-overstijgend’ is doe ik op de volgende manieren:&lt;/p&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;Met podcasts, want ze nemen vaak beter de tijd om een onderwerp uit te diepen dan andere vormen van media.&lt;/li&gt;
+          &lt;li&gt;Specifieke dagelijkse podcasts zoals &lt;a href=&quot;https://www.nytimes.com/column/the-daily&quot;&gt;The Daily&lt;/a&gt; en &lt;a href=&quot;https://www.nrc.nl/rubriek/podcast-vandaag/&quot;&gt;NRC Vandaag&lt;/a&gt;. Ik luister ze niet allemaal, ik pik er de interessante onderwerpen uit.&lt;/li&gt;
+          &lt;li&gt;Nieuwsbrieven over specifieke onderwerpen via bijvoorbeeld &lt;a href=&quot;https://decorrespondent.nl&quot;&gt;De Correspondent&lt;/a&gt;.&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://blendle.nl&quot;&gt;Blendle&lt;/a&gt;. Daar weten ze namelijk de grote lijnen van het nieuws voor me uiteen te zetten in hapbare brokken.&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://twitter.com&quot;&gt;Twitter&lt;/a&gt;. Als er echt iets belangrijks gebeurt dan weet mijn Twitter-ecosysteem het wel in mijn gezicht te duwen, daar hoef ik verder niks voor te doen. En ik volg een aantal journalisten waarvan ik wel alles wil lezen (bijvoorbeeld &lt;a href=&quot;https://twitter.com/schellevis&quot;&gt;@schellevis&lt;/a&gt; en &lt;a href=&quot;https://twitter.com/danielverlaan&quot;&gt;@danielverlaan&lt;/a&gt;)&lt;/li&gt;
+        &lt;/ul&gt;
+
+        &lt;p&gt;Dit doe ik nu al een aantal jaar zo en het bevalt me prima. Zelfs &lt;a href=&quot;https://www.theguardian.com/media/2013/apr/12/news-is-bad-rolf-dobelli&quot;&gt;de Guardian wil je met 10 overtuigende inzichten overtuigen van dit feit&lt;/a&gt;, dus waar wacht je nog op?&lt;/p&gt;</content><author><name>Reinier Ladan</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://reinierladan.nl/assets/burning-paper.jpg" /></entry><entry><title type="html">Verhaal Privacydraken Bloedgeld</title><link href="/2019/06/21/Verhaal-Privacydraken-Bloedgeld" rel="alternate" type="text/html" title="Verhaal Privacydraken Bloedgeld" /><published>2019-06-21T06:00:00+00:00</published><updated>2019-06-21T06:00:00+00:00</updated><id>/2019/06/21/Verhaal-Privacydraken-Bloedgeld</id><content type="html" xml:base="/2019/06/21/Verhaal-Privacydraken-Bloedgeld">&lt;p&gt;Hi, Reinier hier,&lt;/p&gt;
+
+        &lt;p&gt;Afgelopen weekend las ik het boek &lt;a href=&quot;https://www.goodreads.com/book/show/45168480-hoe-gaan-we-dit-uitleggen&quot;&gt;Hoe Gaan We Dit Uitleggen?&lt;/a&gt; van Jelmer Mommers over de klimaatramp waar we met z’n allen inzitten. Er liggen zoveel kansen voor de overheid, organisaties en wij als individuen dat we bijna keuzestress zouden moeten krijgen van de mogelijkheden om &lt;a href=&quot;https://www.washingtonpost.com/weather/2019/06/14/arctic-ocean-greenland-ice-sheet-have-seen-record-june-ice-loss/&quot;&gt;het tij&lt;/a&gt; te keren. Het boek heeft me doen inzien dat de beweging in positieve richting steeds groter wordt en dat deed me goed. Zo wonen we hopelijk over een tiental jaar &lt;a href=&quot;https://www.vice.com/en_us/article/vbngmd/decentralized-microgridding-can-provide-90-of-a-neighborhoods-energy-needs-study-finds?fbclid=IwAR0_yRAmZuvLpfmhEGJDS49yhHja84pUNQyVxwasbvozdu6V8Wiqgdql0Tg&quot;&gt;allemaal in The Shire&lt;/a&gt;.&lt;/p&gt;
+
+        &lt;p&gt;Iets anders dat me goed deed: &lt;a href=&quot;https://youtu.be/oP3c1h8v2ZQ&quot;&gt;deze video over hoe een ‘standaard’ verhaal in elkaar zit&lt;/a&gt;. Uiteraard zijn er uitzonderingen maar toch kun je zo’n 82% van alle verhalen op dat stramien plotten. De video werd vertoond in &lt;a href=&quot;https://youtu.be/bpVBwmW4dWk&quot;&gt;de presentatie van Steph Troeth op CSS Day 2019&lt;/a&gt; over de kracht van verhalen. Mijn take-away uit die presentatie: &lt;em&gt;verpak informatie in een verhaal en mensen kunnen het veel beter onthouden&lt;/em&gt;.&lt;/p&gt;
+
+        &lt;p&gt;Dat heb ik nog niet heel praktisch toegepast in de nieuwste Appels en Peren Show maar dat kun je zelf beoordelen door ‘m te luisteren: &lt;a href=&quot;https://appelsenperenshow.nl/aflevering/2019/6/19/168-40-kilobyte-destijds-that-bohn-song&quot;&gt;40 Kilobyte destijds That Bohn Song&lt;/a&gt;.&lt;/p&gt;
+
+        &lt;p&gt;🐉&lt;/p&gt;
+
+        &lt;p&gt;&lt;a href=&quot;https://idlewords.com/2019/06/the_new_wilderness.htm&quot;&gt;Maciej Cegłowski over de privacydraken die Facebook en Google zijn geworden&lt;/a&gt;:&lt;/p&gt;
+
+        &lt;blockquote&gt;
+          &lt;p&gt;No two companies have done more to drag private life into the algorithmic eye than Google and Facebook. Together, they operate the world’s most sophisticated dragnet surveillance operation, a duopoly that rakes in nearly two thirds of the money spent on online ads. You’ll find their tracking scripts on nearly every web page you visit. They can no more function without surveillance than Exxon Mobil could function without pumping oil from the ground.&lt;/p&gt;
+        &lt;/blockquote&gt;
+
+        &lt;p&gt;Het hele stuk kon ik alleen maar ja knikken. Het lezen meer dan waard dus.&lt;/p&gt;
+
+        &lt;p&gt;🐖&lt;/p&gt;
+
+        &lt;p&gt;&lt;a href=&quot;https://blendle.com/shared/eyJuIjoiUmVpbmllciIsImEiOiJibmwtcXVvdGUtMjAxOTA2MTgtZjc4NTQzMTEyZjAiLCJ1IjoiMTdmNjY5ZjgtZWEwYy00ODMxLTg0MDktNzYxZTQ1NGIyZmNiIn0.qgrHVaXcPk2Z_iw7M_41mhf5eVWlLk7HF5YqKscBI3w&quot;&gt;Artikel ‘Bloedgeld’ in Quote&lt;/a&gt; (Blendle link, eerste zoveel kliks zijn gratis):&lt;/p&gt;
+
+        &lt;blockquote&gt;
+          &lt;p&gt;Veel dierenvreugde is er dus niet te vinden in de rijkenlijst. Vrijwel alle dierenhandelaren zagen hun vermogen in 2017 lekker stijgen, maar uit onze inventarisatie blijkt dat het welzijn van hun dieren niet steeg.&lt;/p&gt;
+        &lt;/blockquote&gt;
+
+        &lt;p&gt;Er staan heel wat bedrijven uit de vleesindustrie in de Quote 500 en de Quote vond het wel een goed idee om eens in het dierenwelzijn van deze miljoenenbedrijven te duiken. Maar wat blijkt (je verwacht het niet…), geld is nog altijd véél belangrijker dan een kleine investering in dierenwelzijn.&lt;/p&gt;
+
+        &lt;p&gt;Mij heeft het even geduurd voordat ik compleet vleesloos door het leven ging (zelfs 10 jaar samenwonen met een vegetariër maakte me nog niet 100% vleesloos) maar een combinatie van klimaatramp, dierenwelzijn en persoonlijke gezondheid hebben me er toch toe weten te zetten. En dat gaat nu al een half jaar prima. Probeer het eens en eet om te beginnen bijvoorbeeld alleen in het weekend vlees.&lt;/p&gt;
+
+        &lt;h3 id=&quot;oproepjes&quot;&gt;Oproepjes&lt;/h3&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;Mindwave, een dagboek voor founders &amp;amp; makers, is op zoek naar early adopters. Met Mindwave leg je jouw ondernemende reis vast en inspireer je anderen met authentieke verhalen, rechtstreeks uit je dagboek. Volg Marcel’s reis ‘&lt;a href=&quot;https://mindwave.app/journeys/build-a-sustainable-mindwave-D1lAJl&quot;&gt;Build a sustainable Mindwave&lt;/a&gt;’ en test het zelf. Alle feedback is welkom.&lt;/li&gt;
+        &lt;/ul&gt;
+
+        &lt;p&gt;&lt;strong&gt;Zelf een oproepje plaatsen?&lt;/strong&gt; Voor maar een tientje laat je je oproepje lezen aan &lt;em&gt;de meer dan 1000 intelligente en geïnteresseerde lezers van de 82% nieuwsbrief&lt;/em&gt;.&lt;/p&gt;
+
+        &lt;p&gt;🌟 &lt;a href=&quot;https://forms.82procent.nl&quot;&gt;Plaats een oproepje in een volgende editie&lt;/a&gt;&lt;/p&gt;
+
+        &lt;h3 id=&quot;iets-te-luisteren&quot;&gt;Iets te luisteren&lt;/h3&gt;
+
+        &lt;p&gt;Sinds deze week ben ik begonnen aan &lt;a href=&quot;https://www.bbc.co.uk/programmes/w13xttx2/episodes/downloads&quot;&gt;de podcastserie 13 Minutes To The Moon&lt;/a&gt;. De serie is in handen van de BBC en dus (zoals je kan verwachten van ze) erg goed gemaakt. De podcast gaat over wat er voor nodig was om in 1969 naar de maan te gaan. Een ongelooflijk verhaal natuurlijk waar we wat van kunnen leren in deze tijd. Het gebeurt niet zo vaak meer dat er zoiets episch wordt ondernomen door een complete natie.&lt;/p&gt;
+
+        &lt;h3 id=&quot;wvttk&quot;&gt;WVTTK&lt;/h3&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;https://apolloinrealtime.org/11/&quot;&gt;Apollo 11 in Real-time&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://www.bbc.com/news/world-europe-48668791&quot;&gt;Ireland to ban new petrol and diesel vehicles from 2030 &lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://medium.com/@yegg/mental-models-i-find-repeatedly-useful-936f1cc405d&quot;&gt;Mental Models I Find Repeatedly Useful&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://medium.com/@cwodtke/five-models-for-making-sense-of-complex-systems-134be897b6b3&quot;&gt;Five Models for Making Sense of Complex Systems&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://www.nytimes.com/2019/06/11/opinion/privacy-facebook-sexting.html&quot;&gt;You Care More About Your Privacy Than You Think&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://thenib.com/mister-gotcha&quot;&gt;Mister Gotcha&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://decrypt.co/7502/facebook-libra-coin-cryptocurrency-launch-calibra&quot;&gt;Facebook reveals Libra, its momentous new crypto, to the world&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;</content><author><name>Reinier Ladan</name></author><summary type="html">Hi, Reinier hier,</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://reinierladan.nl/assets/82-verhaal-privacydraken-bloedgeld.jpg" /></entry><entry><title type="html">MH370, wat weten we nu na vijf jaar?</title><link href="/2019/06/18/MH370-wat-weten-we-nu" rel="alternate" type="text/html" title="MH370, wat weten we nu na vijf jaar?" /><published>2019-06-18T07:30:00+00:00</published><updated>2019-06-18T07:30:00+00:00</updated><id>/2019/06/18/MH370-wat-weten-we-nu</id><content type="html" xml:base="/2019/06/18/MH370-wat-weten-we-nu">&lt;p&gt;&lt;img src=&quot;https://reinierladan.nl/assets/sunrise.jpg&quot; alt=&quot;Zonsopkomst&quot; /&gt;&lt;/p&gt;
+
+        &lt;h1 id=&quot;mh370-wat-weten-we-nu-na-vijf-jaar&quot;&gt;MH370, wat weten we nu na vijf jaar?&lt;/h1&gt;
+
+        &lt;blockquote&gt;
+          &lt;p&gt;The mystery surrounding MH370 has been a focus of continued investigation and a source of sometimes feverish public speculation. The loss devastated families on four continents. The idea that a sophisticated machine, with its modern instruments and redundant communications, could simply vanish seems beyond the realm of possibility.&lt;/p&gt;
+        &lt;/blockquote&gt;
+
+        &lt;p&gt;Het kostte me een uurtje om te lezen maar &lt;a href=&quot;https://www.theatlantic.com/magazine/archive/2019/07/mh370-malaysia-airlines/590653/&quot;&gt;dit artikel leert je over wat er nu bekend is over MH370&lt;/a&gt; en welke realistische theorie er is over de verdwijning van het vliegtuig.&lt;/p&gt;</content><author><name>Reinier Ladan</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://reinierladan.nl/assets/sunrise.jpg" /></entry><entry><title type="html">Mediadieet #1</title><link href="/2019/06/14/mediadieet-nummer-1" rel="alternate" type="text/html" title="Mediadieet #1" /><published>2019-06-14T08:00:00+00:00</published><updated>2019-06-14T08:00:00+00:00</updated><id>/2019/06/14/mediadieet-nummer-1</id><content type="html" xml:base="/2019/06/14/mediadieet-nummer-1">&lt;p&gt;Een goed idee hou je niet in bedwang. Zo zag ik het &lt;em&gt;mediadieet&lt;/em&gt; van &lt;a href=&quot;https://kottke.org&quot;&gt;Kottke&lt;/a&gt; al een tijd voorbij komen en dook het fenomeen ook bij &lt;a href=&quot;http://circulaire.haykranen.nl/issues/de-circulaire-92-zeven-bizarre-boekomslagen-181208&quot;&gt;De Circulaire&lt;/a&gt; op. Ik ben al een tijdje bezig om mijn ‘mediadieet’ bij te houden en het te delen met jullie. Hierbij dus een overzicht van wat ik zoal de afgelopen maanden keek, las of luisterde.&lt;/p&gt;
+
+        &lt;h3 id=&quot;tv-serie-chernobyl&quot;&gt;TV-serie: &lt;a href=&quot;https://www.imdb.com/title/tt7366338/&quot;&gt;Chernobyl&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★★★★&lt;/p&gt;
+
+        &lt;p&gt;Man, wat een goed gemaakte serie. Ik wist uiteraard wel wat over de kernramp in Tsjernobyl maar wat deze serie me heeft laten zien is echt ongelooflijk. En er vallen ook veel parallellen met onze huidige tijd uit te halen. Luister ook naar &lt;a href=&quot;https://podcasts.apple.com/us/podcast/the-chernobyl-podcast/id1459712981&quot;&gt;de officiële podcast over de serie&lt;/a&gt; waarin je per aflevering nog meer info krijgt van de schrijver/director Craig Mazin.&lt;/p&gt;
+
+        &lt;h3 id=&quot;tv-serie-game-of-thrones-seizoen-8&quot;&gt;TV-serie: &lt;a href=&quot;https://www.imdb.com/title/tt0944947/episodes?season=8&quot;&gt;Game of Thrones seizoen 8&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★☆☆☆&lt;/p&gt;
+
+        &lt;p&gt;Ik wil hier niet over praten.&lt;/p&gt;
+
+        &lt;h3 id=&quot;graphic-novel-paper-girls-vol-1-en-vol-2&quot;&gt;Graphic Novel: &lt;a href=&quot;https://www.goodreads.com/book/show/28204534-paper-girls-vol-1&quot;&gt;Paper Girls vol. 1&lt;/a&gt; en &lt;a href=&quot;https://www.goodreads.com/book/show/31338724-paper-girls-vol-2&quot;&gt;vol. 2&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★★★★&lt;/p&gt;
+
+        &lt;p&gt;Een erg interessante Graphic Novel over een viertal meiden die de krant rondbrengen in ’88 en op avontuur moeten door de tijd. Er resteren nog 4 volumes (elk volume bevat 5 maandelijkse uitgaven) voor me en ik kijk daar erg naar uit!&lt;/p&gt;
+
+        &lt;h3 id=&quot;film-avengers-endgame&quot;&gt;Film: &lt;a href=&quot;https://www.imdb.com/title/tt4154796&quot;&gt;Avengers Endgame&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★★★★&lt;/p&gt;
+
+        &lt;p&gt;De film an-sich zou 4 sterren krijgen maar door de beleving in de zaal en wat er allemaal om me heen gebeurde (enorm veel emotie) krijgt het er 5.&lt;/p&gt;
+
+        &lt;h3 id=&quot;boek-skyward&quot;&gt;Boek: &lt;a href=&quot;https://www.goodreads.com/book/show/37635562-skyward&quot;&gt;Skyward&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★★★★&lt;/p&gt;
+
+        &lt;p&gt;Skyward gaat over een meisje dat in de voetsporen van haar vader wil treden als piloot op een planeet waar de mensheid is neergestort en maar niet weg lijkt te komen.&lt;/p&gt;
+
+        &lt;p&gt;De schrijver van het boek, Brandon Sanderson, is een van mijn favoriete schrijvers. En niet alleen omdat hij hele goede verhalen schrijft maar ook omdat hij een enorme productiviteit heeft. Ik ken geen andere schrijver die zoveel publiceert in een jaar en vervolgens zo’n consistente kwaliteit aflevert als hij.&lt;/p&gt;
+
+        &lt;h3 id=&quot;boek-defending-elysium&quot;&gt;Boek: &lt;a href=&quot;https://www.goodreads.com/book/show/13552643-defending-elysium&quot;&gt;Defending Elysium&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★★★☆&lt;/p&gt;
+
+        &lt;p&gt;Dit korte verhaal (je leest het in ongeveer een uur) speelt zich af in het universum van Skyward (hierboven genoemd) maar je hoeft dat boek niet gelezen te hebben. Fijn kort sci-fi verhaal dat je even aan het nadenken zet.&lt;/p&gt;
+
+        &lt;h3 id=&quot;tv-serie-the-umbrella-academy&quot;&gt;TV-serie: &lt;a href=&quot;https://www.imdb.com/title/tt1312171&quot;&gt;The Umbrella Academy&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★★☆☆&lt;/p&gt;
+
+        &lt;p&gt;Ik vond de kwaliteit van de productie wel erg goed maar het verhaal werd echt enorm uitgesmeerd. Daarnaast kwam er nog een laatste twist voor een mogelijk seizoen twee maar daar had ik helemaal geen zin in.&lt;/p&gt;
+
+        &lt;h3 id=&quot;tv-serie-the-assassination-of-gianni-versace&quot;&gt;TV-serie: &lt;a href=&quot;https://www.imdb.com/title/tt8010592&quot;&gt;The Assassination of Gianni Versace&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;&lt;em&gt;geen rating&lt;/em&gt;&lt;/p&gt;
+
+        &lt;p&gt;Ik keek het half mee met mijn vrouw maar kon er door de gruwelijkheid en ongelooflijk goed acteerwerk gewoon &lt;em&gt;niet&lt;/em&gt; naar kijken. Mocht dat echt jouw ding zijn, ga dan deze serie kijken.&lt;/p&gt;
+
+        &lt;h3 id=&quot;boek-tiamats-wrath-the-expanse-boek-8&quot;&gt;Boek: &lt;a href=&quot;https://www.goodreads.com/book/show/40481287-tiamat-s-wrath&quot;&gt;Tiamat’s Wrath&lt;/a&gt; (The Expanse boek 8)&lt;/h3&gt;
+
+        &lt;p&gt;★★★★★&lt;/p&gt;
+
+        &lt;p&gt;Je hebt even de zeven eerdere boeken in de serie (The Expanse) nodig om tot zo’n fantastisch verhaal als Tiamat’s Wrath te komen, maar dan heb je ook wel wat. Die zeven eerdere boeken waren overigens ook heel erg goed maar dit boek heeft me echt gegrepen. Nog één boek in de serie en dat is het verhaal over. Nog wel dik een jaar wachten…&lt;/p&gt;
+
+        &lt;h3 id=&quot;docu-the-dawn-wall&quot;&gt;Docu: &lt;a href=&quot;https://www.imdb.com/title/tt7286916&quot;&gt;The Dawn Wall&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★★★★&lt;/p&gt;
+
+        &lt;p&gt;Super interessant om een verhaal te zien over het beklimmen van een stuk El Capitan dat nog nooit beklommen is. Je krijgt ook meteen mee hoe indrukwekkend de berg is en waarom het zo’n obsessie voor veel klimmers is om daar een keer te gaan klimmen.&lt;/p&gt;
+
+        &lt;h3 id=&quot;docu-free-solo&quot;&gt;Docu: &lt;a href=&quot;https://www.imdb.com/title/tt7775622&quot;&gt;Free Solo&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★★★★&lt;/p&gt;
+
+        &lt;p&gt;Dezelfde 900 meter hoge rots als in de docu ‘The Dawn Wall’ maar dan beklimmen zonder hulpmiddelen. Zweethandjes als ik er alleen al aan denk. Maar niet als die andere docu een erg indrukwekkend verhaal.&lt;/p&gt;
+
+        &lt;h3 id=&quot;boek-subtle-art-of-not-giving-a-fuck&quot;&gt;Boek: &lt;a href=&quot;https://www.goodreads.com/book/show/28257707-the-subtle-art-of-not-giving-a-f-ck&quot;&gt;Subtle Art Of Not Giving A Fuck&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★★★☆&lt;/p&gt;
+
+        &lt;p&gt;Fijn boek over waar je je wel iets van moet aantrekken en waar vooral niet.&lt;/p&gt;
+
+        &lt;h3 id=&quot;boek-the-three-body-problem&quot;&gt;Boek: &lt;a href=&quot;https://www.goodreads.com/book/show/20518872-the-three-body-problem&quot;&gt;The Three-Body Problem&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★★☆☆&lt;/p&gt;
+
+        &lt;p&gt;Het boek krijgt hele goede reviews op Goodreads maar mij kon het niet zo bekoren. Het werd pas interessant na 75% gelezen te hebben en zó interessant nu ook weer niet. Moeilijk om doorheen te komen ook. Ik ga het vervolg voorlopig niet lezen.&lt;/p&gt;
+
+        &lt;h3 id=&quot;boek-deep-work&quot;&gt;Boek: &lt;a href=&quot;https://www.goodreads.com/book/show/27985224-deep-work&quot;&gt;Deep Work&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★★★☆&lt;/p&gt;
+
+        &lt;p&gt;Fijn boek over waarom het waardevol is om diep na te denken over bepaalde onderwerpen en hoe je dat het beste aan kunt pakken.&lt;/p&gt;
+
+        &lt;h3 id=&quot;boek-make-time&quot;&gt;Boek: &lt;a href=&quot;https://www.goodreads.com/book/show/40112557-make-time&quot;&gt;Make Time&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★★★☆&lt;/p&gt;
+
+        &lt;p&gt;Zelfde onderwerp als ‘Deep Work’ maar dan vanuit een totaal tegenovergestelde invalshoek. Eigenlijk is het boek een verzameling van zo’n 90 kleine essays over tips en tricks die je tijd besparen.&lt;/p&gt;
+
+        &lt;h3 id=&quot;boek-food-rules&quot;&gt;Boek: &lt;a href=&quot;https://www.goodreads.com/book/show/13089713-food-rules&quot;&gt;Food rules&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★★★★&lt;/p&gt;
+
+        &lt;p&gt;Een compact boek over hele snuggere voedselregels. Wat wel en niet te eten? Wat kun je wel en niet vertrouwen? In een uurtje of twee ben je er doorheen maar daarna kan het een prima leidraad voor je eetgedrag vormen.&lt;/p&gt;
+
+        &lt;h3 id=&quot;boek-the-alloy-of-law-mistborn-boek-4&quot;&gt;Boek: &lt;a href=&quot;https://www.goodreads.com/book/show/16065004-shadows-of-self&quot;&gt;The Alloy of Law&lt;/a&gt; (Mistborn boek 4)&lt;/h3&gt;
+
+        &lt;p&gt;★★★★☆&lt;/p&gt;
+
+        &lt;p&gt;Weer een boek van Sanderson, en wel boek 4 uit de Mistborn reeks. Deze lag al heel lang op de plank nadat ik de eerste Mistborn-trilogie had gelezen en nu kwam ik er eindelijk aan toe. The Alloy of Law is een vervolg op die trilogie en speelt zich enkele honderden jaren daarna af.&lt;/p&gt;
+
+        &lt;h3 id=&quot;boek-shadows-of-self-mistborn-boek-5&quot;&gt;Boek: &lt;a href=&quot;https://www.goodreads.com/book/show/16065004-shadows-of-self&quot;&gt;Shadows of Self&lt;/a&gt; (Mistborn boek 5)&lt;/h3&gt;
+
+        &lt;p&gt;★★★★☆&lt;/p&gt;
+
+        &lt;p&gt;En nog een boek van Sanderson: boek 5 uit de Mistborn serie. Alleen relevant natuurlijk als je de eerdere 4 boeken ook hebt gelezen.&lt;/p&gt;</content><author><name>Reinier Ladan</name></author><summary type="html">Een goed idee hou je niet in bedwang. Zo zag ik het mediadieet van Kottke al een tijd voorbij komen en dook het fenomeen ook bij De Circulaire op. Ik ben al een tijdje bezig om mijn ‘mediadieet’ bij te houden en het te delen met jullie. Hierbij dus een overzicht van wat ik zoal de afgelopen maanden keek, las of luisterde.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://reinierladan.nl/assets/library.jpg" /></entry><entry><title type="html">Mediadieet #1</title><link href="/2019/06/14/mediadieet-1" rel="alternate" type="text/html" title="Mediadieet #1" /><published>2019-06-14T07:30:00+00:00</published><updated>2019-06-14T07:30:00+00:00</updated><id>/2019/06/14/mediadieet-1</id><content type="html" xml:base="/2019/06/14/mediadieet-1">&lt;p&gt;Hi, Reinier hier,&lt;/p&gt;
+
+        &lt;p&gt;Om het tij te keren qua klimaat-ellende kun je iets heel simpels doen. En simpel betekent niet dat het makkelijk is, maar wel eenvoudig te behappen in je brein. En dat simpele ding is:&lt;/p&gt;
+
+        &lt;p&gt;&lt;a href=&quot;https://decorrespondent.nl/9600/wil-je-de-wereldwijde-opwarming-effectief-tegengaan-begin-dan-bij-het-eten-op-je-bord/1058006400-b61a4972&quot;&gt;Geen vlees meer eten&lt;/a&gt;. Simpel.&lt;/p&gt;
+
+        &lt;p&gt;Over dieet gesproken…&lt;/p&gt;
+
+        &lt;p&gt;Een goed idee hou je niet in bedwang. Zo zag ik het &lt;em&gt;mediadieet&lt;/em&gt; van &lt;a href=&quot;https://kottke.org&quot;&gt;Kottke&lt;/a&gt; al een tijd voorbij komen en dook het fenomeen ook bij &lt;a href=&quot;http://circulaire.haykranen.nl/issues/de-circulaire-92-zeven-bizarre-boekomslagen-181208&quot;&gt;De Circulaire&lt;/a&gt; op. Ik ben al een tijdje bezig om mijn ‘mediadieet’ bij te houden en het te delen met jullie. Hierbij dus een overzicht van wat ik zoal de afgelopen maanden keek, las of luisterde.&lt;/p&gt;
+
+        &lt;h3 id=&quot;tv-serie-chernobyl&quot;&gt;TV-serie: &lt;a href=&quot;https://www.imdb.com/title/tt7366338/&quot;&gt;Chernobyl&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★★★★&lt;/p&gt;
+
+        &lt;p&gt;Man, wat een goed gemaakte serie. Ik wist uiteraard wel wat over de kernramp in Tsjernobyl maar wat deze serie me heeft laten zien is echt ongelooflijk. En er vallen ook veel parallellen met onze huidige tijd uit te halen. Luister ook naar &lt;a href=&quot;https://podcasts.apple.com/us/podcast/the-chernobyl-podcast/id1459712981&quot;&gt;de officiële podcast over de serie&lt;/a&gt; waarin je per aflevering nog meer info krijgt van de schrijver/director Craig Mazin.&lt;/p&gt;
+
+        &lt;h3 id=&quot;tv-serie-game-of-thrones-seizoen-8&quot;&gt;TV-serie: &lt;a href=&quot;https://www.imdb.com/title/tt0944947/episodes?season=8&quot;&gt;Game of Thrones seizoen 8&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★☆☆☆&lt;/p&gt;
+
+        &lt;p&gt;Ik wil hier niet over praten.&lt;/p&gt;
+
+        &lt;h3 id=&quot;graphic-novel-paper-girls-vol-1-en-vol-2&quot;&gt;Graphic Novel: &lt;a href=&quot;https://www.goodreads.com/book/show/28204534-paper-girls-vol-1&quot;&gt;Paper Girls vol. 1&lt;/a&gt; en &lt;a href=&quot;https://www.goodreads.com/book/show/31338724-paper-girls-vol-2&quot;&gt;vol. 2&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★★★★&lt;/p&gt;
+
+        &lt;p&gt;Een erg interessante Graphic Novel over een viertal meiden die de krant rondbrengen in ’88 en op avontuur moeten door de tijd. Er resteren nog 4 volumes (elk volume bevat 5 maandelijkse uitgaven) voor me en ik kijk daar erg naar uit!&lt;/p&gt;
+
+        &lt;h3 id=&quot;film-avengers-endgame&quot;&gt;Film: &lt;a href=&quot;https://www.imdb.com/title/tt4154796&quot;&gt;Avengers Endgame&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★★★★&lt;/p&gt;
+
+        &lt;p&gt;De film an-sich zou 4 sterren krijgen maar door de beleving in de zaal en wat er allemaal om me heen gebeurde (enorm veel emotie) krijgt het er 5.&lt;/p&gt;
+
+        &lt;h3 id=&quot;boek-skyward&quot;&gt;Boek: &lt;a href=&quot;https://www.goodreads.com/book/show/37635562-skyward&quot;&gt;Skyward&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★★★★&lt;/p&gt;
+
+        &lt;p&gt;Skyward gaat over een meisje dat in de voetsporen van haar vader wil treden als piloot op een planeet waar de mensheid is neergestort en maar niet weg lijkt te komen.&lt;/p&gt;
+
+        &lt;p&gt;De schrijver van het boek, Brandon Sanderson, is een van mijn favoriete schrijvers. En niet alleen omdat hij hele goede verhalen schrijft maar ook omdat hij een enorme productiviteit heeft. Ik ken geen andere schrijver die zoveel publiceert in een jaar en vervolgens zo’n consistente kwaliteit aflevert als hij.&lt;/p&gt;
+
+        &lt;h3 id=&quot;boek-defending-elysium&quot;&gt;Boek: &lt;a href=&quot;https://www.goodreads.com/book/show/13552643-defending-elysium&quot;&gt;Defending Elysium&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★★★☆&lt;/p&gt;
+
+        &lt;p&gt;Dit korte verhaal (je leest het in ongeveer een uur) speelt zich af in het universum van Skyward (hierboven genoemd) maar je hoeft dat boek niet gelezen te hebben. Fijn kort sci-fi verhaal dat je even aan het nadenken zet.&lt;/p&gt;
+
+        &lt;h3 id=&quot;tv-serie-the-umbrella-academy&quot;&gt;TV-serie: &lt;a href=&quot;https://www.imdb.com/title/tt1312171&quot;&gt;The Umbrella Academy&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★★☆☆&lt;/p&gt;
+
+        &lt;p&gt;Ik vond de kwaliteit van de productie wel erg goed maar het verhaal werd echt enorm uitgesmeerd. Daarnaast kwam er nog een laatste twist voor een mogelijk seizoen twee maar daar had ik helemaal geen zin in.&lt;/p&gt;
+
+        &lt;h3 id=&quot;tv-serie-the-assassination-of-gianni-versace&quot;&gt;TV-serie: &lt;a href=&quot;https://www.imdb.com/title/tt8010592&quot;&gt;The Assassination of Gianni Versace&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;&lt;em&gt;geen rating&lt;/em&gt;&lt;/p&gt;
+
+        &lt;p&gt;Ik keek het half mee met mijn vrouw maar kon er door de gruwelijkheid en ongelooflijk goed acteerwerk gewoon &lt;em&gt;niet&lt;/em&gt; naar kijken. Mocht dat echt jouw ding zijn, ga dan deze serie kijken.&lt;/p&gt;
+
+        &lt;h3 id=&quot;boek-tiamats-wrath-the-expanse-boek-8&quot;&gt;Boek: &lt;a href=&quot;https://www.goodreads.com/book/show/40481287-tiamat-s-wrath&quot;&gt;Tiamat’s Wrath&lt;/a&gt; (The Expanse boek 8)&lt;/h3&gt;
+
+        &lt;p&gt;★★★★★&lt;/p&gt;
+
+        &lt;p&gt;Je hebt even de zeven eerdere boeken in de serie (The Expanse) nodig om tot zo’n fantastisch verhaal als Tiamat’s Wrath te komen, maar dan heb je ook wel wat. Die zeven eerdere boeken waren overigens ook heel erg goed maar dit boek heeft me echt gegrepen. Nog één boek in de serie en dat is het verhaal over. Nog wel dik een jaar wachten…&lt;/p&gt;
+
+        &lt;h3 id=&quot;docu-the-dawn-wall&quot;&gt;Docu: &lt;a href=&quot;https://www.imdb.com/title/tt7286916&quot;&gt;The Dawn Wall&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★★★★&lt;/p&gt;
+
+        &lt;p&gt;Super interessant om een verhaal te zien over het beklimmen van een stuk El Capitan dat nog nooit beklommen is. Je krijgt ook meteen mee hoe indrukwekkend de berg is en waarom het zo’n obsessie voor veel klimmers is om daar een keer te gaan klimmen.&lt;/p&gt;
+
+        &lt;h3 id=&quot;docu-free-solo&quot;&gt;Docu: &lt;a href=&quot;https://www.imdb.com/title/tt7775622&quot;&gt;Free Solo&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★★★★&lt;/p&gt;
+
+        &lt;p&gt;Dezelfde 900 meter hoge rots als in de docu ‘The Dawn Wall’ maar dan beklimmen zonder hulpmiddelen. Zweethandjes als ik er alleen al aan denk. Maar niet als die andere docu een erg indrukwekkend verhaal.&lt;/p&gt;
+
+        &lt;h3 id=&quot;boek-subtle-art-of-not-giving-a-fuck&quot;&gt;Boek: &lt;a href=&quot;https://www.goodreads.com/book/show/28257707-the-subtle-art-of-not-giving-a-f-ck&quot;&gt;Subtle Art Of Not Giving A Fuck&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★★★☆&lt;/p&gt;
+
+        &lt;p&gt;Fijn boek over waar je je wel iets van moet aantrekken en waar vooral niet.&lt;/p&gt;
+
+        &lt;h3 id=&quot;boek-the-three-body-problem&quot;&gt;Boek: &lt;a href=&quot;https://www.goodreads.com/book/show/20518872-the-three-body-problem&quot;&gt;The Three-Body Problem&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★★☆☆&lt;/p&gt;
+
+        &lt;p&gt;Het boek krijgt hele goede reviews op Goodreads maar mij kon het niet zo bekoren. Het werd pas interessant na 75% gelezen te hebben en zó interessant nu ook weer niet. Moeilijk om doorheen te komen ook. Ik ga het vervolg voorlopig niet lezen.&lt;/p&gt;
+
+        &lt;h3 id=&quot;boek-deep-work&quot;&gt;Boek: &lt;a href=&quot;https://www.goodreads.com/book/show/27985224-deep-work&quot;&gt;Deep Work&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★★★☆&lt;/p&gt;
+
+        &lt;p&gt;Fijn boek over waarom het waardevol is om diep na te denken over bepaalde onderwerpen en hoe je dat het beste aan kunt pakken.&lt;/p&gt;
+
+        &lt;h3 id=&quot;boek-make-time&quot;&gt;Boek: &lt;a href=&quot;https://www.goodreads.com/book/show/40112557-make-time&quot;&gt;Make Time&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★★★☆&lt;/p&gt;
+
+        &lt;p&gt;Zelfde onderwerp als ‘Deep Work’ maar dan vanuit een totaal tegenovergestelde invalshoek. Eigenlijk is het boek een verzameling van zo’n 90 kleine essays over tips en tricks die je tijd besparen.&lt;/p&gt;
+
+        &lt;h3 id=&quot;boek-food-rules&quot;&gt;Boek: &lt;a href=&quot;https://www.goodreads.com/book/show/13089713-food-rules&quot;&gt;Food rules&lt;/a&gt;&lt;/h3&gt;
+
+        &lt;p&gt;★★★★★&lt;/p&gt;
+
+        &lt;p&gt;Een compact boek over hele snuggere voedselregels. Wat wel en niet te eten? Wat kun je wel en niet vertrouwen? In een uurtje of twee ben je er doorheen maar daarna kan het een prima leidraad voor je eetgedrag vormen.&lt;/p&gt;
+
+        &lt;h3 id=&quot;boek-the-alloy-of-law-mistborn-boek-4&quot;&gt;Boek: &lt;a href=&quot;https://www.goodreads.com/book/show/16065004-shadows-of-self&quot;&gt;The Alloy of Law&lt;/a&gt; (Mistborn boek 4)&lt;/h3&gt;
+
+        &lt;p&gt;★★★★☆&lt;/p&gt;
+
+        &lt;p&gt;Weer een boek van Sanderson, en wel boek 4 uit de Mistborn reeks. Deze lag al heel lang op de plank nadat ik de eerste Mistborn-trilogie had gelezen en nu kwam ik er eindelijk aan toe. The Alloy of Law is een vervolg op die trilogie en speelt zich enkele honderden jaren daarna af.&lt;/p&gt;
+
+        &lt;h3 id=&quot;boek-shadows-of-self-mistborn-boek-5&quot;&gt;Boek: &lt;a href=&quot;https://www.goodreads.com/book/show/16065004-shadows-of-self&quot;&gt;Shadows of Self&lt;/a&gt; (Mistborn boek 5)&lt;/h3&gt;
+
+        &lt;p&gt;★★★★☆&lt;/p&gt;
+
+        &lt;p&gt;En nog een boek van Sanderson: boek 5 uit de Mistborn serie. Alleen relevant natuurlijk als je de eerdere 4 boeken ook hebt gelezen.&lt;/p&gt;
+
+        &lt;h3 id=&quot;wvttk&quot;&gt;WVTTK&lt;/h3&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;https://beautifulwebtype.com/&quot;&gt;In-Depth Guide to the Best Free Fonts&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://www.wired.com/story/archive-of-our-own-fans-better-than-tech-organizing-information/&quot;&gt;Fans Are Better Than Tech at Organizing Information Online&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://www.macstories.net/stories/initial-thoughts-on-ipados-a-new-path-forward/&quot;&gt;Initial Thoughts on iPadOS: A New Path Forward&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://www.federaltimes.com/your-career/the-bureaucrat/2019/03/07/dear-bureaucrat-my-job-wants-me-to-lie/&quot;&gt;Dear Bureaucrat, my job wants me to lie&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://www.theguardian.com/cities/2019/jun/03/its-a-miracle-helsinkis-radical-solution-to-homelessness&quot;&gt;‘It’s a miracle’: Helsinki’s radical solution to homelessness&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://nationalparktypeface.com/&quot;&gt;National Park Typeface&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;http://www.bbc.com/future/story/20190423-the-man-who-ran-out-of-air-at-the-bottom-of-the-ocean&quot;&gt;Can you survive if you run out of air?&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;</content><author><name>Reinier Ladan</name></author><summary type="html">Hi, Reinier hier,</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://reinierladan.nl/assets/82procent.jpg" /></entry><entry><title type="html">Marktwerking is een ziekte in de farmaceutische industrie</title><link href="/2019/06/11/pillen-als-verdienmodel" rel="alternate" type="text/html" title="Marktwerking is een ziekte in de farmaceutische industrie" /><published>2019-06-11T12:00:00+00:00</published><updated>2019-06-11T12:00:00+00:00</updated><id>/2019/06/11/pillen-als-verdienmodel</id><content type="html" xml:base="/2019/06/11/pillen-als-verdienmodel">&lt;p&gt;&lt;img src=&quot;/assets/medicine.jpg&quot; alt=&quot;Medicijnen in verpakking&quot; /&gt;&lt;/p&gt;
+
+        &lt;p&gt;Ruben Mersch in &lt;a href=&quot;https://decorrespondent.nl/9582/zo-krijgt-de-farmaceutische-industrie-zelfs-gezonde-mensen-aan-de-medicijnen/138510876240-2e65b344?mc_cid=9abce5d8c4&amp;amp;mc_eid=826fe33832&quot;&gt;Zo krijgt de farmaceutische industrie zelfs gezonde mensen aan de medicijnen&lt;/a&gt;:&lt;/p&gt;
+
+        &lt;blockquote&gt;
+          &lt;p&gt;Het nieuws: door een aanpassing van de richtlijn die bepaalt of iemand te hoge cholesterolwaarden heeft – en daardoor een grotere kans op hart- en vaatziekten – moeten sinds twee maanden meer mensen cholesterolverlagers slikken. […] Eén getalletje in de richtlijn werd aangepast, en miljoenen extra pillen gaan over de toonbank.&lt;/p&gt;
+        &lt;/blockquote&gt;
+
+        &lt;p&gt;Ruben neemt je in het artikel ook mee naar 1957 toen op een conferentie van de American Drugs Manufacturers’ Association Charles Mottley, een hoge pief binnen farmaceutisch bedrijf Pfizer, sprak over het “probleem” van het genezen van mensen en wat dat doet voor de business van farmaceutisch bedrijven.&lt;/p&gt;
+
+        &lt;blockquote&gt;
+          &lt;p&gt;Goede pillen genezen mensen, maar aan mensen die genezen zijn, kan je geen pillen meer slijten. Hoe succesvoller je bent, hoe minder je kan verkopen. En dus moest volgens Mottley de industrie op zoek naar een nieuw verdienmodel.&lt;/p&gt;
+        &lt;/blockquote&gt;
+
+        &lt;p&gt;Marktwerking is een ziekte in de farmaceutische industrie. &lt;strong&gt;Het doel de farmaceutische industrie moet niet ‘het verdienmodel’ zijn, het moet ‘mensen genezen’ zijn.&lt;/strong&gt; In een mooiere wereld had de conclusie van Mottley absurder geklonken dan het nu doet.&lt;/p&gt;</content><author><name>Reinier Ladan</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://reinierladan.nl/assets/medicine.jpg" /></entry></feed>
+    http_version: 
+  recorded_at: Sat, 28 Sep 2019 10:56:38 GMT
+recorded_with: VCR 5.0.0

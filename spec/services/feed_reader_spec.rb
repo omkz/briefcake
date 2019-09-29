@@ -60,6 +60,21 @@ describe FeedReader do
       end
     end
 
+    it "adds the URL if it's a path" do
+      VCR.use_cassette("feed_reader/reinierladan") do
+        feed = Feed.new(feed_url: "https://reinierladan.nl/feed/index.xml")
+        reader = FeedReader.new(feed)
+
+        items = reader.fetch_items!
+
+        first_item = items.first
+        expect(first_item.title).to eq "Clueyness Anxiety Tobolowsky"
+        expect(first_item.description).to eq "Hi, Reinier hier,"
+        expect(first_item.publish_date).to eq Time.utc(2019, 9, 26, 6, 20, 0)
+        expect(first_item.link).to eq "https://reinierladan.nl/2019/09/26/Clueyness-Anxiety-Tobolowsky"
+      end
+    end
+
     it "gets hacker news feed items" do
       VCR.use_cassette("feed_reader/hacker-news") do
         feed = Feed.new(feed_url: "https://news.ycombinator.com/rss")

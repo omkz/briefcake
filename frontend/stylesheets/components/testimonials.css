@@ -11,7 +11,7 @@
 }
 
 .testimonial__content {
-  @apply text-lg text-gray-700;
+  @apply text-gray-700;
 }
 
 .testimonial__author {
@@ -24,7 +24,7 @@
 }
 
 .testimonial__author-name {
-  @apply text-lg text-gray-600;
+  @apply text-gray-600;
 }
 
 .testimonial__author-link {

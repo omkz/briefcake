@@ -31,8 +31,8 @@
 
 en:
   customer:
-    one: "1 user"
-    other: "%{count} users"
+    one: "1 person"
+    other: "%{count} people"
 
   user_mailer:
     subject:

@@ -7,9 +7,9 @@ class User < ApplicationRecord
 
   has_person_name
   has_many :announcements
-  has_many :feeds
+  has_many :feeds, dependent: :destroy
   has_many :sent_emails
-  has_one :subscribe_form
+  has_one :subscribe_form, dependent: :destroy
 
   scope :who_get_emails, -> { where(unsubscribed_at: nil).where.not(confirmed_at: nil) }
   scope :unsubscribed, -> { where.not(unsubscribed_at: nil) }

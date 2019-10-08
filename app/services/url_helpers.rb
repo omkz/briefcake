@@ -1,6 +1,5 @@
 module UrlHelpers
   def add_domain_to_url(feed_url, domain)
-    puts "hai"
     domain = URI(domain) if domain.is_a?(String)
 
     if /^https?:/.match(feed_url)

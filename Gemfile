@@ -67,7 +67,7 @@ gem "devise", "~> 4.7"
 gem "devise_masquerade", "~> 0.6.5"
 gem "friendly_id", "~> 5.2", ">= 5.2.4"
 gem "name_of_person", "~> 1.0"
-gem "storext", "~> 2.2", ">= 2.2.2"
+gem "storext", "~> 3.1"
 gem "premailer-rails", "~> 1.10"
 
 gem "delayed_job_web"

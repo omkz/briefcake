@@ -85,7 +85,7 @@ gem "nokogiri"
 group :development do
   gem "rufo"
   gem "letter_opener", "~> 1.6"
-  gem "foreman", "~> 0.85.0"
+  gem "foreman", "~> 0.86.0"
 end
 
 gem "stripe", "~> 4.18.1"

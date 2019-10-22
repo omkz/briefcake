@@ -13,8 +13,9 @@ Rails.application.configure do
     password: Rails.application.credentials.dig(:production, :mail, :smtp_password),
     domain: Rails.configuration.application_naked_domain,
     address: Rails.application.credentials.dig(:production, :mail, :smtp_server),
-    port: Rails.application.credentials.dig(:production, :mail, :smtp_port),
     authentication: :plain,
+    port: 587,
+    enable_starttls_auto: true
   }
   # Verifies that versions and hashed value of the package contents in the project's package.json
   config.webpacker.check_yarn_integrity = false

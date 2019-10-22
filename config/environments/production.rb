@@ -9,11 +9,11 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
 
   ActionMailer::Base.smtp_settings = {
-    user_name: Rails.application.credentials.dig(:production, :mailgun, :smtp_login),
-    password: Rails.application.credentials.dig(:production, :mailgun, :smtp_password),
+    user_name: Rails.application.credentials.dig(:production, :mail, :smtp_login),
+    password: Rails.application.credentials.dig(:production, :mail, :smtp_password),
     domain: Rails.configuration.application_naked_domain,
-    address: "smtp.eu.mailgun.org",
-    port: 587,
+    address: Rails.application.credentials.dig(:production, :mail, :smtp_server),
+    port: Rails.application.credentials.dig(:production, :mail, :smtp_port),
     authentication: :plain,
   }
   # Verifies that versions and hashed value of the package contents in the project's package.json

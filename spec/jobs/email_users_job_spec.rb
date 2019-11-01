@@ -10,7 +10,7 @@ describe EmailUsersJob do
 
     job = Delayed::Job.first
     expect(job.run_at).to eq Time.zone.today.midnight.advance(hours: 9)
-    expect(job.priority).to eq 10
+    expect(job.priority).to eq 5
   end
 
   it "sends the email by default at 6 am" do
@@ -35,7 +35,7 @@ describe EmailUsersJob do
 
       job = Delayed::Job.first
       expect(job.run_at).to eq Time.zone.today.midnight.advance(hours: 7)
-      expect(job.priority).to eq 10
+      expect(job.priority).to eq 5
     end
   end
 
@@ -50,7 +50,7 @@ describe EmailUsersJob do
 
         job = Delayed::Job.first
         expect(job.run_at.to_s).to eq "2019-09-23 07:00:00 UTC"
-        expect(job.priority).to eq 10
+        expect(job.priority).to eq 5
       end
     end
 
@@ -64,7 +64,7 @@ describe EmailUsersJob do
 
         job = Delayed::Job.first
         expect(job.run_at.to_s).to eq "2019-09-24 13:00:00 UTC"
-        expect(job.priority).to eq 10
+        expect(job.priority).to eq 5
       end
     end
 
@@ -78,7 +78,7 @@ describe EmailUsersJob do
 
         job = Delayed::Job.first
         expect(job.run_at.to_s).to eq "2019-09-23 15:00:00 UTC"
-        expect(job.priority).to eq 10
+        expect(job.priority).to eq 5
       end
     end
 
@@ -92,7 +92,7 @@ describe EmailUsersJob do
 
         job = Delayed::Job.first
         expect(job.run_at.to_s).to eq "2019-09-23 04:00:00 UTC"
-        expect(job.priority).to eq 10
+        expect(job.priority).to eq 5
       end
     end
 
@@ -106,7 +106,7 @@ describe EmailUsersJob do
 
         job = Delayed::Job.first
         expect(job.run_at.to_s).to eq "2019-09-23 14:00:00 UTC"
-        expect(job.priority).to eq 10
+        expect(job.priority).to eq 5
       end
     end
 
@@ -120,7 +120,7 @@ describe EmailUsersJob do
 
         job = Delayed::Job.first
         expect(job.run_at.to_s).to eq "2019-09-23 03:00:00 UTC"
-        expect(job.priority).to eq 10
+        expect(job.priority).to eq 5
       end
     end
   end

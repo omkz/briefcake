@@ -45,6 +45,8 @@ feature "sending emails" do
       expect(sent_email.user).to eq user
       expect(sent_email.compose_duration_in_seconds).to be > 0
 
+      Timecop.travel 1.day.from_now
+
       VCR.use_cassette("timi-blog-3") do
         UserMailer.new_items(feed.user.id).deliver_now
       end
@@ -68,7 +70,7 @@ feature "sending emails" do
 
       expect(SentEmail).to have(2).record
       sent_email = SentEmail.last
-      expect(sent_email.subject).to eq "RSSMailer – 2 new items on 2015-09-19"
+      expect(sent_email.subject).to eq "RSSMailer – 2 new items on 2015-09-20"
       expect(sent_email.number_of_items).to eq 2
       expect(sent_email.index).to eq({ "Timi blog" => 2 })
       expect(sent_email.receiver).to eq user.email

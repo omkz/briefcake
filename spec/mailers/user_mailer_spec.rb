@@ -9,7 +9,7 @@ describe UserMailer, type: :mailer do
 
     expect {
       feed_item = build(:feed_item, feed: feed, publish_date: 1.hour.from_now)
-      allow_any_instance_of(Feed).to receive(:items!).and_return([feed_item])
+      allow_any_instance_of(Feed).to receive(:new_items!).and_return([feed_item])
       UserMailer.new_items(user.id).deliver_now
     }.to change(ActionMailer::Base.deliveries, :count).by(1)
 
@@ -17,7 +17,7 @@ describe UserMailer, type: :mailer do
 
     expect {
       feed_item = build(:feed_item, feed: feed, publish_date: 1.hour.from_now)
-      allow_any_instance_of(Feed).to receive(:items!).and_return([feed_item])
+      allow_any_instance_of(Feed).to receive(:new_items!).and_return([feed_item])
       UserMailer.new_items(user.id).deliver_now
     }.to_not change(ActionMailer::Base.deliveries, :count)
 
@@ -25,7 +25,7 @@ describe UserMailer, type: :mailer do
 
     expect {
       feed_item = build(:feed_item, feed: feed, publish_date: 1.hour.from_now)
-      allow_any_instance_of(Feed).to receive(:items!).and_return([feed_item])
+      allow_any_instance_of(Feed).to receive(:new_items!).and_return([feed_item])
       UserMailer.new_items(user.id).deliver_now
     }.to change(ActionMailer::Base.deliveries, :count).by(1)
   end

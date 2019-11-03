@@ -148,6 +148,9 @@ ActiveRecord::Schema.define(version: 2019_09_26_175533) do
     t.string "card_exp_month"
     t.string "card_exp_year"
     t.datetime "unsubscribed_at"
+    t.string "time_zone", default: "UTC"
+    t.string "send_email_at", default: ""
+    t.boolean "is_pro", default: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

@@ -6,25 +6,17 @@
 <table class="table">
   <thead>
   <tr>
-    <th>ID</th>
-    <th>Run at</th>
+    <th>Run at / Duration in seconds</th>
     <th>Priority</th>
     <th>Queue / Info</th>
     <th>Created at</th>
   </tr>
   </thead>
   <tbody>
-  <% @jobs.each do |job| %>
+  <% @jobs.order(priority: :asc).each do |job| %>
     <tr>
       <td>
-        <pre><%= job.id %></pre>
-      </td>
-      <td>
-        <% if job.run_at > Time.zone.now %>
-          <%= distance_of_time_in_words(job.run_at, Time.zone.now) %>
-        <% else %>
-          <div class="pill pill--danger"><%= time_ago_in_words(job.run_at) %> ago</div>
-        <% end %>
+        <%= job.run_at %>
       </td>
       <td><%= job.priority %></td>
       <td>
@@ -35,9 +27,6 @@
   <% end %>
   <% @todays_emails.each do |sent_email| %>
     <tr class="bg-green-100">
-      <td>
-        <pre><%= sent_email.id %></pre>
-      </td>
       <td>
         <%= embedded_svg("checkmark.svg", class: "inline-block flex-shrink-0 w-4 h-4 mr-2 p-1 bg-green-200 text-green-700 fill-current rounded-full") %>
         <%= ActiveSupport::Duration.build(sent_email.compose_duration_in_seconds.round).inspect %>

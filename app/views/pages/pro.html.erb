@@ -1,0 +1,50 @@
+<div class="mx-auto py-10">
+  <p class="max-w-2xl text-center mx-auto mb-12 text-gray-700">
+    You can use RSSMailer for free, but if you want to follow a large number of sites you can
+    upgrade to the pro plan. By upgrading you also support me, an independent maker, and you are
+    contributing to the future of this product.
+  </p>
+  <div class="flex flex-wrap items-center justify-center mb-24">
+    <div class="flex-grow border p-8 py-6 rounded bg-white shadow-sm m-3 h-auto max-w-xs">
+      <header class="text-center">
+        <h1 class="font-bold text-3xl">FREE</h1>
+      </header>
+
+      <hr class="border-t my-4">
+
+      <ul class="leading-loose mb-10 features">
+        <%= render "feature", feature: "Follow RSS feeds" %>
+        <%= render "feature", feature: "Follow YouTube channels" %>
+        <%= render "feature", feature: "Follow public Instagram feeds" %>
+        <%= render "feature", feature: "5 feeds limit" %>
+        <%= render "feature", feature: "15 items per email limit" %>
+        <%= render "feature", feature: "Daily email" %>
+        <%= render "feature", feature: "Occasional ads" %>
+      </ul>
+    </div>
+
+    <div class="flex-grow border p-8 py-6 rounded shadow-lg m-3 bg-white max-w-sm">
+      <header class="text-center">
+        <h1 class="font-bold text-3xl">PRO</h1>
+        <small class="text-sm font-bold">2$ per month (billed yearly)</small>
+      </header>
+
+      <hr class="border-t my-4">
+
+      <ul class="leading-loose mb-10 features">
+        <li class="mb-4 text-center text-gray-700">Everything from free and:</li>
+        <%= render "feature", feature: "Unlimited feeds" %>
+        <%= render "feature", feature: "Unlimited items per feed" %>
+        <%= render "feature", feature: "100% ad free" %>
+        <%= render "feature", feature: "Set a custom delivery time" %>
+        <%= render "feature", feature: "Priority in queue", hint: "Sending all the emails can take upto a few hours, depending on the time of day. Emails of pro plan accounts are always sent before the free ones."%>
+        <%= render "feature", feature: "Filter by keywords", soon: true %>
+        <%= render "feature", feature: "Get email per feed (optional)", soon: true %>
+      </ul>
+
+      <div class="text-center">
+        <a class="btn btn--primary rounded-lg" href="mailto:support@rssmailer.com?subject=Upgrade me to pro">Contact me 👌</a>
+      </div>
+    </div>
+  </div>
+</div>

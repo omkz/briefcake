@@ -30,3 +30,8 @@ article p {
   @apply mb-4;
 }
 
+abbr[title] {
+  @apply border-solid border-b-2 border-gray-400;
+  cursor: help;
+  text-decoration: none;
+}

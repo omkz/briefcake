@@ -5,27 +5,6 @@ feature "sending emails" do
     expect(ActionMailer::Base.deliveries).to have(0).deliveries
   end
 
-  it "only sends email when you are confirmed" do
-    date_between_posts = Time.local(2015, 9, 19, 10, 5)
-    Timecop.travel(date_between_posts) do
-      user = create(:user, confirmed_at: nil)
-
-      VCR.use_cassette("timi-blog-1") { timi_blog_feed(user) }
-
-      ActionMailer::Base.deliveries.clear
-
-      VCR.use_cassette("timi-blog-2") { EmailUsersJob.perform_now }
-
-      expect(ActionMailer::Base.deliveries).to have(0).deliveries
-
-      user.confirm
-
-      VCR.use_cassette("timi-blog-2") { EmailUsersJob.perform_now }
-
-      expect(ActionMailer::Base.deliveries).to have(1).deliveries
-    end
-  end
-
   it "sends emails when there are new items, but only with the new items" do
     date_between_posts = Time.local(2015, 9, 19, 10, 5)
 
@@ -38,14 +17,14 @@ feature "sending emails" do
       end
 
       VCR.use_cassette("timi-blog-1") do
-        EmailUsersJob.perform_now
+        UserMailer.new_items(feed.user.id).deliver_now
       end
 
       expect(ActionMailer::Base.deliveries).to have(0).deliveries
       expect(feed.reload.publish_date_last_sent_item).to eq Time.utc(2015, 9, 18)
 
       VCR.use_cassette("timi-blog-2") do
-        EmailUsersJob.perform_now
+        UserMailer.new_items(feed.user.id).deliver_now
       end
 
       expect(feed.reload.publish_date_last_sent_item).to eq Time.utc(2015, 10, 4)
@@ -66,8 +45,10 @@ feature "sending emails" do
       expect(sent_email.user).to eq user
       expect(sent_email.compose_duration_in_seconds).to be > 0
 
+      Timecop.travel 1.day.from_now
+
       VCR.use_cassette("timi-blog-3") do
-        EmailUsersJob.perform_now
+        UserMailer.new_items(feed.user.id).deliver_now
       end
 
       expect(feed.reload.publish_date_last_sent_item).to eq Time.utc(2016, 10, 4)
@@ -82,14 +63,14 @@ feature "sending emails" do
       expect(email).to have_body_text(/fourth item in feed/)
 
       VCR.use_cassette("timi-blog-3") do
-        EmailUsersJob.perform_now
+        UserMailer.new_items(feed.user.id).deliver_now
       end
 
       expect(ActionMailer::Base.deliveries).to have(2).deliveries
 
       expect(SentEmail).to have(2).record
       sent_email = SentEmail.last
-      expect(sent_email.subject).to eq "RSSMailer – 2 new items on 2015-09-19"
+      expect(sent_email.subject).to eq "RSSMailer – 2 new items on 2015-09-20"
       expect(sent_email.number_of_items).to eq 2
       expect(sent_email.index).to eq({ "Timi blog" => 2 })
       expect(sent_email.receiver).to eq user.email
@@ -108,13 +89,13 @@ feature "sending emails" do
       end
 
       VCR.use_cassette("timi-blog-1") do
-        EmailUsersJob.perform_now
+        UserMailer.new_items(feed.user.id).deliver_now
       end
 
       expect(ActionMailer::Base.deliveries).to have(0).deliveries
 
       VCR.use_cassette("timi-blog-2-rev") do
-        EmailUsersJob.perform_now
+        UserMailer.new_items(feed.user.id).deliver_now
       end
 
       deliveries = ActionMailer::Base.deliveries

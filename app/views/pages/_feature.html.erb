@@ -1,0 +1,13 @@
+<li class="relative pl-6">
+  <%= embedded_svg("checkmark.svg", class: "w-4 absolute top-4 top-0 left-0 my-2") %>
+
+  <% if local_assigns[:hint].present? %>
+    <abbr title="<%= hint %>"><%= feature %></abbr>
+  <% else %>
+    <div class="inline"><%= feature %></div>
+  <% end %>
+
+  <% if local_assigns[:soon].present? %>
+    <div class="inline pill pill--tertiary h-auto ml-2 h-1">soon</div>
+  <% end %>
+</li>

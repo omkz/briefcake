@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'subscribe/show'
+  get "subscribe/show"
   get "import", to: "import#new"
   post "import", to: "import#create"
 
@@ -21,7 +21,6 @@ Rails.application.routes.draw do
     get :preview, on: :collection
   end
 
-
   match "/dj" => DelayedJobWeb, anchor: false, via: [:get, :post]
 
   resources :announcements, only: [:index]
@@ -40,11 +39,12 @@ Rails.application.routes.draw do
                      controllers: {
                        confirmations: "confirmations",
                        masquerades: "admin/masquerades",
+                       registrations: "users/registrations",
                      } do
-
-                     end
+  end
 
   get "/about", to: "pages#about"
+  get "/pro", to: "pages#pro"
   get "/stats.txt", to: "pages#stats"
 
   get "/example-email", to: "pages#example"

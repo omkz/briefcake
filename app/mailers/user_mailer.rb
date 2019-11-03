@@ -4,7 +4,7 @@ class UserMailer < ApplicationMailer
 
     @user = User.find(user_id)
 
-    return if @user.sent_emails.order(created_at: :asc).first&.created_at&.today?
+    return if @user.sent_emails.order(created_at: :desc).first&.created_at&.today?
 
     @index = {}
     @feed_items = @user.feeds.map do |feed|

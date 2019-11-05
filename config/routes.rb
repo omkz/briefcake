@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  post "paddle/hook"
+
   get "subscribe/show"
+  get "thank-you", to: "pages#thankyou"
   get "import", to: "import#new"
   post "import", to: "import#create"
 

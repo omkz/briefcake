@@ -44,7 +44,11 @@ Rails.application.routes.draw do
   end
 
   get "/about", to: "pages#about"
-  get "/pro", to: "pages#pro"
+
+  get "/pro", to: redirect("/plans")
+  get "/pricing", to: redirect("/plans")
+  get "/plans", to: "pages#plans"
+
   get "/stats.txt", to: "pages#stats"
 
   get "/example-email", to: "pages#example"

@@ -34,6 +34,7 @@
           <div data-target="dropdown.menu" class="dropdown__menu hidden z-10">
             <div class="dropdown__items">
               <%= link_to "Account", edit_user_registration_path, class: "dropdown__item" %>
+              <%= link_to "Upgrade to pro", pricing_path, class: "dropdown__item" unless current_user.is_pro? %>
               <%= link_to "Import .opml file", import_path, class: "dropdown__item" %>
               <%= link_to "Create email newsletter", edit_subscribe_form_path, class: "dropdown__item" %>
               <%= link_to "About RSSMailer", about_path, class: "dropdown__item" %>

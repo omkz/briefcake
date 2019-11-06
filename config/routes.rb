@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  post "paddle/hook"
+
   get "subscribe/show"
+  get "thank-you", to: "pages#thankyou"
   get "import", to: "import#new"
   post "import", to: "import#create"
 
@@ -44,7 +47,11 @@ Rails.application.routes.draw do
   end
 
   get "/about", to: "pages#about"
-  get "/pro", to: "pages#pro"
+
+  get "/pro", to: redirect("/plans")
+  get "/pricing", to: redirect("/plans")
+  get "/plans", to: "pages#plans"
+
   get "/stats.txt", to: "pages#stats"
 
   get "/example-email", to: "pages#example"

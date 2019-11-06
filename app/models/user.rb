@@ -4,6 +4,7 @@ class User < ApplicationRecord
          :confirmable
 
   validates :email, presence: true, 'valid_email_2/email': { disposable: true }
+  validates :discounted_monthly_price, presence: true, if: Proc.new { |user| user.coupon.present? }
 
   has_person_name
   has_many :announcements

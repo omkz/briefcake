@@ -14,6 +14,9 @@ class PagesController < ApplicationController
   def subscribe
   end
 
-  def pro
+  def plans
+  end
+
+  def thankyou
   end
 end

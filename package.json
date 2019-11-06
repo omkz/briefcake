@@ -2,7 +2,7 @@
   "name": "rssmailer",
   "private": true,
   "dependencies": {
-    "@rails/ujs": "6.0.0-beta2",
+    "@rails/ujs": "6.0.1",
     "@rails/webpacker": "3.5",
     "axios": "^0.19.0",
     "chart.js": "^2.9.2",

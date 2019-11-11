@@ -64,14 +64,19 @@
 
   <%
 
-    revenue = {}
+    costs = {}
 
-    (Date.new(2019, 7, 12)..Date.today).each { |d| revenue[d] = 0 }
+    (Date.new(2019, 7, 12)..Date.today).each do |d|
+      costs[d] = -10 if d.day == 1
+    end
   %>
 
   <div class="mb-20">
-    <h1>Revenue (no monetization)</h1>
-    <%= line_chart revenue %>
+    <h1>Revenue (montly)</h1>
+    <%= line_chart [
+                       { name: "Income", data: Profit.all.group_by_month(:created_at).sum(:amount) },
+                       { name: "Costs", data: costs }
+                   ] %>
   </div>
 </div>
 

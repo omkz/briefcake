@@ -43,23 +43,37 @@
 
       <% next_item_is_same_feed = item.feed == next_item.try(:feed) %>
 
-      <div class="text-base font-normal text-black font-medium pt-4">
-        <%= link_to item.title, item.link, class: "black underline" %>
-      </div>
+      <% if !@user.is_pro? && index >= 5 %>
+        <% if index == 5 %>
+          <div class="text-center py-12 bg-gray-200 ">
+            <a href="<%= pricing_url %>" class="no-underline">
+              <span class="text-gray-600 mb-2">You reached the maximum number of free items</span><br>
+              <span class="font-bold">Get a pro subscription to receive unlimited feeds</span>
+            </a>
+          </div>
+          <div class="bg-gray-300 h-px w-full my-2"></div>
+        <% end %>
+        <%= image_tag "blur.jpg" %>
+      <% else %>
+        <div class="text-base font-normal text-black font-medium pt-4">
+          <%= link_to item.title, item.link, class: "black underline" %>
+        </div>
 
-      <div class="text-xs text-gray-600 font-normal mb-2">
-        <%= item.feed.name %> - <%= I18n.l(item.publish_date.to_date, format: "%B %-d, %Y") %>
-      </div>
+        <div class="text-xs text-gray-600 font-normal mb-2">
+          <%= item.feed.name %> - <%= I18n.l(item.publish_date.to_date, format: "%B %-d, %Y") %>
+        </div>
 
-      <div class="text-base text-left feed-content"><%= sanitize(item.description.to_s) %></div>
+        <div class="text-base text-left feed-content"><%= sanitize(item.description.to_s) %></div>
 
-      <%= image_tag(item.image_url, class: "mt-4") if item.image_url %>
+        <%= image_tag(item.image_url, class: "mt-4") if item.image_url %>
+      <% end %>
 
       <% if next_item_is_same_feed %>
         <div class="bg-gray-300 h-px w-full mt-6 mb-2"></div>
       <% else %>
         </div>
       <% end %>
+
     <% end %>
 
     <% if @user && @user.feeds.with_errors.any? %>

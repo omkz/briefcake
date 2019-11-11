@@ -28,7 +28,10 @@ class PaddleController < ApplicationController
     pub_key = OpenSSL::PKey::RSA.new(public_key).public_key
     verified = pub_key.verify(digest, signature, data_serialized)
 
-    return head 422 unless verified
+    if !verified
+      Rollbar.error("Signature does not match", { signature: signature, data_sorted: data_sorted })
+      # return head 422
+    end
 
     user = User.find(data["passthrough"])
     is_subscribed = data["status"] === "active"
@@ -39,6 +42,10 @@ class PaddleController < ApplicationController
                    paddle_subscription_id: data["subscription_id"],
                    paddle_email: data["email"]
                  })
+
+    if data["alert_name"] === "subscription_payment_succeeded"
+      Profit.create(amount: data["balance_earnings"].to_f, data: data)
+    end
 
     render json: :ok
   end

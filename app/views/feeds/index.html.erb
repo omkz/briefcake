@@ -41,7 +41,7 @@
                 <% end %>
 
                 <%= link_to [:edit, feed] do %>
-                  <abbr title="<%= feed.feed_url %>"><%= feed.name %></abbr>
+                  <%= feed.name %>
                 <% end %>
 
                 <% if feed.fetch_error %>

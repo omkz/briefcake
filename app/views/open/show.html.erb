@@ -72,7 +72,7 @@
   %>
 
   <div class="mb-20">
-    <h1>Revenue (montly)</h1>
+    <h1>Revenue (monthly)</h1>
     <%= line_chart [
                        { name: "Income", data: Profit.all.group_by_month(:created_at).sum(:amount) },
                        { name: "Costs", data: costs }

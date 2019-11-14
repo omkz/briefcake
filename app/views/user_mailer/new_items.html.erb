@@ -1,4 +1,17 @@
-<div class="mx-auto max-w-2xl w-full px-5 pt-5">
+<div class="mx-auto max-w-2xl w-full px-5 pt-5 ">
+  <div class="bg-white border text-gray-800 shadow-lg p-8 mb-5 rounded my-10 mb-12">
+    <p class="mb-4">
+      Hello! I'm Jankees. Thanks for using RSSMailer!
+    </p>
+    <p class="mb-4">
+      Next week I'm going to launch RSSMailer PRO, a premium option that offers
+      advanced features and keeps this service sustainable.
+    </p>
+    <a href="<%= plans_url %>" target="_blank">
+      Learn more
+    </a>
+  </div>
+
   <% if @index.present? %>
     <div class="bg-gray-200 px-4 py-6 mb-5 text-gray-500">
       <div class="text-gray-600 text-xs -mb-1">
@@ -50,7 +63,9 @@
 
   <% if @user && @user.feeds.with_errors.any? %>
     <div class="bg-red-500 text-white p-5 mb-10 rounded text-center">
-      We had trouble fetching some feeds, please <%= link_to "sign in", feeds_url, class: "text-white underline"  %> and try to fix the feeds with errors.
+      We had trouble fetching some feeds,
+      please <%= link_to "sign in", feeds_url, class: "text-white underline" %> and try to fix the
+      feeds with errors.
     </div>
   <% end %>
 
@@ -58,7 +73,9 @@
     <p class="mb-2">You are receiving this email because you signed up at
       <a href="https://rssmailer.app">rssmailer.app</a>.</p>
     <p>
-      Too much email? You can <%= link_to "change the number of feeds", feeds_url %> you are following or <%= link_to "unsubscribe", @user.try(:unsubscribe_url) %> if you don't want any email.
+      Too much email? You can <%= link_to "change the number of feeds", feeds_url %> you are
+      following or <%= link_to "unsubscribe", @user.try(:unsubscribe_url) %> if you don't want any
+      email.
     </p>
   </div>
 </div>

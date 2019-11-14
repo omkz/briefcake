@@ -1,9 +1,44 @@
 <div class="mx-auto py-10">
-  <p class="max-w-2xl text-center mx-auto mb-12 text-gray-700">
-    You can use RSSMailer for free, but if you want to follow a large number of sites you can
-    upgrade to the pro plan. By upgrading you also support me, an independent maker, and you are
-    contributing to the future of this product.
-  </p>
+  <div class="max-w-xl text-center mx-auto mb-12 text-gray-700">
+    <p class="mb-4">Hello! I'm Jankees, the maker of RSSMailer.</p>
+
+    <%= image_tag "jankees.jpg", class: "mb-12" %>
+
+    <p class="mb-4">
+      Today, I'm proud to introduce a new plan called <strong>RSSMailer Pro</strong> for people who
+      follow more than 3 feeds.
+    </p>
+    <p class="mb-4">
+      It lets you follow <strong>unlimited feeds, set custom delivery times, remove ads</strong>
+      and more features will be added in the future! As a thank you for joining early, you can use
+      the
+      <span class="bg-yellow-200 py-1 px-2 rounded-lg">coupon "early-adopter"</span>
+      to get a <strong>30% discount (life time)</strong>.
+    </p>
+
+    <p class="mb-4 font-bold">
+      If you follow less than 3 feeds, you are welcome to stay on the free
+      plan –<br> you won't be affected at all.
+    </p>
+
+    <% classes = "mt-2 mb-8 btn btn--primary rounded-lg" %>
+    <% unless current_user&.is_pro %>
+      <% if current_user.present? %>
+        <a href="#" data-theme="none" class="paddle_button <%= classes %>" data-product="570984" data-success="/thank-you/" data-passthrough="<%= current_user.id %>" data-coupon="<%= current_user.coupon %>" data-email="<%= current_user.email %>">
+          <%= "Upgrade to RSSMailer PRO ❤️" %>️</a>
+      <% else %>
+        <%= link_to "Sign in, and upgrade to RSSMailer PRO ❤️", new_user_session_path, class: classes %>
+      <% end %>
+    <% end %>
+    <p class="mb-4">
+      I'm also adding this option to make RSSMailer into a
+      <%= link_to "sustainable business", open_path %>.
+      This means that you'll be able to count on the service continuing and improving in the future.
+    </p>
+
+    If you have questions, please let me know.
+  </div>
+
   <div class="flex flex-wrap items-center justify-center mb-24">
     <div class="flex-grow border p-8 py-6 rounded bg-white shadow-sm m-3 h-auto max-w-xs">
       <header class="text-center">

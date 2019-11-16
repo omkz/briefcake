@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  def new_items(user_id)
+  def new_items(user_id, dry_run: false)
     start_time = Time.now
 
     @user = User.find(user_id)
@@ -10,7 +10,7 @@ class UserMailer < ApplicationMailer
     @feed_items = @user.feeds.map do |feed|
       items = feed.new_items!
       if items.any?
-        feed.update_column(:publish_date_last_sent_item, items.first.publish_date)
+        feed.update_column(:publish_date_last_sent_item, items.first.publish_date) unless dry_run
         @index[feed.name] = items.count
       end
       items
@@ -33,7 +33,7 @@ class UserMailer < ApplicationMailer
         number_of_items: @feed_items.count,
         index: @index,
         compose_duration_in_seconds: (Time.now - start_time)
-      )
+      ) unless dry_run
     end
   end
 

@@ -6,7 +6,7 @@
 
     <p class="mb-4">
       Today, I'm proud to introduce a new plan called <strong>RSSMailer Pro</strong> for people who
-      follow more than 3 feeds.
+      need more than 3 items per day.
     </p>
     <p class="mb-4">
       It lets you follow <strong>unlimited feeds, set custom delivery times, remove ads</strong>
@@ -17,14 +17,14 @@
     </p>
 
     <p class="mb-4 font-bold">
-      If you follow less than 3 feeds, you are welcome to stay on the free
-      plan –<br> you won't be affected at all.
+      If you don't reach the limit (3 items per day), you are welcome to stay on the free
+      plan – you won't be affected at all.
     </p>
 
     <% classes = "mt-2 mb-8 btn btn--primary rounded-lg" %>
     <% unless current_user&.is_pro %>
       <% if current_user.present? %>
-        <a href="#" data-theme="none" class="paddle_button <%= classes %>" data-product="570984" data-success="/thank-you/" data-passthrough="<%= current_user.id %>" data-coupon="<%= current_user.coupon %>" data-email="<%= current_user.email %>">
+        <a href="#" data-theme="none" class="paddle_button <%= classes %>" data-product="570984" data-success="/thank-you/" data-passthrough="<%= current_user.id %>" data-coupon="early-adopter" data-email="<%= current_user.email %>">
           <%= "Upgrade to RSSMailer PRO ❤️" %>️</a>
       <% else %>
         <%= link_to "Sign in, and upgrade to RSSMailer PRO ❤️", new_user_session_path, class: classes %>
@@ -51,7 +51,7 @@
         <%= render "feature", feature: "Follow RSS feeds" %>
         <%= render "feature", feature: "Follow YouTube channels" %>
         <%= render "feature", feature: "Follow public Instagram feeds" %>
-        <%= render "feature", feature: "3 feeds limit" %>
+        <%= render "feature", feature: "3 items per day" %>
         <%= render "feature", feature: "Daily email" %>
         <%= render "feature", feature: "Occasional ads" %>
       </ul>
@@ -59,16 +59,9 @@
 
     <div class="flex-grow border p-8 py-6 rounded shadow-lg m-3 bg-white max-w-sm">
       <header class="text-center">
-        <h1 class="font-bold text-3xl">PRO</h1>
-        <% if current_user.present? && current_user.discounted_monthly_price.present? %>
-          <small class="text-sm font-bold">
-            <span class="line-through">9.99$ per month</span><br>
-            <span><%= current_user.discounted_monthly_price %>$ per month</span>
-          </small>
-        <% else %>
-          <small class="text-sm font-bold">9.99$ per month</small>
-        <% end %>
-
+        <h1 class="font-bold text-3xl uppercase">Pro</h1>
+        <small class="text-sm font-bold line-through">$9.99 per month</small>
+        <small class="block text-sm font-bold mb-1">now $6.99 per month</small>
       </header>
 
       <hr class="border-t my-4">
@@ -76,7 +69,7 @@
       <ul class="leading-loose mb-10 features">
         <li class="mb-4 text-center text-gray-700">Everything from free and:</li>
         <%= render "feature", feature: "Unlimited feeds" %>
-        <%= render "feature", feature: "Unlimited items per feed" %>
+        <%= render "feature", feature: "Unlimited items per day" %>
         <%= render "feature", feature: "100% ad free" %>
         <%= render "feature", feature: "Set a custom delivery time" %>
         <%= render "feature", feature: "Priority in queue", hint: "Sending all the emails can take upto a few hours, depending on the time of day. Emails of pro plan accounts are always sent before the free ones." %>
@@ -86,7 +79,7 @@
 
       <div class="text-center">
         <% if current_user.present? && !current_user.is_pro? %>
-          <a href="#" data-theme="none" class="paddle_button btn btn--primary rounded-lg" data-product="570984" data-success="/thank-you/" data-passthrough="<%= current_user.id %>" data-coupon="<%= current_user.coupon %>" data-email="<%= current_user.email %>">
+          <a href="#" data-theme="none" class="paddle_button btn btn--primary rounded-lg" data-product="570984" data-success="/thank-you/" data-passthrough="<%= current_user.id %>" data-coupon="early-adopter" data-email="<%= current_user.email %>">
             Upgrade to pro 👌</a>
         <% end %>
       </div>

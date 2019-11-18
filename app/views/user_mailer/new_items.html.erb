@@ -30,8 +30,8 @@
 
       <% next_item_is_same_feed = item.feed == next_item.try(:feed) %>
 
-      <% if !@user.is_pro? && index >= 5 %>
-        <% if index == 5 %>
+      <% if !@user.is_pro? && index >= 3 %>
+        <% if index == 3 %>
           <div class="text-center py-12 bg-gray-200 ">
             <a href="<%= pricing_url %>" class="no-underline">
               <span class="text-gray-600 mb-2">You reached the maximum number of free items</span><br>

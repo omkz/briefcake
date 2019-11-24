@@ -33,19 +33,23 @@ class PaddleController < ApplicationController
       # return head 422
     end
 
-    user = User.find(data["passthrough"])
-    is_subscribed = data["status"] === "active"
+    user = User.find_by(id: data["passthrough"])
+    if user
+      is_subscribed = data["status"] === "active"
 
-    user.update!({
-                   is_pro: is_subscribed,
-                   paddle_user_id: data["user_id"],
-                   paddle_subscription_id: data["subscription_id"],
-                   paddle_email: data["email"]
-                 })
+      user.update!({
+                     is_pro: is_subscribed,
+                     paddle_user_id: data["user_id"],
+                     paddle_subscription_id: data["subscription_id"],
+                     paddle_email: data["email"]
+                   })
 
-    if data["alert_name"] === "subscription_payment_succeeded"
-      Profit.create(amount: data["balance_earnings"].to_f, data: data)
+      if data["alert_name"] === "subscription_payment_succeeded"
+        Profit.create(amount: data["balance_earnings"].to_f, data: data)
+      end
     end
+
+    UserMailer.delay(queue: "new_items").new_payment(user, data_sorted, verified)
 
     render json: :ok
   end

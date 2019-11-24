@@ -1,0 +1,21 @@
+<div class="p-4">
+  <fieldset  class="font-mono border-2 p-2 mb-2">
+    <legend class="w-full">Data from Paddle</legend>
+    <ul>
+      <li>Signature verified: <%= @verified %></li>
+      <li>Profit created: <%= @data["alert_name"] === "subscription_payment_succeeded" %></li>
+      <li>Is subscribed: <%= @data["status"] === "active" %></li>
+    </ul>
+    <%= simple_format JSON.pretty_generate(@data, {space: ' ', indent: "\n&nbsp;&nbsp;"}) %>
+  </fieldset>
+
+  <fieldset  class="font-mono border-2 p-2 mb-2">
+    <legend class="w-full">User data</legend>
+    <ul>
+      <li>Feed count: <%= @user.feeds.count %></li>
+      <li>Sent mails: <%= @user.sent_emails.count %></li>
+    </ul>
+
+    <%= simple_format JSON.pretty_generate(@user.as_json, {space: ' ', indent: "\n&nbsp;&nbsp;"}) %>
+  </fieldset>
+</div>

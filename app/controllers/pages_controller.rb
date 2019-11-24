@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def stats
-    render plain: "#{User.count},#{Feed.count},#{SentEmail.count}"
+    render plain: "#{User.count},#{Feed.count},#{SentEmail.count},#{User.where(is_pro: true).count}"
   end
 
   def example

@@ -37,6 +37,17 @@ class UserMailer < ApplicationMailer
     end
   end
 
+  def new_payment(user, data, verified)
+    @user = user
+    @data = data
+    @verified = verified
+
+    mail(
+      to: "support@jankeesvw.com",
+      subject: "New payment",
+    )
+  end
+
   def test_email(to)
     @user = User.first
     @feed_items = SampleContent.items

@@ -42,7 +42,7 @@
           </div>
           <div class="bg-gray-300 h-px w-full my-2"></div>
         <% end %>
-        <%= image_tag "blur.jpg", class: "mt-4" %>
+        <%= image_tag(Rails.application.config.application_domain + "/blur.jpg", class: "mt-4") %>
       <% else %>
         <div class="text-base font-normal text-black font-medium pt-4">
           <%= link_to item.title, item.link, class: "black underline" %>

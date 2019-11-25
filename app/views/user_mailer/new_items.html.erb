@@ -1,5 +1,5 @@
 <div class="mx-auto max-w-2xl w-full mx-5 mt-5">
-  <div class="mx-5">
+  <div class="mx-2">
     <% if @index.present? %>
       <div class="bg-gray-200 px-4 py-6 mb-5 text-gray-500">
         <div class="text-gray-600 text-xs -mb-1">
@@ -26,25 +26,25 @@
 
       <% unless next_item_is_same_feed %>
         <div class="mb-2 mt-6 text-gray-600"><%= item.feed.name %></div>
-        <div class="mb-8 border bg-white border-gray-300 rounded-lg p-4 pt-0">
+        <div class="mb-8 border bg-white border-gray-300 rounded-lg p-4 pt-3">
       <% end %>
 
       <% next_item_is_same_feed = item.feed == next_item.try(:feed) %>
 
       <% if !@user.is_pro? && index >= 3 %>
         <% if index == 3 %>
-          <div class="text-center py-12 bg-gray-200 ">
+          <div class="text-center py-12 bg-gray-200 px-3">
             <a href="<%= pricing_url %>" class="no-underline">
               <span class="text-gray-600 mb-2">You've reached the maximum number of free articles for today</span><br>
               <span class="font-bold block mb-2">Upgrade to pro to receive unlimited articles and advanced features</span>
               <a href="<%= plans_url %>" target="_blank">Upgrade now</a>
             </a>
           </div>
-          <div class="bg-gray-300 h-px w-full my-2"></div>
+          <div class="bg-gray-300 h-px w-full mt-6 mb-6"></div>
         <% end %>
-        <%= image_tag(Rails.application.config.application_domain + "/blur.jpg", class: "mt-4") %>
+        <%= image_tag(Rails.application.config.application_domain + "/blur.png", class: "mt-4") %>
       <% else %>
-        <div class="text-base font-normal text-black font-medium pt-4">
+        <div class="text-base font-normal text-black font-medium">
           <%= link_to item.title, item.link, class: "black underline" %>
         </div>
 
@@ -58,7 +58,7 @@
       <% end %>
 
       <% if next_item_is_same_feed %>
-        <div class="bg-gray-300 h-px w-full mt-6 mb-2"></div>
+        <div class="bg-gray-300 h-px w-full mt-6 mb-6"></div>
       <% else %>
         </div>
       <% end %>

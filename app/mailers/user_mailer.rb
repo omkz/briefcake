@@ -39,8 +39,12 @@ class UserMailer < ApplicationMailer
 
   def new_payment(user, data, verified)
     @user = user
-    @data = data
+    @data = {}
     @verified = verified
+
+    data.each do |key_value|
+      @data[key_value[0]] = key_value[1] unless key_value[0] === "paddle"
+    end
 
     mail(
       to: "support@jankeesvw.com",

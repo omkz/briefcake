@@ -49,7 +49,7 @@ class PaddleController < ApplicationController
       end
     end
 
-    UserMailer.delay(queue: "new_items").new_payment(user, data_sorted, verified)
+    UserMailer.new_payment(user, data_sorted, verified).deliver_later
 
     render json: :ok
   end

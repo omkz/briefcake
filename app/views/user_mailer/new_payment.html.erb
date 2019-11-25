@@ -1,21 +1,24 @@
 <div class="p-4">
-  <fieldset  class="font-mono border-2 p-2 mb-2">
-    <legend class="w-full">Data from Paddle</legend>
+  <h1 class="text-3xl mb-4">🥳 Paddle hook received! 🚀</h1>
+
+  <fieldset class="font-mono border-2 border-gray-600 p-4 mb-2">
+    <legend>Data from Paddle</legend>
+
     <ul>
-      <li>Signature verified: <%= @verified %></li>
-      <li>Profit created: <%= @data["alert_name"] === "subscription_payment_succeeded" %></li>
-      <li>Is subscribed: <%= @data["status"] === "active" %></li>
+      <li>Is subscribed: <strong><%= (@data.try(:[], "status") === "active").to_s %></strong></li>
+      <li>Profit created: <strong><%= (@data.try(:[], "alert_name") === "subscription_payment_succeeded" && !!@user).to_s %></strong></li>
+      <li>Signature verified: <strong><%= @verified %></strong></li>
     </ul>
-    <%= simple_format JSON.pretty_generate(@data, {space: ' ', indent: "\n&nbsp;&nbsp;"}) %>
+    <%= simple_format JSON.pretty_generate(@data, { space: ' ', indent: "\n&nbsp;&nbsp;" }) %>
   </fieldset>
 
-  <fieldset  class="font-mono border-2 p-2 mb-2">
-    <legend class="w-full">User data</legend>
+  <fieldset class="font-mono border-2 border-black p-2 mb-4">
+    <legend>User data</legend>
     <ul>
-      <li>Feed count: <%= @user.feeds.count %></li>
-      <li>Sent mails: <%= @user.sent_emails.count %></li>
+      <li>Feed count: <strong><%= @user&.feeds&.count %></strong></li>
+      <li>Sent mails: <strong><%= @user&.sent_emails&.count %></strong></li>
     </ul>
 
-    <%= simple_format JSON.pretty_generate(@user.as_json, {space: ' ', indent: "\n&nbsp;&nbsp;"}) %>
+    <%= simple_format JSON.pretty_generate(@user.as_json, { space: ' ', indent: "\n&nbsp;&nbsp;" }) %>
   </fieldset>
 </div>

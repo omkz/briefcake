@@ -65,7 +65,7 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "webpacker", "~> 3.5", ">= 3.5.5"
 gem "devise", "~> 4.7"
 gem "devise_masquerade", "~> 0.6.5"
-gem "friendly_id", "~> 5.2", ">= 5.2.4"
+gem "friendly_id", "~> 5.3"
 gem "name_of_person", "~> 1.0"
 gem "storext", "~> 3.1"
 gem "premailer-rails", "~> 1.10"

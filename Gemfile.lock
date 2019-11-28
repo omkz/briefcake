@@ -123,7 +123,7 @@ GEM
       sax-machine (>= 1.0)
     ffi (1.11.1)
     foreman (0.86.0)
-    friendly_id (5.2.5)
+    friendly_id (5.3.0)
       activerecord (>= 4.0.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -353,7 +353,7 @@ DEPENDENCIES
   factory_bot_rails
   feedjira
   foreman (~> 0.86.0)
-  friendly_id (~> 5.2, >= 5.2.4)
+  friendly_id (~> 5.3)
   groupdate
   httparty
   instagrammer

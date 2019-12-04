@@ -58,9 +58,22 @@
   <div class="container max-w-5xl mx-auto px-4 py-8 sm:py-16">
     <p class="mb-2 text-sm font-medium uppercase tracking-wider text-blue-500">
       <%= I18n.t("customer", count: User.count) %> (and counting) can't be wrong</p>
-    <h3 class="text-4xl leading-tight font-medium">
 
       <div class="testimonials text-base">
+        <div class="testimonial">
+          <p class="testimonial__content">
+            “Just become a premium user of https://rssmailer.app/ by @jankeesvw. All my RSS feeds into a stunning, clean and minimalist email, everyday. It's affordable, and just works as it's supposed to 🤩”
+          </p>
+
+          <div class="testimonial__author">
+            <%= image_tag "ludobourgoin.jpg", class: "testimonial__author-avatar" %>
+            <div class="ml-3">
+              <p class="testimonial__author-name">Ludovic Bourgoin</p>
+              <%= link_to "@ludobourgoin", "https://twitter.com/ludobourgoin/status/1202188183406034945", class: "testimonial__author-link" %>
+            </div>
+          </div>
+        </div>
+
         <div class="testimonial">
           <p class="testimonial__content">
             “RSSMailer is great. At first just gave it a try since DenseDiscovery linked to it, but I now love reading my RSS feeds (blogs, news sites, YouTube channels)
@@ -90,23 +103,6 @@
             </div>
           </div>
         </div>
-
-        <div class="testimonial">
-          <p class="testimonial__content">
-            “I'm using rssmailer.app to get new blog posts in my inbox<br>
-            What RSS blogs should I add?<br>
-            I prefer blogs from makers or independent writers”<br>
-          </p>
-
-          <div class="testimonial__author">
-            <%= image_tag "adriaan-van-rossum.jpg", class: "testimonial__author-avatar" %>
-            <div class="ml-3">
-              <p class="testimonial__author-name">Adriaan van Rossum</p>
-              <%= link_to "@AdriaanvRossum", "https://twitter.com/AdriaanvRossum/status/1165913377996189696", class: "testimonial__author-link" %>
-            </div>
-          </div>
-        </div>
-
       </div>
   </div>
 

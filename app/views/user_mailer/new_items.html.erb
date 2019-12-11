@@ -1,5 +1,19 @@
 <div class="mx-auto max-w-2xl w-full mx-5 mt-5">
   <div class="mx-2">
+    <% unless @user.is_pro? %>
+      <div class="bg-white border border-gray-500 text-gray-800 shadow-lg p-8 mb-5 rounded my-10 mb-12">
+        <p class="mb-4">
+          I have some great news, RSSMailer got more affordable! You can now get RSSMailer pro for
+          only <strong>$12 per year</strong>!
+          With RSSMailer pro you can pick a custom delivery time and receive an
+          unlimited number of items per email.
+        </p>
+        <a href="<%= plans_url %>" target="_blank">
+          Upgrade to pro
+        </a>
+      </div>
+    <% end %>
+
     <% if @index.present? %>
       <div class="bg-gray-200 px-4 py-6 mb-5 text-gray-500">
         <div class="text-gray-600 text-xs -mb-1">
@@ -37,7 +51,7 @@
             <a href="<%= pricing_url %>" class="no-underline">
               <span class="text-gray-600 mb-2">You've reached the maximum number of free articles for today</span><br>
               <span class="font-bold block mb-2">Upgrade to pro to receive unlimited articles and advanced features</span>
-              <a href="<%= plans_url %>" target="_blank">Upgrade now</a>
+              <a href="<%= plans_url %>" target="_blank">Upgrade now for $12 per year</a>
             </a>
           </div>
           <div class="bg-gray-300 h-px w-full mt-6 mb-6"></div>

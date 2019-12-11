@@ -34,6 +34,8 @@ class PaddleController < ApplicationController
     end
 
     user = User.find_by(id: data["passthrough"])
+    made_profit = data["alert_name"] === "subscription_payment_succeeded"
+
     if user
       is_subscribed = data["status"] === "active"
 
@@ -44,12 +46,14 @@ class PaddleController < ApplicationController
                      paddle_email: data["email"]
                    })
 
-      if data["alert_name"] === "subscription_payment_succeeded"
+      if made_profit
         Profit.create(amount: data["balance_earnings"].to_f, data: data)
       end
     end
 
-    UserMailer.new_payment(user, data_sorted, verified).deliver_later
+    if made_profit
+      UserMailer.new_payment(user, data_sorted, verified).deliver_later
+    end
 
     render json: :ok
   end

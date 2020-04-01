@@ -47,7 +47,7 @@ class UserMailer < ApplicationMailer
     end
 
     mail(
-      to: "support@jankeesvw.com",
+      to: "rssmailer@piplabs.io",
       subject: "New payment",
     )
   end
@@ -72,7 +72,7 @@ class UserMailer < ApplicationMailer
 
     mail(
       to: to,
-      bcc: "mail+rssmailer@jankeesvw.com",
+      bcc: "rssmailer@piplabs.io",
       subject: "RSSMailer test email - #{rand}",
       template_name: "new_items",
     )

@@ -60,7 +60,9 @@ class UserMailer < ApplicationMailer
       to: @user.email,
       from: "Jankees – RSSMailer <support@jankeesvw.com>",
       subject: "Announcement: RSSMailer gets a new owner"
-    )
+    ) do |format|
+      format.html { render layout: "white" }
+    end
   end
 
   def test_email(to)

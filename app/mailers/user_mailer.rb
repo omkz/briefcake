@@ -52,6 +52,18 @@ class UserMailer < ApplicationMailer
     )
   end
 
+  def transfer(user)
+    @user = user
+    @greeting = user.first_name.presence || "you"
+
+    mail(
+      to: @user.email,
+      from: "Jankees – RSSMailer <support@jankeesvw.com>",
+      bcc: "mail+rssmailer@jankeesvw.com",
+      subject: "Announcement: RSSMailer gets a new owner"
+    )
+  end
+
   def test_email(to)
     @user = User.first
     @feed_items = SampleContent.items

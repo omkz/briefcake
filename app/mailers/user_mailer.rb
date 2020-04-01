@@ -59,7 +59,6 @@ class UserMailer < ApplicationMailer
     mail(
       to: @user.email,
       from: "Jankees – RSSMailer <support@jankeesvw.com>",
-      bcc: "mail+rssmailer@jankeesvw.com",
       subject: "Announcement: RSSMailer gets a new owner"
     )
   end

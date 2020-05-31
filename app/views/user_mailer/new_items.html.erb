@@ -3,10 +3,8 @@
     <% unless @user.is_pro? %>
       <div class="bg-white border border-gray-500 text-gray-800 shadow-lg p-8 mb-5 rounded my-10 mb-12">
         <p class="mb-4">
-          I have some great news, RSSMailer got more affordable! You can now get RSSMailer pro for
-          only <strong>$12 per year</strong>!
-          With RSSMailer pro you can pick a custom delivery time and receive an
-          unlimited number of items per email.
+          Did you know RSSMailer Pro is only <strong>$12 per year</strong>?
+          Upgrade today for unlimited items per email and a custom delivery time.
         </p>
         <a href="<%= plans_url %>" target="_blank">
           Upgrade to pro
@@ -91,9 +89,8 @@
       <p class="mb-2">You are receiving this email because you signed up at
         <a href="https://rssmailer.app">rssmailer.app</a>.</p>
       <p>
-        Too much email? You can <%= link_to "change the number of feeds", feeds_url %> you are
-        following or <%= link_to "unsubscribe", @user.try(:unsubscribe_url) %> if you don't want any
-        email.
+        Too many emails? <%= link_to "Change the number of feeds", feeds_url %> you are
+        following or <%= link_to "unsubscribe", @user.try(:unsubscribe_url) %> if you don't want any.
       </p>
     </div>
   </div>

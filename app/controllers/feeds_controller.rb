@@ -7,6 +7,14 @@ class FeedsController < ApplicationController
   # GET /feeds.json
   def index
     @feeds = current_user.feeds.all
+    respond_to do |format|
+      format.html
+      format.xml {
+        send_data render_to_string(template: "feeds/index"),
+        type: "text/xml",
+        filename: "feeds.opml"
+      }
+    end
   end
 
   def preview

@@ -8,27 +8,49 @@ export default class extends Controller {
     "feedUrlInput",
     "loader",
     "checkButton",
-    "submitButton"
+    "submitButton",
+    "name"
   ];
 
   check(event) {
-    this.loaderTarget.classList.remove("hidden");
     this.submitButtonTarget.classList.add("btn--disabled");
-    this.checkButtonTarget.classList.add("hidden");
+    let item = event.target.closest(".nested-fields")
 
-    const url = `/feeds/check.json?url=${this.urlTarget.value}`;
+    // Find the one of these targets that is actually in the nested field group the click came from.
+    let loader = this.loaderTargets.find(loader => item.contains(loader))
+    let checkButton = this.checkButtonTargets.find(checkButton => item.contains(checkButton));
+    let urlTarget = this.urlTargets.find(url => item.contains(url));
+    let feedUrlInputTarget = this.feedUrlInputTargets.find(feedUrlInput => item.contains(feedUrlInput));
+    let nameTarget = this.nameTargets.find(name => item.contains(name));
+
+    loader.classList.remove("hidden");
+    checkButton.classList.add("hidden");
+
+    const cleanup = () => {
+      loader.classList.add("hidden");
+      checkButton.classList.remove("hidden");
+      this.submitButtonTarget.classList.remove("btn--disabled");
+      this.submitButtonTarget.classList.remove("hidden");
+    }
+
+
+    if ( ! /^https:\/\//.test(urlTarget.value) ) {
+      console.log("target url is likely invalid")
+      alert(`Invalid url ${urlTarget.value}. Please make sure your url starts with https://`)
+      cleanup()
+      return
+    }
+
+    const url = `/feeds/check.json?url=${urlTarget.value}`;
 
     axios
       .get(url)
       .then(response => {
         const data = response.data;
-        this.feedUrlInputTarget.value = data.feed_url;
+        feedUrlInputTarget.value = data.feed_url;
+        nameTarget.value = data.name
       })
-      .finally(() => {
-        this.loaderTarget.classList.add("hidden");
-        this.checkButtonTarget.classList.remove("hidden");
-        this.submitButtonTarget.classList.remove("btn--disabled");
-        this.submitButtonTarget.classList.remove("hidden");
-      });
+      .finally(cleanup);
+
   }
 }

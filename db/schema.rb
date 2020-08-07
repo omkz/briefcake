@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_16_131858) do
+ActiveRecord::Schema.define(version: 2020_08_06_205341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,6 +109,16 @@ ActiveRecord::Schema.define(version: 2019_11_16_131858) do
     t.index ["user_id"], name: "index_sent_emails_on_user_id"
   end
 
+  create_table "sites", force: :cascade do |t|
+    t.string "url"
+    t.string "feed_url"
+    t.bigint "subscribe_form_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.index ["subscribe_form_id"], name: "index_sites_on_subscribe_form_id"
+  end
+
   create_table "subscribe_forms", force: :cascade do |t|
     t.bigint "user_id"
     t.string "url"
@@ -161,7 +171,6 @@ ActiveRecord::Schema.define(version: 2019_11_16_131858) do
     t.string "paddle_user_id", default: ""
     t.string "paddle_subscription_id", default: ""
     t.string "paddle_email", default: ""
-    t.string "coupon", default: ""
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -171,4 +180,5 @@ ActiveRecord::Schema.define(version: 2019_11_16_131858) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "announcements", "users"
   add_foreign_key "feeds", "users"
+  add_foreign_key "sites", "subscribe_forms"
 end

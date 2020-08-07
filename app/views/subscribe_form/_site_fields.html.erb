@@ -1,0 +1,33 @@
+<div class='nested-fields'>
+    <div class='form-group'>
+      <%= form.hidden_field :_destroy %>
+
+      <div class="field">
+        <%= form.label :url, "Website url" %>
+        <div class="flex">
+          <%= form.url_field :url, class: "w-auto input rounded-r-none flex-grow", data: { target: "feed-url.url" } %>
+          <div class="whitespace-no-wrap bg-blue-600 rounded overflow-hidden rounded-l-none flex items-center justify-around" style="min-width: 100px">
+            <button type="button" class="text-white px-3 hover:bg-blue-900 px-4 h-full inline-block" data-target="feed-url.checkButton" data-action="click->feed-url#check">Find RSS feed</button>
+            <div class="hidden loader-spinner pointer-events-none" data-target="feed-url.loader" style="border-color: white; border-bottom-color: transparent"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= form.label :name, "Name" %>
+        <%= form.text_field :name, class: "input", data: { target: "feed-url.name" } %>
+      </div>
+
+
+      <div class="field">
+        <%= form.label :feed_url, "Feed url" %>
+        <%= form.url_field :feed_url, class: "input", data: { target: "feed-url.feedUrlInput" } %>
+      </div>
+
+      
+      <small>
+        <%= link_to "Remove", "#", data: { action: "click->nested-form#remove_association" } %>
+      </small>
+    </div>
+  </div>
+  

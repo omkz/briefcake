@@ -11,14 +11,18 @@ class SubscribeController < ApplicationController
     @user = User.new(email: params[:email])
     @user.password = SecureRandom.urlsafe_base64
 
-    feed = Feed.new
-    feed.url = @subscribe_form.url
-    feed.feed_url = @subscribe_form.feed_url
-    feed.name = @subscribe_form.name
-    feed.user = @user
-    feed.subscribe_form = @subscribe_form
+    @subscribe_form.sites.each do |site|
+      feed = Feed.new
+      feed.url = site.url
+      feed.feed_url = site.feed_url
+      feed.name = site.name
+      feed.user = @user
+      feed.subscribe_form = @subscribe_form
+      # render :show and return unless feed.save
+      feed.save
+    end
 
-    if @user.save && feed.save
+    if @user.save
       render :subscribe
     else
       render :show

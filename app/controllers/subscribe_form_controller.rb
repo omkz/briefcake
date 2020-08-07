@@ -4,7 +4,8 @@ class SubscribeFormController < ApplicationController
 
   def edit
     @subscribe_form = subscribe_form
-    @preview_path = preview_feeds_url(feed: {feed_url: @subscribe_form.feed_url, name: @subscribe_form.name})
+    @subscribe_form.sites.build if @subscribe_form.sites.count == 0
+    @preview_path = preview_feeds_url(feed: {feed_url: @subscribe_form.sites.first&.feed_url, url: @subscribe_form.sites.first&.url,  name: @subscribe_form.name})
   end
 
   def update
@@ -26,6 +27,7 @@ class SubscribeFormController < ApplicationController
   end
 
   def subscribe_form_params
-    params.require(:subscribe_form).permit(:url, :slug, :name, :feed_url, :color)
+    # params.require(:subscribe_form).permit(:url, :slug, :name, :feed_url, :color, sites_attributes: [:url, :feed_url])
+    params.require(:subscribe_form).permit(:slug, :name, :color, sites_attributes: [:_destroy, :url, :feed_url, :id, :name])
   end
 end

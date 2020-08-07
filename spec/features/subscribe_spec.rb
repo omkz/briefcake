@@ -11,12 +11,15 @@ feature "Signing up" do
     name = "Signal vs. Noise"
 
     form = create(:subscribe_form, slug: "signal-vs-noise", feed_url: feed_url, url: url, name: name)
+    create(:site, subscribe_form_id: form.id, feed_url: feed_url, url: url, name: name)
 
     visit "/s/signal-vs-noise"
 
     fill_in "email", with: "jankees@hotmail.com"
-
-    expect { click_on "Subscribe" }.to change { User.last.feeds.count }.by(1)
+    # expect { click_on "Subscribe" }.to change { User.last.feeds.count }.by(1)
+    click_on "Subscribe"
+    expect(User.count).to eq 2
+    expect(User.last.feeds.count).to eq 1
     new_user = User.last
 
     expect(new_user.email).to eq "jankees@hotmail.com"

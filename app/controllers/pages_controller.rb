@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  layout "briefcase/application", only: [:home]
   def stats
     render plain: "#{User.count},#{Feed.count},#{SentEmail.count},#{User.where(is_pro: true).count}"
   end

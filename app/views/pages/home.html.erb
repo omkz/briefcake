@@ -1,11 +1,11 @@
 <div class="container mx-auto relative">
-  <h1 class="leading-tight font-bold mb-4 w-full text-6xl text-gray-800 text-center">
-    A daily email from your favorite creators
+  <h1 class="leading-tight font-bold text-3xl xl:text-6xl mb-4 w-full text-gray-800 text-center">
+    A daily email from <br> your favorite creators
   </h1>
   <div class="text-center my-4">
     <%= link_to "Start Adding Feeds",
       new_user_registration_path, 
-      class: "btn btn-primary text-white bg-yellow-900 border-blue-500 border-4"
+      class: "btn btn-primary text-white bg-yellow-900 border-blue-500 border-4 font-bold py-4 px-6 text-lg"
     %>
   </div>
 
@@ -15,7 +15,7 @@
     </p>
   </div>
 
-  <div>
+  <div class="mx-auto w-5/6 sm:w-3/6 md:w-2/6">
     <% unless Rails.env.test? %>
       <%= render "chrome" do %>
         <iframe src="/example-email" class="flex-grow w-full" data-controller="example"></iframe>
@@ -23,18 +23,18 @@
     <% end %>
   </div>
 
-  <h1 class="leading-tight font-bold my-4 w-full text-4xl text-gray-800 text-center">
+  <h1 class="leading-tight font-bold my-4 w-full text-2xl xl:text-4xl text-gray-800 text-center">
     What's briefcake?
   </h1>
 
-  <div class="text-center my-4">
-    <p class="text-gray-600">
-      We help you follow websites by using RSS feeds. Once a day at your preferred time, we'll brief you with a sweet digest of freshly baked content.
+  <div class="my-4 px-4 flex justify-around">
+    <p class="text-gray-600 text-center">
+      We help you follow websites by using RSS feeds. Once a day at your preferred <br> time, we'll brief you with a sweet digest of freshly baked content.
     </p>
   </div>
 
-  <div class="text-center my-4">
-    <%= link_to "Are you a creator?", root_path, class: "text-gray-800" %>
+  <div class="text-center my-6 text-lg">
+    <%= link_to "Are you a creator?", root_path, class: "text-gray-800 underline" %>
   </div>
 
 </div>

@@ -1,25 +1,12 @@
-<footer class="footer-wrapper">
-  <div class="footer container max-w-5xl mx-auto">
-    <div class="footer__items">
-      <%= link_to Rails.configuration.application_name, root_path, class: "text-sm text-gray-300 font-semibold uppercase tracking-wider" %>
-      <p class="mt-2 text-xs text-gray-400">© <%= Time.zone.now.strftime("%Y") %></p>
+<footer class="text-gray-600 flex flex-col justify-center h-full">
+  <div class="flex justify-around mb-4">
+    <div>
+      <%= link_to "Contact", "#", class: "mr-4" %>
+      <%= link_to "FAQ", about_path(anchor: "faq"), class: "ml-4" %>
+      <%= link_to "Privacy", "#", class: "ml-8" %>  
     </div>
-
-    <ul class="footer__items">
-      <%= tag.h6 "About", class: "footer__item footer__heading" %>
-      <li class="footer__item">
-        <%= link_to "For content creators", about_rss_newsletter_path, class: "footer__link" %>
-      </li>
-      <li class="footer__item">
-        <%= link_to "About", about_path, class: "footer__link" %>
-      </li>
-      <li class="footer__item">
-        <%= link_to "FAQ", about_path(anchor: "faq"), class: "footer__link" %>
-      </li>
-      <li class="footer__item">
-        <%= link_to "/open", open_path, class: "footer__link" %>
-      </li>
-    </ul>
   </div>
+  <p class="text-center">&copy; briefcake</p>
+
 </footer>
 

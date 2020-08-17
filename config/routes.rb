@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   get "/stats.txt", to: "pages#stats"
   get "/example-email", to: "pages#example"
   get "about/rss-newsletter", to: "pages#subscribe"
+  get "/creators", to: "pages#creators"
   get "/500", to: "errors#server_error"
   get "/422", to: "errors#unacceptable"
   get "/404", to: "errors#not_found"

@@ -1,7 +1,6 @@
 /* Base.css contains unclassed HTML elements */
 
 body {
-  @apply bg-gray-100;
   @apply font-sans leading-normal antialiased;
   color: var(--textColor);
 }

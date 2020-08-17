@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  layout "briefcase/application", only: [:home]
+  layout "briefcake/application", only: [:home, :creators, :plans]
   def stats
     render plain: "#{User.count},#{Feed.count},#{SentEmail.count},#{User.where(is_pro: true).count}"
   end
@@ -18,5 +18,12 @@ class PagesController < ApplicationController
   end
 
   def home
+    @title="A daily email from your <br> favorite creators"
+  end
+
+  def creators
+    @title="A daily email for your <br> beloved community"
+    @creator=true
+    render :home
   end
 end

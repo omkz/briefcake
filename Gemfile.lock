@@ -53,6 +53,7 @@ GEM
     bindex (0.7.0)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
+    browser (4.2.0)
     builder (3.2.3)
     byebug (11.0.1)
     capybara (3.28.0)
@@ -340,6 +341,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
+  browser (~> 4.2)
   byebug
   capybara
   chartkick

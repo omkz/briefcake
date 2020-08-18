@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  before_action :detect_bot, only: [:new, :create]
   before_action :configure_account_update_params, only: [:update]
   layout "application", only: [:edit, :update]
 
@@ -24,5 +25,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def update_resource(resource, params)
     resource.update_without_password(params.except(:current_password))
+  end
+
+  def detect_bot
+    render body: "Bots may not sign up" and return if browser.bot?
   end
 end

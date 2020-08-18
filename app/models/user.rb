@@ -37,4 +37,8 @@ class User < ApplicationRecord
   def send_devise_notification(notification, *args)
     devise_mailer.send(notification, self, *args).deliver_later
   end
+
+  def is_suspected_bot?
+    return true if feeds.count == 0 && created_at < 15.days.ago
+  end
 end

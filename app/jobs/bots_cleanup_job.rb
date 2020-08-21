@@ -19,5 +19,6 @@ class BotsCleanupJob < ApplicationJob
       end
     end
     puts "#{bots} bots, #{humans} humans found out of #{total} users."
+    BotReportMailer.with(bots: bots, humans: humans).report.deliver_later
   end
 end

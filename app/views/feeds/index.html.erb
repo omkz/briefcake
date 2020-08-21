@@ -16,9 +16,6 @@
   <% end %>
 
   <% if @feeds.any? %>
-    <header class="text-right mb-8">
-      <%= link_to "Add new feed", new_feed_path, class: "btn btn--primary" %>
-    </header>
 
     <div class="card card--light mb-8">
       <div class="card__content">
@@ -56,6 +53,9 @@
           </tbody>
         </table>
       </div>
+      <div class="text-right mb-8">
+        <%= link_to "Add new feed", new_feed_path, class: "btn btn--primary m-4" %>
+      </div>  
     </div>
 
   <% else %>
@@ -67,8 +67,5 @@
     </div>
   <% end %>
 
-  <p class="text-gray-600 mb-5">
-    <%= link_to "You can also import an .opml file", import_path %>
-  </p>
 </div>
 

@@ -29,7 +29,7 @@
   <div class="mx-auto w-5/6 sm:w-3/6 md:w-2/6">
     <% unless Rails.env.test? %>
       <%= render "chrome" do %>
-        <iframe src="/example-email" class="flex-grow w-full" data-controller="example"></iframe>
+        <iframe src="/example-email" class="w-full" data-controller="example" height="600px"></iframe>
       <% end %>
     <% end %>
   </div>

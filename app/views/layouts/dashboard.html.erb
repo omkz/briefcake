@@ -9,19 +9,9 @@
 <%= show_site_wide_announcement(current_user) %>
 <%= render "shared/flash" %>
 <div class="dashboard">
-  <!-- <div class="dashboard-nav">
-    <%= link_to Rails.configuration.application_name, root_path, class: "dashboard-nav__logo" %>
-
-    <ul class="dashboard-nav-items">
-      <li class="dashboard-nav-item">
-        <%= link_to "Feeds", feeds_path, class: "dashboard-nav-link  dashboard-nav-link--active" %>
-      </li>
-    </ul>
-  </div> -->
-
   <div class="dashboard-wrapper">
     <div class="max-w-4xl mx-auto flex justify-between mt-2 md:mt-4 xl:mt-8 md:mb-4 lg:mb-8 xl:mb-14">
-      <h1 class="inline-block text-2xl font-bold"><%= "🍰 #{Rails.configuration.application_name.downcase}" %></h1>
+      <%= link_to "🍰 #{Rails.configuration.application_name.downcase}", root_path, class: "inline-block text-2xl font-bold"%>
       <%# Example usage here: search, secondary navigation items, etc.  Do not forget to change the `justify-end` in `.dashboard-nav-secondary`. %>
       <div class="dropdown" data-controller="dropdown">
         <div class="dropdown__toggle" data-action="click->dropdown#toggle click@window->dropdown#hide" role="button">
@@ -48,7 +38,7 @@
       <%= yield %>
     </div>
 
-    <div class="absolute w-full" style="left: 0; bottom: 0; height: 6rem;">
+    <div class="fixed bg-white w-full" style="left: 0; bottom: 0; height: 6rem;">
       <%= render "shared/footer" %>
     </div>
 

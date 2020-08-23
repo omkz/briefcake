@@ -7,6 +7,10 @@
 <body>
   <%= show_site_wide_announcement(current_user) %>
 
+  <% unless session[:has_seen_briefcake] %>
+    <%= render "shared/briefcake_transition.html.erb" %>
+  <% end %>
+
   <%= render "shared/flash" %>
   <div style="height: 5rem;">
     <%= render "shared/navigation" %>

@@ -3,7 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :detect_bot, only: [:new, :create]
   before_action :configure_account_update_params, only: [:update]
-  layout "dashboard", only: [:edit]
+  layout :set_layout
 
   def configure_account_update_params
     params[:user][:send_email_at] = [
@@ -36,5 +36,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def detect_bot
     render body: "Bots may not sign up" and return if browser.bot?
+  end
+
+  def set_layout
+    case action_name
+    when "edit"
+      "dashboard"
+    else
+      "briefcake/application"
+    end
   end
 end

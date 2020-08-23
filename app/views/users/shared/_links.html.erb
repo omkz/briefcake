@@ -1,7 +1,10 @@
 <div class="mt-4 text-center">
   <%- if controller_name != "sessions" %>
-    <span class="text-grey-dark mr-2">Already have any account?</span> <%= link_to "Log in", new_session_path(resource_name) %>
+    <span class="text-grey-dark mr-2">Already have any account?</span> <%= link_to "Log in", new_session_path(resource_name), class: "text-gray-800 underline font-bold" %>
   <% end -%>
+  <% if controller_name == "sessions" && action_name == "new" %>
+    Do you want to <%= link_to "create an account?", new_user_registration_path, class: "text-gray-800 underline font-bold" %>
+  <% end %>
 </div>
 
 <div class="flex justify-center items-center mt-4 text-center">

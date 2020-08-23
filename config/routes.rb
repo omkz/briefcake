@@ -15,6 +15,7 @@ Rails.application.routes.draw do
                        confirmations: "confirmations",
                        masquerades: "admin/masquerades",
                        registrations: "users/registrations",
+                       sessions: "users/sessions"
                      } do
   end
 

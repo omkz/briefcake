@@ -1,8 +1,8 @@
 <div class="max-w-4xl mx-auto">
-  <h1 class="text-3xl mb-1">Create personal newsletter</h1>
 
   <div class="w-full flex">
     <div class="w-full md:w-1/2">
+      <h1 class="text-3xl mb-1">Create personal newsletter</h1>
       <div class="pb-6 pr-10 text-gray-600">
         <p class="mb-4">If you want to provide your readers with a really simple email newsletter you can use this form. You get your own personal link which you can use on your own site.</p>
         <p>More information about this can <%= link_to "be found here", about_rss_newsletter_path %>.</p>
@@ -76,10 +76,10 @@
         <% end %>
       </div>
     </div>
-    <div class="w-1/2 hidden md:block relative">
+    <div class="w-1/2 hidden ml-6 md:block relative">
       <% if @subscribe_form.persisted? %>
         <%= render "pages/chrome" do %>
-          <iframe src="<%= @preview_path %>" class="w-full" style="height: 400px"/>
+          <iframe src="<%= @preview_path %>" class="w-full" height="950px" />
         <% end %>
       <% end %>
     </div>

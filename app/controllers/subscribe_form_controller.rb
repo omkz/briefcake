@@ -1,6 +1,6 @@
 class SubscribeFormController < ApplicationController
   before_action :authenticate_user!
-  layout "dashboard"
+  layout 'dashboard'
 
   def edit
     @subscribe_form = subscribe_form

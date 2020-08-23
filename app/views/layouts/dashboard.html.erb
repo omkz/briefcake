@@ -47,6 +47,11 @@
     <div class="dashboard-content px-5 md:px-0">
       <%= yield %>
     </div>
+
+    <div class="absolute w-full" style="left: 0; bottom: 0; height: 6rem;">
+      <%= render "shared/footer" %>
+    </div>
+
   </div>
 </div>
 <%= render "shared/simple_analytics" %>

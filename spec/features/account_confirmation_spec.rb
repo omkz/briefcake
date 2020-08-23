@@ -34,7 +34,6 @@ feature "Signing up" do
     click_on "Log in"
 
     expect(page).to have_content "Signed in successfully."
-    expect(page).to have_content "You can also import an .opml file"
   end
 
   def confirm_link_in_email

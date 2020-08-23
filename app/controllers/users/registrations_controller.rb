@@ -3,7 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :detect_bot, only: [:new, :create]
   before_action :configure_account_update_params, only: [:update]
-  layout "briefcake/application", only: [:edit, :update]
+  layout "dashboard", only: [:edit]
 
   def configure_account_update_params
     params[:user][:send_email_at] = [

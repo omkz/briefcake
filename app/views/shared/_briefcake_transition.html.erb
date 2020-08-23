@@ -1,3 +1,10 @@
-<div style="z-index: 100; height: 100vh; width: 100vw; display: flex; justify-content: space-around; align-items: center;">
-    🍰 RSSMailer is now known as briefcake! 🍰
+<div style="z-index: 100; height: 100vh; width: 100vw; display: flex; justify-content: space-around; align-items: center;" class="bg-white absolute" >
+    <div>
+        <div>
+            🍰 RSSMailer is now known as <span class="font-bold">briefcake!</span> 🍰
+        </div>
+        <div class="text-center mt-6">
+            <%= link_to "Got it!", brief_cake_transition_has_seen_briefcake_path, method: :patch, class: "btn btn-primary text-white bg-black border-blue-500 border-4 font-bold py-4 px-6 text-xl" %>
+        </div>
+    </div>
 </div>

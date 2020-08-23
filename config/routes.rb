@@ -48,6 +48,8 @@ Rails.application.routes.draw do
   ## more dynamic
   get "subscribe/show"
 
+  patch 'brief_cake_transition/has_seen_briefcake'
+
   post "import", to: "import#create"
   get "import", to: "import#new"
 

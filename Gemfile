@@ -91,3 +91,5 @@ end
 gem "stripe", "~> 4.18.1"
 
 gem "browser", "~> 4.2"
+
+gem 'acts_as_paranoid', '~> 0.6.3'

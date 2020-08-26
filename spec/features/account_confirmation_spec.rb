@@ -5,6 +5,10 @@ feature "Signing up" do
     # Sign up
     visit "/signup"
 
+    click_on "Got it"
+
+    visit "/signup"
+
     fill_in "Name", with: "Jankees"
     fill_in "Email", with: "jankees@example.com"
     fill_in "Password", with: "1234567890"

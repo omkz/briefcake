@@ -3,13 +3,13 @@
     <h1>Bot Report</h1>
     <ul>
         <li>
-            Inactive Accounts: <%= @bots %>
-        </li> 
-        <li>
-            Active Accounts: <%= @humans %>
+            Total Accounts: <%= @bots + @humans %>
         </li>
         <li>
-            Total Accounts: <%= @bots + @humans %>
+            Deleted Accounts: <%= @bots %>
+        </li> 
+        <li>
+            Remaining Accounts: <%= @humans %>
         </li>
     </ul>
 </div>  

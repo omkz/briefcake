@@ -40,6 +40,6 @@ class User < ApplicationRecord
   end
 
   def is_suspected_bot?
-    return true if feeds.count == 0 && created_at < 15.days.ago
+    return true if feeds.count == 0 && created_at < 20.days.ago && !is_pro
   end
 end

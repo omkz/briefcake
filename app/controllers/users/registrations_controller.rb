@@ -17,6 +17,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:account_update, keys: [:send_email_at, :time_zone])
   end
 
+  def destroy
+    super do |user|
+      # do an extra destroy to actually delete it after the soft delete
+      user.destroy
+    end
+  end
+
   protected
 
   def after_update_path_for(resource)

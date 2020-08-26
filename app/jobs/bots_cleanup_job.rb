@@ -10,6 +10,7 @@ class BotsCleanupJob < ApplicationJob
       batch.each do |user|
         if user.is_suspected_bot?
           puts "#{user.email} is probably a bot!"
+          user.destroy
           bots += 1
         else
           puts "#{user.email} is probably not a bot!"

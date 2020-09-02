@@ -3,8 +3,7 @@
     <%= link_to "🍰 #{Rails.configuration.application_name.downcase}", root_path, class: "text-2xl font-bold" %>
 
     <div class="nav__items" data-target="navigation.items">
-      <%= link_to "Showcase", "#", class: "nav__item nav__link" %>
-      <%= link_to "Blog", "#", class: "nav__item nav__link" %>
+      <%= link_to "Blog", "http://blog.briefcake.com/", class: "nav__item nav__link" %>
       <% if user_signed_in? %>
         <%= link_to "Upgrade", pricing_path, class: "nav__item nav__link" unless current_user.is_pro? %>
         <%= link_to "Edit account", edit_user_registration_path, class: "nav__item nav__link" %>

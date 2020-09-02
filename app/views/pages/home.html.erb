@@ -1,6 +1,6 @@
 <div class="container mx-auto relative">
   <h1 class="leading-tight font-bold text-3xl xl:text-6xl mb-4 w-full text-gray-800 text-center">
-    <%= @title.html_safe %>
+    A daily email from your <br> favorite creators
   </h1>
 
   <% if @creator %>
@@ -12,7 +12,7 @@
     </div>
   <% else %>
     <div class="text-center my-4">
-      <%= link_to "Start Adding Feeds",
+      <%= link_to "Get Started",
         new_user_registration_path, 
         class: "btn btn-primary text-white bg-black border-blue-500 border-4 font-bold py-4 px-6 text-xl"
       %>
@@ -42,14 +42,6 @@
     <p class="text-gray-600 text-center">
       We help you follow websites by using RSS feeds. Once a day at your preferred <br> time, we'll brief you with a sweet digest of freshly baked content.
     </p>
-  </div>
-
-  <div class="text-center my-6 text-lg">
-    <% if @creator %>
-      <%= link_to "Try Briefcake for creators", new_user_registration_path, class: "text-gray-800 underline font-bold" %>
-    <% else %>
-      <%= link_to "Are you a creator?", creators_path, class: "text-gray-800 underline font-bold" %>
-    <% end %>
   </div>
 
 </div>

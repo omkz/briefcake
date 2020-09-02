@@ -8,41 +8,39 @@
 
 <%= show_site_wide_announcement(current_user) %>
 <%= render "shared/flash" %>
-<div class="dashboard">
-  <div class="dashboard-wrapper">
-    <div class="max-w-4xl mx-auto flex justify-between mt-2 md:mt-4 xl:mt-8 md:mb-4 lg:mb-8 xl:mb-14">
-      <%= link_to "🍰 #{Rails.configuration.application_name.downcase}", root_path, class: "inline-block text-2xl font-bold"%>
-      <%# Example usage here: search, secondary navigation items, etc.  Do not forget to change the `justify-end` in `.dashboard-nav-secondary`. %>
-      <div class="dropdown" data-controller="dropdown">
-        <div class="dropdown__toggle" data-action="click->dropdown#toggle click@window->dropdown#hide" role="button">
-          <%= current_user.first_name.presence || "Menu" %>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="dropdown__icon" data-target="dropdown.icon">
-            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path>
-          </svg>
-        </div>
-        <div data-target="dropdown.menu" class="dropdown__menu hidden z-10">
-          <div class="dropdown__items">
-            <%= link_to "Account", edit_user_registration_path, class: "dropdown__item" %>
-            <%= link_to "Upgrade to pro", pricing_path, class: "dropdown__item" unless current_user.is_pro? %>
-            <%= link_to "Import .opml file", import_path, class: "dropdown__item" %>
-            <%= link_to "Create email newsletter", edit_subscribe_form_path, class: "dropdown__item" %>
-            <%= link_to "Export Opml", feeds_path(format: :xml), class: "dropdown__item", data: {type: :xml} %>
-            <%= link_to "About 🍰 briefcake", about_path, class: "dropdown__item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown__item" %>
-          </div>
+<div class="dashboard min-h-screen flex flex-col justify-between items-center">
+  <div class="w-screen flex justify-between p-4 max-w-4xl">
+    <%= link_to "🍰 #{Rails.configuration.application_name.downcase}", root_path, class: "inline-block text-2xl font-bold"%>
+    <%# Example usage here: search, secondary navigation items, etc.  Do not forget to change the `justify-end` in `.dashboard-nav-secondary`. %>
+    <div class="dropdown" data-controller="dropdown">
+      <div class="dropdown__toggle" data-action="click->dropdown#toggle click@window->dropdown#hide" role="button">
+        <%= current_user.first_name.presence || "Menu" %>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="dropdown__icon" data-target="dropdown.icon">
+          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path>
+        </svg>
+      </div>
+      <div data-target="dropdown.menu" class="dropdown__menu hidden z-10">
+        <div class="dropdown__items">
+          <%= link_to "Account", edit_user_registration_path, class: "dropdown__item" %>
+          <%= link_to "Upgrade to pro", pricing_path, class: "dropdown__item" unless current_user.is_pro? %>
+          <%= link_to "Import .opml file", import_path, class: "dropdown__item" %>
+          <%= link_to "Create email newsletter", edit_subscribe_form_path, class: "dropdown__item" %>
+          <%= link_to "Export Opml", feeds_path(format: :xml), class: "dropdown__item", data: {type: :xml} %>
+          <%= link_to "About 🍰 briefcake", about_path, class: "dropdown__item" %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown__item" %>
         </div>
       </div>
     </div>
-
-    <div class="dashboard-content px-5 md:px-0">
-      <%= yield %>
-    </div>
-
-    <div class="fixed bg-white w-full" style="left: 0; bottom: 0; height: 6rem;">
-      <%= render "shared/footer" %>
-    </div>
-
   </div>
+
+  <div class="px-5 md:px-0">
+    <%= yield %>
+  </div>
+
+  <div class="bg-white w-full left-0 bottom-0" style="height:6rem;">
+    <%= render "shared/footer" %>
+  </div>
+
 </div>
 <%= render "shared/simple_analytics" %>
 </body>

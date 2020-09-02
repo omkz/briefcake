@@ -1,9 +1,5 @@
 .dashboard {
-  @apply flex flex-col-reverse w-full h-full pb-24;
-
-  @screen sm {
-    @apply flex-row pb-0;
-  }
+  @apply w-full h-full;
 }
 
 .dashboard-nav {

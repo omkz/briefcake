@@ -1,6 +1,6 @@
 <nav class="nav" data-controller="navigation">
   <div class="nav__content">
-    <%= link_to "🍰 #{Rails.configuration.application_name.downcase}", root_path, class: "text-2xl font-bold" %>
+    <%= link_to "🍰 #{Rails.configuration.application_name.humanize}", root_path, class: "text-2xl font-bold" %>
 
     <div class="nav__items" data-target="navigation.items">
       <%= link_to "Blog", "http://blog.briefcake.com/", class: "nav__item nav__link" %>

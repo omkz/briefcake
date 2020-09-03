@@ -12,15 +12,17 @@
   <% end %>
 
   <%= render "shared/flash" %>
-  <div style="height: 5rem;">
-    <%= render "shared/navigation" %>
-  </div>
-  <div style="min-height: calc(100vh - 12rem)">
-    <%= yield %>
-  </div>
-
-  <div style="height: 6rem;">
-    <%= render "shared/footer" %>
+  <div class="min-h-screen flex flex-col justify-between items-center">
+    <div class="w-full h-16">
+      <%= render "shared/navigation" %>
+    </div>
+    <div class="p-2">
+      <%= yield %>
+    </div>
+  
+    <div style="height: 6rem;">
+      <%= render "shared/footer" %>
+    </div>  
   </div>
   <%= render "shared/simple_analytics" %>
 </body>

@@ -1,7 +1,7 @@
 <div class="mx-auto py-10">
-  <div class="max-w-xl text-center mx-auto mb-12 text-gray-700">
+  <div class="max-w-xl px-2 text-center mx-auto mb-12 text-gray-700">
     <p class="mb-4">
-      <strong>briefcake Pro</strong> is for people who
+      <strong>Briefcake Pro</strong> is for people who
       need more than 3 articles per day.
       It lets you follow <strong>unlimited feeds and set custom delivery times.</strong>
       Plus more features will be added in the future!
@@ -16,7 +16,7 @@
     <% unless current_user&.is_pro %>
       <% if current_user.present? %>
         <a href="#" data-theme="none" class="paddle_button <%= classes %>" data-product="577580" data-success="/thank-you/" data-passthrough="<%= current_user.id %>" data-coupon="early-adopter" data-email="<%= current_user.email %>">
-          <%= "Upgrade to briefcake PRO ❤️" %>️</a>
+          <%= "Upgrade to Briefcake PRO ❤️" %>️</a>
       <% else %>
         <%= link_to "Sign in, and upgrade to briefcake PRO ❤️", new_user_session_path, class: classes %>
       <% end %>

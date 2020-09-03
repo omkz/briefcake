@@ -1,5 +1,5 @@
 :root {
-  --brandColor: theme("colors.blue.600");
+  --brandColor: #6B69FA;
   --brandColorDark: theme("colors.blue.700");
   --secondaryBrandColor: theme("colors.green.600");
   --secondaryBrandColorDark: theme("colors.green.700");

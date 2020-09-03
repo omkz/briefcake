@@ -1,5 +1,5 @@
 class SubscribeController < ApplicationController
-  layout "clean"
+  layout "briefcake/application"
 
   def show
     @subscribe_form = SubscribeForm.find_by!(slug: params[:slug])

@@ -24,7 +24,7 @@
           <%= link_to "Account", edit_user_registration_path, class: "dropdown__item" %>
           <%= link_to "Upgrade to pro", pricing_path, class: "dropdown__item" unless current_user.is_pro? %>
           <%= link_to "Import .opml file", import_path, class: "dropdown__item" %>
-          <%= link_to "Create email newsletter", edit_subscribe_form_path, class: "dropdown__item" %>
+          <%= link_to "Are you a creator?", edit_subscribe_form_path, class: "dropdown__item" %>
           <%= link_to "Export Opml", feeds_path(format: :xml), class: "dropdown__item", data: {type: :xml} %>
           <%= link_to "About 🍰 briefcake", about_path, class: "dropdown__item" %>
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown__item" %>

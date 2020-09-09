@@ -1,14 +1,11 @@
 class PagesController < ApplicationController
-  layout "briefcake/application", only: [:home, :creators, :plans]
+  layout "briefcake/application", only: [:home, :creator, :plans]
   def stats
     render plain: "#{User.count},#{Feed.count},#{SentEmail.count},#{User.where(is_pro: true).count}"
   end
 
   def example
     render layout: "mailer"
-  end
-
-  def subscribe
   end
 
   def plans
@@ -35,6 +32,9 @@ class PagesController < ApplicationController
   end
 
   def home
+  end
+
+  def creator
   end
 
 end

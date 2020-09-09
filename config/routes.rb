@@ -34,12 +34,12 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "thank-you", to: "pages#thankyou"
   get "/about", to: "pages#about"
+  get "/creator", to: "pages#creator"
   get "/pro", to: redirect("/plans")
   get "/pricing", to: redirect("/plans")
   get "/plans", to: "pages#plans"
   get "/stats.txt", to: "pages#stats"
   get "/example-email", to: "pages#example"
-  get "about/rss-newsletter", to: "pages#subscribe"
   get "/500", to: "errors#server_error"
   get "/422", to: "errors#unacceptable"
   get "/404", to: "errors#not_found"

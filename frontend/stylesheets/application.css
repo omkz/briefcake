@@ -11,6 +11,7 @@
 @import "objects";
 @import "animations";
 @import "components";
+@import "fonts";
 
 
 @import "tailwindcss/utilities";

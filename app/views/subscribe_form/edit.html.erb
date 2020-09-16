@@ -52,20 +52,22 @@
 
             </div>      
 
-            <%= form.fields_for :sites do |site| %>
-              <%= render 'site_fields', form: site %>
-            <% end %>
-
-            <div data-target="nested-form.add_item">
-              <%= link_to "Add Site", "#", data: { action: "nested-form#add_association" } %>
-            </div>
-        
             <div class="field">
               <%= form.label :color, "Color of the submit button" %>
               <%= form.text_field :color, placeholder: "#ff0000", class: "input" %>
             </div>
 
-            <div class="pt-8 flex justify-between items-center">
+            <%= form.fields_for :sites do |site| %>
+              <%= render 'site_fields', form: site %>
+            <% end %>
+
+            <div data-target="nested-form.add_item" class="flex justify-end mt-4">
+              <%= link_to "Add Site", "#", data: { action: "nested-form#add_association" }, class: "btn btn--primary" %>
+            </div>
+
+            <hr class="border-2 my-4" />
+        
+            <div class="flex justify-between items-center mb-2">
               <%= form.submit @subscribe_form.persisted? ? 'Update' : 'Create your form', class: "btn btn--primary", data: { target: "feed-url.submitButton" } %>
               <%= link_to "Cancel", "http://localhost:5000/subscribe_form/edit", class: "btn text-red-500" %>
             </div>

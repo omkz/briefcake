@@ -1,4 +1,4 @@
-<div class='nested-fields'>
+<div class='nested-fields border-2 p-2 my-2'>
     <div class='form-group'>
       <%= form.hidden_field :_destroy %>
 
@@ -25,9 +25,9 @@
       </div>
 
       
-      <small>
-        <%= link_to "Remove", "#", data: { action: "click->nested-form#remove_association" } %>
-      </small>
+      <div class="flex justify-end">
+        <%= link_to "Remove", "#", data: { action: "click->nested-form#remove_association" }, class: "pill pill--secondary bg-black hover:bg-red-500 text-white p-4" %>
+      </div>
     </div>
   </div>
   

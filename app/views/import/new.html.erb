@@ -1,8 +1,8 @@
 <div class="max-w-xl mx-auto">
-  <h1 class="text-3xl mb-4">Import .opml file</h1>
-
+  
   <div class="card card--light mb-5">
     <div class="card__content">
+      <h1 class="text-3xl mb-4">Import .opml file</h1>
 
       <% if @error_while_importing %>
         <div class="bg-red-500 p-2 text-white mb-4">
@@ -13,13 +13,14 @@
 
       <% else %>
         <p class="mb-2">What's an OPML file?</p>
-        <p class="text-gray-600 mb-5">An OPML file is used to exchange lists of web feeds (such as RSS) between different applications. </p>
+        <p class="text-gray-600 mb-5">An OPML file is used to exchange lists of web feeds (such as RSS) between different applications. If you have an OPML file from another service, upload it here to quickly import all your feeds at once.</p>
       <% end %>
 
-      <%= form_tag({ action: :create }, { multipart: true }) do %>
-        <%= file_field_tag :opml_file %>
-
-        <%= submit_tag "Import opml file", class: "btn btn--primary" %>
+      <%= form_tag({ action: :create }, { multipart: true, class: "p-4 border-2" }) do %>
+        <div class="flex flex-col justify-between items-center h-24 md:justify-between md:flex-row md:h-auto">
+          <%= file_field_tag :opml_file, class: "w-64" %>
+          <%= submit_tag "Import opml file", class: "btn btn--primary" %>
+        </div>
       <% end %>
     </div>
   </div>

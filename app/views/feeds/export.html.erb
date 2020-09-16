@@ -1,0 +1,15 @@
+<div class="max-w-4xl mx-auto">
+  <div class="card">
+    <div class="card--light">
+      <div class="card__content">
+        <h1 class="text-3xl mb-4">Export OPML</h1>
+        <div class="flex flex-col items-end md:flex-row md:items-center">
+          <p class="text-gray-600">
+            OPML is a popular interchange format for RSS feeds. If you wish to make a backup copy of your subscription list or migrate to a different service, an OPML copy of your feed list may come in handy.
+          </p>
+          <%= button_to "Export OPML", feeds_path(format: :xml), class: "btn btn--primary whitespace-no-wrap" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

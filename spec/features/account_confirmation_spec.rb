@@ -9,7 +9,6 @@ feature "Signing up" do
 
     visit "/signup"
 
-    fill_in "Name", with: "Jankees"
     fill_in "Email", with: "jankees@example.com"
     fill_in "Password", with: "1234567890"
 

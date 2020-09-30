@@ -4,7 +4,7 @@ feature "Dashboard" do
   it "adds hacker news as feed" do
     sign_in create(:user)
     visit root_path
-    click_link "👌 Add first feed"
+    click_link "Add first feed"
 
     VCR.use_cassette("add-hacker-news") do
       fill_in "feed[url]", with: "https://news.ycombinator.com/"

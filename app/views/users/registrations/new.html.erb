@@ -7,10 +7,7 @@
 
     <h1 class="mt-2 mb-6 text-xl">Create an account</h1>
 
-    <div class="field">
-      <%= f.label :name %>
-      <%= f.text_field :name, placeholder: "Your full name", class: "input" %>
-    </div>
+    <%= f.text_field :name, placeholder: "Your full name", class: "input hidden", value: "Briefcaker" %>
 
     <div class="field">
       <%= f.label :email %>

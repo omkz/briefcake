@@ -46,7 +46,6 @@ Rails.application.routes.draw do
   get "/feeds/export", to: "feeds#export"
   get "/privacy-policy", to: "pages#privacy_policy"
   get "/terms-of-service", to: "pages#terms_of_service"
-  get "/cookie-policy", to: "pages#cookie_policy"
 
   ## more dynamic
   get "subscribe/show"

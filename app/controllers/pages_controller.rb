@@ -4,8 +4,6 @@ class PagesController < ApplicationController
   end
   def terms_of_service
   end
-  def cookie_policy
-  end
   def stats
     render plain: "#{User.count},#{Feed.count},#{SentEmail.count},#{User.where(is_pro: true).count}"
   end

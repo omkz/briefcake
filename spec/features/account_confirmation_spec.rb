@@ -5,7 +5,10 @@ feature "Signing up" do
     # Sign up
     visit "/signup"
 
-    fill_in "Name", with: "Jankees"
+    click_on "Got it"
+
+    visit "/signup"
+
     fill_in "Email", with: "jankees@example.com"
     fill_in "Password", with: "1234567890"
 
@@ -34,7 +37,6 @@ feature "Signing up" do
     click_on "Log in"
 
     expect(page).to have_content "Signed in successfully."
-    expect(page).to have_content "You can also import an .opml file"
   end
 
   def confirm_link_in_email

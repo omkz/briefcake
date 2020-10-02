@@ -19,7 +19,7 @@
           </div>
           <% if @user.errors.added?(:email, "has already been taken") %>
             <div class="mt-2 text-sm text-red-500">
-              You already have an account with RSSMailer, please <%= link_to "sign in", new_user_session_path, class: "text-red-500 underline" %> to add this feed to your list.
+              You already have an account with 🍰 briefcake, please <%= link_to "sign in", new_user_session_path, class: "text-red-500 underline" %> to add this feed to your list.
             </div>
           <% elsif @user.errors.added?(:email, "is invalid") %>
             <div class="mt-2 text-sm text-red-500">
@@ -30,7 +30,7 @@
       <% end %>
       <div class="text-center text-gray-600 text-sm">
         <p class="my-2 text-xl">&#9710;</p>
-        <p>Want more info about this service? <%= link_to "Read how it works", about_rss_newsletter_path, class: "text-gray-600 underline hover:no-underline"  %>.</p>
+        <p>Want more info about this service? <%= link_to "Read how it works", creator_path, class: "text-gray-600 underline hover:no-underline"  %>.</p>
       </div>
     </div>
   </div>

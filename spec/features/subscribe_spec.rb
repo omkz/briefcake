@@ -14,6 +14,7 @@ feature "Signing up" do
     create(:site, subscribe_form_id: form.id, feed_url: feed_url, url: url, name: name)
 
     visit "/s/signal-vs-noise"
+    click_on "Got it"
 
     fill_in "email", with: "jankees@hotmail.com"
     # expect { click_on "Subscribe" }.to change { User.last.feeds.count }.by(1)
@@ -35,6 +36,7 @@ feature "Signing up" do
     create(:user, email: user_email)
 
     visit "/s/signal-vs-noise"
+    click_on "Got it"
 
     fill_in "email", with: user_email
     click_on "Subscribe"
@@ -46,6 +48,7 @@ feature "Signing up" do
     create(:subscribe_form, slug: "signal-vs-noise")
 
     visit "/s/signal-vs-noise"
+    click_on "Got it"
 
     fill_in "email", with: "jankees@h"
 

@@ -1,23 +1,22 @@
-<div class="mt-16 max-w-4xl mx-auto">
-  <h1 class="text-3xl mb-1">Create personal newsletter</h1>
+<div class="max-w-4xl mx-auto">
 
   <div class="w-full flex">
     <div class="w-full md:w-1/2">
-      <div class="pb-6 pr-10 text-gray-600">
-        <p class="mb-4">If you want to provide your readers with a really simple email newsletter you can use this form. You get your own personal link which you can use on your own site.</p>
-        <p>More information about this can <%= link_to "be found here", about_rss_newsletter_path %>.</p>
-
-      </div>
-      <% if @subscribe_form.persisted? %>
-        <div class="bg-green-500 text-white p-5 py-3 mb-8 shadow-lg rounded relative">
-          <p>Your sign up form is now publicly available at: </p>
-          <p><%= link_to subscribe_url(slug: @subscribe_form.slug), subscribe_url(slug: @subscribe_form.slug), class: "color-white underline hover:no-underline" %></p>
-        </div>
-      <% end %>
-
+      
       <div class="card card--light mb-8" data-controller="feed-url nested-form">
-        <%= form_for(@subscribe_form, url: subscribe_form_path, method: :patch) do |form| %>
-          <div class="card__content">
+        <div class="card__content">
+          <h1 class="text-3xl mb-1">Briefcake for creators</h1>
+          <div class="pb-6 pr-10 text-gray-600">
+            <p class="mb-4">Create a daily email for your community and get a custom link to your own sign-up form. More information can <%= link_to "be found here", creator_path %>.</p>
+    
+          </div>
+          <% if @subscribe_form.persisted? %>
+            <div class="bg-green-500 text-white p-5 py-3 mb-8 shadow-lg rounded relative">
+              <p>Your sign up form is now publicly available at: </p>
+              <p><%= link_to subscribe_url(slug: @subscribe_form.slug), subscribe_url(slug: @subscribe_form.slug), class: "color-white underline hover:no-underline" %></p>
+            </div>
+          <% end %>
+          <%= form_for(@subscribe_form, url: subscribe_form_path, method: :patch) do |form| %>
 
             <template data-target='nested-form.template'>
 
@@ -53,34 +52,32 @@
 
             </div>      
 
-            <%= form.fields_for :sites do |site| %>
-              <%= render 'site_fields', form: site %>
-            <% end %>
-
-            <div data-target="nested-form.add_item">
-              <%= link_to "Add Site", "#", data: { action: "nested-form#add_association" } %>
-            </div>
-        
-        
-
-
             <div class="field">
               <%= form.label :color, "Color of the submit button" %>
               <%= form.text_field :color, placeholder: "#ff0000", class: "input" %>
             </div>
 
-            <div class="pt-8">
+            <%= form.fields_for :sites do |site| %>
+              <%= render 'site_fields', form: site %>
+            <% end %>
+
+            <div data-target="nested-form.add_item" class="flex justify-end mt-4">
+              <%= link_to "Add Site", "#", data: { action: "nested-form#add_association" }, class: "btn btn--primary" %>
+            </div>
+
+            <hr class="border-2 my-4" />
+        
+            <div class="flex justify-between items-center mb-2">
               <%= form.submit @subscribe_form.persisted? ? 'Update' : 'Create your form', class: "btn btn--primary", data: { target: "feed-url.submitButton" } %>
+              <%= link_to "Cancel", "http://localhost:5000/subscribe_form/edit", class: "btn text-red-500" %>
             </div>
           </div>
         <% end %>
       </div>
     </div>
-    <div class="w-1/2 hidden md:block relative">
-      <% if @subscribe_form.persisted? %>
-        <%= render "pages/chrome" do %>
-          <iframe src="<%= @preview_path %>" class="w-full" style="height: 400px"/>
-        <% end %>
+    <div class="w-1/2 hidden ml-6 mt-4 md:block relative">
+      <%= render "pages/chrome" do %>
+        <iframe src='<%= @preview_path %>' class="w-full" height="950px"></iframe>
       <% end %>
     </div>
   </div>

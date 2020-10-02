@@ -1,10 +1,10 @@
 <div class="container mx-auto relative montserrat">
-  <h1 class="leading-tight font-bold text-3xl md:text-6xl mb-4 w-full text-gray-800 text-center montserrat">
-    A daily email from your <br> favorite creators
+  <h1 class="leading-tight font-bold text-3xl md:text-6xl mb-4 w-full text-gray-800 text-center">
+    A daily email for <br> your community
   </h1>
 
   <div class="text-center my-4">
-    <%= link_to "Get Started",
+    <%= link_to "Claim Your Link",
       new_user_registration_path, 
       class: "btn btn--primary text-white border-4 font-bold py-4 px-6 text-xl"
     %>
@@ -37,9 +37,8 @@
   </div>
 
   <div class="text-center">
-    <%= link_to "Are you a creator?", creator_path, class: "color-brown underline" %>
+    <%= link_to "Back to Home Page", root_path, class: "color-brown underline" %>
   </div>
-
 
 </div>
 

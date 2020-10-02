@@ -11,7 +11,6 @@
   th {
     @apply p-2;
     @apply border-t border-gray-400;
-    @apply align-top;
   }
 
   thead th {

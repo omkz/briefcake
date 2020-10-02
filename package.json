@@ -1,5 +1,5 @@
 {
-  "name": "rssmailer",
+  "name": "briefcake",
   "private": true,
   "dependencies": {
     "@rails/ujs": "6.0.1",

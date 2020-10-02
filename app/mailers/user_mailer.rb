@@ -73,7 +73,7 @@ class UserMailer < ApplicationMailer
     mail(
       to: to,
       bcc: "rssmailer@piplabs.io",
-      subject: "RSSMailer test email - #{rand}",
+      subject: "briefcake test email - #{rand}",
       template_name: "new_items",
     )
   end

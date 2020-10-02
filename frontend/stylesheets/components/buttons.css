@@ -24,9 +24,14 @@
 .btn--primary {
   @apply text-white;
   background-color: var(--brandColor);
+  transition-property: all;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
 
   &:hover {
-    background-color: var(--brandColorDark);
+    transform: translate(0px, -5px);
+    box-shadow: 0 10px 20px -4px rgba(30,28,122,0.3);
   }
 }
 

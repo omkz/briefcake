@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= render "shared/head" %>
+</head>
+
+<body>
+  <%= show_site_wide_announcement(current_user) %>
+
+  <% unless session[:has_seen_briefcake] %>
+    <%= render "shared/briefcake_transition.html.erb" %>
+  <% end %>
+
+  <%= render "shared/flash" %>
+  <div class="min-h-screen flex flex-col justify-between items-center">
+    <div class="w-full h-16">
+      <%= render "shared/navigation" %>
+    </div>
+    
+    <div class="p-2">
+      <%= yield %>
+    </div>
+  
+    <div style="height: 6rem;">
+      <%= render "shared/footer" %>
+    </div>  
+  </div>
+  <%= render "shared/simple_analytics" %>
+</body>
+</html>
+
+
+

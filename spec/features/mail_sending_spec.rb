@@ -38,7 +38,7 @@ feature "sending emails" do
 
       expect(SentEmail).to have(1).record
       sent_email = SentEmail.last
-      expect(sent_email.subject).to eq "RSSMailer – 1 new item on 2015-09-19"
+      expect(sent_email.subject).to eq "Briefcake – 1 new item on 2015-09-19"
       expect(sent_email.number_of_items).to eq 1
       expect(sent_email.index).to eq({ "Timi blog" => 1 })
       expect(sent_email.receiver).to eq user.email
@@ -70,7 +70,7 @@ feature "sending emails" do
 
       expect(SentEmail).to have(2).record
       sent_email = SentEmail.last
-      expect(sent_email.subject).to eq "RSSMailer – 2 new items on 2015-09-20"
+      expect(sent_email.subject).to eq "Briefcake – 2 new items on 2015-09-20"
       expect(sent_email.number_of_items).to eq 2
       expect(sent_email.index).to eq({ "Timi blog" => 2 })
       expect(sent_email.receiver).to eq user.email

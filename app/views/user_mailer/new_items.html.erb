@@ -15,7 +15,7 @@
     <% if @index.present? %>
       <div class="bg-gray-200 px-4 py-6 mb-5 text-gray-500">
         <div class="text-gray-600 text-xs -mb-1">
-          RSSMailer
+          Briefcake
           <% if @user %>
             - Issue #<%= (@user.sent_emails.count + 1).to_s.rjust(3, '0') %>
           <% end %>
@@ -87,7 +87,7 @@
 
     <div class="text-center mb-5 text-sm text-gray-600 max-w-md mx-auto">
       <p class="mb-2">You are receiving this email because you signed up at
-        <a href="https://rssmailer.app">rssmailer.app</a>.</p>
+        <a href="https://briefcake.com">briefcake.com</a>.</p>
       <p>
         Too many emails? <%= link_to "Change the number of feeds", feeds_url %> you are
         following or <%= link_to "unsubscribe", @user.try(:unsubscribe_url) %> if you don't want any.

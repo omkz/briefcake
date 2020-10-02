@@ -10,8 +10,7 @@
   overflow-x: hidden;
   overflow-y: auto;
   width: 100%;
-  height: 380px;
-  padding-top: 1.5rem;
+  height: 50vh;
   background-color: white;
   border: 1px solid #e5e5e5;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
@@ -20,9 +19,6 @@
 }
 
 .chrome__traffic-lights {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   display: flex;
   align-items: center;
@@ -30,13 +26,9 @@
   background-color: #000000;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
+  position: absolute;
 }
 
-@media (min-width: 640px) {
-  .chrome__traffic-lights {
-    position: fixed;
-  }
-}
 
 .chrome__traffic-light {
   display: inline-flex;

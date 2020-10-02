@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= render "shared/head" %>
+</head>
+
+<body>
+  <%= show_site_wide_announcement(current_user) %>
+
+  <%= render "shared/flash" %>
+  <div style="height: 6rem;">
+    <%= render "shared/navigation" %>
+  </div>
+  <div style="min-height: calc(100vh - 12rem)">
+    <%= yield %>
+  </div>
+
+  <div style="height: 6rem;">
+    <%= render "shared/footer" %>
+  </div>
+  <%= render "shared/simple_analytics" %>
+</body>
+</html>
+
+
+

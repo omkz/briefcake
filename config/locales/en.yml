@@ -36,5 +36,5 @@ en:
 
   user_mailer:
     subject:
-      one: "RSSMailer – 1 new item on %{date}"
-      other: "RSSMailer – %{count} new items on %{date}"
+      one: "Briefcake – 1 new item on %{date}"
+      other: "Briefcake – %{count} new items on %{date}"

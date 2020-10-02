@@ -60,9 +60,9 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Deploy Master to rssmailer.app
+          name: Deploy Master to briefcake.com
           command: |
-            git remote add dokku dokku@rssmailer.app:rssmailer
+            git remote add dokku dokku@briefcake.com:rssmailer
             git push dokku $CIRCLE_BRANCH --force
 workflows:
   version: 2

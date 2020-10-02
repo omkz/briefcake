@@ -4,7 +4,7 @@
   <%= render "shared/head" %>
 </head>
 
-<body>
+<body class="w-full h-full <%= body_class(yield(:body_class)) %>">
   <%= render "shared/flash" %>
   <%= yield %>
   <%= render "shared/simple_analytics" %>

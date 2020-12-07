@@ -35,9 +35,9 @@ Rails.application.routes.draw do
   get "thank-you", to: "pages#thankyou"
   get "/about", to: "pages#about"
   get "/creator", to: "pages#creator"
-  get "/pro", to: redirect("/plans")
-  get "/pricing", to: redirect("/plans")
-  get "/plans", to: "pages#plans"
+  get "/pro", to: redirect("/")
+  get "/pricing", to: redirect("/")
+  get "/plans", to: redirect("/")
   get "/stats.txt", to: "pages#stats"
   get "/example-email", to: "pages#example"
   get "/500", to: "errors#server_error"

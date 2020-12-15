@@ -1,10 +1,6 @@
 require "rails_helper"
 
 feature "Signing up" do
-  pending "gives a 404 for an invalid slug" do
-    expect { visit "/s/something-else" }.to raise_error ActiveRecord::RecordNotFound
-  end
-
   it "subscribes a user to the feed" do
     feed_url = "http://svn.com/feed.xml"
     url = "http://svn.com/"

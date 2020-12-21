@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.6.5-node-browsers
+      - image: circleci/ruby:2.6.6-node-browsers
         environment:
           RAILS_ENV: test
           POSTGRESQL_HOST: 127.0.0.1
@@ -16,6 +16,9 @@ jobs:
     working_directory: ~/rssmailer-app
 
     steps:
+      - run:
+          name: Update bundler 2
+          command: gem install bundler:2.2.2
       - checkout
       - restore_cache:
           name: Restore Yarn Package Cache

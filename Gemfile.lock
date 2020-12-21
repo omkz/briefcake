@@ -71,13 +71,6 @@ GEM
     childprocess (3.0.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
-    coffee-rails (4.2.2)
-      coffee-script (>= 2.2.0)
-      railties (>= 4.0.0)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.12.2)
     concurrent-ruby (1.1.7)
     connection_pool (2.2.3)
     crack (0.4.4)
@@ -133,6 +126,7 @@ GEM
     groupdate (5.2.1)
       activesupport (>= 5)
     hashdiff (1.0.1)
+    honeybadger (4.7.2)
     htmlentities (4.3.4)
     httparty (0.18.1)
       mime-types (~> 3.0)
@@ -143,8 +137,6 @@ GEM
     instagrammer (0.3.2)
       capybara (~> 3.24)
       webdrivers (~> 4.0)
-    jbuilder (2.10.1)
-      activesupport (>= 5.0.0)
     launchy (2.5.0)
       addressable (~> 2.7)
     letter_opener (1.7.0)
@@ -231,7 +223,6 @@ GEM
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
-    rollbar (3.0.0)
     rspec-collection_matchers (1.2.0)
       rspec-expectations (>= 2.99.0.beta1)
     rspec-core (3.9.2)
@@ -350,7 +341,6 @@ DEPENDENCIES
   byebug
   capybara
   chartkick
-  coffee-rails (~> 4.2)
   daemons
   delayed_job_active_record
   delayed_job_web
@@ -362,9 +352,9 @@ DEPENDENCIES
   foreman (~> 0.86.0)
   friendly_id (~> 5.3)
   groupdate
+  honeybadger
   httparty
   instagrammer
-  jbuilder (~> 2.5)
   letter_opener (~> 1.6)
   listen (>= 3.0.5, < 3.3)
   name_of_person (~> 1.0)
@@ -374,7 +364,6 @@ DEPENDENCIES
   premailer-rails (~> 1.10)
   puma (~> 4.3)
   rails (~> 5.2.4)
-  rollbar
   rspec-collection_matchers
   rspec-rails
   rufo

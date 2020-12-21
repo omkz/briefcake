@@ -119,68 +119,6 @@ ActiveRecord::Schema.define(version: 2020_08_26_152511) do
     t.index ["subscribe_form_id"], name: "index_sites_on_subscribe_form_id"
   end
 
-  create_table "sjabloon_charges", force: :cascade do |t|
-    t.bigint "owner_id"
-    t.string "processor", null: false
-    t.string "processor_id", null: false
-    t.integer "amount", null: false
-    t.integer "amount_refunded"
-    t.string "card_type"
-    t.string "card_last4"
-    t.string "card_exp_month"
-    t.string "card_exp_year"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["owner_id"], name: "index_sjabloon_charges_on_owner_id"
-  end
-
-  create_table "sjabloon_coupons", force: :cascade do |t|
-    t.string "code"
-    t.string "name"
-    t.string "currency"
-    t.integer "max_redemptions"
-    t.integer "amount_off"
-    t.decimal "percent_off"
-    t.string "duration"
-    t.integer "duration_in_months"
-    t.datetime "redeem_by"
-    t.integer "times_redeemed", default: 0
-    t.boolean "is_valid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "sjabloon_plans", force: :cascade do |t|
-    t.string "processor_id"
-    t.integer "amount"
-    t.string "currency"
-    t.string "nickname"
-    t.integer "trial_period_days"
-    t.string "interval"
-    t.string "interval_count"
-    t.string "product"
-    t.jsonb "features", default: {}, null: false
-    t.integer "position"
-    t.boolean "active", default: true
-    t.boolean "visible", default: true
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "sjabloon_subscriptions", force: :cascade do |t|
-    t.bigint "owner_id"
-    t.string "name", null: false
-    t.string "processor", null: false
-    t.string "processor_id", null: false
-    t.string "processor_plan", null: false
-    t.integer "quantity", default: 1, null: false
-    t.datetime "trial_ends_at"
-    t.datetime "ends_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["owner_id"], name: "index_sjabloon_subscriptions_on_owner_id"
-  end
-
   create_table "subscribe_forms", force: :cascade do |t|
     t.bigint "user_id"
     t.string "url"
@@ -233,6 +171,7 @@ ActiveRecord::Schema.define(version: 2020_08_26_152511) do
     t.string "paddle_user_id", default: ""
     t.string "paddle_subscription_id", default: ""
     t.string "paddle_email", default: ""
+    t.string "coupon", default: ""
     t.datetime "deleted_at"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["deleted_at"], name: "index_users_on_deleted_at"

@@ -29,7 +29,7 @@ class PaddleController < ApplicationController
     verified = pub_key.verify(digest, signature, data_serialized)
 
     if !verified
-      Rollbar.error("Signature does not match", { signature: signature, data_sorted: data_sorted })
+      Honeybadger.notify("Signature does not match", { signature: signature, data_sorted: data_sorted })
       # return head 422
     end
 

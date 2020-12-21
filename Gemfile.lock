@@ -341,6 +341,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86_64-linux
 
 DEPENDENCIES
   acts_as_paranoid (~> 0.6.3)
@@ -394,7 +395,7 @@ DEPENDENCIES
   webpacker (~> 3.5, >= 3.5.5)
 
 RUBY VERSION
-   ruby 2.6.5p114
+   ruby 2.6.6p146
 
 BUNDLED WITH
-   1.17.2
+   2.2.2

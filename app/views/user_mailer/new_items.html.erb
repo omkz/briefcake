@@ -3,12 +3,12 @@
     <% unless @user.is_pro? %>
       <div class="bg-white border border-gray-500 text-gray-800 shadow-lg p-8 mb-5 rounded my-10 mb-12">
         <p class="mb-4">
-          Did you know 🍰 briefcake Pro is only <strong>$12 per year</strong>?
+          Did you know 🍰 briefcake Pro is only <strong>$25 per year</strong>?
           Upgrade today for unlimited items per email and a custom delivery time.
         </p>
-        <!-- <a href="<%= plans_url %>" target="_blank">
+        <a href="<%= plans_url %>" target="_blank">
           Upgrade to pro
-        </a> -->
+        </a>
       </div>
     <% end %>
 
@@ -49,7 +49,7 @@
             <a href="<%= pricing_url %>" class="no-underline">
               <span class="text-gray-600 mb-2">You've reached the maximum number of free articles for today</span><br>
               <span class="font-bold block mb-2">Upgrade to pro to receive unlimited articles and advanced features</span>
-              <a href="<%= plans_url %>" target="_blank">Upgrade now for $12 per year</a>
+              <a href="<%= plans_url %>" target="_blank">Upgrade now for $25 per year</a>
             </a>
           </div>
           <div class="bg-gray-300 h-px w-full mt-6 mb-6"></div>

@@ -15,7 +15,7 @@
     <% classes = "mt-2 mb-8 btn btn--primary rounded-lg" %>
     <% unless current_user&.is_pro %>
       <% if current_user.present? %>
-        <a href="#" data-theme="none" class="paddle_button <%= classes %>" data-product="577580" data-success="/thank-you/" data-passthrough="<%= current_user.id %>" data-coupon="early-adopter" data-email="<%= current_user.email %>">
+        <a href="#" data-theme="none" class="paddle_button <%= classes %>" data-product="640234" data-success="/thank-you/" data-passthrough="<%= current_user.id %>" data-coupon="early-adopter" data-email="<%= current_user.email %>">
           <%= "Upgrade to Briefcake PRO ❤️" %>️</a>
       <% else %>
         <%= link_to "Sign in, and upgrade to briefcake PRO ❤️", new_user_session_path, class: classes %>
@@ -44,7 +44,7 @@
     <div class="flex-grow border p-8 py-6 rounded shadow-lg m-3 bg-white max-w-sm">
       <header class="text-center">
         <h1 class="font-bold text-3xl uppercase">Pro</h1>
-        <small class="text-sm font-bold">Only $29 per year</small>
+        <small class="text-sm font-bold">Only $25 per year</small>
       </header>
 
       <hr class="border-t my-4">
@@ -59,7 +59,7 @@
 
       <div class="text-center">
         <% if current_user.present? && !current_user.is_pro? %>
-          <a href="#" data-theme="none" class="paddle_button btn btn--primary rounded-lg" data-product="577580" data-success="/thank-you/" data-passthrough="<%= current_user.id %>" data-coupon="early-adopter" data-email="<%= current_user.email %>">
+          <a href="#" data-theme="none" class="paddle_button btn btn--primary rounded-lg" data-product="640234" data-success="/thank-you/" data-passthrough="<%= current_user.id %>" data-coupon="early-adopter" data-email="<%= current_user.email %>">
             Upgrade to pro</a>
         <% end %>
       </div>

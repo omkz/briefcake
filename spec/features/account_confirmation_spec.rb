@@ -5,8 +5,6 @@ feature "Signing up" do
     # Sign up
     visit "/signup"
 
-    click_on "Got it"
-
     visit "/signup"
 
     fill_in "Email", with: "jankees@example.com"

@@ -1,23 +1,24 @@
-source "https://rubygems.org"
+# frozen_string_literal: true
+source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.6.6"
+ruby '2.6.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem "rails", "~> 5.2.4"
+gem 'rails', '~> 5.2.4'
 # Use postgresql as the database for Active Record
-gem "pg", ">= 0.18", "< 2.0"
+gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem "puma", "~> 4.3"
+gem 'puma', '~> 4.3'
 # Use SCSS for stylesheets
-gem "sass-rails", "~> 5.0"
+gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
-gem "uglifier", ">= 1.3.0"
+gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
-gem "php_serialize"
+gem 'php_serialize'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem "turbolinks", "~> 5"
+gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 #gem "jbuilder", "~> 2.5"
 # Use ActiveModel has_secure_password
@@ -30,64 +31,62 @@ gem "turbolinks", "~> 5"
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", ">= 1.1.0", require: false
+gem 'bootsnap', '>= 1.1.0', require: false
 
-gem "chartkick"
-gem "groupdate"
-gem "valid_email2"
+gem 'chartkick'
+gem 'groupdate'
+gem 'valid_email2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem "webmock"
-  gem "timecop"
-  gem "email_spec"
-  gem "vcr"
-  gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
-  gem "rspec-rails"
-  gem "rspec-collection_matchers"
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'email_spec'
+  gem 'pry-rails'
+  gem 'rspec-collection_matchers'
+  gem 'rspec-rails'
+  gem 'timecop'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem "web-console", ">= 3.3.0"
-  gem "listen", ">= 3.0.5", "< 3.3"
+  gem 'listen', '>= 3.0.5', '< 3.3'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem "spring"
-  gem "spring-watcher-listen", "~> 2.0.0"
-  gem "factory_bot_rails"
+  gem 'factory_bot_rails'
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+
+  gem 'foreman', '~> 0.86.0'
+  gem 'letter_opener', '~> 1.6'
+  gem 'pry'
+  gem 'rufo'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-gem "webpacker", "~> 3.5", ">= 3.5.5"
-gem "devise", "~> 4.7"
-gem "devise_masquerade", "~> 0.6.5"
-gem "friendly_id", "~> 5.3"
-gem "name_of_person", "~> 1.0"
-gem "storext", "~> 3.1"
-gem "premailer-rails", "~> 1.10"
+gem 'devise', '~> 4.7'
+gem 'devise_masquerade', '~> 0.6.5'
+gem 'friendly_id', '~> 5.3'
+gem 'name_of_person', '~> 1.0'
+gem 'premailer-rails', '~> 1.10'
+gem 'storext', '~> 3.1'
+gem 'webpacker', '~> 3.5', '>= 3.5.5'
 
-gem "delayed_job_web"
-gem "delayed_job_active_record"
-gem "daemons"
+gem 'daemons'
+gem 'delayed_job_active_record'
+gem 'delayed_job_web'
 
-gem "validate_url"
-gem "httparty"
-gem "feedjira"
-gem "instagrammer"
-gem "capybara"
-gem "honeybadger"
-gem "nokogiri"
-
-group :development do
-  gem "rufo"
-  gem "letter_opener", "~> 1.6"
-  gem "foreman", "~> 0.86.0"
-end
-
-gem "stripe", "~> 4.18.1"
-
-gem "browser", "~> 4.2"
+gem 'capybara'
+gem 'feedjira'
+gem 'honeybadger'
+gem 'httparty'
+gem 'instagrammer'
+gem 'nokogiri'
+gem 'validate_url'
 
 gem 'acts_as_paranoid', '~> 0.6.3'
+gem 'browser', '~> 4.2'
+gem 'stripe', '~> 4.18.1'

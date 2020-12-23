@@ -7,7 +7,7 @@
 <body>
   <%= show_site_wide_announcement(current_user) %>
 
-  <% unless session[:has_seen_briefcake] %>
+  <% if params.permit("ref").fetch("ref", "").eql?("rssmailer.app") %>
     <%= render "shared/briefcake_transition.html.erb" %>
   <% end %>
 

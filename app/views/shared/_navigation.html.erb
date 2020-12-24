@@ -1,18 +1,20 @@
 <nav class="nav montserrat" data-controller="navigation">
   <div class="nav__content">
-    <%= link_to "🍰 #{Rails.configuration.application_name.humanize}", root_path, class: "text-2xl font-bold" %>
+    <% if user_signed_in? %>
+      <%= link_to "🍰 #{Rails.configuration.application_name.humanize}", root_path, class: "text-2xl font-bold" %>
 
-    <div class="nav__items" data-target="navigation.items">
-      <% if user_signed_in? %>
-        <%= link_to "Upgrade", pricing_path, class: "nav__item nav__link" unless current_user.is_pro? %>
-        <%= link_to "Edit account", edit_user_registration_path, class: "nav__item nav__link" %>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav__item nav__link" %>
-      <% else %>
-        <%= link_to "Login", new_user_session_path, class: "nav__item nav__link" %>
-      <% end %>
-    </div>
+      <div class="nav__items" data-target="navigation.items">
 
-    <span role="link" class="navigation__toggle" data-target="navigation.toggle" data-action="click->navigation#toggle">menu</span>
+          <%= link_to "Upgrade", pricing_path, class: "nav__item nav__link" unless current_user.is_pro? %>
+          <%= link_to "Edit account", edit_user_registration_path, class: "nav__item nav__link" %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav__item nav__link" %>
+
+      </div>
+
+      <span role="link" class="navigation__toggle" data-target="navigation.toggle" data-action="click->navigation#toggle">menu</span>
+    <% else %>
+      <%= link_to "🍰 #{Rails.configuration.application_name.humanize}", root_path, class: "text-4xl font-bold" %>
+    <% end %>
   </div>
 </nav>
 

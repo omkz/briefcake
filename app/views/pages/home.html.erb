@@ -8,23 +8,19 @@
       new_user_registration_path, 
       class: "btn btn--primary text-white border-4 font-bold py-4 px-6 text-xl"
     %>
+
+    or <%= link_to "Login", new_user_session_path, class: "btn btn--secondary border-4 font-bold py-4 px-6 text-xl" %>
+
   </div>
 
   <div class="text-center my-4">
     <p class="text-gray-600">
-      Limited FREE or <%= link_to "$25/year PRO", pricing_path, class: "text-gray-800 underline font-bold" %>
+      Comes as a freemium or <%= link_to "$25/year PRO", pricing_path, class: "text-gray-800 underline font-bold" %>
     </p>
   </div>
 
   <%= image_tag "briefcake.png", class: "mx-auto", alt: "Briefcake phone example email" %>
 
-  <!-- <div class="mx-auto w-5/6 sm:w-4/6">
-    <% unless Rails.env.test? %>
-      <%#= render "chrome" do %>
-        <iframe src="/example-email" class="w-full" data-controller="example" height="600px"></iframe>
-      <%# end %>
-    <% end %>
-  </div> -->
 
   <h1 class="leading-tight font-bold my-4 w-full text-2xl xl:text-4xl text-gray-800 text-center">
     What's Briefcake?

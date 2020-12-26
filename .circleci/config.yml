@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.6.6-node-browsers
+      - image: circleci/ruby:2.7.2-node-browsers
         environment:
           RAILS_ENV: test
           POSTGRESQL_HOST: 127.0.0.1
@@ -18,7 +18,7 @@ jobs:
     steps:
       - run:
           name: Update bundler 2
-          command: gem install bundler:2.2.2
+          command: gem install bundler:2.2.3
       - checkout
       - restore_cache:
           name: Restore Yarn Package Cache
@@ -38,7 +38,9 @@ jobs:
             - v1-gem-cache-{{ arch }}-
             - v1-gem-cache-{{ arch }}
 
-      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
+
+      - run: bundle config set --local path 'vendor/bundle'
+      - run: bundle install --jobs=4 --retry=3
 
       - save_cache:
           paths:

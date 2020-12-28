@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width"/>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <link rel="stylesheet" media="screen" href="<%= asset_pack_url "emails.css", host: Rails.application.config.action_mailer.default_url_options[:host] %>"/>
-  <link rel="Shortcut Icon" type="image/x-icon" href="<%= asset_url "favicon.ico", host: Rails.application.config.action_mailer.default_url_options[:host] %>" />
+  <link rel="Shortcut Icon" type="image/x-icon" href="<%= Rails.application.config.action_mailer.default_url_options[:host] %>/favicon.ico" />
 </head>
 <body>
 <table width="100%" height="100%">

@@ -47,7 +47,7 @@ class UserMailer < ApplicationMailer
     end
 
     mail(
-      to: "rssmailer@piplabs.io",
+      to: "briefcake@skylup.com",
       subject: "New payment",
     )
   end
@@ -58,8 +58,8 @@ class UserMailer < ApplicationMailer
 
     mail(
       to: @user.email,
-      from: "Jankees – RSSMailer <support@jankeesvw.com>",
-      subject: "Announcement: RSSMailer gets a new owner"
+      from: "Stanislav K – Briefcake <contact@briefcake.com>",
+      subject: "Announcement: RSSMailer/Briefcake gets a new owner"
     ) do |format|
       format.html { render layout: "white" }
     end
@@ -72,7 +72,7 @@ class UserMailer < ApplicationMailer
 
     mail(
       to: to,
-      bcc: "rssmailer@piplabs.io",
+      bcc: "contact@briefcake.com",
       subject: "briefcake test email - #{rand}",
       template_name: "new_items",
     )

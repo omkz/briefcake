@@ -67,7 +67,7 @@ jobs:
       - run:
           name: Deploy Master to briefcake.com
           command: |
-            git remote add dokku dokku@briefcake.com:rssmailer
+            git remote add dokku dokku@briefcake.com:briefcake
             git push dokku $CIRCLE_BRANCH --force
 workflows:
   version: 2

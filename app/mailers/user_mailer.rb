@@ -52,19 +52,6 @@ class UserMailer < ApplicationMailer
     )
   end
 
-  def transfer(user)
-    @user = user
-    @greeting = user.first_name.presence || "you"
-
-    mail(
-      to: @user.email,
-      from: "Stanislav K – Briefcake <contact@briefcake.com>",
-      subject: "Announcement: RSSMailer/Briefcake gets a new owner"
-    ) do |format|
-      format.html { render layout: "white" }
-    end
-  end
-
   def test_email(to)
     @user = User.first
     @feed_items = SampleContent.items

@@ -6,8 +6,4 @@ class UserMailerPreview < ActionMailer::Preview
   def new_payment
     UserMailer.new_payment(User.first, { "test": "asdf", "another": "123" }, true)
   end
-
-  def transfer
-    UserMailer.transfer(User.first)
-  end
 end

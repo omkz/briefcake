@@ -2,16 +2,17 @@
   <% if current_user.unsubscribed_at.present? %>
     <div class="bg-red-500 text-white p-5 mb-5">
       <p>You are now not receiving ou our emails because you have opted out!</p>
-      <p>Want to get the emails again? Click <%= link_to "subscribe", current_user.resubscribe_url, class: "text-white underline" %>.</p>
+      <p>Want to get the emails again?
+        Click <%= link_to "subscribe", current_user.resubscribe_url, class: "text-white underline" %>.</p>
     </div>
   <% end %>
 
   <% if current_user.sent_emails.none? && current_user.feeds.any? %>
     <div class="bg-green-400 text-white p-5 mb-5 shadow-lg rounded flex items-center">
-        <svg aria-hidden="true" focusable="false" class="inline h-6 align-middle mr-2" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-          <path fill="currentColor" d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 48c110.532 0 200 89.451 200 200 0 110.532-89.451 200-200 200-110.532 0-200-89.451-200-200 0-110.532 89.451-200 200-200m140.204 130.267l-22.536-22.718c-4.667-4.705-12.265-4.736-16.97-.068L215.346 303.697l-59.792-60.277c-4.667-4.705-12.265-4.736-16.97-.069l-22.719 22.536c-4.705 4.667-4.736 12.265-.068 16.971l90.781 91.516c4.667 4.705 12.265 4.736 16.97.068l172.589-171.204c4.704-4.668 4.734-12.266.067-16.971z"></path>
-        </svg>
-        Okay great, you added a feed! Tomorrow we will send you an email, if there is anything new.
+      <svg aria-hidden="true" focusable="false" class="inline h-6 align-middle mr-2" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path fill="currentColor" d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 48c110.532 0 200 89.451 200 200 0 110.532-89.451 200-200 200-110.532 0-200-89.451-200-200 0-110.532 89.451-200 200-200m140.204 130.267l-22.536-22.718c-4.667-4.705-12.265-4.736-16.97-.068L215.346 303.697l-59.792-60.277c-4.667-4.705-12.265-4.736-16.97-.069l-22.719 22.536c-4.705 4.667-4.736 12.265-.068 16.971l90.781 91.516c4.667 4.705 12.265 4.736 16.97.068l172.589-171.204c4.704-4.668 4.734-12.266.067-16.971z"></path>
+      </svg>
+      Okay great, you added a feed! Tomorrow we will send you an email, if there is anything new.
     </div>
   <% end %>
 
@@ -19,10 +20,13 @@
 
     <div class="card card--light mb-8">
       <div class="card__content">
-        <table class="table">
+        <div class="text-right">
+          <%= link_to "Add new feed", new_feed_path, class: "btn btn--primary m-4" %>
+        </div>
+        <table class="table mb-8">
           <thead>
           <tr>
-            <th>Name</th>
+            <th></th>
             <th></th>
           </tr>
           </thead>
@@ -53,9 +57,6 @@
           </tbody>
         </table>
       </div>
-      <div class="text-right mb-8">
-        <%= link_to "Add new feed", new_feed_path, class: "btn btn--primary m-4" %>
-      </div>  
     </div>
 
   <% else %>

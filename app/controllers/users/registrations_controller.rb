@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_action :detect_bot, only: [:new, :create]
+  before_action :detect_bot, only: [:new]
+  before_action :detect_throwaway_email, only: [:create]
   before_action :configure_account_update_params, only: [:update]
   layout :set_layout
 
@@ -32,6 +33,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def update_resource(resource, params)
     resource.update_without_password(params.except(:current_password))
+  end
+
+  def detect_throwaway_email
+    render body: "Throw away emails are not allowed" and return if MailChecker.valid?(params[:user][:email])
   end
 
   def detect_bot

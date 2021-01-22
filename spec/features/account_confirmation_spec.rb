@@ -1,19 +1,6 @@
 require "rails_helper"
 
 feature "Signing up" do
-  it "doesn't allow to register with a throw away email" do
-    visit "/signup"
-    visit "/signup"
-
-
-    fill_in "Email", with: "jankees@qq.com"
-    fill_in "Password", with: "1234567890"
-
-    click_on "Create an account"
-
-    expect(page).to have_content "Throw away emails are not allowed"
-  end
-
   it "requires you to confirm via email" do
     # Sign up
     visit "/signup"

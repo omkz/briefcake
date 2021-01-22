@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ImportController, type: :controller do
+
   describe "GET #new" do
     it "returns http success" do
       get :new

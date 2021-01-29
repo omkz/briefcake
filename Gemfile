@@ -84,5 +84,4 @@ gem 'instagrammer'
 gem 'nokogiri'
 gem 'validate_url'
 
-gem 'acts_as_paranoid', '~> 0.6.3'
 gem 'browser', '~> 4.2'

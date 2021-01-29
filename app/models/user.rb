@@ -19,6 +19,19 @@ class User < ApplicationRecord
     name.to_s + " <#{email}>"
   end
 
+  def priority
+    custom_timing? ? 5 : 10
+  end
+
+  def run_at
+    if custom_timing?
+      result = send_email_at.in_time_zone(time_zone).utc
+      result.to_date == Date.yesterday ? result + 24.hours : result
+    else
+      Time.zone.now.at_midnight + 6.hours
+    end
+  end
+
   def wants_email?
     unsubscribed_at.nil?
   end
@@ -37,5 +50,11 @@ class User < ApplicationRecord
 
   def send_devise_notification(notification, *args)
     devise_mailer.send(notification, self, *args).deliver_later
+  end
+
+  private
+
+  def custom_timing?
+    send_email_at.present?
   end
 end

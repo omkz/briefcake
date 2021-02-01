@@ -1,4 +1,9 @@
 class UserMailer < ApplicationMailer
+  def sent_from(email)
+    mail = ['rssmailer@wordit.com', 'briefcake@skatkov.com'].include?(email) ? 'no-reply@briefcake.com' : 'no-reply@rssmailer.app'
+    "🍰 briefcake <#{mail}>"
+  end
+
   def new_items(user_id, dry_run: false)
     start_time = Time.now
 
@@ -24,6 +29,7 @@ class UserMailer < ApplicationMailer
       mail(
         to: @user.email,
         subject: subject,
+        from: sent_from(@user.email),
       )
 
       SentEmail.create(

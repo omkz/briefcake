@@ -7,7 +7,7 @@
           <p class="text-gray-600">
             OPML is a popular interchange format for RSS feeds. If you wish to make a backup copy of your subscription list or migrate to a different service, an OPML copy of your feed list may come in handy. Or if you just want to share your feed list with a friend!
           </p>
-          <%= button_to "Export OPML", feeds_path(format: :xml), class: "btn btn--primary whitespace-no-wrap" %>
+          <%= link_to "Export OPML", feeds_path(format: :xml), class: "btn btn--primary whitespace-no-wrap" %>
         </div>
       </div>
     </div>

@@ -112,8 +112,4 @@ class FeedsController < ApplicationController
   def feed_params
     params.require(:feed).permit(:name, :url, :feed_url, :truncation, :fetch_error)
   end
-
-  def export
-  end
-  
 end

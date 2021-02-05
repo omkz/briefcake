@@ -63,25 +63,8 @@ jobs:
           name: Run tests (Minitest)
           command: bundle exec rails test
 
-  deploy:
-    machine:
-      enabled: true
-    steps:
-      - checkout
-      - run:
-          name: Deploy Master to briefcake.com
-          command: |
-            git remote add dokku dokku@briefcake.com:briefcake
-            git push dokku $CIRCLE_BRANCH --force
 workflows:
   version: 2
   build-and-deploy:
     jobs:
       - build
-      - deploy:
-          requires:
-            - build
-          filters:
-            branches:
-              only:
-                - master

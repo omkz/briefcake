@@ -11,8 +11,7 @@ feature "Signing up" do
     fill_in "Password", with: "1234567890"
 
     click_on "Create an account"
-    expect(page).to have_content "A message with a confirmation link has been sent to your email address. Please follow the link to activate your account."
-
+    
     # Try to sign in without confirming
     visit "/login"
     fill_in "Email", with: "jankees@example.com"

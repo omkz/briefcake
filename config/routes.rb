@@ -58,7 +58,6 @@ Rails.application.routes.draw do
   get 'open', to: 'open#show'
   get 'open/jobs', to: 'open#jobs'
 
-  resource :subscribe_form, controller: :subscribe_form, only: [:edit, :update]
   get '/s/:slug', controller: :subscribe, action: :show
   post '/s/:slug', controller: :subscribe, action: :subscribe, as: :subscribe
 

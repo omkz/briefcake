@@ -1,6 +1,6 @@
 class UserMailer < ApplicationMailer
   def sent_from(email)
-    mail = ['rssmailer@wordit.com', 'briefcake@skatkov.com'].include?(email) ? 'no-reply@briefcake.com' : 'no-reply@rssmailer.app'
+    mail = ['rssmailer@wordit.com', 'briefcake@skatkov.com'].include?(email) ? 'hey@briefcake.com' : 'no-reply@rssmailer.app'
     "🍰 briefcake <#{mail}>"
   end
 

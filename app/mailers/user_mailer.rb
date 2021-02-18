@@ -4,6 +4,27 @@ class UserMailer < ApplicationMailer
     "🍰 briefcake <#{mail}>"
   end
 
+  def newsletter
+    @user = params[:user]
+    @feed_items = params[:feed_items]
+    @index = params[:index]
+    subject = t("user_mailer.subject", count: @feed_items.count, date: I18n.l(Time.zone.today.to_date))
+
+    mail(
+      to: @user.email,
+      subject: subject,
+      from: sent_from(@user.email),
+    )
+
+    SentEmail.create(
+      receiver: @user.email,
+      user: @user,
+      subject: subject,
+      number_of_items: @feed_items.count,
+      index: @index
+    )
+  end
+
   def new_items(user_id, dry_run: false)
     start_time = Time.now
 

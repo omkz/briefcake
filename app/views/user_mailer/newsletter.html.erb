@@ -1,0 +1,92 @@
+<div class="mx-auto max-w-2xl w-full mx-5 mt-5">
+  <div class="mx-2">
+    <div class="bg-white border border-gray-500 text-gray-800 shadow-lg p-8 mb-5 rounded my-10 mb-12">
+      <p class="mb-4">
+        In following days Briefcake will be transitioning to a new email (hey@briefcake.com) and you will stop receiving emails from no-reply@rssmailer.app.
+        Please check your spam folders in case email will disappear or write us for support!
+
+        <br/>
+        Thank you
+      </p>
+    </div>
+    <% if @index.present? %>
+      <div class="bg-gray-200 px-4 py-6 mb-5 text-gray-500">
+        <div class="text-gray-600 text-2xl -mb-1">
+          Briefcake
+          <% if @user %>
+            - Issue #<%= (@user.sent_emails.count + 1).to_s.rjust(3, '0') %>
+          <% end %>
+        </div>
+        <div class="border-t-2 my-3"></div>
+        <div class="text-sm">
+          <div class="text-gray-700 mb-1">In today's issue:</div>
+          <% @index.each_pair do |item, value| %>
+            <div class="text-gray-700">- <%= value %> from <%= item %></div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <% next_item_is_same_feed = false %>
+    <% @feed_items.each_with_index do |item, index| %>
+      <% next_item = @feed_items[index + 1] %>
+
+      <% unless next_item_is_same_feed %>
+        <div class="mb-2 mt-6 text-gray-600"><%= item.feed.name %></div>
+        <div class="mb-8 border bg-white border-gray-300 rounded-lg p-4 pt-3">
+      <% end %>
+
+      <% next_item_is_same_feed = item.feed == next_item.try(:feed) %>
+
+      <% if !@user.is_pro? && index >= 3 %>
+        <% if index == 3 %>
+          <div class="text-center py-12 bg-gray-200 px-3">
+            <a href="<%= pricing_url %>" class="no-underline">
+              <span class="text-gray-600 mb-2">You've reached the maximum number of free articles for today</span><br>
+              <span class="font-bold block mb-2">Upgrade to pro to receive unlimited articles and advanced features</span>
+              <a href="<%= plans_url %>" target="_blank">Upgrade now for $25 per year</a>
+            </a>
+          </div>
+          <div class="bg-gray-300 h-px w-full mt-6 mb-6"></div>
+        <% end %>
+        <%= image_tag(Rails.application.config.application_domain + "/blur.png", class: "mt-4") %>
+      <% else %>
+        <div class="text-base font-normal text-black font-medium">
+          <%= link_to item.title, item.link, class: "black underline" %>
+        </div>
+
+        <div class="text-xs text-gray-600 font-normal mb-2">
+          <%= item.feed.name %> - <%= I18n.l(item.publish_date.to_date, format: "%B %-d, %Y") %> - <%= link_to "Save to Pocket", "https://getpocket.com/edit.php?url=#{item.link}", class:"text-red-400 underline", target: "_blank" %>
+        </div>
+
+        <div class="text-base text-left feed-content"><%= sanitize(item.description.to_s) %></div>
+
+        <%= image_tag(item.image_url, class: "mt-4") if item.image_url %>
+      <% end %>
+
+      <% if next_item_is_same_feed %>
+        <div class="bg-gray-300 h-px w-full mt-6 mb-6"></div>
+      <% else %>
+        </div>
+      <% end %>
+
+    <% end %>
+
+    <% if @user && @user.feeds.with_errors.any? %>
+      <div class="bg-red-500 text-white p-5 mb-10 rounded text-center">
+        We had trouble fetching some feeds,
+        please <%= link_to "sign in", feeds_url, class: "text-white underline" %> and try to fix the
+        feeds with errors.
+      </div>
+    <% end %>
+
+    <div class="text-center mb-5 text-sm text-gray-600 max-w-md mx-auto">
+      <p class="mb-2">You are receiving this email because you signed up at
+        <a href="https://briefcake.com">briefcake.com</a>.</p>
+      <p>
+        Too many emails? <%= link_to "Change the number of feeds", feeds_url %> you are
+        following or <%= link_to "unsubscribe", @user.try(:unsubscribe_url) %> if you don't want any.
+      </p>
+    </div>
+  </div>
+</div>

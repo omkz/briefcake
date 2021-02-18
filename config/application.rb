@@ -1,6 +1,7 @@
 require_relative 'boot'
 
 require 'rails/all'
+require 'good_job/engine'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -13,7 +14,7 @@ module Rssmailer
 
     config.application_naked_domain = "briefcake.com"
     config.application_name = "Briefcake"
-    config.active_job.queue_adapter = :delayed_job
+    config.active_job.queue_adapter = :good_job
 
 
     # Don't generate system test files.

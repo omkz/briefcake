@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   # Delayed Job Web is a web interface for viewing/managing jobs
   match '/dj' => DelayedJobWeb, anchor: false, via: [:get, :post]
+  mount GoodJob::Engine => 'good_job'
 
   # webhook endpoint for paddle service
   post 'paddle/hook'

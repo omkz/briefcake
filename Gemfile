@@ -76,6 +76,8 @@ gem 'webpacker', '~> 3.5', '>= 3.5.5'
 gem 'delayed_job_active_record'
 gem 'delayed_job_web'
 
+gem 'good_job'
+
 gem 'capybara'
 gem 'feedjira'
 gem 'honeybadger'

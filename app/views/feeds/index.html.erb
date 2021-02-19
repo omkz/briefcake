@@ -35,9 +35,7 @@
           <% @feeds.each do |feed| %>
             <%= content_tag :tr, id: dom_id(feed) do %>
               <td>
-                <% if feed.is_instagram? %>
-                  <%= image_tag "instagram-brands.svg", width: 20, class: "inline" %>
-                <% elsif feed.is_youtube? %>
+                <% if feed.is_youtube? %>
                   <%= image_tag "youtube-brands.svg", width: 20, class: "inline" %>
                 <% end %>
 

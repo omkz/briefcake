@@ -18,21 +18,8 @@ class Feed < ApplicationRecord
     feed_url.present?
   end
 
-  def instagram_user_name
-    if is_instagram?
-      matches = /instagram.com\/(.+?)\//.match(feed_url)
-      if matches
-        matches[1]
-      end
-    end
-  end
-
   def is_youtube?
     feed_url.present? && feed_url.start_with?("https://www.youtube.com/")
-  end
-
-  def is_instagram?
-    feed_url.present? && feed_url.start_with?("https://www.instagram.com/")
   end
 
   def new_items!

@@ -82,7 +82,6 @@ gem 'capybara'
 gem 'feedjira'
 gem 'honeybadger'
 gem 'httparty'
-gem 'instagrammer'
 gem 'nokogiri'
 gem 'validate_url'
 

@@ -73,9 +73,6 @@ gem 'premailer-rails', '~> 1.10'
 gem 'storext', '~> 3.1'
 gem 'webpacker', '~> 3.5', '>= 3.5.5'
 
-gem 'delayed_job_active_record'
-gem 'delayed_job_web'
-
 gem 'good_job'
 
 gem 'capybara'
@@ -86,4 +83,3 @@ gem 'nokogiri'
 gem 'validate_url'
 
 gem 'browser', '~> 4.2'
-gem 'daemons'

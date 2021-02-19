@@ -47,6 +47,7 @@ group :development, :test do
   gem 'timecop'
   gem 'vcr'
   gem 'webmock'
+  gem 'capybara'
 end
 
 group :development do
@@ -75,7 +76,6 @@ gem 'webpacker', '~> 3.5', '>= 3.5.5'
 
 gem 'good_job'
 
-gem 'capybara'
 gem 'feedjira'
 gem 'honeybadger'
 gem 'httparty'

@@ -10,14 +10,6 @@ describe PageInfoFinder do
       end
     end
 
-    it "return the url if it's instagram" do
-      VCR.use_cassette("page_info_finder/instagram_timo") do
-        find_for_url = PageInfoFinder.new("https://www.instagram.com/zwartekoffie/").fetch!
-
-        expect(find_for_url.feed_url).to eq "https://www.instagram.com/zwartekoffie/"
-      end
-    end
-
     it "finds the RSS Feed for Daring Fireball" do
       VCR.use_cassette("page_info_finder/daringfireball") do
         find_for_url = PageInfoFinder.new("https://daringfireball.net/").fetch!

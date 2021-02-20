@@ -4,7 +4,7 @@
   "dependencies": {
     "@rails/ujs": "6.0.1",
     "@rails/webpacker": "3.5",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "chart.js": "^2.9.3",
     "chartkick": "^3.2.0",
     "lodash": "^4.17.15",

@@ -34,6 +34,14 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 plugin :tmp_restart
 
 
+require 'barnes'
+
+before_fork do
+  # worker specific setup
+
+  Barnes.start # Must have enabled worker mode for this to block to be called
+end
+
 before_fork do
   GoodJob.shutdown
 end

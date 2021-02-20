@@ -85,3 +85,4 @@ gem 'validate_url'
 
 gem 'browser', '~> 4.2'
 gem "rack-timeout"
+gem "http"

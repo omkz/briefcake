@@ -38,7 +38,7 @@ class FeedReader
   end
 
   def rss_feed_entries
-    xml = HTTParty.get(feed.feed_url, headers: { "User-Agent" => UserAgent.user_agent_for(feed.feed_url) }).body
+    xml = HTTP.get(feed.feed_url, headers: { "User-Agent" => UserAgent.user_agent_for(feed.feed_url) }).to_s
     Feedjira.parse(xml).entries
   end
 end

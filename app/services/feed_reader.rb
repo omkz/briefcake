@@ -20,6 +20,7 @@ class FeedReader
                 )
               end
             rescue => e
+              Honeybadger.notify(e)
               exception_occurred = e.to_s
               []
             end
@@ -38,7 +39,6 @@ class FeedReader
   end
 
   def rss_feed_entries
-    xml = HTTP.get(feed.feed_url, headers: { "User-Agent" => UserAgent.user_agent_for(feed.feed_url) }).to_s
-    Feedjira.parse(xml).entries
+    Feedjira.parse(Down.new(feed.feed_url).fetch).entries
   end
 end

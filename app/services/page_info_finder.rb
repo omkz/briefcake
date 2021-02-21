@@ -15,6 +15,7 @@ class PageInfoFinder
     @uri = @request.last_uri
     self
   rescue => e
+    Honeybadger.notify(e)
     self
   end
 

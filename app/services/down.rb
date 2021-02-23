@@ -6,7 +6,8 @@ class Down
   def fetch
     HTTParty.get(
       feed,
-      headers: { "User-Agent" => user_agent }).body
+      headers: { "User-Agent" => user_agent }
+    ).body
   end
 
   private

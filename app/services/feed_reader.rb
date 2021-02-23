@@ -20,7 +20,12 @@ class FeedReader
                 )
               end
             rescue => e
-              Honeybadger.notify(e)
+              # FIXME: this needs a better error handling
+              # - Net::ReadTimeout, Net::OpenTimeout -- can try to retry
+              # - URI::InvalidURIError, HTTParty::UnsupportedURIScheme
+              # - HTTParty::RedirectionTooDeep
+              # - Rack::Timeout::RequestTimeoutException
+              # - 
               exception_occurred = e.to_s
               []
             end

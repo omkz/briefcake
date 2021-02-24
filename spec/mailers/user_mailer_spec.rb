@@ -10,7 +10,7 @@ describe UserMailer, type: :mailer do
     expect {
       feed_item = build(:feed_item, feed: feed, publish_date: 1.hour.from_now)
       allow_any_instance_of(Feed).to receive(:new_items!).and_return([feed_item])
-      UserMailer.new_items(user.id).deliver_now
+      NewsletterJob.new.perform(user.id)
     }.to change(ActionMailer::Base.deliveries, :count).by(1)
 
     Timecop.travel(1.hour)
@@ -18,7 +18,7 @@ describe UserMailer, type: :mailer do
     expect {
       feed_item = build(:feed_item, feed: feed, publish_date: 1.hour.from_now)
       allow_any_instance_of(Feed).to receive(:new_items!).and_return([feed_item])
-      UserMailer.new_items(user.id).deliver_now
+      NewsletterJob.new.perform(user.id)
     }.to_not change(ActionMailer::Base.deliveries, :count)
 
     Timecop.travel(3.days)
@@ -26,7 +26,7 @@ describe UserMailer, type: :mailer do
     expect {
       feed_item = build(:feed_item, feed: feed, publish_date: 1.hour.from_now)
       allow_any_instance_of(Feed).to receive(:new_items!).and_return([feed_item])
-      UserMailer.new_items(user.id).deliver_now
+      NewsletterJob.new.perform(user.id)
     }.to change(ActionMailer::Base.deliveries, :count).by(1)
   end
 end

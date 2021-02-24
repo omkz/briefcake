@@ -17,14 +17,14 @@ feature "sending emails" do
       end
 
       VCR.use_cassette("timi-blog-1") do
-        UserMailer.new_items(feed.user.id).deliver_now
+        NewsletterJob.new.perform(feed.user.id)
       end
 
       expect(ActionMailer::Base.deliveries).to have(0).deliveries
       expect(feed.reload.publish_date_last_sent_item).to eq Time.utc(2015, 9, 18)
 
       VCR.use_cassette("timi-blog-2") do
-        UserMailer.new_items(feed.user.id).deliver_now
+        NewsletterJob.new.perform(feed.user.id)
       end
 
       expect(feed.reload.publish_date_last_sent_item).to eq Time.utc(2015, 10, 4)
@@ -43,12 +43,11 @@ feature "sending emails" do
       expect(sent_email.index).to eq({ "Timi blog" => 1 })
       expect(sent_email.receiver).to eq user.email
       expect(sent_email.user).to eq user
-      expect(sent_email.compose_duration_in_seconds).to be > 0
 
       Timecop.travel 1.day.from_now
 
       VCR.use_cassette("timi-blog-3") do
-        UserMailer.new_items(feed.user.id).deliver_now
+        NewsletterJob.new.perform(feed.user.id)
       end
 
       expect(feed.reload.publish_date_last_sent_item).to eq Time.utc(2016, 10, 4)
@@ -63,7 +62,7 @@ feature "sending emails" do
       expect(email).to have_body_text(/fourth item in feed/)
 
       VCR.use_cassette("timi-blog-3") do
-        UserMailer.new_items(feed.user.id).deliver_now
+        NewsletterJob.new.perform(feed.user.id)
       end
 
       expect(ActionMailer::Base.deliveries).to have(2).deliveries
@@ -89,13 +88,13 @@ feature "sending emails" do
       end
 
       VCR.use_cassette("timi-blog-1") do
-        UserMailer.new_items(feed.user.id).deliver_now
+        NewsletterJob.new.perform(feed.user.id)
       end
 
       expect(ActionMailer::Base.deliveries).to have(0).deliveries
 
       VCR.use_cassette("timi-blog-2-rev") do
-        UserMailer.new_items(feed.user.id).deliver_now
+        NewsletterJob.new.perform(feed.user.id)
       end
 
       deliveries = ActionMailer::Base.deliveries

@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "🍰 briefcake <no-reply@rssmailer.app>"
+  default from: "🍰 briefcake <hey@briefcake.com>"
   layout "mailer"
 end

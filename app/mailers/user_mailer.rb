@@ -1,16 +1,4 @@
 class UserMailer < ApplicationMailer
-  def sent_from(user)
-    mail = if !user.is_pro?
-             'hey@briefcake.com'
-           elsif ['rssmailer@wordit.com', 'briefcake@skatkov.com'].include?(user.email)
-             'hey@briefcake.com'
-           else
-             'no-reply@rssmailer.app'
-           end
-
-    "🍰 briefcake <#{mail}>"
-  end
-
   def newsletter
     @user = params[:user]
     @feed_items = params[:feed_items]
@@ -19,8 +7,7 @@ class UserMailer < ApplicationMailer
 
     mail(
       to: @user.email,
-      subject: subject,
-      from: sent_from(@user),
+      subject: subject
     )
 
     SentEmail.create(
@@ -56,8 +43,7 @@ class UserMailer < ApplicationMailer
 
       mail(
         to: @user.email,
-        subject: subject,
-        from: sent_from(@user.email),
+        subject: subject
       )
 
       SentEmail.create(

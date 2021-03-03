@@ -14,10 +14,10 @@ class PaddleController < ApplicationController
     data.delete("action")
 
     # Ensure all the data fields are strings
-    data.each { |key, value| data[key] = value.to_s }
+    data.each {|key, value| data[key] = value.to_s}
 
     # Sort the data
-    data_sorted = data.sort_by { |key, _| key }
+    data_sorted = data.sort_by {|key, _| key}
 
     # and serialize the fields
     # serialization library is available here: https://github.com/jqr/php-serialize
@@ -29,12 +29,11 @@ class PaddleController < ApplicationController
     verified = pub_key.verify(digest, signature, data_serialized)
 
     if !verified
-      Honeybadger.notify("Signature does not match", { signature: signature, data_sorted: data_sorted })
+      Honeybadger.notify("Signature does not match", {signature: signature, data_sorted: data_sorted})
       # return head 422
     end
 
     user = User.find_by(id: data["passthrough"])
-    made_profit = data["alert_name"] === "subscription_payment_succeeded"
 
     if user
       is_subscribed = data["status"] === "active"
@@ -45,14 +44,6 @@ class PaddleController < ApplicationController
                      paddle_subscription_id: data["subscription_id"],
                      paddle_email: data["email"]
                    })
-
-      if made_profit
-        Profit.create(amount: data["balance_earnings"].to_f, data: data)
-      end
-    end
-
-    if made_profit
-      UserMailer.new_payment(user, data_sorted, verified).deliver_later
     end
 
     render json: :ok

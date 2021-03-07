@@ -1,2 +1,0 @@
-class Profit < ApplicationRecord
-end

@@ -54,9 +54,6 @@ Rails.application.routes.draw do
 
   get 'unsubscribe', to: 'unsubscribe#destroy'
 
-  get 'open', to: 'open#show'
-  get 'open/jobs', to: 'open#jobs'
-
   get '/s/:slug', controller: :subscribe, action: :show
   post '/s/:slug', controller: :subscribe, action: :subscribe, as: :subscribe
 
@@ -65,6 +62,5 @@ Rails.application.routes.draw do
     get :preview, on: :collection
   end
 
-  resources :announcements, only: [:index]
-
+  # resources :announcements, only: [:index]
 end

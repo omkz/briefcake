@@ -1,8 +1,11 @@
 <div class="flex flex-wrap mx-4">
   <div class="w-full lg:w-2/5 my-8 lg:my-0 px-4 self-center">
-    <h1 class="leading-tight font-bold text-3xl md:text-5xl text-gray-800 montserrat text-center">
-      A daily email from your <br> favorite websites
+    <h1 class="text-center">
+      <%= link_to "🍰 #{Rails.configuration.application_name.humanize}", root_path, class: "text-5xl font-bold" %>
     </h1>
+    <h2 class="leading-tight text-4xl text-gray-800 montserrat text-center">
+      A daily email from your <br> favorite websites
+    </h2>
 
     <div class="text-center my-4">
       <%= link_to "Get Started",
@@ -32,7 +35,7 @@
     </div>
   </div>
 </div>
-<div>
+<div class="my-8">
   <h1 class="leading-tight font-bold my-4 w-full text-2xl xl:text-4xl text-gray-800 text-center">
     What's Briefcake?
   </h1>

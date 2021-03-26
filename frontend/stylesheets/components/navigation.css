@@ -4,7 +4,7 @@
 
 .nav__content {
   @apply flex justify-between items-center;
-  @apply mx-auto max-w-5xl p-4;
+  @apply mx-auto p-4;
 }
 
 .nav__logo {

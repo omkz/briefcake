@@ -25,7 +25,7 @@
   </div>
   <div class="w-full lg:w-3/5 px-4 text-center lg:text-right lg:text-left self-end">
     <div class="flex justify-around">
-      <div class="home-chrome-wrapper my-8 w-3/5 md:w-4/5">
+      <div class="home-chrome-wrapper md:my-8 w-3/5 md:w-4/5">
         <% unless Rails.env.test? %>
           <%= render "chrome" do %>
             <iframe src="/example-email" class="flex-grow w-full" data-controller="example"></iframe>

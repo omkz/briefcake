@@ -35,21 +35,25 @@
           <% @feeds.each do |feed| %>
             <%= content_tag :tr, id: dom_id(feed) do %>
               <td>
-                <% if feed.is_youtube? %>
-                  <%= image_tag "youtube-brands.svg", width: 20, class: "inline" %>
-                <% end %>
-
-                <%= link_to [:edit, feed] do %>
-                  <%= feed.name %>
-                <% end %>
-
-                <% if feed.fetch_error %>
-                  <%= link_to feed_path(feed) do %>
-                    <div class="pill pill--danger text-white-600 ml-2">Error fetching</div>
+                <div class="text-lg">
+                  <% if feed.is_youtube? %>
+                    <%= image_tag "youtube-brands.svg", width: 20, class: "inline" %>
                   <% end %>
-                <% end %>
+
+                  <%= link_to [:edit, feed] do %>
+                    <%= feed.name %>
+                  <% end %>
+
+                  <% if feed.fetch_error %>
+                    <%= link_to feed_path(feed) do %>
+                      <div class="pill pill--danger text-white-600 ml-2">Error fetching</div>
+                    <% end %>
+                  <% end %>
+                </div>
+
+                <p class="text-xs"><%= feed.url || feed.feed_url %></p>
               </td>
-              <td class="text-right"><%= link_to "Delete", feed, method: :delete, class: "pill pill--secondary bg-black hover:bg-red-500 text-white p-4", data: { confirm: "Are you sure you want to delete #{feed.name}?" } %></td>
+              <td class="text-right"><%= link_to "Delete", feed, method: :delete, class: "pill pill--secondary bg-black hover:bg-red-500 text-white p-4", data: {confirm: "Are you sure you want to delete #{feed.name}?"} %></td>
             <% end %>
           <% end %>
           </tbody>

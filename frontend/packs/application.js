@@ -10,6 +10,3 @@ const context = require.context("controllers", true, /.js$/)
 application.load(definitionsFromContext(context))
 
 import "../stylesheets/application.css"
-
-require("chartkick")
-require("chart.js")

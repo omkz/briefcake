@@ -32,7 +32,6 @@ Rails.application.routes.draw do
   # generic renders
   root to: 'pages#home'
   get 'thank-you', to: 'pages#thankyou'
-  get '/about', to: 'pages#about'
   get '/creator', to: 'pages#creator'
   get '/pro', to: redirect('/plans')
   get '/pricing', to: redirect('/plans')

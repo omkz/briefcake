@@ -22,16 +22,6 @@ class PagesController < ApplicationController
     end
   end
 
-  def about
-    respond_to do |format|
-      if current_user
-        format.html { render layout: 'dashboard' }
-      else
-        format.html 
-      end
-    end
-  end
-
   def thankyou
   end
 

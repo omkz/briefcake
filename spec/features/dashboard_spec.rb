@@ -8,7 +8,7 @@ feature "Dashboard" do
 
     VCR.use_cassette("add-hacker-news") do
       fill_in "feed[url]", with: "https://news.ycombinator.com/"
-      click_button "Find RSS feed"
+      click_button "Find Feed"
       click_button "Add"
     end
 

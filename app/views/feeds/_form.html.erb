@@ -4,13 +4,13 @@
     <% show_fields = feed.persisted? || feed.errors.any? %>
 
     <div class="card__content">
-      <div class="field relative">
+      <div class="field relative <%= "hidden" if show_fields %>">
         <div class="absolute hidden" style="top: 39px; right: 10px;" data-target="feed.loader">
           <div class="loader-spinner"></div>
         </div>
 
         <div class="absolute rounded overflow-hidden rounded-l-none" style="height: 40px; bottom: 0px; right: 0px;">
-          <button type="button" class="text-white px-3 bg-blue-600 hover:bg-blue-900 h-full inline-block" data-target="feed.checkButton" data-action="click->feed#check">Find RSS feed</button>
+          <button type="button" class="text-white px-3 bg-blue-600 hover:bg-blue-900 h-full inline-block" data-target="feed.checkButton" data-action="click->feed#check">Find Feed</button>
         </div>
 
         <%= form.label :url, "Website url" %>
@@ -23,7 +23,7 @@
       </div>
 
       <div class="field  <%= "hidden" if !show_fields %>" data-target="feed.rssFeedUrlField">
-        <%= form.label :feed_url, "RSS Feed URL" %>
+        <%= form.label :feed_url, "Feed URL" %>
         <%= form.url_field :feed_url, class: "input feed-input", data: { target: "feed.rssFeedUrlInput" } %>
       </div>
 
@@ -38,24 +38,6 @@
         <% if feed.persisted? %>
           <%= link_to "Delete", feed, method: :delete, class: "text-red-600", data: { confirm: "Are you sure?" } %>
         <% end %>
-      </div>
-    </div>
-  <% end %>
-
-  <% unless feed.persisted? %>
-    <div>
-      <div class="text-gray-600 mb-2">Looking for inspiration? These are popular websites that work with Briefcake:</div>
-
-      <div class="leading-relaxed">
-        <%= render 'example_feed', name: "Marques Brownlee - YouTube", url: "https://www.youtube.com/channel/UCBJycsmduvYEL83R_U4JriQ" %>
-        <%= render 'example_feed', name: " lifehacker.com", url: "https://lifehacker.com" %>
-        <%= render 'example_feed', name: "Ars Technica", url: "https://arstechnica.com/" %>
-        <%= render 'example_feed', name: "The Next Web", url: "https://thenextweb.com/" %>
-        <%= render 'example_feed', name: "The Atlantic - Politics", url: "https://www.theatlantic.com/world/" %>
-        <%= render 'example_feed', name: "Basecamp", url: "https://m.signalvnoise.com/" %>
-        <%= render 'example_feed', name: "New York times", url: "https://www.nytimes.com/" %>
-        <%= render 'example_feed', name: "The Verge", url: "https://www.theverge.com/" %>
-        <%= render 'example_feed', name: "Mac Rumors", url: "https://www.macrumors.com" %>
       </div>
     </div>
   <% end %>

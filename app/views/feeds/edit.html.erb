@@ -1,8 +1,8 @@
-<div class="mt-16 max-w-4xl mx-auto">
-  <h1 class="text-3xl mb-4">Edit website</h1>
+<div class="max-w-4xl mx-auto">
 
   <div class="w-full flex" data-controller="preview" data-preview-url="<%= preview_feeds_path %>">
     <div class="w-full md:w-1/2">
+      <h1 class="text-3xl mb-4">Edit website</h1>
       <%= render "form", feed: @feed %>
     </div>
     <div class="w-1/2 hidden md:block relative ml-6">

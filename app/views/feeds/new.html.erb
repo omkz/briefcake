@@ -1,10 +1,29 @@
 <div class="max-w-4xl mx-auto">
-  
+
   <div class="w-full flex" data-controller="preview" data-preview-url="<%= preview_feeds_path %>">
 
     <div class="w-full md:w-1/2">
       <h1 class="text-3xl mb-4">Add website</h1>
       <%= render "form", feed: @feed %>
+
+      <% unless @feed.persisted?  %>
+        <div>
+          <div class="text-gray-600 mb-2">Looking for inspiration? These are popular websites that work with Briefcake:
+          </div>
+
+          <div class="leading-relaxed">
+            <%= render 'example_feed', name: "Marques Brownlee - YouTube", url: "https://www.youtube.com/channel/UCBJycsmduvYEL83R_U4JriQ" %>
+            <%= render 'example_feed', name: "Lifehacker.com", url: "https://lifehacker.com" %>
+            <%= render 'example_feed', name: "Ars Technica", url: "https://arstechnica.com/" %>
+            <%= render 'example_feed', name: "The Next Web", url: "https://thenextweb.com/" %>
+            <%= render 'example_feed', name: "The Atlantic - Politics", url: "https://www.theatlantic.com/world/" %>
+            <%= render 'example_feed', name: "Basecamp", url: "https://m.signalvnoise.com/" %>
+            <%= render 'example_feed', name: "New York times", url: "https://www.nytimes.com/" %>
+            <%= render 'example_feed', name: "The Verge", url: "https://www.theverge.com/" %>
+            <%= render 'example_feed', name: "Mac Rumors", url: "https://www.macrumors.com" %>
+          </div>
+        </div>
+      <% end %>
       <div class="flex flex-col justify-center items-center mt-10">
         <p>
           Need to migrate your feeds from another platform?

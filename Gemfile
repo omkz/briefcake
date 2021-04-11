@@ -60,6 +60,8 @@ group :development do
   gem 'letter_opener', '~> 1.6'
   gem 'pry'
   gem 'rufo'
+
+  gem 'rbs' # offers improved code-completion for IDE's
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

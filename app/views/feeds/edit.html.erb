@@ -1,23 +1,16 @@
 <div class="max-w-4xl mx-auto">
+  <div class="w-full">
+    <h1 class="text-3xl mb-4">Edit website</h1>
+  </div>
 
   <div class="w-full flex" data-controller="preview" data-preview-url="<%= preview_feeds_path %>">
     <div class="w-full md:w-1/2">
-      <h1 class="text-3xl mb-4">Edit website</h1>
       <%= render "form", feed: @feed %>
-
-      <div>
-
-        <p class="text-center text-gray-600">
-          <%= link_to "You can also import an .opml file", import_path %>
-        </p>
-      </div>
-
     </div>
-
 
     <div class="hidden md:block w-1/2 relative ml-6">
       <%= render "pages/chrome" do %>
-        <iframe data-target="preview.iframe" class="w-full" style="height: 400px"/>
+        <iframe data-target="preview.iframe" class="w-full" style="height: 400px"></iframe>
       <% end %>
     </div>
   </div>

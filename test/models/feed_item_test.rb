@@ -1,40 +1,35 @@
-require "rails_helper"
+require 'test_helper'
 
-describe FeedItem do
-  describe "#body" do
-    describe "truncation" do
-      it "does not always truncate" do
-        feed = create(:feed, truncation: nil)
-        item = build(:feed_item, feed: feed, description: long_description)
+class FeedItemTest < ActiveSupport::TestCase
+  test "#body: does not always truncate" do
+    feed = feeds(:first)
+    feed.update(truncation: nil)
+    item = build(:feed_item, feed: feed, description: long_description)
 
-        expect(item.description).to eq long_description
-      end
-
-      it "truncates at a length" do
-        feed = create(:feed, truncation: 50)
-        item = build(:feed_item, feed: feed, description: long_description)
-
-        expect(item.description).to eq "We're undoubtedly only a little over a month aw..."
-      end
-
-      it "removes the whole description" do
-        feed = create(:feed, truncation: 0)
-        item = build(:feed_item, feed: feed, description: long_description)
-
-        expect(item.description).to eq nil
-      end
-    end
+    assert_equal(long_description, item.description)
   end
 
-  describe "#link" do
-    it "always has a link" do
-      feed = build(:feed, created_at: 1.month.ago, url: "https://feedslink.com")
-      without_link = build(:feed_item, link: nil, feed: feed)
-      with_link = build(:feed_item, link: "https://itemslink.com", feed: feed)
+  test "#body: truncates at a length" do
+    feed = create(:feed, truncation: 50)
+    item = build(:feed_item, feed: feed, description: long_description)
 
-      expect(with_link.link).to eq "https://itemslink.com"
-      expect(without_link.link).to eq "https://feedslink.com"
-    end
+    assert_equal("We're undoubtedly only a little over a month aw..." ,item.description)
+  end
+
+  test "#body: removes the whole description" do
+    feed = create(:feed, truncation: 0)
+    item = build(:feed_item, feed: feed, description: long_description)
+
+    assert_nil(item.description)
+  end
+
+  test "#link always has a link" do
+    feed = build(:feed, created_at: 1.month.ago, url: "https://feedslink.com")
+    without_link = build(:feed_item, link: nil, feed: feed)
+    with_link = build(:feed_item, link: "https://itemslink.com", feed: feed)
+
+    assert_equal("https://itemslink.com", with_link.link)
+    assert_equal("https://feedslink.com", without_link.link)
   end
 
   def long_description

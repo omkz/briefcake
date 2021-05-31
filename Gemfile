@@ -47,6 +47,7 @@ group :development, :test do
   gem 'webmock'
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'factory_bot_rails', require: false
 end
 
 group :development do
@@ -54,7 +55,6 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.3'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'factory_bot_rails'
 
   gem 'foreman', '~> 0.86.0'
   gem 'letter_opener', '~> 1.6'

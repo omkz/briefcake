@@ -1,5 +1,6 @@
 class ImportController < ApplicationController
   layout 'dashboard'
+
   def new
   end
 

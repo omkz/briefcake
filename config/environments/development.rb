@@ -1,4 +1,6 @@
 Rails.application.configure do
+  # Verifies that versions and hashed value of the package contents in the project's package.json
+  config.webpacker.check_yarn_integrity = true
   config.application_domain = "http://localhost:5000"
   routes.default_url_options[:host] = config.application_domain
 

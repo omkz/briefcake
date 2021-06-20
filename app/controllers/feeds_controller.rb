@@ -55,7 +55,7 @@ class FeedsController < ApplicationController
 
   # GET /feeds/new
   def new
-    @feed = current_user.feeds.new
+    @feed = current_user.feeds.new(url: feed_url_params)
   end
 
   # GET /feeds/1/edit
@@ -104,6 +104,10 @@ class FeedsController < ApplicationController
   end
 
   private
+
+  def feed_url_params
+    params.permit(:url)["url"]
+  end
 
   def set_feed
     @feed = current_user.feeds.find(params[:id])

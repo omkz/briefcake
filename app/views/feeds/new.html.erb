@@ -7,7 +7,7 @@
     <div class="w-full md:w-1/2">
       <%= render "form", feed: @feed %>
 
-      <% unless @feed.persisted?  %>
+      <% unless @feed["url"].present? %>
         <div>
           <div class="text-gray-600 mb-2">Looking for inspiration? These are popular websites that work with Briefcake:
           </div>

@@ -15,6 +15,10 @@ export default class extends Controller {
     "submitButton",
     "checkButton"
   ];
+
+  initialize(){
+    if(this.urlTarget.value){ this.check(); }
+  }
   
   example(event) {
     this.urlTarget.value = event.currentTarget.dataset.url;

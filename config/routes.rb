@@ -44,7 +44,7 @@ Rails.application.routes.draw do
   get '/feeds/export', to: 'feeds#export'
   get '/privacy-policy', to: 'pages#privacy_policy'
   get '/terms-of-service', to: 'pages#terms_of_service'
-  get '/browser', to: 'pages#browser'
+  get '/browser', to: 'integration_pages#browser'
 
   ## more dynamic
   get 'subscribe/show'

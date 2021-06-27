@@ -7,6 +7,7 @@ export default class extends Controller {
     "url",
     "rssFeedUrlField",
     "rssFeedUrlInput",
+    "integrationAd",
     "nameField",
     "nameInput",
     "rssFeedTruncationField",
@@ -44,6 +45,7 @@ export default class extends Controller {
         this.rssFeedTruncationFieldTarget.classList.remove("hidden");
         this.rssFeedUrlInputTarget.value = data.feed_url;
         this.nameInputTarget.value = data.name;
+        this.integrationAdTarget.classList.add("hidden");
       })
       .finally(() => {
         this.loaderTarget.classList.add("hidden");

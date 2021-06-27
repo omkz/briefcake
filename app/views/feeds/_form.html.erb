@@ -16,6 +16,9 @@
         <%= form.label :url, "Website url" %>
         <%= form.url_field :url, class: "input feed-input pr-32", data: { target: "feed.url" } %>
       </div>
+      <p class="pt-1 text-sm text-left" data-target="feed.integrationAd">
+          ... or <a class="underline text-blue-600 hover:text-blue-800" href="/browser">integrate with browser</a>.
+      </p>
 
       <div class="field <%= "hidden" if !show_fields %>" data-target="feed.nameField">
         <%= form.label :name %>

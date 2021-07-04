@@ -7,7 +7,7 @@
     <div class="w-full md:w-1/2">
       <%= render "form", feed: @feed %>
 
-      <% unless @feed["url"].present? %>
+      
         <div>
           <div class="text-gray-600 mb-2">We also offer <a class="underline text-blue-600 hover:text-blue-800" href="/browser">integration for browsers through bookmarklets</a>.</div>
           <div class="text-gray-600 mb-2">Looking for inspiration? These are popular websites that work with Briefcake:
@@ -25,7 +25,7 @@
             <%= render 'example_feed', name: "Mac Rumors", url: "https://www.macrumors.com" %>
           </div>
         </div>
-      <% end %>
+      
     </div>
 
     <div class="hidden md:block w-1/2 relative ml-6">

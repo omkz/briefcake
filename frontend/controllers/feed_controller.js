@@ -19,12 +19,6 @@ export default class extends Controller {
   initialize(){
     if(this.urlTarget.value){ this.check(); }
   }
-  
-  example(event) {
-    this.urlTarget.value = event.currentTarget.dataset.url;
-
-    this.check();
-  }
 
   check(event) {
     this.loaderTarget.classList.remove("hidden");

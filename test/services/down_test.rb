@@ -1,7 +1,7 @@
-require "rails_helper"
+require "test_helper"
 
-describe "Down" do
-  it 'fetched a feed that requires a redirect' do
+class DownTest < ActiveSupport::TestCase
+	test 'fetched a feed that requires a redirect' do
     VCR.use_cassette("devblog feed") do
       xml = Down.new("http://devblog.avdi.org/feed/").fetch
 
@@ -9,7 +9,7 @@ describe "Down" do
     end
   end
 
-  it 'fetches a normal feed' do
+  test 'fetches a normal feed' do
     VCR.use_cassette("derrick feed") do
       xml = Down.new("https://www.derrickreimer.com/feed.xml").fetch
 

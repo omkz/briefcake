@@ -48,6 +48,7 @@ group :development, :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'factory_bot_rails', require: false
+  gem 'minitest-stub_any_instance'
 end
 
 group :development do

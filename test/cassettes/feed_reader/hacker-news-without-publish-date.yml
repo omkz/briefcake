@@ -1,0 +1,323 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://news.ycombinator.com/rss
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 30 Jul 2019 15:26:47 GMT
+      Content-Type:
+      - application/rss+xml; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private; max-age=0
+      X-Frame-Options:
+      - DENY
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - origin
+      Strict-Transport-Security:
+      - max-age=31556900
+      Content-Security-Policy:
+      - default-src 'self'; script-src 'self' 'unsafe-inline' https://www.google.com/recaptcha/
+        https://www.gstatic.com/recaptcha/ https://cdnjs.cloudflare.com/; frame-src
+        'self' https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        <rss version="2.0">
+          <channel>
+            <title>Hacker News</title>
+            <link>https://news.ycombinator.com/</link>
+            <description>Links for the intellectually curious, ranked by readers.</description>
+            <item>
+              <title>You’re Paying into a Broken System Whenever You Buy Something on iOS</title>
+              <link>
+                https://onezero.medium.com/youre-paying-into-a-broken-system-whenever-you-buy-something-on-ios-3f3aa88ecf8c
+              </link>
+              <pubDate>Tue, 30 Jul 2019 14:39:14 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20565192</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20565192">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>!!!No publish date!!!</title>
+              <link>https://blog.tildeloop.com/posts/javascript-what%E2%80%99s-new-in-es2019</link>
+              <pubDate></pubDate>
+              <comments>https://news.ycombinator.com/item?id=20563293</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20563293">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>Google reveals fistful of flaws in Apple&#x27;s iMessage app</title>
+              <link>https://www.bbc.co.uk/news/technology-49165946</link>
+              <pubDate>Tue, 30 Jul 2019 13:00:38 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20564382</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20564382">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>Tracking Sex: Implications of widespread data leakage and tracking on porn sites
+              </title>
+              <link>https://arxiv.org/abs/1907.06520</link>
+              <pubDate>Tue, 30 Jul 2019 12:57:44 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20564359</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20564359">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>The Forgotten Solution: Superdeterminism</title>
+              <link>https://backreaction.blogspot.com/2019/07/the-forgotten-solution-superdeterminism.html
+              </link>
+              <pubDate>Sun, 28 Jul 2019 12:25:57 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20547174</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20547174">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>Ethiopia Plants 350M Trees in One Day to Combat Drought and Climate Change</title>
+              <link>
+                https://www.bloomberg.com/news/articles/2019-07-29/ethiopia-plants-350-million-trees-in-one-day-to-combat-drought
+              </link>
+              <pubDate>Tue, 30 Jul 2019 01:22:03 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20561227</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20561227">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>Mystery of Chedworth&#x27;s 1,800-year-old Roman glass shard solved</title>
+              <link>
+                https://www.theguardian.com/science/2019/jul/22/mystery-of-chedworth-1800-year-old-roman-glass-shard-solved
+              </link>
+              <pubDate>Mon, 29 Jul 2019 18:23:15 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20557667</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20557667">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>Understanding Bihar’s Super 30 Phenomenon</title>
+              <link>https://www.newslaundry.com/2019/07/29/iit-super-30-bihar-anand-hrithik-roshan</link>
+              <pubDate>Mon, 29 Jul 2019 18:33:19 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20557780</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20557780">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>New bill would ban autoplay videos and endless scrolling</title>
+              <link>
+                https://www.theverge.com/2019/7/30/20746878/josh-hawley-dark-patterns-platform-design-autoplay-youtube-videos-scrolling-snapstreaks-illegal
+              </link>
+              <pubDate>Tue, 30 Jul 2019 14:31:50 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20565141</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20565141">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>Show HN: image processing algorithms in pure Go</title>
+              <link>https://github.com/anthonynsimon/bild</link>
+              <pubDate>Tue, 30 Jul 2019 11:52:36 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20563970</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20563970">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>How to Bypass “Slider Captcha”</title>
+              <link>
+                https://medium.com/@filipvitas/how-to-bypass-slider-captcha-with-js-and-puppeteer-cd5e28105e3c
+              </link>
+              <pubDate>Sat, 27 Jul 2019 15:09:16 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20542350</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20542350">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>Point (YC W19) is hiring engineers. Come build a better bank</title>
+              <link>https://jobs.lever.co/getpoint</link>
+              <pubDate>Tue, 30 Jul 2019 14:18:52 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20565025</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20565025">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>Humans Interbred with Four Extinct Hominin Species, Research Finds</title>
+              <link>
+                http://www.sci-news.com/othersciences/anthropology/humans-hominin-introgression-07438.html
+              </link>
+              <pubDate>Tue, 30 Jul 2019 01:04:40 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20561149</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20561149">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>Lock-free multithreading with atomic operations</title>
+              <link>https://www.internalpointers.com/post/lock-free-multithreading-atomic-operations</link>
+              <pubDate>Tue, 30 Jul 2019 05:49:04 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20562403</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20562403">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>The Invention of Money</title>
+              <link>https://www.newyorker.com/magazine/2019/08/05/the-invention-of-money</link>
+              <pubDate>Mon, 29 Jul 2019 18:59:31 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20558090</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20558090">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>The Glorious and Ruinous Life of Alcibiades</title>
+              <link>
+                https://www.lawliberty.org/book-review/what-is-a-traitor-the-glorious-and-ruinous-life-of-alcibiades/
+              </link>
+              <pubDate>Mon, 29 Jul 2019 19:50:12 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20558644</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20558644">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>A tiny language called Z (2013)</title>
+              <link>https://chrisdone.com/posts/z/</link>
+              <pubDate>Mon, 29 Jul 2019 17:56:35 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20557363</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20557363">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>One week of empathy training</title>
+              <link>
+                https://shkspr.mobi/blog/2019/07/i-feel-hopeless-rejected-and-a-burden-on-society-one-week-of-empathy-training/https://shkspr.mobi/blog/2019/07/i-feel-hopeless-rejected-and-a-burden-on-society-one-week-of-empathy-training/
+              </link>
+              <pubDate>Tue, 30 Jul 2019 11:00:24 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20563679</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20563679">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>Why Kids Invent Imaginary Friends</title>
+              <link>
+                https://www.theatlantic.com/family/archive/2019/07/why-do-kids-have-imaginary-friends/594919/
+              </link>
+              <pubDate>Tue, 30 Jul 2019 13:21:56 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20564554</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20564554">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>Forest 1.0: A Language and Toolkit for Programming with Filestores (2011)</title>
+              <link>https://www.cs.princeton.edu/research/techreps/TR-904-11</link>
+              <pubDate>Mon, 29 Jul 2019 19:08:24 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20558204</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20558204">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>Megapack: Utility-Scale Energy Storage</title>
+              <link>https://www.tesla.com/blog/introducing-megapack-utility-scale-energy-storage</link>
+              <pubDate>Mon, 29 Jul 2019 21:44:16 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20559779</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20559779">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>Capital One’s breach was inevitable, because we did nothing after Equifax</title>
+              <link>https://techcrunch.com/2019/07/29/capital-one-breach-was-inevitable/</link>
+              <pubDate>Tue, 30 Jul 2019 10:07:52 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20563430</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20563430">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>The Undertakers of Silicon Valley (2018)</title>
+              <link>https://logicmag.io/failure/the-undertakers-of-silicon-valley/</link>
+              <pubDate>Mon, 29 Jul 2019 04:41:49 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20551562</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20551562">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>Google unlocks 33% of publisher paywalls on July 30. This is what happens next</title>
+              <link>
+                https://whatsnewinpublishing.com/google-unlocks-33-of-publisher-paywalls-on-july-30-this-is-what-happens-next/
+              </link>
+              <pubDate>Tue, 30 Jul 2019 13:11:19 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20564467</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20564467">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>Disabling server-side logging of Siri requests</title>
+              <link>https://github.com/jankais3r/Siri-NoLoggingPLS</link>
+              <pubDate>Tue, 30 Jul 2019 05:26:24 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20562321</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20562321">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>Children’s Village Forever</title>
+              <link>https://thelocal.to/childrens-village-forever/</link>
+              <pubDate>Mon, 29 Jul 2019 14:53:04 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20555194</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20555194">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>Navigating the tension between work and relationships</title>
+              <link>https://www.nytimes.com/2019/07/29/opinion/work-relationships.html</link>
+              <pubDate>Tue, 30 Jul 2019 13:17:57 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20564521</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20564521">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>The Hottest Phones for the Next Billion Users Aren’t Smartphones</title>
+              <link>
+                https://www.wsj.com/articles/the-hottest-phones-for-the-next-billion-users-arent-smartphones-11563879608?mod=rsswn
+              </link>
+              <pubDate>Tue, 30 Jul 2019 07:10:04 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20562695</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20562695">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>A Critique of Pure Learning: What Neural Networks Can Learn from Animal Brains</title>
+              <link>https://www.biorxiv.org/content/10.1101/582643v1</link>
+              <pubDate>Tue, 30 Jul 2019 02:20:05 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20561562</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20561562">Comments</a>]]></description>
+            </item>
+            <item>
+              <title>Banding in Games: A Noisy Rant [pdf]</title>
+              <link>http://loopit.dk/banding_in_games.pdf</link>
+              <pubDate>Mon, 29 Jul 2019 10:48:13 +0000</pubDate>
+              <comments>https://news.ycombinator.com/item?id=20553177</comments>
+              <description>
+                <![CDATA[<a href="https://news.ycombinator.com/item?id=20553177">Comments</a>]]></description>
+            </item>
+          </channel>
+        </rss>
+    http_version: 
+  recorded_at: Tue, 30 Jul 2019 15:26:36 GMT
+recorded_with: VCR 5.0.0

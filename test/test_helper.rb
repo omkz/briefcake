@@ -3,6 +3,15 @@ require_relative '../config/environment'
 require 'rails/test_help'
 require 'factory_bot_rails'
 
+require 'vcr'
+
+
+VCR.configure do |config|
+  config.cassette_library_dir = "test/cassettes"
+  config.hook_into :webmock
+  config.ignore_hosts "127.0.0.1", "localhost"
+end
+
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.

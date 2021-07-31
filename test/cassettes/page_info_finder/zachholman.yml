@@ -1,0 +1,95 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://zachholman.com/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 30 Jul 2019 16:17:46 GMT
+      Content-Type:
+      - text/html; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=da21a8eeb839656310cb0d1ff8dc26aef1564503466; expires=Wed, 29-Jul-20
+        16:17:46 GMT; path=/; domain=.zachholman.com; HttpOnly
+      Last-Modified:
+      - Tue, 02 Oct 2018 01:26:30 GMT
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Expires:
+      - Tue, 30 Jul 2019 16:27:28 GMT
+      Cache-Control:
+      - max-age=600
+      X-Proxy-Cache:
+      - HIT
+      X-Github-Request-Id:
+      - 377E:4DBB:232E4F:311D04:5D406DAA
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 4fe8a50b4d4cc833-AMS
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        <!DOCTYPE html>
+        <html lang="en">
+          <head>
+            <title>Zach Holman</title>
+
+            <meta name="author" content="Zach Holman" />
+            <meta name="twitter:site" content="@holman" />
+            <meta name="description" content="Written pieces, talks, and other bits by Zach Holman." />
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta property="og:title" content="Zach Holman" />
+
+
+              <meta property="og:image" content="/images/front.jpg" />
+
+
+            <meta charset="utf-8">
+            <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+            <link rel="alternate" type="application/rss+xml" href="//zachholman.com/atom.xml" />
+
+            <link rel="stylesheet" href="//unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
+            <link rel="stylesheet" href="/css/styles.css" type="text/css" media="screen, projection" />
+            <link rel="stylesheet" href="/webfonts/ss-social.css" type="text/css" />
+            <script src="//cdnjs.cloudflare.com/ajax/libs/balance-text/3.0.0/balancetext.min.js"></script>
+
+            <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+          </head>
+
+          <body class="avenir helvetica bg-white">
+            ...
+          </body>
+
+          <script type="text/javascript" src="//gaug.es/track.js" id="gauges-tracker" data-site-id="4d628b21ea814913ee00000b"></script>
+          <script>
+          balanceText();
+        </script>
+        </html>
+
+    http_version: 
+  recorded_at: Tue, 30 Jul 2019 16:17:36 GMT
+recorded_with: VCR 5.0.0

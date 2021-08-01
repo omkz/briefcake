@@ -1,7 +1,7 @@
-require "rails_helper"
+require "application_system_test_case"
 
-feature "Dashboard" do
-  it "adds hacker news as feed" do
+class DashboardTest < ApplicationSystemTestCase
+  test "adds hacker news as feed" do
     sign_in create(:user)
     visit root_path
     click_link "Add first feed"
@@ -12,7 +12,7 @@ feature "Dashboard" do
       click_button "Add"
     end
 
-    expect(page).to have_content "Feed was successfully created."
-    expect(page).to have_content "Hacker News"
+    assert_content(page, "Feed was successfully created.")
+    assert_content(page, "Hacker News")
   end
 end

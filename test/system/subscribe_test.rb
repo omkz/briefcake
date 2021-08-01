@@ -1,7 +1,7 @@
-require "rails_helper"
+require "application_system_test_case"
 
-feature "Signing up" do
-  it "subscribes a user to the feed" do
+class SubscribeTest < ApplicationSystemTestCase
+  test "subscribes a user to the feed" do
     feed_url = "http://svn.com/feed.xml"
     url = "http://svn.com/"
     name = "Signal vs. Noise"
@@ -14,18 +14,18 @@ feature "Signing up" do
     fill_in "email", with: "jankees@hotmail.com"
     # expect { click_on "Subscribe" }.to change { User.last.feeds.count }.by(1)
     click_on "Subscribe"
-    expect(User.count).to eq 2
-    expect(User.last.feeds.count).to eq 1
+    assert_equal(3, User.count)
+    assert_equal(1, User.last.feeds.count)
     new_user = User.last
 
-    expect(new_user.email).to eq "jankees@hotmail.com"
-    expect(new_user.feeds.first.feed_url).to eq feed_url
-    expect(new_user.feeds.first.url).to eq url
-    expect(new_user.feeds.first.name).to eq name
-    expect(new_user.feeds.first.subscribe_form).to eq form
+    assert_equal("jankees@hotmail.com", new_user.email)
+    assert_equal(feed_url, new_user.feeds.first.feed_url)
+    assert_equal(url, new_user.feeds.first.url)
+    assert_equal(name, new_user.feeds.first.name)
+    assert_equal(form, new_user.feeds.first.subscribe_form)
   end
 
-  it "gives an error for existing users" do
+  test "gives an error for existing users" do
     create(:subscribe_form, slug: "signal-vs-noise")
     user_email = "jankees@hotmail.com"
     create(:user, email: user_email)
@@ -35,17 +35,19 @@ feature "Signing up" do
     fill_in "email", with: user_email
     click_on "Subscribe"
 
-    expect(page).to have_content "You already have an account"
+    assert_content(page, "You already have an account")
   end
 
-  it "does not create an account for an invalid email address" do
+  test "does not create an account for an invalid email address" do
     create(:subscribe_form, slug: "signal-vs-noise")
 
     visit "/s/signal-vs-noise"
 
     fill_in "email", with: "jankees@h"
 
-    expect { click_on "Subscribe" }.to change { User.count }.by(0)
-    expect(page).to have_content "Invalid email address"
+    assert_no_difference -> { User.count } do
+      click_on "Subscribe"
+    end
+    assert_content(page, "Invalid email address")
   end
 end

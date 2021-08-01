@@ -57,12 +57,13 @@ jobs:
           command: RAILS_ENV=test bin/rake db:migrate
 
       - run:
-          name: Run tests (RSpec)
-          command: bundle exec rspec --format=documentation
+          name: Run unit tests
+          command: bundle exec rails test
 
       - run:
-          name: Run tests (Minitest)
-          command: bundle exec rails test
+          name: Run system tests
+          command: bundle exec rails test:system
+
 
 workflows:
   version: 2

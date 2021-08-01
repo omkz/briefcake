@@ -38,10 +38,9 @@ gem 'valid_email2'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'minitest-matchers'
   gem 'email_spec'
   gem 'pry-rails'
-  gem 'rspec-collection_matchers'
-  gem 'rspec-rails'
   gem 'timecop'
   gem 'vcr'
   gem 'webmock'
@@ -61,8 +60,6 @@ group :development do
   gem 'letter_opener', '~> 1.6'
   gem 'pry'
   gem 'rufo'
-
-  gem 'rbs' # offers improved code-completion for IDE's
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

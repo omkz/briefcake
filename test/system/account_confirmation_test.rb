@@ -1,7 +1,11 @@
-require "rails_helper"
+require "application_system_test_case"
 
-feature "Signing up" do
-  it "requires you to confirm via email" do
+class AccountConfirmationTest < ApplicationSystemTestCase
+  setup do
+    ActionMailer::Base.deliveries.clear
+  end
+
+  test "requires you to confirm via email" do
     # Sign up
     visit "/signup"
 
@@ -11,20 +15,20 @@ feature "Signing up" do
     fill_in "Password", with: "1234567890"
 
     click_on "Create an account"
-    
+
     # Try to sign in without confirming
     visit "/login"
     fill_in "Email", with: "jankees@example.com"
     fill_in "Password", with: "1234567890"
     click_on "Log in"
 
-    expect(page).to have_content "You have to confirm your email address before continuing."
+    assert_content(page, "You have to confirm your email address before continuing.")
 
     # Confirm and sign in
     visit confirm_link_in_email
 
-    expect(page).to have_content "You are now confirmed!"
-    expect(page).to have_content "We are now able to send email."
+    assert_content(page, "You are now confirmed!")
+    assert_content(page, "We are now able to send email.")
 
     click_on "Log in"
 
@@ -33,11 +37,11 @@ feature "Signing up" do
 
     click_on "Log in"
 
-    expect(page).to have_content "Signed in successfully."
+    assert_content(page, "Signed in successfully.")
   end
 
   def confirm_link_in_email
-    expect(ActionMailer::Base).to have(1).delivery
+    assert_equal(1, ActionMailer::Base.deliveries.count )
     email = ActionMailer::Base.deliveries.first
     email_body = email.parts.first.to_s
     regexp = /\/confirmation\?confirmation_token=.+?\s+/i

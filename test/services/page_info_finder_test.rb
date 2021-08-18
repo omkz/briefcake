@@ -92,4 +92,14 @@ class PageInfoFinderTest < ActiveSupport::TestCase
     end
   end
 
+
+  test "uses feeder to access instagram feeds" do
+    VCR.use_cassette("page_info_finder/instgram/5katkov") do
+      url_info = PageInfoFinder.new('https://www.instagram.com/5katkov/').fetch!
+
+      assert_equal({
+        feed_url: "https://feeder.briefcake.com/picuki/profile/5katkov/",
+        name: 'S.K. (@5katkov) • Instagram photos and videos'}, url_info.to_json)
+    end
+  end
 end

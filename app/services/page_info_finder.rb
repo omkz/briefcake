@@ -4,6 +4,8 @@ require "net/http"
 class PageInfoFinder
   include UrlHelpers
 
+  FEEDER_URL = 'https://feeder.briefcake.com'
+
   def initialize(url)
     @url = url
   end
@@ -28,6 +30,7 @@ class PageInfoFinder
 
   def feed_url
     return @url if is_rss_feed?
+    return "#{FEEDER_URL}/picuki/profile/#{URI(@url).path[1..]}" if instagram?
 
     feed_url = @document.css("link[rel=alternate][type*=xml]")[0]["href"]
 
@@ -45,5 +48,11 @@ class PageInfoFinder
 
   def to_json
     { name: name, feed_url: feed_url }
+  end
+
+  private
+
+  def instagram?
+    URI(@url).host.eql?("www.instagram.com")
   end
 end

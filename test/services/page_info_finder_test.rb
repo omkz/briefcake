@@ -104,8 +104,8 @@ class PageInfoFinderTest < ActiveSupport::TestCase
   end
 
 
-  test "handles youtube channel properly" do
-    VCR.use_cassette("page_info_finder/youtube/user-dj") do
+  test "handles youtube channel through feeder" do
+    VCR.use_cassette("page_info_finder/youtube/channel") do
       url_info = PageInfoFinder.new('https://www.youtube.com/channel/UCnO0dcSgfp18PDxH5oNVpKQ').fetch!
 
       assert_equal({
@@ -113,7 +113,17 @@ class PageInfoFinderTest < ActiveSupport::TestCase
         feed_url: "https://feeder.briefcake.com/youtube/channel/UCnO0dcSgfp18PDxH5oNVpKQ"
         }, url_info.to_json)
     end
-    #
-    # https://www.youtube.com/user/djcarloatendido/playlists
+  end
+
+
+  test "handles youtube user through feeder" do
+    VCR.use_cassette("page_info_finder/youtube/user") do
+      url_info = PageInfoFinder.new('https://www.youtube.com/user/djcarloatendido/playlists').fetch!
+
+      assert_equal({
+        name: 'Voordat je verdergaat naar YouTube',
+        feed_url: "https://feeder.briefcake.com/youtube/user/djcarloatendido"
+        }, url_info.to_json)
+    end
   end
 end

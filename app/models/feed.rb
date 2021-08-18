@@ -19,7 +19,7 @@ class Feed < ApplicationRecord
   end
 
   def is_youtube?
-    feed_url.present? && feed_url.start_with?("https://www.youtube.com/")
+    url.present? && URI(url).host.eql?("www.youtube.com")
   end
 
   def new_items!

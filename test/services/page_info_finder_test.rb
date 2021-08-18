@@ -102,4 +102,18 @@ class PageInfoFinderTest < ActiveSupport::TestCase
         name: 'S.K. (@5katkov) • Instagram photos and videos'}, url_info.to_json)
     end
   end
+
+
+  test "handles youtube channel properly" do
+    VCR.use_cassette("page_info_finder/youtube/user-dj") do
+      url_info = PageInfoFinder.new('https://www.youtube.com/channel/UCnO0dcSgfp18PDxH5oNVpKQ').fetch!
+
+      assert_equal({
+        name: 'Voordat je verdergaat naar YouTube',
+        feed_url: "https://feeder.briefcake.com/youtube/channel/UCnO0dcSgfp18PDxH5oNVpKQ"
+        }, url_info.to_json)
+    end
+    #
+    # https://www.youtube.com/user/djcarloatendido/playlists
+  end
 end

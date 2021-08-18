@@ -31,6 +31,7 @@ class PageInfoFinder
   def feed_url
     return @url if is_rss_feed?
     return "#{FEEDER_URL}/picuki/profile/#{URI(@url).path[1..]}" if instagram?
+    return "#{FEEDER_URL}/youtube/#{URI(@url).path[1..]}" if youtube_channel?
 
     feed_url = @document.css("link[rel=alternate][type*=xml]")[0]["href"]
 
@@ -51,6 +52,11 @@ class PageInfoFinder
   end
 
   private
+
+  def youtube_channel?
+    uri = URI(@url)
+    uri.host.eql?('www.youtube.com')
+  end
 
   def instagram?
     URI(@url).host.eql?("www.instagram.com")

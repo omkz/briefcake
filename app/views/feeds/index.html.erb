@@ -54,7 +54,7 @@
 
                 <p class="text-xs"><%= feed.url || feed.feed_url %></p>
               </td>
-              <td class="text-right"><%= link_to "Delete", feed, method: :delete, class: "pill pill--secondary bg-black hover:bg-red-500 text-white p-4", data: {confirm: "Are you sure you want to delete #{feed.name}?"} %></td>
+              <td class="text-right"><%= link_to "Delete", feed, method: :delete, class: "pill pill--secondary bg-black hover:bg-red-500 text-white p-4", data: {confirm: "This action will remove \"#{feed.name}\"(#{feed.url}) feed from your list. Do you want to proceed?"} %></td>
             <% end %>
           <% end %>
           </tbody>

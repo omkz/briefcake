@@ -99,7 +99,7 @@ class PageInfoFinderTest < ActiveSupport::TestCase
 
       assert_equal({
         feed_url: "https://feeder.briefcake.com/picuki/profile/5katkov/",
-        name: 'S.K. (@5katkov) • Instagram photos and videos'}, url_info.to_json)
+        name: "S.K. (@5katkov) - Picuki"}, url_info.to_json)
     end
   end
 
@@ -109,7 +109,7 @@ class PageInfoFinderTest < ActiveSupport::TestCase
       url_info = PageInfoFinder.new('https://www.youtube.com/channel/UCnO0dcSgfp18PDxH5oNVpKQ').fetch!
 
       assert_equal({
-        name: 'Voordat je verdergaat naar YouTube',
+        name: 'DJ Carlo Atendido - YouTube',
         feed_url: "https://feeder.briefcake.com/youtube/channel/UCnO0dcSgfp18PDxH5oNVpKQ"
         }, url_info.to_json)
     end
@@ -121,7 +121,7 @@ class PageInfoFinderTest < ActiveSupport::TestCase
       url_info = PageInfoFinder.new('https://www.youtube.com/user/djcarloatendido/playlists').fetch!
 
       assert_equal({
-        name: 'Voordat je verdergaat naar YouTube',
+        name: 'djcarloatendido - YouTube',
         feed_url: "https://feeder.briefcake.com/youtube/user/djcarloatendido"
         }, url_info.to_json)
     end

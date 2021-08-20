@@ -7,7 +7,16 @@ class PageInfoFinder
   FEEDER_URL = 'https://feeder.briefcake.com'
 
   def initialize(url)
-    @url = url
+    uri = URI(url)
+    @url = case(uri.host)
+           when "www.instagram.com"
+             instagram_feed(uri.path[1..])
+           when "www.youtube.com"
+             youtube_feed(uri)
+           else
+             url
+           end
+
   end
 
   def fetch!
@@ -30,8 +39,6 @@ class PageInfoFinder
 
   def feed_url
     return @url if is_rss_feed?
-    return "#{FEEDER_URL}/picuki/profile/#{URI(@url).path[1..]}" if instagram?
-    return youtube_feed if youtube?
 
     feed_url = @document.css("link[rel=alternate][type*=xml]")[0]["href"]
 
@@ -42,6 +49,7 @@ class PageInfoFinder
 
   def name
     return @feed.title if is_rss_feed?
+
     @document.css("title")[0].text.to_s.squish
   rescue
     nil
@@ -53,8 +61,12 @@ class PageInfoFinder
 
   private
 
-  def youtube_feed
-    case (uri = URI(@url)).path.split("/")[1]
+  def instagram_feed(username)
+    "#{FEEDER_URL}/picuki/profile/#{username}"
+  end
+
+  def youtube_feed(uri)
+    case uri.path.split("/")[1]
     when 'user'
       "#{FEEDER_URL}/youtube/user/#{uri.path.split("/")[2]}"
     when 'channel'

@@ -62,6 +62,10 @@ group :development do
   gem 'rufo'
 end
 
+group :production do # don't drop by debugging session on development, please
+  gem "rack-timeout"
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
@@ -82,6 +86,5 @@ gem 'nokogiri'
 gem 'validate_url'
 
 gem 'browser', '~> 4.2'
-gem "rack-timeout"
 gem "http"
 gem "barnes" # used to report GC stats to heroku

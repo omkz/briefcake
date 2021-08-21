@@ -5,7 +5,6 @@ import axios from "axios";
 export default class extends Controller {
   static targets = [
     "url",
-    "rssFeedUrlField",
     "rssFeedUrlInput",
     "nameField",
     "nameInput",
@@ -34,8 +33,8 @@ export default class extends Controller {
 
         const data = response.data;
 
-        this.rssFeedUrlFieldTarget.classList.remove("hidden");
         this.rssFeedTruncationFieldTarget.classList.remove("hidden");
+        // TODO: make sure to remove this, there is no need for feed url on front-end side. Everything could be determined on a back-end.
         this.rssFeedUrlInputTarget.value = data.feed_url;
         this.nameInputTarget.value = data.name;
       })

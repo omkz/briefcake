@@ -89,4 +89,3 @@ gem 'browser', '~> 4.2'
 gem "http"
 gem "barnes" # used to report GC stats to heroku
 
-gem 'strong_migrations'

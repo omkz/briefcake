@@ -286,8 +286,6 @@ GEM
     storext (3.3.0)
       activerecord (>= 4.0, < 6.2)
       virtus
-    strong_migrations (0.7.8)
-      activerecord (>= 5)
     thor (1.1.0)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -374,7 +372,6 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   selenium-webdriver
   storext (~> 3.1)
-  strong_migrations
   timecop
   turbolinks (~> 5)
   tzinfo-data

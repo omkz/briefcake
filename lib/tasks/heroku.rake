@@ -40,6 +40,6 @@ namespace :heroku do
   private
 
   def heroku_command(command)
-    Kernel.`("heroku #{command} --app ashopco")
+    Kernel.`("heroku #{command} --app #{HEROKU_APP}")
   end
 end

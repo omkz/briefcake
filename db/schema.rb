@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_28_084053) do
+ActiveRecord::Schema.define(version: 2021_08_23_203733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -171,7 +171,6 @@ ActiveRecord::Schema.define(version: 2021_07_28_084053) do
     t.string "paddle_subscription_id", default: ""
     t.string "paddle_email", default: ""
     t.datetime "deleted_at"
-    t.string "paddle_receipt_url"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true

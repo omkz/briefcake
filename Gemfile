@@ -77,7 +77,7 @@ gem 'premailer-rails', '~> 1.10'
 gem 'storext', '~> 3.1'
 gem 'webpacker', '~> 3.5', '>= 3.5.5'
 
-gem 'good_job'
+gem 'good_job', '~> 1'
 
 gem 'feedjira'
 gem 'honeybadger'

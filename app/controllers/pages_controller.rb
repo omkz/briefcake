@@ -12,6 +12,7 @@ class PagesController < ApplicationController
   end
 
   def example
+    response.headers["X-FRAME-OPTIONS"] = "ALLOWALL"
     render layout: "mailer"
   end
 

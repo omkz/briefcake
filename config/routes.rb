@@ -30,7 +30,10 @@ Rails.application.routes.draw do
 
   ## enduser endpoints
   # generic renders
-  root to: 'pages#home'
+  devise_scope :user do
+    root to: 'users/sessions#new'
+  end
+
   get 'thank-you', to: 'pages#thankyou'
   get '/creator', to: 'pages#creator'
   get '/pro', to: redirect('/plans')

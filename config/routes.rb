@@ -35,7 +35,6 @@ Rails.application.routes.draw do
   end
 
   get 'thank-you', to: 'pages#thankyou'
-  get '/creator', to: 'pages#creator'
   get '/pro', to: redirect('/plans')
   get '/pricing', to: redirect('/plans')
   get '/plans', to: 'pages#plans'
@@ -45,8 +44,6 @@ Rails.application.routes.draw do
   get '/422', to: 'errors#unacceptable'
   get '/404', to: 'errors#not_found'
   get '/feeds/export', to: 'feeds#export'
-  get '/privacy-policy', to: 'pages#privacy_policy'
-  get '/terms-of-service', to: 'pages#terms_of_service'
   get '/browser', to: 'integration_pages#browser'
 
   ## more dynamic
@@ -56,9 +53,6 @@ Rails.application.routes.draw do
   get 'import', to: 'import#new'
 
   get 'unsubscribe', to: 'unsubscribe#destroy'
-
-  get '/s/:slug', controller: :subscribe, action: :show
-  post '/s/:slug', controller: :subscribe, action: :subscribe, as: :subscribe
 
   resources :feeds do
     get :check, on: :collection

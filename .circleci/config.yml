@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.7.3-node-browsers
+      - image: circleci/ruby:2.7.4-node-browsers
         environment:
           RAILS_ENV: test
           POSTGRESQL_HOST: 127.0.0.1
@@ -18,7 +18,7 @@ jobs:
     steps:
       - run:
           name: Update bundler 2
-          command: gem install bundler:2.2.3
+          command: gem install bundler:2.2.27
       - checkout
 
       - restore_cache:
@@ -35,9 +35,9 @@ jobs:
             - ~/.cache/yarn
       - restore_cache:
           keys:
-            - v1-gem-cache-{{ arch }}-{{ checksum "Gemfile.lock" }}
-            - v1-gem-cache-{{ arch }}-
-            - v1-gem-cache-{{ arch }}
+            - v2-gem-cache-{{ arch }}-{{ checksum "Gemfile.lock" }}
+            - v2-gem-cache-{{ arch }}-
+            - v2-gem-cache-{{ arch }}
 
 
       - run: bundle config set --local path 'vendor/bundle'
@@ -46,7 +46,7 @@ jobs:
       - save_cache:
           paths:
             - vendor/bundle
-          key: v1-gem-cache-{{ arch }}-{{ checksum "Gemfile.lock" }}
+          key: v2-gem-cache-{{ arch }}-{{ checksum "Gemfile.lock" }}
 
       - run:
           name: Create database

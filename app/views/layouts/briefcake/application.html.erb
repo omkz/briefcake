@@ -7,10 +7,6 @@
 <body>
   <%= show_site_wide_announcement(current_user) %>
 
-  <% if params.permit("ref").fetch("ref", "").eql?("rssmailer.app") %>
-    <%= render "shared/briefcake_transition.html.erb" %>
-  <% end %>
-
   <%= render "shared/flash" %>
   <div class="min-h-screen flex flex-col justify-between items-center">
     <div class="p-2">

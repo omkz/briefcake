@@ -34,17 +34,15 @@ Rails.application.routes.draw do
     root to: 'users/sessions#new'
   end
 
-  get 'thank-you', to: 'pages#thankyou'
+  get '/thank-you', to: 'pages#thankyou'
   get '/pro', to: redirect('/plans')
   get '/pricing', to: redirect('/plans')
   get '/plans', to: 'pages#plans'
-  get '/stats.txt', to: 'pages#stats'
   get '/example-email', to: 'pages#example'
   get '/500', to: 'errors#server_error'
   get '/422', to: 'errors#unacceptable'
   get '/404', to: 'errors#not_found'
   get '/feeds/export', to: 'feeds#export'
-  get '/browser', to: 'integration_pages#browser'
 
   ## more dynamic
   get 'subscribe/show'

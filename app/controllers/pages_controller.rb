@@ -1,10 +1,6 @@
 class PagesController < ApplicationController
   layout "briefcake/application", only: [:home, :creator, :plans, :privacy_policy, :terms_of_service, :cookie_policy]
 
-  def stats
-    render plain: "#{User.count},#{Feed.count},#{SentEmail.count},#{User.where(is_pro: true).count}"
-  end
-
   def example
     response.headers["X-FRAME-OPTIONS"] = "ALLOWALL"
     render layout: "mailer"

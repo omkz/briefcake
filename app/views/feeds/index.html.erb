@@ -37,6 +37,10 @@
                     <%= image_tag "youtube-brands.svg", width: 20, class: "inline" %>
                   <% end %>
 
+                  <% if feed.is_instagram? %>
+                    <%= image_tag "instagram-brands.svg", width: 20, class: "inline" %>
+                  <% end %>
+
                   <%= link_to [:edit, feed] do %>
                     <%= feed.name %>
                   <% end %>

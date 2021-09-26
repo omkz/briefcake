@@ -22,6 +22,10 @@ class Feed < ApplicationRecord
     url.present? && URI(url).host.eql?("www.youtube.com")
   end
 
+  def is_instagram?
+    url.present? && URI(url).host.eql?("www.instagram.com")
+  end
+
   def new_items!
     return [] if publish_date_last_sent_item.nil?
 

@@ -65,9 +65,9 @@
   <% else %>
     <div class="my-8">
       <h1 class="mb-1 text-3xl sm:text-5xl leading-tight font-black">Hello there!</h1>
-      <p class="mb-8 text-xl text-gray-600">It's time to add your first feed, press the button.</p>
+      <p class="mb-8 text-xl text-gray-600">It's time to add your first feeds!</p>
 
-      <%= link_to "Add first feed", new_feed_path, class: "btn btn--primary" %>
+      <%= link_to "Import feeds", import_path, class: "btn btn--primary" %> or <%= link_to "add feeds one by one", new_feed_path, class: "btn btn--secondary" %>
     </div>
   <% end %>
 

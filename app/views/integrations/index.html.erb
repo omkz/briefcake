@@ -2,7 +2,7 @@
 	<div class="card__content">
 		<%= form_with(model: current_user, url: integrations_url, method: :post, local: true) do |form| %>
 		  <div class="field-centered ">
-		    <%= form.check_box :pocket, class: "input-checkbox" %>
+		    <%= form.check_box :pocket, class: "input-checkbox bg-white border-2 rounded border-gray-400 w-6 h-6 flex flex-shrink-0 justify-center items-center mr-2 focus-within:border-blue-500" %>
 		    <%= form.label :pocket, class: 'm-0 text-2xl font-bold' %>
 		  </div>
 		  <p class="mb-4">

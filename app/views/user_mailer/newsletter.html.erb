@@ -52,7 +52,7 @@
         </div>
 
         <div class="text-xs text-gray-600 font-normal mb-2">
-          <%= item.feed.name %> - <%= I18n.l(item.publish_date.to_date, format: "%B %-d, %Y") %> - <%= link_to "Save to Pocket", "https://getpocket.com/edit.php?url=#{item.link}", class:"text-red-400 underline", target: "_blank" %>
+          <%= item.feed.name %> - <%= I18n.l(item.publish_date.to_date, format: "%B %-d, %Y") %> <%if @user.pocket? %>  - <%= link_to "Save to Pocket", "https://getpocket.com/edit.php?url=#{item.link}", class:"text-red-400 underline", target: "_blank" %> <% end %>
         </div>
 
         <div class="text-base text-left feed-content"><%= sanitize(item.description.to_s) %></div>

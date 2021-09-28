@@ -1,0 +1,17 @@
+<div class="card card--light mb-8">
+	<div class="card__content">
+		<%= form_with(model: current_user, url: integrations_url, method: :post, local: true) do |form| %>
+		  <div class="field-centered ">
+		    <%= form.check_box :pocket, class: "input-checkbox" %>
+		    <%= form.label :pocket, class: 'm-0 text-2xl font-bold' %>
+		  </div>
+		  <p class="mb-4">
+		  	Gives ability to save articles into a <a href="https://getpocket.com">pocket</a> for later reading.
+		  </p>
+ 
+		  <div>
+		    <%= form.submit("Update", class: "btn btn--primary") %>
+		  </div>
+		<% end %>
+	</div>
+</div>

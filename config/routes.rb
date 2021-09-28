@@ -34,6 +34,8 @@ Rails.application.routes.draw do
     root to: 'users/sessions#new'
   end
 
+  resources :integrations
+
   get '/thank-you', to: 'pages#thankyou'
   get '/pro', to: redirect('/plans')
   get '/pricing', to: redirect('/plans')

@@ -11,6 +11,10 @@ class User < ApplicationRecord
   has_many :sent_emails
   has_one :subscribe_form, dependent: :destroy
 
+  typed_store :integrations do |s|
+    s.boolean :pocket, default: false
+  end
+
   scope :who_get_emails, -> { where(unsubscribed_at: nil).where.not(confirmed_at: nil) }
   scope :unsubscribed, -> { where.not(unsubscribed_at: nil) }
 

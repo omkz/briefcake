@@ -28,6 +28,7 @@
             <%= link_to "Upgrade to pro", pricing_path, class: "dropdown__item" unless current_user&.is_pro? %>
             <%= link_to "Feeds", feeds_path, class: "dropdown__item" %>
             <%= link_to "Account", edit_user_registration_path, class: "dropdown__item" %>
+            <%= link_to "Integrations", integrations_path, class: "dropdown__item" %>
             <%= link_to "Import", import_path, class: "dropdown__item" %>
             <%= link_to "Export", feeds_export_path, class: "dropdown__item", data: {type: :xml} %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown__item" %>

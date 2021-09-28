@@ -78,6 +78,7 @@ gem 'storext', '~> 3.1'
 gem 'webpacker', '~> 3.5', '>= 3.5.5'
 
 gem 'good_job'
+gem 'activerecord-typedstore'
 
 gem 'feedjira'
 gem 'honeybadger'

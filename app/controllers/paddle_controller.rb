@@ -42,7 +42,8 @@ class PaddleController < ApplicationController
                      is_pro: is_subscribed,
                      paddle_user_id: data["user_id"],
                      paddle_subscription_id: data["subscription_id"],
-                     paddle_email: data["email"]
+                     paddle_email: data["email"],
+                     paddle_data: data
                    })
     end
 

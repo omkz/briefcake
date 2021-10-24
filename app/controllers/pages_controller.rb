@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  layout "briefcake/application", only: [:home, :creator, :plans, :privacy_policy, :terms_of_service, :cookie_policy]
+  layout "briefcake/application"
 
   def example
     response.headers["X-FRAME-OPTIONS"] = "ALLOWALL"

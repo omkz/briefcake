@@ -3,8 +3,6 @@ orbs:
   browser-tools: circleci/browser-tools@1.1
 jobs:
   build:
-    working_directory: /tmp
-    
     docker:
       - image: cimg/ruby:2.7.4-browsers
         environment:
@@ -16,6 +14,8 @@ jobs:
           POSTGRES_USER: rssmailer
           POSTGRES_PASSWORD: rssmailer
           POSTGRES_DB: rssmailer
+
+    working_directory: ~/rssmailer-app
 
     steps:
       - browser-tools/install-chrome
@@ -72,8 +72,9 @@ jobs:
       - run:
           name: Run system tests
           command: bundle exec rails test:system
+
       - store_artifacts:
-          path: /tmp/screenshots
+          path: ~/tmp/screenshots
 
 
 workflows:

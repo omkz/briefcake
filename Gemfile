@@ -70,7 +70,7 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'devise', '~> 4.7'
-gem 'devise_masquerade', '~> 0.6.5'
+gem 'devise_masquerade'
 gem 'friendly_id', '~> 5.3'
 gem 'name_of_person', '~> 1.0'
 gem 'premailer-rails', '~> 1.10'

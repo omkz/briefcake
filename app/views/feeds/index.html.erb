@@ -27,7 +27,9 @@
             <th></th>
           </tr>
           </thead>
-
+          <div>
+            <%= link_to "Add feed", new_feed_path, class: "btn btn--primary mr-4 float-right" %>
+          </div>
           <tbody>
           <% @feeds.each do |feed| %>
             <%= content_tag :tr, id: dom_id(feed) do %>

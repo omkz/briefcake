@@ -1,8 +1,10 @@
-version: 2
+version: 2.1
+orbs:
+  browser-tools: circleci/browser-tools@1.1
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.7.4-node-browsers
+      - image: cimg/ruby:2.7.4-browsers
         environment:
           RAILS_ENV: test
           POSTGRESQL_HOST: 127.0.0.1
@@ -16,10 +18,17 @@ jobs:
     working_directory: ~/rssmailer-app
 
     steps:
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
       - run:
           name: Update bundler 2
           command: gem install bundler:2.2.27
       - checkout
+      - run: |
+          ruby --version
+          node --version
+          java --version
+          google-chrome --version
 
       - restore_cache:
           name: Restore Yarn Package Cache
@@ -63,6 +72,8 @@ jobs:
       - run:
           name: Run system tests
           command: bundle exec rails test:system
+      - store_artifacts:
+          path: /tmp/screenshots
 
 
 workflows:

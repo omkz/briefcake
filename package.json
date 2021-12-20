@@ -2,15 +2,15 @@
   "name": "briefcake",
   "private": true,
   "dependencies": {
-    "@rails/ujs": "6.0.1",
+    "@rails/ujs": "^6.0.1",
     "@rails/webpacker": "3.5",
     "axios": "^0.21.1",
     "lodash": "^4.17.21",
-    "postcss-nested": "4.1.2",
-    "postcss-preset-env": "6.6.0",
+    "postcss-nested": "^4.1.2",
+    "postcss-preset-env": "^6.6.0",
     "stimulus": "^1.1.1",
     "tailwindcss": "^1.0.4",
-    "turbolinks": "5.2.0"
+    "turbolinks": "^5.2.0"
   },
   "devDependencies": {
     "webpack-cli": "^4.7.2",

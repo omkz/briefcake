@@ -23,7 +23,9 @@ Rails.application.routes.draw do
     get 'confirmed', to: 'confirmations#confirmed'
   end
 
-  mount GoodJob::Engine => 'good_job'
+  authenticate :user, ->(user) { user.admin? } do
+    mount GoodJob::Engine => 'good_job'
+  end
 
   # webhook endpoint for paddle service
   post 'paddle/hook'

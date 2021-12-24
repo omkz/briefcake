@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_21_011047) do
+ActiveRecord::Schema.define(version: 2021_12_20_203646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -107,6 +107,13 @@ ActiveRecord::Schema.define(version: 2021_12_21_011047) do
     t.integer "number_of_items"
     t.float "compose_duration_in_seconds", default: 0.0
     t.index ["user_id"], name: "index_sent_emails_on_user_id"
+  end
+
+  create_table "service_messages", force: :cascade do |t|
+    t.string "service_type", null: false
+    t.jsonb "data", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sites", force: :cascade do |t|

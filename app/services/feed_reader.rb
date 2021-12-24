@@ -9,26 +9,36 @@ class FeedReader
     exception_occurred = nil
 
     items = begin
-              rss_feed_entries.map do |feed_jira_entry|
-                FeedItem.new(
-                  feed: feed,
-                  title: feed_jira_entry.title.to_s.squish,
-                  description: feed_jira_entry.summary.to_s.squish,
-                  link: add_domain_to_url(feed_jira_entry.url, feed.feed_url),
-                  publish_date: feed_jira_entry.published,
-                  image_url: feed_jira_entry.try(:media_thumbnail_url)
-                )
-              end
-            rescue => e
-              # FIXME: this needs a better error handling
-              # - Net::ReadTimeout, Net::OpenTimeout -- can try to retry
-              # - URI::InvalidURIError, HTTParty::UnsupportedURIScheme
-              # - HTTParty::RedirectionTooDeep
-              # - Rack::Timeout::RequestTimeoutException
-              # - 
-              exception_occurred = e.to_s
-              []
-            end
+      feed_data = rss_feed
+
+      if feed.is_instagram?
+        ServiceMessage.create(service_type: "instagram",
+          data: feed_data
+        )
+      end
+
+      feed_data.entries.map do |feed_jira_entry|
+        FeedItem.new(
+          feed: feed,
+          title: feed_jira_entry.title.to_s.squish,
+          description: feed_jira_entry.summary.to_s.squish,
+          link: add_domain_to_url(feed_jira_entry.url, feed.feed_url),
+          publish_date: feed_jira_entry.published,
+          image_url: feed_jira_entry.try(:media_thumbnail_url)
+        )
+      end
+    rescue => e
+      # FIXME: this needs a better error handling
+      # - Net::ReadTimeout, Net::OpenTimeout -- can try to retry
+      # - URI::InvalidURIError, HTTParty::UnsupportedURIScheme
+      # - HTTParty::RedirectionTooDeep
+      # - Rack::Timeout::RequestTimeoutException
+      # - 
+
+      Honeybadger.notify e
+      exception_occurred = e.to_s
+      []
+    end
 
     feed.update_column(:fetch_error, exception_occurred) if feed.persisted?
 
@@ -43,7 +53,7 @@ class FeedReader
     @feed
   end
 
-  def rss_feed_entries
-    Feedjira.parse(Down.new(feed.feed_url).fetch).entries
+  def rss_feed
+    Feedjira.parse(Down.new(feed.feed_url).fetch)
   end
 end

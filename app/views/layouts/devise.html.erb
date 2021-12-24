@@ -7,7 +7,7 @@
 <body>
   <%= render "shared/flash" %>
   <div class="">
-    <%= link_to "🍰 #{Rails.configuration.application_name}", root_url, class: "block my-8 text-2xl text-center font-bold text-black hover:text-grey-dark no-underline" %>
+    <%= link_to "🍰 #{Rails.configuration.application_name}", "https://#{Rssmailer::Application.config.application_naked_domain}" , class: "block my-8 text-2xl text-center font-bold text-black hover:text-grey-dark no-underline" %>
 
     <%= yield %>
   </div>

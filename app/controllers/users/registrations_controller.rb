@@ -43,7 +43,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     when "edit"
       "dashboard"
     else
-      "briefcake/application"
+      "layouts/devise"
     end
   end
 end

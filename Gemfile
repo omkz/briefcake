@@ -57,6 +57,8 @@ group :development do
   gem 'letter_opener', '~> 1.6'
   gem 'pry'
   gem 'rufo'
+
+  gem 'fix-db-schema-conflicts', '~> 3.1'
 end
 
 group :production do # don't drop by debugging session on development, please

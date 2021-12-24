@@ -20,7 +20,13 @@ class PageInfoFinder
   end
 
   def fetch!
-    @request = HTTParty::Request.new(Net::HTTP::Get, @url, headers: { "User-Agent" => UserAgent.user_agent_for(@url) })
+    @request = HTTParty::Request.new(
+      Net::HTTP::Get, 
+      @url, 
+      headers: { "User-Agent" => UserAgent.user_agent_for(@url) },
+      open_timeout: 25,
+      read_timeout: 25
+    )
     @performed_request = @request.perform
     @document = Nokogiri::HTML(@performed_request.body)
     @uri = @request.last_uri

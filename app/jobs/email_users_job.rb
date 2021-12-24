@@ -1,5 +1,5 @@
 class EmailUsersJob < ApplicationJob
-  queue_as :default
+  queue_as :low
 
   def perform(*args)
     User.who_get_emails.find_each do |user|

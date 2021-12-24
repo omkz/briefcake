@@ -1,5 +1,5 @@
 class NewsletterJob < ApplicationJob
-  queue_as :default
+  queue_as :low
 
   def perform(user_id, dry_run: false)
     @user = User.find(user_id)

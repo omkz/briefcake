@@ -1,4 +1,4 @@
-GoodJob.preserve_job_records = false
+GoodJob.preserve_job_records = true
 GoodJob.retry_on_unhandled_error = false
 GoodJob.on_thread_error = -> (exception) { Honeybadger.notify(exception) }
 

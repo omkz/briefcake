@@ -60,4 +60,10 @@ class User < ApplicationRecord
   def custom_timing?
     send_email_at.present?
   end
+
+  protected
+  
+  def confirmation_required?
+    false
+  end
 end

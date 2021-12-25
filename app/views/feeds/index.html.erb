@@ -17,6 +17,16 @@
   <% end %>
 
   <% if @feeds.any? %>
+    <ul>
+      <% unless current_user.confirmed? %>
+        <li class="flash">
+          We've sent you cofirmation email, click on link inside to confirm your email. Otherwise we'll be unable to send updates.
+          <br/><br/>
+          If email is missing please check your spam folder or <%= link_to('resend confirmation email', new_user_confirmation_path) %>.
+        </li>
+      <% end %>
+    </ul>
+    
     <div class="card card--light mb-8">
       <div class="card__content">
         <table class="table mb-8">
@@ -70,18 +80,18 @@
 
       <%= link_to "Import feeds", import_path, class: "btn btn--primary my-2" %> or <%= link_to "add feeds one by one", new_feed_path, class: "btn btn--secondary my-2" %>
     </div>
+
+
+    <ul>
+      <% unless current_user.confirmed? %>
+        <li class="flash">
+          We've sent you cofirmation email, click on link inside to confirm your email. Otherwise we'll be unable to send updates.
+          <br/><br/>
+          If email is missing please check your spam folder or <%= link_to('resend confirmation email', new_user_confirmation_path) %>.
+        </li>
+      <% end %>
+    </ul>
   <% end %>
-
-
-  <ul>
-    <% unless current_user.confirmed? %>
-      <li class="flash">
-        We've sent you cofirmation email, click on link inside to confirm your email. Otherwise we'll be unable to send updates.
-        <br/><br/>
-        If email is missing please check your spam folder or <%= link_to('resend confirmation email', new_user_confirmation_path) %>.
-      </li>
-    <% end %>
-  </ul>
 
 </div>
 

@@ -27,10 +27,16 @@ class FeedReader
           image_url: feed_jira_entry.try(:media_thumbnail_url)
         )
       end
-    rescue SocketError => e
-      # this is probably results of Heroku being banned in China. We can't retrieve data from chinese servers (they ban through DNS).
+    rescue SocketError, Errno::ECONNREFUSED, Errno::ECONNRESET => e
+      # this is probably results of Heroku being banned in China. We can't retrieve data from chinese servers (they ban through DNS)
+
       exception_occurred = e.to_s
       []
+
+    rescue Net::OpenTimeout => e
+      exception_occurred = e.to_s
+      []
+
     rescue => e
       # FIXME: this needs a better error handling
       # - Net::ReadTimeout, Net::OpenTimeout -- can try to retry
@@ -38,7 +44,10 @@ class FeedReader
       # - HTTParty::RedirectionTooDeep
       # - Rack::Timeout::RequestTimeoutException
 
-      Honeybadger.notify e
+      Honeybadger.notify(e, context: {
+        feed: feed
+      })
+
       exception_occurred = e.to_s
       []
     end

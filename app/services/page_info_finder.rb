@@ -31,8 +31,16 @@ class PageInfoFinder
     @document = Nokogiri::HTML(@performed_request.body)
     @uri = @request.last_uri
     self
+  rescue SocketError, Errno::ECONNREFUSED, Errno::ECONNRESET => e
+    # this is probably results of Heroku being banned in China. 
+    # We can't retrieve data from chinese servers (they ban through DNS)
+
+    self
+  rescue Net::OpenTimeout => e
+    self
   rescue => e
     Honeybadger.notify(e)
+    
     self
   end
 

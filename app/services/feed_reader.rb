@@ -45,7 +45,8 @@ class FeedReader
       # - Rack::Timeout::RequestTimeoutException
 
       Honeybadger.notify(e, context: {
-        feed: feed
+        feed_url: feed.feed_url,
+        url: feed.url
       })
 
       exception_occurred = e.to_s

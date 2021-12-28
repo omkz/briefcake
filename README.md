@@ -1,8 +1,3 @@
-# SJABLOON README
-
-
-Thanks for using Sjabloon to get a flying start with your new Ruby on Rails project! 🎊
-
 ## Quickstart guide
 There are a few steps you have to do manually. See below this quickstart for more in depth information on various features of Sjabloon.
 
@@ -13,57 +8,11 @@ There are a few steps you have to do manually. See below this quickstart for mor
 
 For details about billing with Stripe, please check the additional README_FOR_BILLING.
 
-### Rails Credentials
-Sjabloon uses Rails credentials (it's how your Sentry and Mailgun integration is set up). If your new to Rails credentials, you can read this: https://medium.com/cedarcode/rails-5-2-credentials-9b3324851336
-You can access these using `EDITOR="vim -f" rails credentials:edit`, where you can replace `vim` with your editor of choice. You can use this template:
-```yml
-secret_key_base: …
-default: &default
-
-development:
-  <<: *default
-  stripe:
-    private_key: ''
-    public_key: ''
-    signing_secret: ''
-  
-
-production:
-  <<: *default
-  stripe:
-    private_key: ''
-    public_key: ''
-    signing_secret: ''
-  
-  mailgun:
-    smtp_login: ''
-    smtp_password: ''
-  
-  
-  
-  
-  sentry:
-    dsn: ''
-  
-  
-  
-  
-  
-  tawkto:
-    id: ''
-```
-
-#### Sentry
-If you don't have a Sentry account, go here: [https://sentry.com](https://sentry.com)
-
 #### Mailgun
 If you don't have a Mailgun account, go here: [https://mailgun.com](https://mailgun.com)
 
 ## Running your app in development
 You can run your new application with `foreman start` or shorthand `foreman s` (it uses Procfile.dev as set in the `.foreman` file). Foreman also reads the contents from the `.env` file, which you can use for any environment variables.
-
-## Modern front end
-Sjabloon utilises a lean, but modern front end. Webpack as the Javascript bundler (bundled by default with Rails 5+), PostCss to add some magic to your Css, Tailwind as the utility-first CSS framework and Stimulus as the JS framework. These tools are proven to make sure you make powerful web applications, without overly complicating stuff. All powerful enough to get that important first version out of the door.
 
 ### [Webpack](https://webpack.js.org)
 Webpack comes by default with every new Rails (5+) application using the [Webpacker gem](https://github.com/rails/webpacker). In development it's run as `./bin/webpack --watch --colors --progress` with [Foreman](https://github.com/ddollar/foreman).

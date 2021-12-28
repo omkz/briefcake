@@ -31,7 +31,7 @@ class PageInfoFinder
     @document = Nokogiri::HTML(@performed_request.body)
     @uri = @request.last_uri
     self
-  rescue SocketError, Errno::ECONNREFUSED, Errno::ECONNRESET => e
+  rescue SocketError, Errno::ECONNREFUSED, Errno::ECONNRESET, Errno::ENETUNREACH, Errno::EINVAL => e
     # this is probably results of Heroku being banned in China. 
     # We can't retrieve data from chinese servers (they ban through DNS)
 
@@ -57,7 +57,8 @@ class PageInfoFinder
     feed_url = @document.css("link[rel=alternate][type*=xml]")[0]["href"]
 
     add_domain_to_url(feed_url, @uri)
-  rescue
+  rescue => e
+    Honeybadger.notify(e)
     nil
   end
 
@@ -65,7 +66,8 @@ class PageInfoFinder
     return @feed.title if is_rss_feed?
 
     @document.css("title")[0].text.to_s.squish
-  rescue
+  rescue => e
+    Honeybadger.notify(e)
     nil
   end
 

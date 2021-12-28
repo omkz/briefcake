@@ -27,7 +27,7 @@ class FeedReader
           image_url: feed_jira_entry.try(:media_thumbnail_url)
         )
       end
-    rescue SocketError, Errno::ECONNREFUSED, Errno::ECONNRESET => e
+    rescue SocketError, Errno::ECONNREFUSED, Errno::ECONNRESET, Errno::ENETUNREACH, Errno::EINVAL => e
       # this is probably results of Heroku being banned in China. We can't retrieve data from chinese servers (they ban through DNS)
 
       exception_occurred = e.to_s
@@ -66,6 +66,9 @@ class FeedReader
   end
 
   def rss_feed
-    Feedjira.parse(Down.new(feed.feed_url).fetch)
+    data_feed = Down.new(feed.feed_url).fetch
+    Honeybadger.context({ data: data_feed })
+
+    Feedjira.parse(data_feed)
   end
 end

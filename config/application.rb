@@ -10,7 +10,7 @@ Bundler.require(*Rails.groups)
 module Rssmailer
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.0
+    config.load_defaults 6.1
 
     config.application_naked_domain = "briefcake.com"
     config.application_name = "Briefcake"
@@ -22,7 +22,6 @@ module Rssmailer
     config.to_prepare do
       Devise::Mailer.layout "mailer"
     end
-
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

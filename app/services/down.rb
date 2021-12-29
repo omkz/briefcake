@@ -4,12 +4,14 @@ class Down
   end
 
   def fetch
-    HTTParty.get(
+    response = HTTParty.get(
       feed,
       headers: { "User-Agent" => user_agent },
       open_timeout: 25,
       read_timeout: 25
-    ).body
+    )
+
+    response.body
   end
 
   private

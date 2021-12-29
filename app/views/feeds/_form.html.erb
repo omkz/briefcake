@@ -22,7 +22,7 @@
         <%= form.text_field :name, class: "input feed-input", data: { target: "feed.nameInput" } %>
       </div>
 
-      <div class="field hidden">
+      <div class="field <%= "hidden" if feed.is_instagram? || !show_fields %>" data-target="feed.rssFeedUrlField">
         <%= form.label :feed_url, "Feed URL" %>
         <%= form.url_field :feed_url, class: "input feed-input", data: { target: "feed.rssFeedUrlInput" } %>
       </div>

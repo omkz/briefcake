@@ -45,6 +45,11 @@ class PaddleController < ApplicationController
                      paddle_email: data["email"],
                      paddle_data: data
                    })
+
+      MIXPANEL.track(user.id, 'subscribed to premium', {
+        '$email' => user.email,
+        'data' => data
+      })
     end
 
     render json: :ok

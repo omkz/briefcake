@@ -195,6 +195,7 @@ GEM
     minitest-matchers (1.4.1)
       minitest (~> 5.0)
     minitest-stub_any_instance (1.0.3)
+    mixpanel-ruby (2.2.2)
     msgpack (1.4.2)
     multi_json (1.15.0)
     multi_xml (0.6.0)
@@ -387,6 +388,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.3)
   minitest-matchers
   minitest-stub_any_instance
+  mixpanel-ruby
   name_of_person (~> 1.0)
   nokogiri
   pg (>= 0.18, < 2.0)

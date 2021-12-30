@@ -10,6 +10,11 @@ class UserMailer < ApplicationMailer
       subject: subject
     )
 
+    MIXPANEL.track(@user.id, 'newsletter sent', {
+      'feed_count' => @feed_items.count,
+      'feeds' => @feed_items
+    })
+
     SentEmail.create(
       receiver: @user.email,
       user: @user,

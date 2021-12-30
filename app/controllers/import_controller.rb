@@ -19,6 +19,9 @@ class ImportController < ApplicationController
     if @number_of_new_feeds == 0
       raise :no_feeds
     else
+      MIXPANEL.track(current_user.id, 'Improted feeds!', { 
+        'number_of_feeds' => @number_of_new_feeds
+      })
       redirect_to feeds_url, notice: "Imported #{@number_of_new_feeds} feeds!"
     end
 

@@ -50,6 +50,11 @@ class FeedsController < ApplicationController
 
   def check
     page_info = PageInfoFinder.new(params[:url]).fetch!
+    MIXPANEL.track(current_user.id, "page check", {
+      'url' => page_info.url,
+      'feed_url' => page_info.feed_url,
+      'name' => page_info.name
+    })
     render json: page_info.to_json
   end
 
@@ -69,6 +74,7 @@ class FeedsController < ApplicationController
 
     respond_to do |format|
       if @feed.save
+        MIXPANEL.track(current_user.id, 'add feed', feed_params.to_h)
         format.html { redirect_to feeds_url, notice: "Feed was successfully created." }
         format.json { render :show, status: :created, location: @feed }
       else
@@ -84,6 +90,8 @@ class FeedsController < ApplicationController
     respond_to do |format|
       if @feed.update(feed_params)
         @feed.update_column(:fetch_error, nil)
+        MIXPANEL.track(current_user.id, 'update feed', feed_params.to_h)
+
         format.html { redirect_to feeds_path, notice: "Feed was successfully updated." }
         format.json { render :show, status: :ok, location: @feed }
       else
@@ -97,6 +105,12 @@ class FeedsController < ApplicationController
   # DELETE /feeds/1.json
   def destroy
     @feed.destroy
+
+    MIXPANEL.track(current_user.id, 'destroy',{
+      'url' => @feed.url,
+      'feed_url' => @feed.feed_url,
+      'name' => @feed.name
+    })
     respond_to do |format|
       format.html { redirect_to feeds_url, notice: "Feed was successfully destroyed." }
       format.json { head :no_content }

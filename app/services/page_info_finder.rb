@@ -6,6 +6,8 @@ class PageInfoFinder
 
   FEEDER_URL = 'https://feeder.briefcake.com'
 
+  attr_reader :url
+
   def initialize(url)
     uri = URI(url)
     @url = case(uri.host)

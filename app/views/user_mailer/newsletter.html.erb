@@ -24,6 +24,7 @@
     <% end %>
 
     <% next_item_is_same_feed = false %>
+    <% feed_count = -1 %>
     <% @feed_items.each_with_index do |item, index| %>
       <% next_item = @feed_items[index + 1] %>
 
@@ -33,9 +34,10 @@
       <% end %>
 
       <% next_item_is_same_feed = item.feed == next_item.try(:feed) %>
+      <% feed_count += 1 unless next_item_is_same_feed %>
 
-      <% if !@user&.is_pro? && index >= 3 %>
-        <% if index == 3 %>
+      <% if !@user&.is_pro? && feed_count >= 3 %>
+        <% if feed_count == 3 %>
           <div class="text-center py-12 bg-gray-200 px-3">
             <a href="<%= pricing_url %>" class="no-underline">
               <span class="text-gray-600 mb-2">You've reached the maximum number of free articles for today</span><br>
@@ -43,9 +45,10 @@
               <a href="<%= plans_url %>" target="_blank">Upgrade now for $25 per year</a>
             </a>
           </div>
-          <div class="bg-gray-300 h-px w-full mt-6 mb-6"></div>
+        <% else %>
+          <%= image_tag(Rails.application.config.application_domain + "/blur.png", class: "mt-4") %>
         <% end %>
-        <%= image_tag(Rails.application.config.application_domain + "/blur.png", class: "mt-4") %>
+
       <% else %>
         <div class="text-base font-normal text-black font-medium">
           <%= link_to item.title, item.link, class: "black underline" %>

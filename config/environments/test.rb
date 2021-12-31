@@ -33,7 +33,7 @@ Rails.application.configure do
   config.active_storage.service = :test
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: "http://localhost:5000" }
+  config.action_mailer.default_url_options = { host: "http://localhost:3000" }
 
   config.active_job.queue_adapter = :good_job
   config.good_job.execution_mode = :inline

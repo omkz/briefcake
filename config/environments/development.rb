@@ -1,10 +1,10 @@
 Rails.application.configure do
   # Verifies that versions and hashed value of the package contents in the project's package.json
   config.webpacker.check_yarn_integrity = true
-  config.application_domain = "http://localhost:5000"
+  config.application_domain = "http://localhost:3000"
   routes.default_url_options[:host] = config.application_domain
 
-  config.action_mailer.default_url_options = { host: "http://localhost:5000" }
+  config.action_mailer.default_url_options = { host: "http://localhost:3000" }
   #config.active_job.queue_name_prefix = "#{Rails.configuration.application_name.parameterize}_#{Rails.env}"
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :letter_opener

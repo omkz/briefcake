@@ -5,29 +5,29 @@
 
     <div class="card__content">
       <div class="field relative <%= "hidden" if show_fields %>">
-        <div class="absolute hidden" style="top: 39px; right: 10px;" data-target="feed.loader">
+        <div class="absolute hidden" style="top: 39px; right: 10px;" data-feed-target="loader">
           <div class="loader-spinner"></div>
         </div>
 
         <div class="absolute rounded overflow-hidden rounded-l-none" style="height: 40px; bottom: 0px; right: 0px;">
-          <button type="button" class="text-white px-3 bg-blue-600 hover:bg-blue-900 h-full inline-block" data-target="feed.checkButton" data-action="click->feed#check">Find Feed</button>
+          <button type="button" class="text-white px-3 bg-blue-600 hover:bg-blue-900 h-full inline-block" data-feed-target="checkButton" data-action="click->feed#check">Find Feed</button>
         </div>
 
         <%= form.label :url, "Website url" %> 
         <%= form.url_field :url, class: "input feed-input pr-32", data: { target: "feed.url" } %>
       </div>
 
-      <div class="field <%= "hidden" if !show_fields %>" data-target="feed.nameField">
+      <div class="field <%= "hidden" if !show_fields %>" data-feed-target="nameField">
         <%= form.label :name %>
         <%= form.text_field :name, class: "input feed-input", data: { target: "feed.nameInput" } %>
       </div>
 
-      <div class="field <%= "hidden" if feed.is_instagram? || !show_fields %>" data-target="feed.rssFeedUrlField">
+      <div class="field <%= "hidden" if feed.is_instagram? || !show_fields %>" data-feed-target="rssFeedUrlField">
         <%= form.label :feed_url, "Feed URL" %>
         <%= form.url_field :feed_url, class: "input feed-input", data: { target: "feed.rssFeedUrlInput" } %>
       </div>
 
-      <div class="field  <%= "hidden" if !show_fields  %>" data-target="feed.rssFeedTruncationField">
+      <div class="field  <%= "hidden" if !show_fields  %>" data-feed-target="rssFeedTruncationField">
         <%= form.label :truncation, "Modify article text" %>
         <%= form.select :truncation, options_for_select([["Leave the text as is", ""], ["Remove text and only show the title", "0"]], feed.truncation), {}, class: "select feed-input", data: { target: "feed.rssFeedTruncationInput" } %>
       </div>

@@ -1,10 +1,10 @@
-<% if user_signed_in? %>
+cccccrjhlib<% if user_signed_in? %>
   <div class="w-full h-16">
     <nav class="nav montserrat" data-controller="navigation">
       <div class="nav__content">
         <%= link_to "🍰 #{Rails.configuration.application_name.humanize}", root_path, class: "text-2xl font-bold" %>
 
-        <div class="nav__items" data-target="navigation.items">
+        <div class="nav__items" data-navigation-target="items">
 
           <%= link_to "Upgrade", pricing_path, class: "nav__item nav__link" unless current_user.is_pro? %>
           <%= link_to "Edit account", edit_user_registration_path, class: "nav__item nav__link" %>
@@ -12,7 +12,7 @@
 
         </div>
 
-        <span role="link" class="navigation__toggle" data-target="navigation.toggle" data-action="click->navigation#toggle">menu</span>
+        <span role="link" class="navigation__toggle" data-navigation-target="toggle" data-action="click->navigation#toggle">menu</span>
       </div>
     </nav>
   </div>

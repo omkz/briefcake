@@ -18,11 +18,11 @@
         <div class="dropdown__toggle" data-action="click->dropdown#toggle click@window->dropdown#hide" role="button">
           Menu
           <%#= current_user.first_name.presence || "Menu" %>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="dropdown__icon" data-target="dropdown.icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="dropdown__icon" data-dropdown-target="icon">
             <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path>
           </svg>
         </div>
-        <div data-target="dropdown.menu" class="dropdown__menu hidden z-10">
+        <div data-dropdown-target="menu" class="dropdown__menu hidden z-10">
           <div class="dropdown__items">
             <%= link_to "Upgrade to pro", pricing_path, class: "dropdown__item" unless current_user&.is_pro? %>
             <%= link_to "Feeds", feeds_path, class: "dropdown__item" %>

@@ -5,8 +5,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_account_update_params, only: [:update]
   layout :set_layout
 
-  after_action -> { MIXPANEL.track(current_user.id, 'Sign up', { '$email' => current_user.email }) }, only: [:create]
-
   def configure_account_update_params
     params[:user][:send_email_at] = [
       params[:user]["send_email_at(4i)"],

@@ -24,14 +24,7 @@ class PageInfoFinderTest < ActiveSupport::TestCase
       find_for_url = PageInfoFinder.new("https://example.com").fetch!
 
       assert_nil(find_for_url.feed_url)
-    end
-  end
-
-  test "returns nil name if nothing is found" do
-    VCR.use_cassette("page_info_finder/example") do
-      find_for_url = PageInfoFinder.new("https://example.404").fetch!
-
-      assert_nil(find_for_url.name)
+      assert_equal('Example Domain', find_for_url.name)
     end
   end
 

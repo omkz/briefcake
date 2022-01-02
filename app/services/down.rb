@@ -1,4 +1,6 @@
 class Down
+  class NotFoundError < StandardError; end
+
   def initialize(feed)
     @feed = feed
   end
@@ -10,6 +12,11 @@ class Down
       open_timeout: 25,
       read_timeout: 25
     )
+
+    case response.code
+    when 404
+      raise NotFoundError
+    end
 
     response.body
   end

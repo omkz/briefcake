@@ -50,12 +50,17 @@ class FeedsController < ApplicationController
 
   def check
     page_info = PageInfoFinder.new(params[:url]).fetch!
+
     MIXPANEL.track(current_user.id, "page check", {
       'url' => page_info.url,
       'feed_url' => page_info.feed_url,
       'name' => page_info.name
     })
+
     render json: page_info.to_json
+  rescue PageInfoFinder::NotFoundError
+    
+    render json: {:name=>"Feed not found"}
   end
 
   # GET /feeds/new

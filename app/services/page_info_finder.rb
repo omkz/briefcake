@@ -4,6 +4,8 @@ require "net/http"
 class PageInfoFinder
   include UrlHelpers
 
+  class NotFoundError < StandardError; end
+
   FEEDER_URL = 'https://feeder.briefcake.com'
 
   attr_reader :url
@@ -30,6 +32,8 @@ class PageInfoFinder
       read_timeout: 25
     )
     @performed_request = @request.perform
+    raise NotFoundError if @performed_request.code.eql?(404)
+
     @document = Nokogiri::HTML(@performed_request.body)
     @uri = @request.last_uri
     self
@@ -39,10 +43,6 @@ class PageInfoFinder
 
     self
   rescue Net::OpenTimeout => e
-    self
-  rescue => e
-    Honeybadger.notify(e)
-    
     self
   end
 

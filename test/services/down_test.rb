@@ -16,4 +16,11 @@ class DownTest < ActiveSupport::TestCase
       assert_equal "derrickreimer.com", Feedjira.parse(xml).title
     end
   end
+
+
+  test "should handle 404 error" do
+    VCR.use_cassette('404 page') do
+      assert_raises(Down::NotFoundError) { Down.new('http://lightrains.org/rss').fetch }
+    end
+  end
 end

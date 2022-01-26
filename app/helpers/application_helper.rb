@@ -4,7 +4,8 @@ module ApplicationHelper
   end
 
   def embedded_svg(filename, options = {})
-    file = File.read(Rails.root.join("frontend", "assets", "svg", filename))
+    asset = Rails.application.assets.find_asset(filename)
+    file = asset.source.force_encoding("UTF-8")
     doc = Nokogiri::HTML::DocumentFragment.parse file
     svg = doc.at_css "svg"
     if options[:class].present?

@@ -13,27 +13,27 @@
           <button type="button" class="text-white px-3 bg-blue-600 hover:bg-blue-900 h-full inline-block" data-feed-target="checkButton" data-action="click->feed#check">Find Feed</button>
         </div>
 
-        <%= form.label :url, "Website url" %> 
-        <%= form.url_field :url, class: "input feed-input pr-32", data: { target: "feed.url" } %>
+        <%= form.label :url, "Website url" %>
+        <%= form.url_field :url, class: "input feed-input pr-32", data: { "feed-target": "url" } %>
       </div>
 
       <div class="field <%= "hidden" if !show_fields %>" data-feed-target="nameField">
         <%= form.label :name %>
-        <%= form.text_field :name, class: "input feed-input", data: { target: "feed.nameInput" } %>
+        <%= form.text_field :name, class: "input feed-input", data: { "feed-target": "nameInput" } %>
       </div>
 
       <div class="field <%= "hidden" if feed.is_instagram? || !show_fields %>" data-feed-target="rssFeedUrlField">
         <%= form.label :feed_url, "Feed URL" %>
-        <%= form.url_field :feed_url, class: "input feed-input", data: { target: "feed.rssFeedUrlInput" } %>
+        <%= form.url_field :feed_url, class: "input feed-input", data: { "feed-target": "rssFeedUrlInput" } %>
       </div>
 
       <div class="field  <%= "hidden" if !show_fields  %>" data-feed-target="rssFeedTruncationField">
         <%= form.label :truncation, "Modify article text" %>
-        <%= form.select :truncation, options_for_select([["Leave the text as is", ""], ["Remove text and only show the title", "0"]], feed.truncation), {}, class: "select feed-input", data: { target: "feed.rssFeedTruncationInput" } %>
+        <%= form.select :truncation, options_for_select([["Leave the text as is", ""], ["Remove text and only show the title", "0"]], feed.truncation), {}, class: "select feed-input", data: { "feed-target": "rssFeedTruncationInput" } %>
       </div>
 
       <div class="field flex justify-between items-center mb-0">
-        <%= form.submit feed.persisted? ? 'Update' : 'Add', class: "btn btn--primary #{'hidden' if !show_fields}", data: { target: "feed.submitButton" } %>
+        <%= form.submit feed.persisted? ? 'Update' : 'Add', class: "btn btn--primary #{'hidden' if !show_fields}", data: { "feed-target": "submitButton" } %>
 
         <% if feed.persisted? %>
           <%= link_to "Delete", feed, method: :delete, class: "text-red-600", data: { confirm: "This action will remove \"#{feed.name}\"(#{feed.url}) feed from your list. Do you want to proceed?" } %>

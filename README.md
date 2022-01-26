@@ -1,7 +1,7 @@
 ## Quickstart guide
 There are a few steps you have to do manually. See below this quickstart for more in depth information on various features of Sjabloon.
 
-1. You can run your new Rails app using `foreman start` or `foreman s`.
+1. You can run your new Rails app using `foreman start` or `foreman s` or `bin/dev`.
 2. You app can be found at `http://localhost:5000` (💡 cmd + click)
 3. Easily copy/paste UI components from the library at https://www.getsjabloon.com/features/ui-components#components
 4. Work on your core product right away ✨
@@ -14,9 +14,6 @@ If you don't have a Mailgun account, go here: [https://mailgun.com](https://mail
 ## Running your app in development
 You can run your new application with `foreman start` or shorthand `foreman s` (it uses Procfile.dev as set in the `.foreman` file). Foreman also reads the contents from the `.env` file, which you can use for any environment variables.
 
-### [Webpack](https://webpack.js.org)
-Webpack comes by default with every new Rails (5+) application using the [Webpacker gem](https://github.com/rails/webpacker). In development it's run as `./bin/webpack --watch --colors --progress` with [Foreman](https://github.com/ddollar/foreman).
-
 ### [PostCss](https://https://postcss.org)
 Also PostCss comes as default with Rails 5+. It's a tool to transform your CSS with Javascript. As such it can do everything Scss/Sass does, and a lot more. A lot! It works by adding small plugins that do one thing well. Sjabloon comes with the following plugins installed for you:
 
@@ -25,12 +22,12 @@ Also PostCss comes as default with Rails 5+. It's a tool to transform your CSS w
 - [postcss-nested](https://github.com/postcss/postcss-nested) This unwraps nested styles similar to Scss/Sass.
 
 ### [Tailwind](https://tailwindcss.com)
-Tailwind is a utility-first Css framework. It solely consist of one-off classes, like `.mb-4`, `.text-white` and `.text-base`. This lets you create UI's really quick as you only have to add some classes to build a component. And once you reuse a component, you can extract the class into its own Css selector with `@apply`. And then one of the Css files in `frontend/stylesheets/components`. [See here for some components examples](https://www.getsjabloon.com/features/ui-components). Note: you need to uncomment some files/imports in `frontend/stylesheets/components.css` to use these specfic components.
+Tailwind is a utility-first Css framework. It solely consist of one-off classes, like `.mb-4`, `.text-white` and `.text-base`. This lets you create UI's really quick as you only have to add some classes to build a component. And once you reuse a component, you can extract the class into its own Css selector with `@apply`. And then one of the Css files in `app/assets/stylesheets/components`. [See here for some components examples](https://www.getsjabloon.com/features/ui-components). Note: you need to uncomment some files/imports in `app/assets/stylesheets/components.css` to use these specfic components.
 
 ### [Stimulus](https://stimulusjs.org)
 Stimulus is a nice and modest framework that allows you to add just enough JS to make your UI shine. No crazy new templating, but the HTML you already use.
 
-Since this front end is not reliant on Sprockets (although you opted to include it in this template), all front end related code is in `/frontend` instead of `app/assets`. So, if you really need to include another JS framework, like React or Vue, this folder is the perfect place for it too. _Your `ERB` views can still be found in `/app/views` though._
+All front end related code is in `/app/javascript`. So, if you really need to include another JS framework, like React or Vue, this folder is the perfect place for it too. _Your `ERB` views can still be found in `/app/views` though._
 
 ## Act as Person
 You can see and use your app as another user with the installed `devise_masquerade` gem. It only works if you are logged in and have `admin` on your record set to true.

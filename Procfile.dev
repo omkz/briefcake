@@ -1,3 +1,5 @@
 web:     rails server
-webpack: ./bin/webpack-dev-server --watch --colors --progress
 worker: bundle exec good_job start
+js: yarn build --watch
+css: yarn build:css --watch
+css: yarn build:emails --watch

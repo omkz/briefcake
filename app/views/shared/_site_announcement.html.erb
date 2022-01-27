@@ -4,7 +4,7 @@
   <%= link_to "Learn more", last_announcement.target? ? last_announcement.target : announcements_path(anchor: last_announcement), class: "site-announcement__action" %>
 
   <span class="site-announcement__close" role="button" data-action="click->announcements#dismiss">
-    <%= embedded_svg "close.svg", class: "site-announcement__close-icon" %>
+    <%= image_tag "svg/close.svg", class: "site-announcement__close-icon" %>
   </span>
 </div>
 

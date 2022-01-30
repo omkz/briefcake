@@ -8,45 +8,17 @@ There are a few steps you have to do manually. See below this quickstart for mor
 
 For details about billing with Stripe, please check the additional README_FOR_BILLING.
 
-#### Mailgun
-If you don't have a Mailgun account, go here: [https://mailgun.com](https://mailgun.com)
 
-## Running your app in development
-You can run your new application with `foreman start` or shorthand `foreman s` (it uses Procfile.dev as set in the `.foreman` file). Foreman also reads the contents from the `.env` file, which you can use for any environment variables.
+## Testing
 
-### [PostCss](https://https://postcss.org)
-Also PostCss comes as default with Rails 5+. It's a tool to transform your CSS with Javascript. As such it can do everything Scss/Sass does, and a lot more. A lot! It works by adding small plugins that do one thing well. Sjabloon comes with the following plugins installed for you:
+### On production
 
-- [postcss-import](https://github.com/postcss/postcss-import). See how this is used in `frontend/stylesheets/application.css`
-- [postcss-preset-env](https://github.com/csstools/postcss-preset-env) A set of plugins to convert modern CSS into something browsers understand today.
-- [postcss-nested](https://github.com/postcss/postcss-nested) This unwraps nested styles similar to Scss/Sass.
-
-### [Tailwind](https://tailwindcss.com)
-Tailwind is a utility-first Css framework. It solely consist of one-off classes, like `.mb-4`, `.text-white` and `.text-base`. This lets you create UI's really quick as you only have to add some classes to build a component. And once you reuse a component, you can extract the class into its own Css selector with `@apply`. And then one of the Css files in `app/assets/stylesheets/components`. [See here for some components examples](https://www.getsjabloon.com/features/ui-components). Note: you need to uncomment some files/imports in `app/assets/stylesheets/components.css` to use these specfic components.
-
-### [Stimulus](https://stimulusjs.org)
-Stimulus is a nice and modest framework that allows you to add just enough JS to make your UI shine. No crazy new templating, but the HTML you already use.
-
-All front end related code is in `/app/javascript`. So, if you really need to include another JS framework, like React or Vue, this folder is the perfect place for it too. _Your `ERB` views can still be found in `/app/views` though._
-
-## Act as Person
-You can see and use your app as another user with the installed `devise_masquerade` gem. It only works if you are logged in and have `admin` on your record set to true.
-Next you can go to http://localhost:3000/masquerade/{user_id}—where `user_id` is the user of choice. When logged in as a different user, you'll see a small banner at the bottom to notify you about this and a button to go back as your original user record.
-
-## Announcements
-Announcements about your new product are a great way for your customers and Users to show you are actively working on the product. Announcements with Sjabloon can be used as a changelog and announcements can be shown throughout your app. In the latter case, a banner is shown at the top of every page. The user can click-through to go to the /announcements page or they dismiss the banner (which will set a cookie to store this info).
-You can create new announcements easily like this (make sure there's at least one User):
-```rb
-Announcement.create!(
-title: 'The title of the announcement',
-body: 'Some body copy. This shown on /announcements',
-user_id: 1,
-show_site_wide: ['users' || 'visitors'], # optional
-announcement_type: ['new' || 'bugfix' || 'update'], # defaults to 'new'
-target: '' # optional, link to a different page
-published_at: <Time.zone.now> # optional, defaults to Time.zone.now
-)
 ```
+heroku run rails c -a briefcake
+UserMailer.test_email('lunaticman@gmail.com')
+```
+
+
 
 ## Transactional emails
 “Transactional emails” are emails such as email confirmation, password reset link, etc.

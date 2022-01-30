@@ -32,8 +32,7 @@ class UserMailer < ApplicationMailer
     mail(
       to: to,
       bcc: "contact@briefcake.com",
-      subject: "briefcake test email - #{rand}",
-      template_name: "new_items",
+      subject: "briefcake test email - #{rand}"
     )
   end
 end

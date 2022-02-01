@@ -15,19 +15,28 @@
   animation-name: slideUpSm;
   animation-fill-mode: both;
   animation-duration: .5s;
-  @apply sm:flex-row;
+
+  @screen sm {
+    @apply flex-row;
+  }
 }
 
 .modal__sidebar {
   @apply w-full p-4;
   @apply bg-blue-500;
   @apply text-white;
-  @apply sm:w-1/3;
+
+  @screen sm {
+    @apply w-1/3;
+  }
 }
 
 .modal__content {
   @apply relative flex flex-col justify-center w-full p-4 pr-8;
-  @apply sm:w-2/3
+
+  @screen sm {
+    @apply w-2/3
+  }
 }
 
 .modal__header {

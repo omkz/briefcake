@@ -71,7 +71,10 @@
 
 .flash-traditional__message {
   @apply block;
-  @apply sm:inline;
+
+  @screen sm {
+    @apply inline;
+  }
 }
 
 .flash-traditional__close {

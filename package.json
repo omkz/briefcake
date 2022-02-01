@@ -13,12 +13,11 @@
     "postcss-import": "^14.0.2",
     "postcss-nesting": "^10.1.2",
     "postcss-preset-env": "^7.2.3",
-    "tailwindcss": "^3.0.15",
+    "tailwindcss": "^1.0.4",
     "turbolinks": "^5.2.0"
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds",
-    "build:css": "postcss ./app/assets/stylesheets/application.postcss.css -o ./app/assets/builds/application.css; postcss ./app/assets/stylesheets/emails.css -o ./app/assets/builds/emails.css",
-    "build:emails": "postcss ./app/assets/stylesheets/emails.css -o ./app/assets/builds/emails.css"
+    "build:css": "postcss ./app/assets/stylesheets/application.postcss.css -o ./app/assets/builds/application.css; postcss ./app/assets/stylesheets/emails.css -o ./app/assets/builds/emails.css"
   }
 }

@@ -40,7 +40,7 @@
   @apply block px-6 py-4;
   @apply text-gray-800 no-underline;
   @apply bg-white;
-  white-space: normal;
+  @apply whitespace-no-wrap;
 
   &:hover {
     @apply bg-gray-100;

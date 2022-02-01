@@ -5,27 +5,39 @@
 
 .hero__content {
   @apply px-4 pt-16 pb-16 mx-auto max-w-5xl;
-  @apply md:pt-32 md:pr-24 md:pb-24;
+
+  @screen md {
+    @apply pt-32 pr-24 pb-24;
+  }
 }
 
 .hero__image {
   @apply w-full h-64;
   @apply bg-gray-200 bg-cover;
   background-image: url("https://source.unsplash.com/3Mhgvrk4tjM/1200x800");
-  @apply md:absolute md:right-0 md:top-0 md:w-1/2 md:h-full;
+
+  @screen md {
+    @apply absolute right-0 top-0 w-1/2 h-full;
+  }
 }
 
 .hero__heading {
   @apply mb-4 w-full;
   @apply text-4xl leading-tight font-bold;
-  @apply md:w-1/2;
-  @apply md:text-5xl;
+
+  @screen md {
+    @apply w-1/2;
+    @apply text-5xl;
+  }
 }
 
 .hero__subheading {
   @apply w-full mb-16;
   @apply text-xl font-normal text-gray-600;
-  @apply md:w-1/2;
-  @apply md:text-2xl;
+
+  @screen md {
+    @apply w-1/2;
+    @apply text-2xl;
+  }
 }
 

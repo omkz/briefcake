@@ -9,29 +9,27 @@
 
 .nav__logo {
   @apply text-sm text-gray-600 font-medium uppercase tracking-wider;
-  @apply sm:text-base;
+
+  @screen sm {
+    @apply text-base;
+  }
 }
 
 .nav__items {
   @apply flex flex-col justify-center text-center;
 
   @media (max-width: theme("screens.sm")) {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    height: 100%;
-    width: 100%;
-    padding-top: 3rem;
-    --tw-bg-opacity: 1;
-    background-color: rgb(31 41 55 / var(--tw-bg-opacity));
-    
+    @apply fixed top-0 left-0 w-full h-full pt-12;
+    @apply bg-gray-800;
     opacity: 0;
     z-index: 3;
     transform: translateX(-100vw);
     transition: transform 0.3s ease-out, opacity 0.2s ease-out;
   }
 
-  @apply sm:flex-row sm:items-center;
+  @screen sm {
+    @apply flex-row items-center;
+  }
 }
 
 .nav__items--visible {
@@ -45,12 +43,17 @@
 .nav__item {
   @apply mb-8;
   @apply text-xl;
-  @apply sm:mb-0;
-  @apply sm:text-base;
+
+  @screen sm {
+    @apply mb-0;
+    @apply text-base;
+  }
 }
 
 .nav__item + .nav__item {
-  @apply sm:ml-8;
+  @screen sm {
+    @apply ml-8;
+  }
 }
 
 .nav__link {
@@ -60,8 +63,13 @@
     @apply text-gray-200;
   }
 
-  @apply sm:text-gray-600 sm:hover:text-gray-500;
+  @screen sm {
+    @apply text-gray-600;
 
+    &:hover {
+      @apply text-gray-500;
+    }
+  }
 }
 
 .navigation__toggle {

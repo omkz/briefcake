@@ -1,27 +1,18 @@
 .footer-wrapper {
   @apply bg-gray-900;
   @apply py-8 px-4;
-
-  @screen sm {
-    @apply py-16;
-  }
+  @apply sm:py-16;
 }
 
 .footer {
   @apply flex flex-col;
   @apply text-gray-400;
-
-  @screen sm {
-    @apply flex-row;
-  }
+  @apply sm:flex-row;
 }
 
 .footer__items {
   @apply w-full mb-4;
-
-  @screen sm {
-    @apply w-1/4;
-  }
+  @apply sm:w-1/4;
 }
 
 .footer__item {

@@ -12,31 +12,22 @@
 
 .card--horizontal {
   @apply flex flex-col;
-
-  @screen sm {
-    @apply flex-row;
-  }
+  @apply sm:flex-row;
 }
 
 .card__image {
   @apply flex-none h-64;
   @apply bg-center bg-cover;
   @apply rounded-t;
-
-  @screen sm {
-    @apply h-auto w-48;
-    @apply rounded-l rounded-r-none;
-  }
+  @apply sm:h-auto sm:w-48;
+  @apply sm:rounded-l sm:rounded-r-none;
 }
 
 .card__avatar {
   @apply block w-16 h-16 mx-auto mt-4;
   @apply rounded-full;
   object-fit: cover;
-
-  @screen sm {
-    @apply w-24 h-24 m-4;
-  }
+  @apply sm:w-24 sm:h-24 sm:m-4;
 }
 
 .card__content {

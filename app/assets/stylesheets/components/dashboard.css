@@ -6,27 +6,18 @@
   @apply fixed bottom-0 w-full;
   @apply bg-gray-100;
   @apply text-gray-800;
-
-  @screen sm {
-    @apply static w-48;
-  }
+  @apply sm:static sm:w-48;
 }
 
 .dashboard-nav__logo {
   @apply hidden px-4 py-8;
   @apply text-xl text-gray-800 font-bold no-underline;
-
-  @screen sm {
-    @apply block;
-  }
+  @apply sm:block;
 }
 
 .dashboard-nav-items {
   @apply flex flex-row flex-wrap;
-
-  @screen sm {
-    @apply flex-col;
-  }
+  @apply sm:flex-col;
 }
 
 .dashboard-nav-item {
@@ -37,10 +28,7 @@
   @apply inline-block px-4;
   @apply border-l-4 border-transparent;
   @apply font-semibold text-gray-800 no-underline;
-
-  @screen sm {
-    @apply px-8;
-  }
+  @apply sm:px-8;
 
   &:hover {
     @apply border-gray-500;
@@ -103,9 +91,6 @@
 
 .dashboard-nav-secondary {
   @apply flex items-center justify-end px-4 py-4;
-
-  @screen sm {
-    @apply py-8;
-  }
+  @apply sm:py-8;
 }
 
